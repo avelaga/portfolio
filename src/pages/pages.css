@@ -949,3 +949,13 @@ processing {
 .lazy-load-image-background.opacity.lazy-load-image-loaded {
   transition: opacity 1s !important;
 }
+
+.software-youtube {
+  display: block;
+  width: 80vw;
+  height: 600px;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}

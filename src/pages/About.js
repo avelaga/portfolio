@@ -69,7 +69,6 @@ export class About extends Component {
       <MediaQuery maxDeviceWidth={500}>
         <div className="page">
           <div className="appear">
-
             <div className="about-first-text">
             I'm a software developer, musician, and artist based in Austin, TX where I studied both Computer Science and Studio Art at <ut>The University of Texas at Austin</ut> and currently work as a software engineer at <processing>Visa</processing>.
             </div>
