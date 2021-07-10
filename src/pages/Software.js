@@ -55,7 +55,7 @@ export class Software extends Component {
 
           <div className="software">
             <div className="software-intro">
-              I'm a Computer Science undergraduate at <ut>The University of Texas at Austin</ut>. I love software development, design, and electronics, and am working towards becoming a full time application developer. I also study fine arts as a minor and enjoy finding ways to intersect the two passions with tools such as <pi>Raspberry Pi</pi>, <arduino>Arduino</arduino>, and <processing>Processing</processing>. This is a selected collection of my programming and web related projects. For more details about my technical skills, check out my <a href="https://github.com/avelaga" target='_blank'>GitHub</a>, <a href={resume} target='_blank'>resume</a>, and <a href="https://www.linkedin.com/in/abhivelaga/" target='_blank'>linkedin</a>.
+              I'm a Computer Science graduate from <ut>The University of Texas at Austin</ut>. I love software development, design, and electronics, and work as a software engineer at <processing>Visa</processing>. I also studied fine arts as a minor and enjoy finding ways to intersect the two passions with tools such as <pi>Raspberry Pi</pi>, <arduino>Arduino</arduino>, and <processing>Processing</processing>. This is a selected collection of my programming and web related projects. For more details about my technical skills, check out my <a href="https://github.com/avelaga" target='_blank'>GitHub</a>, <a href={resume} target='_blank'>resume</a>, and <a href="https://www.linkedin.com/in/abhivelaga/" target='_blank'>linkedin</a>.
             </div>
 
             <div className="software3 back-img software-flex">
@@ -68,7 +68,8 @@ export class Software extends Component {
             {/* <div className="flex"> */}
 
             <YouTube videoId="CcSitqAJFZk" className="software-youtube" />
-            {/* </div> */}
+            <div className="software-ft-title">THE WORLD MISSES YOU</div>
+            <div className="software-ft-info">"The World Misses You" is a led installation that responds to the changing weather and time (via web APIs) to automatically transition to matching animations, such as rain drops when it's raining and a twinkling animation when it turns night, in effect bringing the outside conditions inside and giving the room a life of it's own.</div>
 
             <div className="software2 software-flex">
         
@@ -93,7 +94,7 @@ export class Software extends Component {
                 <LazyLoadImage effect="opacity" src={ball} className="software2-img" height={this.getHeight(ball)} />
               </video>
               <div className="software-ft-title">COMPUTER GRAPHICS</div>
-              <div className="software-ft-info">I designed and programmed an evolution simulation, natural tree drawing algorithms, terrain generation, multiple games, and generative art algorithms with <processing>Processing</processing>.</div>
+              <div className="software-ft-info">I've designed and programmed an evolution simulation, natural tree drawing algorithms, terrain generation, multiple games, and generative art algorithms with <processing>Processing</processing>.</div>
             </div>
 
             <div className="software1 back-img software-flex">
@@ -101,7 +102,7 @@ export class Software extends Component {
               <div className="software-ft-title">BAND TOGETHER</div>
               <div className="software-ft-subtitle">ui design + front end development</div>
               <div className="software-ft-info">I designed and developed the front end for Band Together, a responsive web app that helps users easily find information about upcoming concerts.</div>
-              <a href="https://bandtogether.events" target='_blank'><div className="software-ft-button">VIEW</div></a>
+              {/* <a href="https://bandtogether.events" target='_blank'><div className="software-ft-button">VIEW</div></a> */}
             </div>
 
             <video playsInline autoPlay muted loop className="drum-vid" >
@@ -135,7 +136,7 @@ export class Software extends Component {
             <div className="slb flex">
               <LazyLoadImage effect="opacity" src={slb} height={this.getHeight(slb)} className="slb-img" />
               <div className="slb-text">
-                I also integrated LEDs into my final presentation for my software engineer internship at Schlumberger. Animations around different sections of the poster were triggerred by a button as I talked in order to draw focus to corresponding content.
+                I also integrated LEDs into my final presentation for my software engineer internship at Schlumberger.
               </div>
             </div>
 
@@ -152,5 +153,3 @@ export class Software extends Component {
 }
 
 export default Software;
-
-// https://youtu.be/CcSitqAJFZk
