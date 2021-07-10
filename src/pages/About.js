@@ -91,7 +91,6 @@ export class About extends Component {
             <div className="about-bottom-left-text">
               Web design and development by Abhi Velaga
             </div>
-
           </div>
         </div>
       </MediaQuery>
