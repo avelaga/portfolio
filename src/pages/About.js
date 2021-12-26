@@ -79,4 +79,4 @@ export default function About() {
       </div>
     </MediaQuery>
   </div>;
-}
+};
