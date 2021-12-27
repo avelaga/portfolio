@@ -22,11 +22,11 @@ export default function Home() {
   });
 
   return (
-    <div className="appear">
+    <div className="appear" data-testid="home">
       <MediaQuery minDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={false} /></MediaQuery>
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={true} /></MediaQuery>
         <div className="fadein">
-        <video playsInline autoPlay muted loop className="f1">
+        <video playsInline autoPlay muted loop className="f1" data-testid="home-descendant">
           <MediaQuery minDeviceWidth={500}><source src={drumming} type="video/mp4" /></MediaQuery>
           <MediaQuery maxDeviceWidth={500}><source src={drummingMobile} type="video/mp4" /></MediaQuery>
         </video>
