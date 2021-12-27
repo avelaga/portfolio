@@ -13,7 +13,7 @@ import Hi from './pages/Hi.js';
 import Navbar from './layout/Navbar';
 import ConnectedWorld from './pages/ConnectedWorld.js';
 import MediaQuery from 'react-responsive'
-import './App.css';
+import './App.scss';
 
 const ErrorPage = () => {
   return (

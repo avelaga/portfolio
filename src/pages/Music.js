@@ -7,7 +7,7 @@ import YouTube from 'react-youtube';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 
-import './pages.css';
+import './pages.scss';
 
 import drums from '../../dist/images/music/indulgent/drums.jpg';
 import guitar1 from '../../dist/images/music/indulgent/guitar1.jpg';

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import MediaQuery from 'react-responsive'
-import './layout.css'
+import './layout.scss'
 
 export class Navbar extends Component {
   constructor(props) {

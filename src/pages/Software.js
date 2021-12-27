@@ -6,7 +6,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 import resume from "../../dist/images/Resume.pdf";
 import YouTube from 'react-youtube';
-import './pages.css';
+import './pages.scss';
 
 import ball from '../../dist/images/software/ball.gif';
 import color_animated from '../../dist/images/software/color_animated.gif';

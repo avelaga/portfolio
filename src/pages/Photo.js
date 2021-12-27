@@ -3,7 +3,7 @@ import MediaQuery from 'react-responsive';
 import 'react-image-lightbox/style.css';
 import Navbar from '../layout/Navbar';
 import { portfolioImages, miamiImages, userVoidImages, publishedImages } from './photo/images.js';
-import './pages.css';
+import './pages.scss';
 
 export default function Photo() {
   return <div>

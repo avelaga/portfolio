@@ -7,7 +7,7 @@ import { miamiImages, getHeight, getWidth } from './images.js';
 import Columned from "react-columned";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
-import '../pages.css';
+import '../pages.scss';
 
 export default function Miami() {
   const [photoIndex, setPhotoIndex] = useState(0);

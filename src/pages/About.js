@@ -5,7 +5,7 @@ import me1 from "../../dist/images/home/room.jpg";
 import me2 from "../../dist/images/home/mirror.jpg";
 import resume from "../../dist/images/Resume.pdf";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import './pages.css';
+import './pages.scss';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 
 const mobileImg = {

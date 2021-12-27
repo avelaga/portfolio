@@ -4,7 +4,7 @@ import MediaQuery from 'react-responsive';
 import 'react-image-lightbox/style.css';
 import Navbar from '../../layout/Navbar'
 import { userVoidImages, getHeight, getWidth } from './images.js';
-import '../pages.css';
+import '../pages.scss';
 import Columned from "react-columned";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
