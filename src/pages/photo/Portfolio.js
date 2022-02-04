@@ -36,10 +36,10 @@ export default function Portfolio() {
               prevSrc={portfolioImages[(photoIndex + portfolioImages.length - 1) % portfolioImages.length]}
               onCloseRequest={() => setIsOpen(false)}
               onMovePrevRequest={() =>
-                setPhotoIndex((photoIndex + miamiImages.length - 1) % miamiImages.length)
+                setPhotoIndex((photoIndex + portfolioImages.length - 1) % portfolioImages.length)
               }
               onMoveNextRequest={() =>
-                setPhotoIndex((photoIndex + 1) % miamiImages.length)
+                setPhotoIndex((photoIndex + 1) % portfolioImages.length)
               }
             />
           )}
