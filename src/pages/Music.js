@@ -8,6 +8,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 
 import './pages.scss';
+import styles from './Music.module.scss';
 
 import drums from '../../dist/images/music/indulgent/drums.jpg';
 import guitar1 from '../../dist/images/music/indulgent/guitar1.jpg';
@@ -32,30 +33,20 @@ export default function Music() {
     img.src = image;
   }
 
-  return <div>
-    <MediaQuery minDeviceWidth={500}><Navbar activeLink={"MUSIC"} mobile={false} /></MediaQuery>
-    <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"MUSIC"} mobile={true} /></MediaQuery>
-    <div className="page">
-      <div className="appear">
+  return (
+  <div>
+    <Navbar activeLink={"MUSIC"} />
+    <div className="wrapper">
 
         <div className="software-intro">
           Music is my first passion. I started learning guitar when I was 9. I then began to teach myself, starting with bass at 13, audio production and drums at 14, and vocals at 15. I wrote, recorded, produced, and released <a href="https://open.spotify.com/album/67RH1N86fW4hIA10m3DhFl">my first album</a> independently, all at the age of 16. Before graduating high school, I recorded <a href="https://open.spotify.com/album/2d7c0N7uNdi3jfdsTWeZNV?si=lYoQ-F2RQtict5KQQDMN4g">my second album</a> in a studio and released that at the age of 18.
         </div>
 
         {/* indulgent  */}
-        {/* desktop  */}
-        <MediaQuery minDeviceWidth={500}>
-          <div className="indulgent back-img">
-            <div className="indulgent-title">INDULGENT</div>
-          </div>
-        </MediaQuery>
-
-        {/* mobile  */}
-        <MediaQuery maxDeviceWidth={500}>
-          <LazyLoadImage effect="opacity" src={drums} width="100%" height={getHeight(drums)} className="mobile-banner" />
-          <div className="indulgent-title">INDULGENT</div>
-        </MediaQuery>
-
+        <div className="parallax">
+          <img src={drums} className="parallax-img" />
+          <div className="parallax-title">INDULGENT</div>
+        </div>
 
         <div className="indulgent-grid" >
           <LazyLoadImage effect="opacity" src={guitar1} className="indulgent-grid-img" width="100%" height={getHeight(drums)} />
@@ -104,9 +95,10 @@ export default function Music() {
         </MediaQuery>
 
         {/* mjf  */}
-        <div className="mjf back-img" />
-        <LazyLoadImage effect="opacity" src={mjf} width="100%" height={getHeight(mjf)} className="mobile-banner" />
-        <div className="mjf-title">MERRY JANE & THE FONDAS</div>
+        <div className="parallax">
+          <img src={mjf} className="parallax-img" />
+          <div className="parallax-title">MERRY JANE & THE FONDAS</div>
+        </div>
 
         {/* desktop  */}
         <MediaQuery minDeviceWidth={500}>
@@ -165,9 +157,10 @@ export default function Music() {
         <YouTube videoId="XXMGt_N6Mc0" className="youtube" />
 
         {/* cg  */}
-        <div className="cg back-img" />
-        <LazyLoadImage effect="opacity" src={cg} width="100%" height={getHeight(cg)} className="mobile-banner" />
-        <div className="mjf-title">CREAM GENIE</div>
+        <div className="parallax">
+          <img src={cg} className="parallax-img" />
+          <div className="parallax-title">CREAM GENIE</div>
+        </div>
 
         {/* desktop  */}
         <MediaQuery minDeviceWidth={500}>
@@ -210,6 +203,6 @@ export default function Music() {
         </MediaQuery>
         <YouTube videoId="19hlSPVXDjo" className="youtube" />
       </div>
-    </div>
-  </div>;
+  </div>
+  );
 };
