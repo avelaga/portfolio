@@ -28,9 +28,10 @@
 }
 
 .parallax-img {
+  top: 0;
   height: 100vh;
   width: 100vw;
-  margin-top: 700px;
+  margin-top: 400px;
   transform: translateZ(-5px) scale(2);
   opacity: 70%;
 }
