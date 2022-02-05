@@ -54,7 +54,7 @@ export default function Photo() {
         <div className="photo-menu-img" >
           <div className="center-title">
             <div>USER VOID</div>
-            <div className="photo-subtitle">2019 - PRESENT</div>
+            <div className="photo-subtitle">2019</div>
           </div>
           <div className="menu-fadein ">
             <img src={userVoidImages[0]} className="f1" />
