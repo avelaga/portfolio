@@ -181,7 +181,9 @@ c {
 .cover-container {
   margin: 20px;
   margin-top: 0;
-  padding-top: 0;
+  padding-top: 20px;
+  // padding-top: 0;
+  background-color: rgb(12, 12, 12);
 }
 
 .indulgent-cover-info {
@@ -292,6 +294,8 @@ button {
 
 .music-mobile {
   text-align: center;
+  background-color: rgb(12, 12, 12);
+  padding-top: 20px;
 }
 
 .mobile-banner {

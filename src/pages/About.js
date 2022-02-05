@@ -24,7 +24,7 @@ export default function About() {
           <div className="about-top">
             <LazyLoadImage src={me1} className="about-top-img" effect="opacity"  />
             <div className="about-second-text">
-            I'm a software developer, musician, and artist based in Austin, TX where I studied both Computer Science and Studio Art at <ut>The University of Texas at Austin</ut> and currently work as a software engineer at <processing>Visa</processing>.
+            I'm a software developer, musician, and artist based in Austin, TX where I work as a software engineer at <processing>Visa</processing> and studied both Computer Science and Studio Art at <ut>The University of Texas at Austin</ut>.
               <br />
               <br />
               I released my first solo album at the age of 16 and a second at 18, my first photo collection at the age of 19, played my first official SXSW showcase at the age of 20, built my first interactive art installation for Fortress Festival a month later, and had my photography featured on the cover of Spark Magazine.
@@ -54,7 +54,7 @@ export default function About() {
       <div className="page">
         <div className="appear">
           <div className="about-first-text">
-          I'm a software developer, musician, and artist based in Austin, TX where I studied both Computer Science and Studio Art at <ut>The University of Texas at Austin</ut> and currently work as a software engineer at <processing>Visa</processing>.
+          I'm a software developer, musician, and artist based in Austin, TX where I work as a software engineer at <processing>Visa</processing> and studied both Computer Science and Studio Art at <ut>The University of Texas at Austin</ut>.
           </div>
           <LazyLoadImage effect="opacity" src={me1} className="about-top-img"  />
           <div className="about-second-text">
