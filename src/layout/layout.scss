@@ -39,7 +39,7 @@
 }
 
 .link {
-  color: rgb(0, 255, 255);
+  color: rgb(255, 230, 0);
   height: 20px;
   width: 220px;
   position: relative;
@@ -51,7 +51,7 @@
 }
 
 .link-color {
-  background-color: rgb(204, 5, 204);
+  background-color: black;
   width: 0;
   height: 20px;
   position: absolute;
@@ -67,17 +67,18 @@
   position: absolute;
   top: 0;
   left: 0;
+  color: rgb(255, 230, 0);
 }
 
 .link:hover .link-color {
   width: 160px;
 }
 
-.link:hover {
-  animation-name: overText;
-  animation-duration: 0.7s;
-  animation-fill-mode: forwards;
-}
+// .link:hover {
+//   animation-name: overText;
+//   animation-duration: 0.7s;
+//   animation-fill-mode: forwards;
+// }
 
 .external-link {
   color: rgb(180, 180, 180);

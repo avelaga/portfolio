@@ -25,13 +25,13 @@ export class Navbar extends Component {
 
   render() {
     const activeStyle = {
-      backgroundColor: 'red',
+      backgroundColor: 'black',
       color: 'white',
       width: '160px'
     }
 
     const activeMobileStyle = {
-      backgroundColor: 'red',
+      backgroundColor: 'black',
       color: 'white',
       width: '203px'
     }
