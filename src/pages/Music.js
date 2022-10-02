@@ -19,10 +19,6 @@ import mjf from '../../dist/images/music/mjf/mjf.jpg';
 import mjfStudio from '../../dist/images/music/mjf/studio.jpg';
 import mjfCover from '../../dist/images/music/mjf/cover.jpg';
 
-import cg from '../../dist/images/music/cg/cg.jpg';
-import cgCover from '../../dist/images/music/cg/cover.jpg';
-import jason from '../../dist/images/music/cg/6.jpg';
-
 export default function Music() {
 
   const getHeight = function(image) {
@@ -155,53 +151,6 @@ export default function Music() {
         </MediaQuery>
 
         <YouTube videoId="XXMGt_N6Mc0" className="youtube" />
-
-        {/* cg  */}
-        <div className="parallax">
-          <img src={cg} className="parallax-img" />
-          <div className="parallax-title">CREAM GENIE</div>
-        </div>
-
-        {/* desktop  */}
-        <MediaQuery minDeviceWidth={500}>
-          <div className="flex mjf-info">
-            <LazyLoadImage effect="opacity" src={jason} className="mjf-studio" height={getHeight(jason)} />
-            <div className="cg-description">
-              I drummed in the jam rock duo Cream Genie from 2016 to 2017. During that time we released a <a href="https://soundcloud.com/sunburstbox/sets/cream-genie-demos">demo</a> and played multiple shows across the DFW metroplex.
-          </div>
-          </div>
-          <div className="flex cover-container">
-            <div className="indulgent-cover-info" >
-              <div className="cover-title" >Cream Genie 2016 Demos</div>
-              <div className="cover-artist" >Cream Genie</div>
-              <div className="cover-buttons"><Button variant="outline-dark"><a href="https://soundcloud.com/sunburstbox/sets/cream-genie-demos" target="_blank">SOUNDCLOUD</a></Button></div>
-              <div>Guitar - Jason Swan</div>
-              <div>Drums - Abhi Velaga</div>
-            </div>
-            <LazyLoadImage effect="opacity" src={cgCover} className="music-cover" height={getHeight(cgCover)} />
-          </div>
-        </MediaQuery>
-
-        {/* mobile  */}
-        <MediaQuery maxDeviceWidth={500}>
-          <div className="flex mjf-info">
-            <div className="cg-description">
-            I drummed in the jam rock duo Cream Genie from 2016 to 2017. During that time we released a <a href="https://soundcloud.com/sunburstbox/sets/cream-genie-demos">demo</a> and played multiple shows across the DFW metroplex.
-          </div>
-            <LazyLoadImage effect="opacity" src={jason} className="mjf-studio" height={getHeight(jason)} />
-            <LazyLoadImage effect="opacity" src={cgCover} className="music-cover" height={getHeight(cgCover)} />
-            <div className="cover-title" >Cream Genie 2016 Demos</div>
-            <div className="cover-artist" >Cream Genie</div>
-            <div className="cover-buttons flex">
-              <Button variant="outline-dark"><a href="https://soundcloud.com/sunburstbox/sets/cream-genie-demos" target="_blank">SOUNDCLOUD</a></Button>
-            </div>
-            <div className="cover-extra">
-              <div>Guitar - Jason Swan</div>
-              <div>Drums - Abhi Velaga</div>
-            </div>
-          </div>
-        </MediaQuery>
-        <YouTube videoId="19hlSPVXDjo" className="youtube" />
       </div>
   </div>
   );
