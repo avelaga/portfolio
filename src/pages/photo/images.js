@@ -49,16 +49,6 @@ import p17 from '../../../dist/images/photos/portfolio/p17.jpg';
 import p18 from '../../../dist/images/photos/portfolio/p18.jpg';
 import p19 from '../../../dist/images/photos/portfolio/p19.jpg';
 import p20 from '../../../dist/images/photos/portfolio/p20.jpg';
-import p21 from '../../../dist/images/photos/portfolio/p21.jpg';
-import p22 from '../../../dist/images/photos/portfolio/p22.jpg';
-import p23 from '../../../dist/images/photos/portfolio/p23.jpg';
-import p24 from '../../../dist/images/photos/portfolio/p24.jpg';
-import p25 from '../../../dist/images/photos/portfolio/p25.jpg';
-import p26 from '../../../dist/images/photos/portfolio/p26.jpg';
-import p27 from '../../../dist/images/photos/portfolio/p27.jpg';
-import p28 from '../../../dist/images/photos/portfolio/p28.jpg';
-import p29 from '../../../dist/images/photos/portfolio/p29.jpg';
-import p30 from '../../../dist/images/photos/portfolio/p30.jpg';
 
 import u1 from '../../../dist/images/photos/uservoid/uservoid1.jpg';
 import u2 from '../../../dist/images/photos/uservoid/uservoid2.jpg';
@@ -173,17 +163,7 @@ export const portfolioImages = [
   p17,
   p18,
   p19,
-  p20,
-  p21,
-  p22,
-  p23,
-  p24,
-  p25,
-  p26,
-  p27,
-  p28,
-  p29,
-  p30,
+  p20
 ];
 
 export const miamiImages = [
