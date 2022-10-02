@@ -14,6 +14,7 @@ import drums from '../../dist/images/music/indulgent/drums.jpg';
 import guitar1 from '../../dist/images/music/indulgent/guitar1.jpg';
 import guitar2 from '../../dist/images/music/indulgent/guitar2.jpg';
 import indulgentCover from '../../dist/images/music/indulgent/cover.jpg';
+import mebed from '../../dist/images/music/indulgent/mebed.jpg';
 
 import mjf from '../../dist/images/music/mjf/mjf.jpg';
 import mjfStudio from '../../dist/images/music/mjf/studio.jpg';
@@ -33,15 +34,10 @@ export default function Music() {
   <div>
     <Navbar activeLink={"MUSIC"} />
     <div className="wrapper">
-
-        <div className="software-intro">
-          Music is my first passion. I started learning guitar when I was 9. I then began to teach myself, starting with bass at 13, audio production and drums at 14, and vocals at 15. I wrote, recorded, produced, and released <a href="https://open.spotify.com/album/67RH1N86fW4hIA10m3DhFl">my first album</a> independently, all at the age of 16. Before graduating high school, I recorded <a href="https://open.spotify.com/album/2d7c0N7uNdi3jfdsTWeZNV?si=lYoQ-F2RQtict5KQQDMN4g">my second album</a> in a studio and released that at the age of 18.
-        </div>
-
         {/* indulgent  */}
         <div className="parallax">
-          <img src={drums} className="parallax-img" />
-          <div className="parallax-title">INDULGENT</div>
+          <img src={mebed} className="parallax-img" />
+          <div className="parallax-title-black">INDULGENT</div>
         </div>
 
         <div className="indulgent-grid" >
@@ -93,7 +89,7 @@ export default function Music() {
         {/* mjf  */}
         <div className="parallax">
           <img src={mjf} className="parallax-img" />
-          <div className="parallax-title">MERRY JANE & THE FONDAS</div>
+          <div className="parallax-title-white">MERRY JANE & THE FONDAS</div>
         </div>
 
         {/* desktop  */}

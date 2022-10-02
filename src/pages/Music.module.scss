@@ -19,7 +19,7 @@
   z-index: -1;
 }
 
-.parallax-img, .parallax-title {
+.parallax-img, .parallax-title-white, parallax-title-black {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -31,17 +31,24 @@
   top: 0;
   height: 100vh;
   width: 100vw;
-  margin-top: 400px;
+  // margin-top: 500px;
   transform: translateZ(-5px) scale(2);
   opacity: 70%;
 }
 
-.parallax-title {
-  color: white;
+.parallax-title-white, .parallax-title-black {
   font-size: 135px;
   text-align: center;
   width: 100%;
   transform: translateZ(-2px) scale(1).5;
+}
+
+.parallax-title-black {
+  color: black;
+}
+
+.parallax-title-white {
+  color: white;
 }
 
 @media (max-width: 500px) {
@@ -50,7 +57,7 @@
     height: auto;
   }
 
-  .parallax-title {
+  .parallax-title-white, .parallax-title-black {
     margin-top: 100px;
     font-size: 45px;
   }
