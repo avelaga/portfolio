@@ -45,10 +45,14 @@
 
 .parallax-title-black {
   color: black;
+  -webkit-text-stroke: 5px black;
 }
 
 .parallax-title-white {
   color: white;
+  padding-left: 200px;
+  padding-right: 200px;
+  -webkit-text-stroke: 5px white;
 }
 
 @media (max-width: 500px) {
@@ -74,6 +78,7 @@
   overflow: hidden;
   margin: 20px;
   margin-top: 0;
+  background-color: rgba(128, 128, 128, 0.8);
 }
 
 .indulgent-grid-img {
@@ -111,12 +116,14 @@
 .mjf-info {
   margin: 20px;
   margin-top: 0;
+  background-color: rgba(128, 128, 128, 0.8);
 }
 
 .mjf-description {
   color: white;
   text-align: right;
   padding: 20px;
+  padding-left: 20vw;
   width: 40%;
 }
 
@@ -224,6 +231,7 @@ button {
   .mjf-description {
     text-align: center;
     width: 100%;
+    padding: 20px;
   }
   .youtube {
     height: 200px;
