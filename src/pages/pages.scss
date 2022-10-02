@@ -73,7 +73,7 @@ a:hover {
 }
 
 .about-top {
-  width: 98vw;
+  width: 100vw;
   display: flex;
   align-items: flex-end;
   align-content: flex-start;
@@ -81,7 +81,7 @@ a:hover {
 }
 
 .about-top-img {
-  width: 60vw;
+  width: 50vw;
   margin-right: 30px;
 }
 
@@ -95,24 +95,31 @@ a:hover {
   width: 20vw;
   color: rgb(221, 221, 221);
   font-size: 12px;
+  margin-right: 30px;
+  text-align: justify;
 }
 
 .about-bottom {
-  width: 98vw;
+  width: 100%;
   display: flex;
   align-items: flex-start;
   align-content: flex-start;
 }
 
 .about-bottom-img {
-  width: 30vw;
+  width: 35vw;
   margin-right: 30px;
-  margin-left: 2vw;
+  margin-left: 15vw;
   margin-bottom: 50px;
 }
 
+.about-right-img {
+  height: 30vw;
+}
+
 .about-bottom-text {
-  width: 28vw;
+  // width: 28vw;
+  width: 50vw;
   color: rgb(221, 221, 221);
   font-size: 12px;
 }
@@ -378,6 +385,7 @@ processing {
   .about-top-img {
     width: 100vw;
     margin-right: 0;
+    margin-top: 120px;
   }
   .about-first-text {
     width: 100vw;
@@ -386,7 +394,6 @@ processing {
     line-height: 20px;
     padding: 20px;
     text-align: center;
-    margin-top: 100px;
   }
   .about-second-text {
     width: 100vw;
@@ -409,7 +416,9 @@ processing {
     line-height: 20px;
     padding: 20px;
     text-align: center;
+    margin-bottom: 30px;
   }
+
   .about-bottom-left-text {
     text-align: left;
     width: 100vw;
