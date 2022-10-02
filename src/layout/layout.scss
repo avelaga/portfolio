@@ -99,6 +99,13 @@
 
 .nav-back {
   background-color: none;
+  height: 100vh;
+  z-index: 1000;
+  position: fixed;
+  width: 250px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  filter: brightness(80%);
 }
 
 @media (max-width: 500px) {
