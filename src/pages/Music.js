@@ -45,7 +45,7 @@ export default function Music() {
           <LazyLoadImage effect="opacity" src={guitar2} className="indulgent-grid-img" width="100%" height={getHeight(drums)} />
           <div className="flex indulgent-grid-text">
             <div className="music-text">
-              I release my solo music under the moniker Indulgent. I perform all the instruments (guitar, drums, bass) and vocals on the recordings. I recorded my first album, <a href="https://open.spotify.com/album/67RH1N86fW4hIA10m3DhFl?si=Hl4dag6_QhSyX3f4Zv0mhg">Toxic</a>, by myself in my bedroom and released it in 2015. My follow up, <a href="https://open.spotify.com/album/2d7c0N7uNdi3jfdsTWeZNV?si=K98wvkQmQd6uMvHFrQt2ng">No Drive Will Take Me Home</a>, was recorded in a studio and released in 2018. I'm currently writing my third album scheduled for release in 2020.
+              I release my solo music under the name Indulgent. I perform all vocals, drums, guitars, and bass myself on the recordings and released my recent album, <a href="https://open.spotify.com/album/2d7c0N7uNdi3jfdsTWeZNV?si=K98wvkQmQd6uMvHFrQt2ng">No Drive Will Take Me Home</a>, in 2018 and my debut album, <a href="https://open.spotify.com/album/67RH1N86fW4hIA10m3DhFl?si=Hl4dag6_QhSyX3f4Zv0mhg">Toxic</a>, in 2015.
             </div>
           </div>
         </div>
@@ -96,7 +96,7 @@ export default function Music() {
         <MediaQuery minDeviceWidth={500}>
           <div className="flex mjf-info">
             <div className="mjf-description">
-             As the drummer for Merry Jane & The Fondas from 2018 to 2019, I recorded a <a href="https://open.spotify.com/album/097Hlqmh6mqEv6GJbxf61L?si=NO5UrK5mTlymBRe4vKErNw">studio EP</a> with renowned guitarist and songwriter, <a href="https://en.wikipedia.org/wiki/Jackie_Venson">Jackie Venson</a>, and also played an <a href="https://schedule.sxsw.com/2019/artists/2008465">official SXSW showcase</a>.
+             As the drummer for Merry Jane & The Fondas, I recorded a <a href="https://open.spotify.com/album/097Hlqmh6mqEv6GJbxf61L?si=NO5UrK5mTlymBRe4vKErNw">studio EP</a> with renowned guitarist and songwriter, <a href="https://en.wikipedia.org/wiki/Jackie_Venson">Jackie Venson</a>, and played an <a href="https://schedule.sxsw.com/2019/artists/2008465">official SXSW showcase</a>.
           </div>
             <LazyLoadImage effect="opacity" src={mjfStudio} className="mjf-studio" height={getHeight(mjfStudio)} />
           </div>
