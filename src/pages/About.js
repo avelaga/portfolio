@@ -52,12 +52,13 @@ export default function About() {
     <MediaQuery maxDeviceWidth={500}>
       <div className="page">
         <div className="appear">
-          <LazyLoadImage effect="opacity" src={me1} className="about-top-img"  />
-                    <div className="about-first-text">
-          I'm a software developer, musician, and artist based in Austin, TX where I work as a software engineer at <processing>Visa</processing> and studied both Computer Science and Studio Art at <ut>The University of Texas at Austin</ut>.
+          <LazyLoadImage effect="opacity" src={mecrop} className="about-top-img"  />
+          <div className="about-first-text">
+            I'm a software developer, musician, and artist based in Austin, TX where I work as a software engineer at <processing>Visa</processing> and studied both Computer Science and Studio Art at <ut>The University of Texas at Austin</ut>.
           </div>
-          <LazyLoadImage src={medrums} className="about-right-img" effect="opacity"  />
-          <LazyLoadImage effect="opacity" src={mepurple} className="about-bottom-img"  />
+          
+          <LazyLoadImage effect="opacity" src={medrums} className="about-bottom-img"  />
+          <LazyLoadImage src={me1} className="about-right-img" effect="opacity"  />
 
           <div className="about-bottom-text">
             <a href="mailto:abhinav.velaga@utexas.edu">abhinav.velaga@utexas.edu</a>
