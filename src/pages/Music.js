@@ -20,6 +20,9 @@ import mjf from '../../dist/images/music/mjf/mjf.jpg';
 import mjfStudio from '../../dist/images/music/mjf/studio.jpg';
 import mjfCover from '../../dist/images/music/mjf/cover.jpg';
 
+import sd1 from '../../dist/images/music/sd/sd1.jpg';
+import sd2 from '../../dist/images/music/sd/sd2.jpg';
+
 export default function Music() {
 
   const getHeight = function(image) {
@@ -147,6 +150,14 @@ export default function Music() {
         </MediaQuery>
 
         <YouTube videoId="XXMGt_N6Mc0" className="youtube" />
+
+        {/* sd  */}
+        <div className="parallax">
+          <img src={sd1} className="parallax-img" />
+          <div className="parallax-title-white">SHIVERING DEMONS</div>
+        </div>
+
+        <YouTube videoId="gE3zPWgq4Ro" className="youtube" />
       </div>
   </div>
   );
