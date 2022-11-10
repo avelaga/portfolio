@@ -36,7 +36,7 @@ export default function Music() {
   return (
   <div>
     <Navbar activeLink={"MUSIC"} />
-    <div className="wrapper">
+    <div className="wrapper appear">
         {/* indulgent  */}
         <div className="parallax">
           <img src={mebed} className="parallax-img" />
@@ -48,7 +48,7 @@ export default function Music() {
           <LazyLoadImage effect="opacity" src={guitar2} className="indulgent-grid-img" width="100%" height={getHeight(drums)} />
           <div className="flex indulgent-grid-text">
             <div className="music-text">
-              I release my solo music under the name Indulgent. I perform all vocals, drums, guitars, and bass myself on the recordings and released my recent album, <a href="https://open.spotify.com/album/2d7c0N7uNdi3jfdsTWeZNV?si=K98wvkQmQd6uMvHFrQt2ng">No Drive Will Take Me Home</a>, in 2018 and my debut album, <a href="https://open.spotify.com/album/67RH1N86fW4hIA10m3DhFl?si=Hl4dag6_QhSyX3f4Zv0mhg">Toxic</a>, in 2015.
+              I perform all vocals, drums, guitars, and bass myself for my solo project, Indulgent, and released my recent album, <a href="https://open.spotify.com/album/2d7c0N7uNdi3jfdsTWeZNV?si=K98wvkQmQd6uMvHFrQt2ng">No Drive Will Take Me Home</a>, in 2018 and my debut album, <a href="https://open.spotify.com/album/67RH1N86fW4hIA10m3DhFl?si=Hl4dag6_QhSyX3f4Zv0mhg">Toxic</a>, in 2015.
             </div>
           </div>
         </div>
@@ -63,7 +63,7 @@ export default function Music() {
                 <Button variant="outline-dark"><a href="https://open.spotify.com/album/2d7c0N7uNdi3jfdsTWeZNV?si=wxw93aEFTfGDUXMgTjEzsg" target="_blank">SPOTIFY</a></Button>
                 <Button variant="outline-dark"><a href="https://music.apple.com/us/album/no-drive-will-take-me-home/1429049796" target="_blank">APPLE MUSIC</a></Button>
                 <Button variant="outline-dark"><a href="https://play.google.com/store/music/album/Indulgent_No_Drive_Will_Take_Me_Home?id=Bcwfm3gxejnt5fvkv2hlhxgxdei" target="_blank">GOOGLE PLAY</a></Button></div>
-              <div>Guitar/Drums/Vocals/Bass performed by Abhi Velaga</div>
+              {/* <div>Guitar/Drums/Vocals/Bass performed by Abhi Velaga</div> */}
               <div>Released 2018</div>
             </div>
             <LazyLoadImage effect="opacity" src={indulgentCover} className="music-cover" height={getHeight(indulgentCover)} />
@@ -89,6 +89,14 @@ export default function Music() {
           </div>
         </MediaQuery>
 
+        {/* sd  */}
+        <div className="parallax">
+          <img src={sd1} className="parallax-img" />
+          <div className="parallax-title-white">SHIVERING DEMONS</div>
+        </div>
+
+        <YouTube videoId="gE3zPWgq4Ro" className="youtube" />
+
         {/* mjf  */}
         <div className="parallax">
           <img src={mjf} className="parallax-img" />
@@ -99,7 +107,7 @@ export default function Music() {
         <MediaQuery minDeviceWidth={500}>
           <div className="flex mjf-info">
             <div className="mjf-description">
-             As the drummer for Merry Jane & The Fondas, I recorded a <a href="https://open.spotify.com/album/097Hlqmh6mqEv6GJbxf61L?si=NO5UrK5mTlymBRe4vKErNw">studio EP</a> with renowned guitarist and songwriter, <a href="https://en.wikipedia.org/wiki/Jackie_Venson">Jackie Venson</a>, and played an <a href="https://schedule.sxsw.com/2019/artists/2008465">official SXSW showcase</a>.
+             As the drummer for Merry Jane & The Fondas, I recorded a <a href="https://open.spotify.com/album/097Hlqmh6mqEv6GJbxf61L?si=NO5UrK5mTlymBRe4vKErNw">studio EP</a> that was produced by Jackie Venson and played an <a href="https://schedule.sxsw.com/2019/artists/2008465">official SXSW showcase</a>.
           </div>
             <LazyLoadImage effect="opacity" src={mjfStudio} className="mjf-studio" height={getHeight(mjfStudio)} />
           </div>
@@ -113,11 +121,12 @@ export default function Music() {
                 <Button variant="outline-dark"><a href="https://music.apple.com/us/album/pulls-you-under-ep/1454982478" target="_blank">APPLE MUSIC</a></Button>
                 <Button variant="outline-dark"><a href="https://play.google.com/store/music/album/Merry_Jane_the_Fondas_Pulls_You_Under?id=Bbp7z4p3isxbxsqv4oymqx7ndt4" target="_blank">GOOGLE PLAY</a></Button>
               </div>
-              <div>Guitar/Vocals - Allyb</div>
+              <div>Guitar/Vocals - Ally Brown</div>
               <div>Lead Guitar/Backing Vocals - Serenity Autumn</div>
               <div>Bass - Johnny Young</div>
               <div>Drums - Abhi Velaga</div>
               <div>Produced by Jackie Venson</div>
+              <br/>
               <div>Released 2019</div>
             </div>
           </div>
@@ -150,14 +159,6 @@ export default function Music() {
         </MediaQuery>
 
         <YouTube videoId="XXMGt_N6Mc0" className="youtube" />
-
-        {/* sd  */}
-        <div className="parallax">
-          <img src={sd1} className="parallax-img" />
-          <div className="parallax-title-white">SHIVERING DEMONS</div>
-        </div>
-
-        <YouTube videoId="gE3zPWgq4Ro" className="youtube" />
       </div>
   </div>
   );

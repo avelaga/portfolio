@@ -131,7 +131,11 @@ export class Navbar extends Component {
               </a>
 
               <a href="https://www.instagram.com/abhi.film/" target="_blank">
-                <div className="external-link">FILM INSTAGRAM</div>
+                <div className="external-link">PHOTO INSTAGRAM</div>
+              </a>
+
+              <a href="youtube.com/@abhi.velaga" target="_blank">
+                <div className="external-link">YOUTUBE</div>
               </a>
 
               <a href="mailto:abhinav.velaga@utexas.edu"><div className="external-link">CONTACT</div></a>

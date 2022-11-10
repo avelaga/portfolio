@@ -43,6 +43,8 @@ export default function About() {
               <br />
               <a href={resume} target='_blank'>[ resume ]</a>
               <br />
+              <a href="youtube.com/@abhi.velaga" target='_blank'>youtube</a>
+              <br />
               <a href="https://www.github.com/avelaga/" target='_blank'>github</a>
             </div>
           </div>
