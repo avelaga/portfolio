@@ -47,16 +47,16 @@ export default function Software() {
       <div className="appear">
 
         <div className="software">
-          <div className="software-intro">
+          {/* <div className="software-intro">
             I'm a Computer Science graduate from <ut>The University of Texas at Austin</ut>. I love software development, design, and electronics, and work as a software engineer at <processing>Visa</processing>. I also studied fine arts as a minor and enjoy finding ways to intersect the two passions with tools such as <pi>Raspberry Pi</pi>, <arduino>Arduino</arduino>, and <processing>Processing</processing>. This is a selected collection of my programming and web related projects. For more details about my technical skills, check out my <a href="https://github.com/avelaga" target='_blank'>GitHub</a>, <a href={resume} target='_blank'>resume</a>, and <a href="https://www.linkedin.com/in/abhivelaga/" target='_blank'>linkedin</a>.
-          </div>
+          </div> */}
 
-          <div className="software3 back-img software-flex">
+          {/* <div className="software3 back-img software-flex">
             <LazyLoadImage effect="opacity" src={insideSkoop} className="software-ft" height={getHeight(insideSkoop)} />
             <div className="software-ft-title">INSIDE SKOOP</div>
             <div className="software-ft-subtitle">ui design + front end development</div>
             <div className="software-ft-info">Inside Skoop is a web and iOS app that I'm currently developing which allows UT students to find courses that fit their searching criteria and get advice from those who have taken them.</div>
-          </div>
+          </div> */}
 
           {/* <div className="flex"> */}
 
@@ -90,13 +90,13 @@ export default function Software() {
             <div className="software-ft-info">I've designed and programmed an evolution simulation, natural tree drawing algorithms, terrain generation, multiple games, and generative art algorithms with <processing>Processing</processing>.</div>
           </div>
 
-          <div className="software1 back-img software-flex">
+          {/* <div className="software1 back-img software-flex">
             <LazyLoadImage effect="opacity" src={bandTogether} className="software-ft" height={getHeight(bandTogether)} />
             <div className="software-ft-title">BAND TOGETHER</div>
             <div className="software-ft-subtitle">ui design + front end development</div>
             <div className="software-ft-info">I designed and developed the front end for Band Together, a responsive web app that helps users easily find information about upcoming concerts.</div>
-            {/* <a href="https://bandtogether.events" target='_blank'><div className="software-ft-button">VIEW</div></a> */}
-          </div>
+            <a href="https://bandtogether.events" target='_blank'><div className="software-ft-button">VIEW</div></a>
+          </div> */}
 
           <video playsInline autoPlay muted loop className="drum-vid" >
             <source src={drumsVid} type="video/mp4" />
@@ -105,7 +105,7 @@ export default function Software() {
 
           <div className="software-grid">
             <div className="software-grid-text flex">
-              <div className="grid-text-title">LED STRIP PROGRAMMING</div>
+              <div className="grid-text-title">LED PROGRAMMING</div>
               <div>
                 I love finding ways to intersect my passions for computer science with that of fine arts. Coding LED strips with Arduinos has been a great way to do so - I've built and programmed commissioned interactive installations for music shows, such as Fortress Festival in Ft. Worth, TX in April 2019, an interactive "zoo" with "animals" that require daily human interaction in order to stay alive and breed, motion responsive staircase and doorways, and even stitched custom coded strips to my backpack for maximum visibility when riding my electric skateboard at night. I also created a <a href="/hi">button</a> on my site that allows visitors to say hello to me in realtime by strobing LEDs at my desk.
               </div>

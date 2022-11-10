@@ -42,6 +42,8 @@ export default function About() {
               <a href="https://www.instagram.com/abhi.film/" target='_blank'>@abhi.film</a>
               <br />
               <a href={resume} target='_blank'>[ resume ]</a>
+              <br />
+              <a href="https://www.github.com/avelaga/" target='_blank'>github</a>
             </div>
           </div>
         </div>
