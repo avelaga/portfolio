@@ -134,7 +134,7 @@ export class Navbar extends Component {
                 <div className="external-link">PHOTO INSTAGRAM</div>
               </a>
 
-              <a href="youtube.com/@abhi.velaga" target="_blank">
+              <a href="https://www.youtube.com/@abhi.velaga/" target="_blank">
                 <div className="external-link">YOUTUBE</div>
               </a>
 
