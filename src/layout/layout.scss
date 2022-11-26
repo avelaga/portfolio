@@ -51,7 +51,7 @@
 }
 
 .link-color {
-  background-color: black;
+  background-color: rgb(255, 255, 255);
   width: 0;
   height: 20px;
   position: absolute;
@@ -59,6 +59,21 @@
   left: -20px;
   transition: width .7s;
   border-radius: 0px 100px 100px 0px;
+}
+
+.submenu-color {
+  background-color: rgb(255, 255, 255);
+  width: 0;
+  height: 20px;
+  position: absolute;
+  top: 1px;
+  left: -40px;
+  transition: width .7s;
+  border-radius: 0px 100px 100px 0px;
+}
+
+.link:hover .submenu-color {
+  width: 400px;
 }
 
 .link-text {
@@ -72,6 +87,7 @@
 
 .link:hover .link-color {
   width: 160px;
+  color: black;
 }
 
 // .link:hover {
@@ -230,4 +246,11 @@
   to {
     opacity: 1
   }
+}
+
+.submenu {
+  margin-left: 25px;
+  color: white;
+  font-size: 15px;
+  width: 400px;
 }

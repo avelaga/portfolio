@@ -43,6 +43,14 @@ export class Navbar extends Component {
       color: 'black'
     }
 
+    const photoPages = [
+      'PHOTO',
+      'PORTFOLIO',
+      'MIAMI',
+      'USERVOID',
+      'PUBLISHED'
+    ]
+
     return (
       <div className={!this.state.collapsed && this.props.activeLink != "HOME" ? "nav-back" : ""} >
         <div className={this.state.collapsed && (this.props.activeLink != "PHOTO" && this.props.activeLink != "MIAMI" && this.props.activeLink != "PORTFOLIO" && this.props.activeLink != "USERVOID" && this.props.activeLink != "HOME" && this.props.activeLink != "PUBLISHED") ? "header-back" : {}} >
@@ -80,7 +88,7 @@ export class Navbar extends Component {
                 </div>
               </a>
 
-              <a href="/photo">
+              <a href="/portfolio">
                 <div className="link">
                   <div className="link-color" style={this.props.activeLink === "PHOTO" ? activeStyle : {}}></div>
                   <div className="link-text" style={this.props.activeLink === "PHOTO" ? activeTextStyle : {}}>
@@ -89,6 +97,36 @@ export class Navbar extends Component {
                 </div>
               </a>
 
+              {photoPages.includes(this.props.activeLink) && 
+              <div>
+                <a href="/portfolio">
+                  <div className='submenu link'>
+                    <div className="submenu-color" style={this.props.activeLink === "PORTFOLIO" ? activeStyle : {}}/>
+                    <div className="link-text" style={this.props.activeLink === "PORTFOLIO" ? black : {}}>
+                      <div>portfolio</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="/miamivice">
+                  <div className='submenu link'>
+                    <div className="submenu-color" />
+                    miami vice cocaine dream
+                  </div>
+                </a>
+                <a href="/uservoid">
+                  <div className='submenu link'>
+                    <div className="submenu-color" />
+                    user void
+                  </div>
+                </a>
+                <a href="/published">
+                  <div className='submenu link'>
+                    <div className="submenu-color" />
+                    published work
+                  </div>
+                </a>
+              </div>
+              }
               <a href="/music">
                 <div className="link">
                   <div className="link-color" style={this.props.activeLink === "MUSIC" ? activeStyle : {}}></div>

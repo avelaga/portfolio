@@ -24,7 +24,7 @@ export default function About() {
     {/* desktop  */}
     <MediaQuery minDeviceWidth={500}>
       <div className="page">
-        <div className="appear">
+        <div className="appear about">
           <div className="about-top">
             <LazyLoadImage src={me1} className="about-top-img" effect="opacity"  />
             <div className="about-second-text">
