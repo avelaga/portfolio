@@ -16,6 +16,24 @@ const mobileImg = {
   width: '100vw'
 };
 
+const aboutBottomText = () => {
+  return  <div className="about-bottom-text">
+  <a href="mailto:abhinav.velaga@utexas.edu">abhinav.velaga@utexas.edu</a>
+  <br />
+  <a href="https://www.instagram.com/abhi.velaga/" target='_blank'>@abhi.velaga</a>
+  <br />
+  <a href="https://www.instagram.com/abhi.film/" target='_blank'>@abhi.film</a>
+  <br />
+  <a href={resume} target='_blank'>[ resume ]</a>
+  <br />
+  <a href="youtube.com/@abhi.velaga" target='_blank'>youtube</a>
+  <br />
+  <a href="https://dribbble.com/avelaga" target='_blank'>dribbble</a>
+  <br />
+  <a href="https://www.github.com/avelaga/" target='_blank'>github</a>
+  </div>
+};          
+
 export default function About() {
   return <div>
     <MediaQuery minDeviceWidth={500}><Navbar activeLink={"ABOUT"} mobile={false} /></MediaQuery>
@@ -34,19 +52,7 @@ export default function About() {
           </div>
           <div className="about-bottom">
             <LazyLoadImage src={mecrop} className="about-bottom-img" effect="opacity"  />
-            <div className="about-bottom-text">
-              <a href="mailto:abhinav.velaga@utexas.edu">abhinav.velaga@utexas.edu</a>
-              <br />
-              <a href="https://www.instagram.com/abhi.velaga/" target='_blank'>@abhi.velaga</a>
-              <br />
-              <a href="https://www.instagram.com/abhi.film/" target='_blank'>@abhi.film</a>
-              <br />
-              <a href={resume} target='_blank'>[ resume ]</a>
-              <br />
-              <a href="youtube.com/@abhi.velaga" target='_blank'>youtube</a>
-              <br />
-              <a href="https://www.github.com/avelaga/" target='_blank'>github</a>
-            </div>
+            {aboutBottomText()}
           </div>
         </div>
       </div>
@@ -63,16 +69,7 @@ export default function About() {
           
           <LazyLoadImage effect="opacity" src={medrums} className="about-bottom-img"  />
           <LazyLoadImage src={me1} className="about-right-img" effect="opacity"  />
-
-          <div className="about-bottom-text">
-            <a href="mailto:abhinav.velaga@utexas.edu">abhinav.velaga@utexas.edu</a>
-            <br />
-            <a href="https://www.instagram.com/abhi.velaga/" target='_blank'>@abhi.velaga</a>
-            <br />
-            <a href="https://www.instagram.com/abhi.film/" target='_blank'>@abhi.film</a>
-            <br />
-            <a href={resume} target='_blank'>[ resume ]</a>
-          </div>
+          {aboutBottomText()}
         </div>
       </div>
     </MediaQuery>
