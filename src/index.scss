@@ -25,6 +25,13 @@ code {
   src: local('Berthold-Akzidenz-Grotesk'), url(./fonts/Berthold-Akzidenz-Grotesk-BE-Li-Tall-Normal.otf) format('opentype');
 }
 
+@font-face {
+  font-family: 'Nimbus-Sans';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Nimbus-Sans'), url(./fonts/NimbusSanL-BolIta.otf) format('opentype');
+}
+
 a {
   color: rgb(255, 230, 0);
 }
