@@ -36,13 +36,13 @@ const aboutBottomText = () => {
 
 export default function About() {
   return <div>
-    <MediaQuery minDeviceWidth={500}><Navbar activeLink={"ABOUT"} mobile={false} /></MediaQuery>
     <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"ABOUT"} mobile={true} /></MediaQuery>
 
     {/* desktop  */}
     <MediaQuery minDeviceWidth={500}>
-      <div className="page">
-        <div className="appear">
+      <div className="page-flex">
+      <Navbar activeLink={"ABOUT"} mobile={false} />
+      <div className="appear page">
           <div className="about-top">
             <LazyLoadImage src={me1} className="about-top-img" effect="opacity"  />
             <div className="about-second-text">
