@@ -9,17 +9,17 @@ export default function Navbar(){
         <div className='subtitle'>austin, tx</div>
         
         <div className='link-container'>
-          <div className='link'>ABOUT</div>
-          <div className='link'>PHOTO</div>
+        <a href="/about"><div className='link'>ABOUT</div></a>
+        <a href="/photo"><div className='link'>PHOTO</div></a>
           <div className='sublink-container'>
-            <div className='sublink'>portfolio</div>
-            <div className='sublink'>miami vice cocaine dream</div>
-            <div className='sublink'>user void</div>
-            <div className='last-sublink'>published work</div>
+          <a href="/portfolio"><div className='sublink'>portfolio</div></a>
+          <a href="/miamivice"><div className='sublink'>miami vice cocaine dream</div></a>
+          <a href="/uservoid"><div className='sublink'>user void</div></a>
+          <a href="/published"><div className='last-sublink'>published work</div></a>
           </div>
-          <div className='resume-link'>MUSIC</div>
-          <div className='link'>SOFTWARE</div>
-          <div className='last-link'>SAY HI</div>
+          <a href="/music"><div className='resume-link'>MUSIC</div></a>
+          <a href="/software"><div className='link'>SOFTWARE</div></a>
+          <a href="/hi"><div className='last-link'>SAY HI</div></a>
         </div>
         <div className='external-link' />
         <a href="https://open.spotify.com/artist/7JCVu8JTFAFrHqnYnGVPhi?si=wAs1clwUTiqOqS8e8RUJqg" target="_blank">

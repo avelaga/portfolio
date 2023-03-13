@@ -27,20 +27,16 @@ $linkColor: #949494;
 
 .navbar-container {
   height: 100vh;
-  z-index: 1;
   display: flex;
   align-items: center;
   background-color: none;
-  position: absolute;
   color: $linkColor;
+  width: 250px;
 }
 
 .navbar {
   width: 250px;
-  // height: 0;
-  // margin-left: 25px;
   padding: 0px;
-  z-index: 1;
   display: flex;
   justify-content: flex-start;
   align-content: flex-start;
