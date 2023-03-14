@@ -13,7 +13,7 @@ export default function Navbar({activeLink, mobile}){
   return <div className='navbar'>
         <div className="nav-header">
           <div className="nav-title-container">
-            <div className='nav-title'>Abhi Velaga</div>
+            <div className='nav-title'><a href="/">Abhi Velaga</a></div>
             <div className='subtitle'>musician, developer, artist</div>
           </div>
 
@@ -40,23 +40,18 @@ export default function Navbar({activeLink, mobile}){
             { !mobile && <div className='external-link' /> }
               <a className="external-link" href="https://open.spotify.com/artist/7JCVu8JTFAFrHqnYnGVPhi?si=wAs1clwUTiqOqS8e8RUJqg" target="_blank">
                 SPOTIFY
-                {/* <div className="external-link">SPOTIFY</div> */}
               </a>
               <a className="external-link" href="https://www.instagram.com/abhi.velaga/" target="_blank">
                 INSTAGRAM
-                {/* <div className="external-link">INSTAGRAM</div> */}
               </a>
               <a className="external-link" href="https://www.instagram.com/abhi.film/" target="_blank">
                 PHOTO INSTAGRAM
-                {/* <div className="external-link">PHOTO INSTAGRAM</div> */}
               </a>
               <a className="external-link" href="https://www.youtube.com/@abhi.velaga/" target="_blank">
                 YOUTUBE
-                {/* <div className="external-link">YOUTUBE</div> */}
               </a>
               <a className="external-link" href="mailto:abhinav.velaga@utexas.edu">
                 CONTACT
-                {/* <div className="external-link">CONTACT</div> */}
               </a>
             </div>
           </div>
