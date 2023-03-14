@@ -163,7 +163,7 @@ $navHeight: calc(100vh - 120px);
     width: 100vw;
     z-index: 1;
     margin: 0;
-    position: sticky;
+    position: fixed;
     top: 0;
     align-content: flex-start; 
     height: fit-content;
