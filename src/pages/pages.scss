@@ -144,27 +144,49 @@ c {
   background-size: cover;
 }
 
-.hi {
-  color: white;
-  text-align: center;
-  padding-top: 50px;
+.hi-titles-container {
+  display: flex;
+  width: calc(100vw - 350px);
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  text-align: right;
+}
+
+.hi-title {
+  font-size: 50px;
+  line-height: 50px;
+  width: calc(100vw - 350px);
+}
+
+.hi-subtitle {
+  width: calc(100vw - 350px);
+}
+
+.hi-body {
+  display: flex;
+  align-items: center;
 }
 
 .hi-button {
-  width: 150px;
+  width: 300px;
   height: 50px;
-  border-radius: 100px;
   margin: auto;
-  margin-top: 30px;
   line-height: 50px;
-  font-size: 30px;
   text-align: center;
   cursor: pointer;
+  background-color: #EAEAEA;
+  border: 1px dotted #949494;
 }
 
 .hi-button:active {
-  background-color: rgb(63, 0, 63);
+  background-color: #EAEAEA;
   color: rgb(173, 173, 173);
+}
+
+.hi-gif {
+  display: block;
+  padding-top: 20px;
+  max-height: 50vh;
 }
 
 .software-flex {
@@ -180,12 +202,6 @@ c {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-}
-
-.hi-gif {
-  display: block;
-  padding-top: 20px;
-  max-height: 70vh;
 }
 
 .software-intro {
