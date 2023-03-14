@@ -35,6 +35,9 @@ $linkColor: #949494;
   align-content: center;
   align-items: center;
 
+  position: fixed;
+  left: 0;
+
   animation-name: appear;
   animation-duration: 2.5s;
   animation-fill-mode: forwards;

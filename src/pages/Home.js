@@ -23,21 +23,11 @@ export default function Home() {
   });
 
   return (
-    <div className="appear">
+    <div className="page-flex">
       <MediaQuery minDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={false} /></MediaQuery>
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={true} /></MediaQuery>
-        <div className="fadein">
-        <video playsInline autoPlay muted loop className="f1">
-          <MediaQuery minDeviceWidth={500}><source src={drumming} type="video/mp4" /></MediaQuery>
-          <MediaQuery maxDeviceWidth={500}><source src={drummingMobile} type="video/mp4" /></MediaQuery>
-        </video>
-        <img src={images[0]} className="f2" />
-        <img src={images[1]} className="f3" />
-        <img src={images[2]} className="f4" />
-        <img src={images[3]} className="f5" />
-        <img src={images[4]} className="f6" />
-        <img src={images[5]} className="f7" />
-        <img src={images[6]} className="f8" />
+      <div className="appear page home">
+        <div className='home-title'>hi, i'm abhi - i make music, photos, and transmedia art</div>
       </div>
     </div>
   )
