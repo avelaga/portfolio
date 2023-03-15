@@ -61,6 +61,7 @@ green {
   text-align: right;
   width: $calcWidth;
   padding-right: $margin;
+  font-family: 'Nimbus-Sans-Reg';
 }
 
 $projWidth: calc($calcWidth / 3);
@@ -84,16 +85,20 @@ $projWidth: calc($calcWidth / 3);
 
 .project-title {
   width: $projWidth;
+  font-family: 'Nimbus-Sans-Bol';
+  font-size: 18px;
+  margin-top: 5px;
+  margin-bottom: -7px;
 }
 
 .project-medium {
   width: $projWidth;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .project-year {
   width: $projWidth;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 @keyframes appear {
@@ -200,10 +205,6 @@ a:hover {
   width: 100%;
   height: 100%;
   align-items: center;
-}
-
-c {
-  color: rgb(0, 255, 255) !important;
 }
 
 .back-img {

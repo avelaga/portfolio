@@ -13,7 +13,7 @@ export default function Navbar({activeLink, mobile}){
   return <div className='navbar'>
         <div className="nav-header">
           <div className="nav-title-container">
-            <div className='nav-title'><a href="/">Abhi Velaga</a></div>
+          <a href="/"><div className='nav-title'>ABHI VELAGA</div></a>
             <div className='subtitle'>musician, developer, artist</div>
           </div>
 

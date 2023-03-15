@@ -9,20 +9,19 @@ $linkColor: #949494;
 .nav-title {
   font-size: 40px;
   color: black;
-  font-style: italic;
   line-height: 40px;
   padding-left: 25px;
   font-family: 'Berthold-Akzidenz-Grotesk-Light-Extended';
 }
 
 .subtitle {
-  width: 100%;
   height: 15px;
   color: grey;
   margin-bottom: 20px;
   font-size: 10px;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   padding-left: 25px;
+  font-family: 'Berthold-Akzidenz-Grotesk-Light-Extended';
 }
 
 .navbar {
@@ -48,6 +47,7 @@ $linkColor: #949494;
   border: 1px solid $linkColor;
   border-left: none;
   margin-right: 0;
+  font-family: 'Nimbus-Sans-BolIta';
 }
 
 .external-link-container {
@@ -61,12 +61,13 @@ $linkColor: #949494;
   height: 15px;
   width: 225px;
   position: relative;
-  letter-spacing: 4px;
+  letter-spacing:2px;
   font-size: 10px;
   animation-name: offExternalText;
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
   padding-left: 25px;
+  font-family: 'Nimbus-Sans-BolIta';
 }
 
 .external-link:hover {
@@ -77,17 +78,15 @@ $linkColor: #949494;
 
 .link {
   color: $linkColor !important;
-  // position: relative;
   animation-name: offText;
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
-  // letter-spacing: 4px;
   font-size: 25px;
   height: 30px;
   padding-left: 25px;
 
   border-bottom: 1px solid $linkColor;
-  font-family: 'Nimbus-Sans';
+  font-family: 'Nimbus-Sans-BolIta';
 }
 
 .last-link {
@@ -155,11 +154,17 @@ $navHeight: calc(100vh - 120px);
 
 @media (max-width: 500px) {
   .nav-title {
+    padding-left: 0;
+    text-align: center;
   }
   .subtitle {
     font-size: 12px;
     line-height: 17px;
     height: auto;
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-top: -20px;
+    text-align: center;
   }
   .navbar {
     background-color: none;
@@ -186,6 +191,7 @@ $navHeight: calc(100vh - 120px);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     width: 60vw;
   }
   .menu-button {
@@ -202,20 +208,12 @@ $navHeight: calc(100vh - 120px);
     width: 100vw;
     background-color: white;
     text-align: center;
-    // height: 70vh;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
-    // flex-wrap: wrap;
   }
   .link {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100vw;
-    // height: 10vhpx;
-    // padding: 0;
-    // height: 10vh;
     height: calc($navHeight / 10);
     font-size: 30px;
     padding-left: 0;
@@ -235,7 +233,6 @@ $navHeight: calc(100vh - 120px);
     padding-left: 0;
     border-left: 1px solid $linkColor;
     border-right: 1px solid $linkColor;
-    // padding-right: 10vw;
   }
   // .link-color {
   //   height: 25px;
@@ -318,19 +315,19 @@ $navHeight: calc(100vh - 120px);
 
 @keyframes overText {
   from {
-    color: rgb(0, 255, 255)
+    color: $linkColor;
   }
   to {
-    color: white
+    color: white;
   }
 }
 
 @keyframes offText {
   from {
-    color: white
+    color: white;
   }
   to {
-    color: rgb(0, 255, 255)
+    color: $linkColor;
   }
 }
 
