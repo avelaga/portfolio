@@ -1,20 +1,16 @@
 import React, { useEffect } from 'react';
 import Navbar from '../layout/Navbar';
 import MediaQuery from 'react-responsive';
-import room from "../../dist/images/music/indulgent/mebed.jpg";
-import deyoung from "../../dist/images/home/deyoung-desktop.jpg";
-import gym from "../../dist/images/photos/portfolio/p1.jpg";
-import ania1 from "../../dist/images/photos/portfolio/p6.jpg";
-import ania2 from "../../dist/images/photos/portfolio/p13.jpg";
-import house from "../../dist/images/photos/portfolio/p15.jpg";
-import spark from "../../dist/images/home/yellow.jpg";
-import mepurple from "../../dist/images/home/mepurple.jpg";
-import drumming from "../../dist/images/music/mjf/drumming.mp4";
-import drummingMobile from "../../dist/images/music/mjf/drummingmobile.mp4";
+import project from '../../dist/images/software/project-sample.png';
 
-const images = [
-  mepurple, gym, deyoung, ania1, spark, house, ania2
-];
+function Project() {
+  return <div className='home-project'>
+    <img src={project} className='project-img' />
+    <div className='project-title'>the world misses you</div>
+    <div className='project-medium'>led installation</div>
+    <div className='project-year'>2021</div>
+  </div>
+}
 
 export default function Home() {
   // easter egg :)
@@ -26,8 +22,17 @@ export default function Home() {
     <div className="page-flex">
       <MediaQuery minDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={false} /></MediaQuery>
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={true} /></MediaQuery>
-      <div className="appear page home">
-        <div className='home-title'>hi, i'm abhi - i make music, photos, and transmedia art</div>
+      <div className="appear page">
+        <div className='home-title'>hi, i'm abhi - i make <blue>music</blue>, <red>photos</red>, and <green>transmedia art</green></div>
+        <div className='section-title'>featured work</div>
+        <div className='project-container'>
+        {Project()}
+        {Project()}
+        {Project()}
+        {Project()}
+        {Project()}
+        {Project()}
+        </div>
       </div>
     </div>
   )

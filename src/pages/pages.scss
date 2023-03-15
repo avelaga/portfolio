@@ -1,4 +1,4 @@
-$calcWidth: calc(100vw - 250px);
+$calcWidth: calc(100vw - 275px);
 $margin: 30px;
 
 .page {
@@ -18,8 +18,9 @@ $margin: 30px;
 .page-flex {
   display: flex;
   width: $calcWidth;
-  margin-left: 250px;
+  padding-left: 250px;
 }
+
 .title {
   font-size: 50px;
   color: white;
@@ -31,17 +32,68 @@ $margin: 30px;
   animation-duration: 1s;
 }
 
-.home {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  min-height: 100vh;
-}
-
 .home-title {
   font-size: 40px;
-  border: 1px solid red;
-  width: 100%;
+  border-bottom: 1px solid #C1C1C1;
+  width: $calcWidth;
+  padding-bottom: $margin;
+  padding-top: $margin;
+}
+
+blue {
+  background-color: #4268B3;
+  color: white;
+}
+
+red {
+  background-color: #D63B22;
+  color: white;
+}
+
+green {
+  background-color: #5ECC63;
+  color: white;
+}
+
+.section-title {
+  font-size: 60px;
+  color: black;
+  text-align: right;
+  width: $calcWidth;
+  padding-right: $margin;
+}
+
+$projWidth: calc($calcWidth / 3);
+
+.project-container {
+  display: flex;
+  width: $calcWidth;
+  flex-wrap: wrap;
+}
+
+.home-project {
+  width: $projWidth;
+  padding-right: $margin;
+  padding-bottom: $margin;
+}
+
+.project-img {
+  width: calc($projWidth - $margin);
+  height: calc($projWidth - $margin);
+}
+
+.project-title {
+  width: $projWidth;
+}
+
+.project-medium {
+  width: $projWidth;
+  font-size: 12px;
+}
+
+.project-year {
+  width: $projWidth;
+  font-size: 12px;
 }
 
 @keyframes appear {
