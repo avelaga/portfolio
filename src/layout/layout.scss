@@ -109,7 +109,16 @@ $borderColor: #C1C1C1;
   width: 200px;
   position: relative;
   padding-left: 25px;
-  border-bottom: 1px solid $borderColor
+  border-bottom: 1px solid $borderColor;
+  animation-name: offSublink;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+}
+
+.sublink:hover {
+  animation-name: overSublink;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
 }
 
 .last-sublink {
@@ -155,8 +164,11 @@ $navHeight: calc(100vh - 120px);
 
 @media (max-width: 500px) {
   .nav-title {
-    padding-left: 0;
-    text-align: center;
+    padding-left: 20px;
+    // text-align: center;
+    // font-size: 20px;
+    font-style: italic;
+    font-size: 30px;
   }
   .subtitle {
     font-size: 12px;
@@ -215,6 +227,7 @@ $navHeight: calc(100vh - 120px);
     justify-content: center;
     width: 100vw;
     height: calc($navHeight / 10);
+    padding-top: 8px;
     font-size: 30px;
     padding-left: 0;
   }
@@ -225,12 +238,12 @@ $navHeight: calc(100vh - 120px);
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-
   }
   .sublink {
     width: 70vw;
     height: calc($navHeight / 20);
     padding-left: 0;
+    padding-top: 4px;
     border-left: 1px solid $borderColor;
     border-right: 1px solid $borderColor;
   }
@@ -292,6 +305,24 @@ $navHeight: calc(100vh - 120px);
     background-color: rgba(0, 0, 0, 0.2);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
+  }
+}
+
+@keyframes overSublink {
+  from {
+    color: $linkColor
+  }
+  to {
+    color: black
+  }
+}
+
+@keyframes offSublink {
+  from {
+    color: black
+  }
+  to {
+    color: $linkColor
   }
 }
 

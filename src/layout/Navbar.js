@@ -14,7 +14,7 @@ export default function Navbar({activeLink, mobile}){
         <div className="nav-header">
           <div className="nav-title-container">
           <a href="/"><div className='nav-title'>ABHI VELAGA</div></a>
-            <div className='subtitle'>musician, developer, artist</div>
+            {!mobile && <div className='subtitle'>musician, developer, artist</div>}
           </div>
 
           { mobile && <div className="menu-button" onClick={() => setCollapsed(!collapsed)}>MENU</div> }
