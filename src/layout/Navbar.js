@@ -10,6 +10,8 @@ export default function Navbar({activeLink, mobile}){
     backgroundColor: 'black'
   };
 
+  const isPhotoPage = (activeLink === "PORTFOLIO" || activeLink === "MIAMI" || activeLink === "USERVOID" || activeLink === "PUBLISHED");
+
   return <div className='navbar'>
         <div className="nav-header">
           <div className="nav-title-container">
@@ -24,7 +26,7 @@ export default function Navbar({activeLink, mobile}){
           <div>
             <div className='link-container'>
               <a href="/about"><div className='link'  style={activeLink === "ABOUT" ? activeStyle : {}}>ABOUT</div></a>
-              <a href="/photo"><div className='link' style={activeLink === "PHOTO" ? activeStyle : {}}>PHOTO</div></a>
+              <a href="/portfolio"><div className='link' style={isPhotoPage ? activeStyle : {}}>PHOTO</div></a>
               <div className='sublink-container'>
                 <a href="/portfolio"><div className='sublink' style={activeLink === "PORTFOLIO" ? activeStyle : {}}>portfolio</div></a>
                 <a href="/miamivice"><div className='sublink' style={activeLink === "MIAMI" ? activeStyle : {}}>miami vice cocaine dream</div></a>

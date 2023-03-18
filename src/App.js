@@ -2,7 +2,6 @@ import React from "react";
 import { Switch, Route } from 'react-router-dom';
 import Home from './pages/Home.js';
 import About from './pages/About.js';
-import Photo from './pages/Photo.js';
 import Miami from './pages/photo/Miami.js';
 import Portfolio from './pages/photo/Portfolio.js';
 import UserVoid from './pages/photo/UserVoid.js';
@@ -32,7 +31,8 @@ function App() {
     <Switch>
       <Route exact path='/' exact component={Home} />
       <Route exact path='/about' exact component={About} />
-      <Route exact path='/photo' exact component={Photo} />
+      {/* /photo is legacy link */}
+      <Route exact path='/photo' exact component={Portfolio} />
       <Route exact path='/portfolio' exact component={Portfolio} />
       <Route exact path='/miamivice' exact component={Miami} />
       <Route exact path='/uservoid' exact component={UserVoid} />
