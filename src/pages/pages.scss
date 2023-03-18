@@ -517,11 +517,43 @@ processing {
     font-size: 15px; 
     padding-left: $mobileMargin;
   }
-  .hi {
-    padding-top: 150px;
+  .hi-titles-container {
+    width: 100vw;
+    justify-content: center;
+    text-align: right;
+  }
+  .hi-title {
+    font-size: 40px;
+    width: 100vw;
+    padding-right: $mobileMargin;
+    padding-top: $mobileMargin;;
+    font-family: 'Nimbus-Sans-Reg';
+  }
+  .hi-subtitle {
+    font-size: 20px;
+    width: 100vw;
+    padding-bottom: $mobileMargin;
+    padding-top: $mobileMargin;
+    padding-right: $mobileMargin;
+    padding-left: $mobileMargin;
+  }
+  .hi-body {
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100vw;
+    margin-top: calc(4 * $mobileMargin);
+  }
+  .hi-button {
+    width: 100vw;
+    margin: 0;
+    margin-left: calc(4 * $mobileMargin);
+    margin-right: calc(4 * $mobileMargin);
   }
   .hi-gif { 
-    width: 100%;
+    width: 100vw;
+    height: auto;
+    max-height: none;
+    margin-top: calc(4 * $mobileMargin);
   }
   .about-top-img {
     width: 100vw;
