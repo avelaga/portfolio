@@ -10,18 +10,18 @@ import '../pages.scss';
 // 3 div widths - smallest will allow 3 in a row
 
 // img - image
-// width or height - int
+// width - int
 // padding - boolean for yes or no
 // align - string - "left", "center", "right"
 // numColumns - int - divide total width by this to get div width for the one component
 
-const bigPadding = "100px";
-const smallPadding = "25px";
+const bigPadding = "5rem";
+const smallPadding = "1rem";
 const navbarWidth = 275;
 
 // TODO: lazy load images
 
-export default function ModularPhoto({ img, width, height, padding, align, numColumns }) {
+export default function ModularPhoto({ img, width, padding, align, numColumns }) {
     const [usableWidth, setUsableWidth] = useState(window.innerWidth - navbarWidth);
 
     const handleResize = () => {
@@ -32,42 +32,39 @@ export default function ModularPhoto({ img, width, height, padding, align, numCo
         window.addEventListener("resize", handleResize)
     })
 
-    let computedStyle = {};
+    let photoStyle = {};
 
+    let colWidth = usableWidth / numColumns;
     if (width) {
-        if (width > usableWidth) {
-            computedStyle["width"] = `${usableWidth}px`;
+        if (width > colWidth) {
+            photoStyle["width"] = `${colWidth}px`;
         } else {
-            computedStyle["width"] = `${width}px`;
+            photoStyle["width"] = `${width}px`;
         }
     }
 
-    if (height) {
-        computedStyle["height"] = `${height}px`;
-    }
-
     if (padding) {
-        computedStyle["padding"] = bigPadding;
+        photoStyle["padding"] = bigPadding;
     } else {
-        computedStyle["padding"] = smallPadding;
+        photoStyle["padding"] = smallPadding;
     }
 
-    let containerComputedStyle = {};
+    let containerStyle = {};
     if (align === "left") {
-        containerComputedStyle["justifyContent"] = `flex-start`;
+        containerStyle["justifyContent"] = `flex-start`;
     } else if ((align === "center")) {
-        containerComputedStyle["justifyContent"] = `center`;
+        containerStyle["justifyContent"] = `center`;
     } else {
-        containerComputedStyle["justifyContent"] = `flex-end`;
+        containerStyle["justifyContent"] = `flex-end`;
     }
 
-    containerComputedStyle["alignItems"] = "center"
+    containerStyle["alignItems"] = "center"
 
     const containerWidth = usableWidth / numColumns;
-    containerComputedStyle["width"] = `${containerWidth}px`;
-    containerComputedStyle["minHeight"] = "100vh";
+    containerStyle["width"] = `${containerWidth}px`;
+    containerStyle["minHeight"] = "100vh";
 
-    return <div className="modular-photo" style={containerComputedStyle}>
-        <img src={img} style={computedStyle} />
+    return <div className="modular-photo" style={containerStyle}>
+        <img src={img} style={photoStyle} />
     </div>
 }
