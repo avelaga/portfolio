@@ -1,49 +1,48 @@
-import React , { useState } from 'react';
-import Lightbox from 'react-image-lightbox';
+import React from 'react';
 import MediaQuery from 'react-responsive';
 import 'react-image-lightbox/style.css';
 import Navbar from '../../layout/Navbar';
-import { miamiImages, getHeight, getWidth } from './images.js';
-import Columned from "react-columned";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
+import ModularPhoto from './ModularPhoto';
+import { miamiImages } from './images.js';
 import '../pages.scss';
 
 export default function Miami() {
-  const [photoIndex, setPhotoIndex] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const mapImages = function(cols, images) {
-    return <Columned columns={cols} className="gallery">
-      {images.map((value, index) => {
-        return <LazyLoadImage key={index} className="img" src={value} onClick={() => {setIsOpen(true); setPhotoIndex(index)}} effect="opacity" height={getHeight(value)} width={getWidth(value)} />
-      })}
-    </Columned>
-  };
 
   return (
     <div>
       <MediaQuery minDeviceWidth={500}><Navbar activeLink={"MIAMI"} mobile={false} /></MediaQuery>
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"MIAMI"} mobile={true} /></MediaQuery>
-      <div className="page">
-        <div className="appear">
-          <MediaQuery minDeviceWidth={500}>{mapImages(3, miamiImages)}</MediaQuery>
-          <MediaQuery maxDeviceWidth={500}>{mapImages(1, miamiImages)}</MediaQuery>
-          {isOpen && (
-            <Lightbox
-              mainSrc={miamiImages[photoIndex]}
-              nextSrc={miamiImages[(photoIndex + 1) % miamiImages.length]}
-              prevSrc={miamiImages[(photoIndex + miamiImages.length - 1) % miamiImages.length]}
-              onCloseRequest={() => setIsOpen(false)}
-              onMovePrevRequest={() =>
-                setPhotoIndex((photoIndex + miamiImages.length - 1) % miamiImages.length)
-              }
-              onMoveNextRequest={() =>
-                setPhotoIndex((photoIndex + 1) % miamiImages.length)
-              }
-            />
-          )}
-        </div>
+      <div className="page appear gallery">
+        <ModularPhoto img={miamiImages[0]} width={2000} padding={true} align={"center"} numColumns={1} />
+        <ModularPhoto img={miamiImages[1]} width={600} padding={true} align={"left"} numColumns={1} />
+        <ModularPhoto img={miamiImages[2]} width={2000} padding={true} align={"center"} numColumns={1} />
+        <ModularPhoto img={miamiImages[3]} width={2000} padding={true} align={"center"} numColumns={1} />
+        <ModularPhoto img={miamiImages[4]} width={900} padding={true} align={"right"} numColumns={1} />
+        <ModularPhoto img={miamiImages[5]} width={2000} padding={false} align={"center"} numColumns={1} />
+        <ModularPhoto img={miamiImages[6]} width={600} padding={false} align={"center"} numColumns={2} />
+        <ModularPhoto img={miamiImages[7]} width={600} padding={false} align={"center"} numColumns={2} />
+        <ModularPhoto img={miamiImages[8]} width={900} padding={true} align={"center"} numColumns={1} />
+        <ModularPhoto img={miamiImages[9]} width={800} padding={true} align={"right"} numColumns={1} />
+        <ModularPhoto img={miamiImages[10]} width={800} padding={true} align={"left"} numColumns={1} />
+        <ModularPhoto img={miamiImages[11]} width={600} padding={true} align={"center"} numColumns={2} />
+        <ModularPhoto img={miamiImages[12]} width={600} padding={false} align={"center"} numColumns={2} />
+        <ModularPhoto img={miamiImages[13]} width={700} padding={true} align={"left"} numColumns={1} />
+        <ModularPhoto img={miamiImages[14]} width={600} padding={true} align={"left"} numColumns={1} />
+        <ModularPhoto img={miamiImages[15]} width={600} padding={true} align={"center"} numColumns={2} />
+        <ModularPhoto img={miamiImages[16]} width={800} padding={false} align={"center"} numColumns={2} />
+        <ModularPhoto img={miamiImages[17]} width={700} padding={true} align={"right"} numColumns={1} />
+        <ModularPhoto img={miamiImages[18]} width={600} padding={false} align={"center"} numColumns={2} />
+        <ModularPhoto img={miamiImages[19]} width={600} padding={false} align={"center"} numColumns={2} />
+        <ModularPhoto img={miamiImages[20]} width={1200} padding={true} align={"center"} numColumns={1} />
+        <ModularPhoto img={miamiImages[21]} width={600} padding={true} align={"left"} numColumns={2} />
+        <ModularPhoto img={miamiImages[22]} width={900} padding={true} align={"right"} numColumns={1} />
+        <ModularPhoto img={miamiImages[23]} width={600} padding={true} align={"center"} numColumns={2} />
+        <ModularPhoto img={miamiImages[24]} width={900} padding={false} align={"center"} numColumns={2} />
+        <ModularPhoto img={miamiImages[25]} width={1200} padding={true} align={"center"} numColumns={1} />
+        <ModularPhoto img={miamiImages[26]} width={600} padding={false} align={"center"} numColumns={2} />
+        <ModularPhoto img={miamiImages[27]} width={600} padding={false} align={"center"} numColumns={2} />
+        <ModularPhoto img={miamiImages[28]} width={600} padding={false} align={"center"} numColumns={2} />
+        <ModularPhoto img={miamiImages[29]} width={600} padding={false} align={"center"} numColumns={1} />
       </div>
     </div>
   )
