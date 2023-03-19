@@ -106,7 +106,8 @@ $borderColor: #C1C1C1;
 }
 
 .sublink {
-  width: 200px;
+  // account for 1px border on each side, 198 prevents overflow
+  width: 198px;
   position: relative;
   padding-left: 25px;
   border-bottom: 1px solid $borderColor;
