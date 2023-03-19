@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/opacity.css';
 import '../pages.scss';
 
 // 3 image widths OR heights - other aspect will be auto
-    // second prop for w or h
+// second prop for w or h
 // 2 paddings
 // 3 alignments
 // 3 div widths - smallest will allow 3 in a row
@@ -17,9 +19,11 @@ const bigPadding = "100px";
 const smallPadding = "25px";
 const navbarWidth = 275;
 
-export default function ModularPhoto({img, width, height, padding, align, numColumns}){
+// TODO: lazy load images
+
+export default function ModularPhoto({ img, width, height, padding, align, numColumns }) {
     const [usableWidth, setUsableWidth] = useState(window.innerWidth - navbarWidth);
- 
+
     const handleResize = () => {
         setUsableWidth(window.innerWidth - navbarWidth);
     }
@@ -30,28 +34,28 @@ export default function ModularPhoto({img, width, height, padding, align, numCol
 
     let computedStyle = {};
 
-    if(width){
-        if(width > usableWidth){
+    if (width) {
+        if (width > usableWidth) {
             computedStyle["width"] = `${usableWidth}px`;
-        }else{
+        } else {
             computedStyle["width"] = `${width}px`;
         }
     }
 
-    if(height){
+    if (height) {
         computedStyle["height"] = `${height}px`;
     }
 
-    if(padding){
+    if (padding) {
         computedStyle["padding"] = bigPadding;
-    } else{
+    } else {
         computedStyle["padding"] = smallPadding;
     }
 
     let containerComputedStyle = {};
-    if(align === "left"){
+    if (align === "left") {
         containerComputedStyle["justifyContent"] = `flex-start`;
-    } else if((align === "center")){
+    } else if ((align === "center")) {
         containerComputedStyle["justifyContent"] = `center`;
     } else {
         containerComputedStyle["justifyContent"] = `flex-end`;
@@ -64,6 +68,6 @@ export default function ModularPhoto({img, width, height, padding, align, numCol
     containerComputedStyle["minHeight"] = "100vh";
 
     return <div className="modular-photo" style={containerComputedStyle}>
-        <img src={img} style={computedStyle}/>
+        <img src={img} style={computedStyle} />
     </div>
 }
