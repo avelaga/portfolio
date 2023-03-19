@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import MediaQuery from 'react-responsive'
 import './layout.scss'
 
 export default function Navbar({activeLink, mobile}){

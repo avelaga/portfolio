@@ -134,9 +134,10 @@ a:hover {
 }
 
 .gallery {
-  width: 71%;
-  margin-right: 5%;
-  margin-left: 24%;
+  display: flex;
+  flex-wrap: wrap;
+  width: $calcWidth;
+  margin-left: 250px;
 }
 
 /* all of these are in use to modify lightbox library */
@@ -449,12 +450,8 @@ processing {
   color: rgb(35, 117, 189)
 }
 
-.freelance {
-  width: 100%;
-  padding-right: 20%;
-  padding-left: 20%;
-  font-size: 50px;
-  line-height: 50px;
+.modular-photo{
+  display: flex;
 }
 
 @media (max-width: 500px) {
@@ -594,11 +591,6 @@ processing {
   .about-right-img {
     height: auto;
     width:100vw;
-  }
-  .gallery {
-    width: 100%;
-    margin-right: 0;
-    margin-left: 0;
   }
   .software-intro {
     padding-bottom: 50px;
