@@ -12,7 +12,7 @@ export default function Portfolio() {
     <div>
       <MediaQuery minDeviceWidth={500}><Navbar activeLink={"PORTFOLIO"} mobile={false} /></MediaQuery>
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"PORTFOLIO"} mobile={true} /></MediaQuery>
-      <div className="page appear">
+      <div className="page appear gallery">
         <ModularPhoto img={portfolioImages[0]} width={1000} padding={false} align={"right"} numColumns={1} />
         <ModularPhoto img={portfolioImages[1]} height={700} padding={true} align={"center"} numColumns={1} />
         <ModularPhoto img={portfolioImages[2]} height={600} padding={true} align={"center"} numColumns={2} />
