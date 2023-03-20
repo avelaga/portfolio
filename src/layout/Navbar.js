@@ -9,7 +9,7 @@ export default function Navbar({activeLink, mobile}){
     backgroundColor: 'black'
   };
 
-  const isPhotoPage = (activeLink === "PORTFOLIO" || activeLink === "MIAMI" || activeLink === "USERVOID" || activeLink === "PUBLISHED");
+  const isPhotoPage = (activeLink === "PORTFOLIO" || activeLink === "MIAMI" || activeLink === "USERVOID" || activeLink === "EDITORIAL");
 
   return <div className='navbar'>
         <div className="nav-header">
@@ -30,7 +30,7 @@ export default function Navbar({activeLink, mobile}){
                 <a href="/portfolio"><div className='sublink' style={activeLink === "PORTFOLIO" ? activeStyle : {}}>portfolio</div></a>
                 <a href="/miamivice"><div className='sublink' style={activeLink === "MIAMI" ? activeStyle : {}}>miami vice cocaine dream</div></a>
                 <a href="/uservoid"><div className='sublink' style={activeLink === "USERVOID" ? activeStyle : {}}>user void</div></a>
-                <a href="/published"><div className='last-sublink' style={activeLink === "PUBLISHED" ? activeStyle : {}}>published work</div></a>
+                <a href="/editorial"><div className='last-sublink' style={activeLink === "EDITORIAL" ? activeStyle : {}}>editorial work</div></a>
               </div>
               <a href="/music"><div className='resume-link' style={activeLink === "MUSIC" ? activeStyle : {}}>MUSIC</div></a>
               <a href="/software"><div className='link' style={activeLink === "SOFTWARE" ? activeStyle : {}}>SOFTWARE</div></a>

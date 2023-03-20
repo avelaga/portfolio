@@ -2,6 +2,9 @@ $calcWidth: calc(100vw - 275px);
 $margin: 30px;
 $mobileMargin: 10px;
 $borderColor: #C1C1C1;
+$linkColor: #949494;
+
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
 
 .page {
   min-height: 100vh;
@@ -58,12 +61,31 @@ green {
 }
 
 .section-title {
-  font-size: 60px;
+  font-size: 80px;
+  margin-bottom: -20px;
   color: black;
   text-align: right;
   width: $calcWidth;
   padding-right: $margin;
-  font-family: 'Nimbus-Sans-Reg';
+  // font-family: 'Nimbus-Sans-Reg';
+}
+
+.section-subtitle {
+  font-size: 20px;
+  width: 100vw;
+  text-align: right;
+  padding-right: $margin;
+  font-weight: 100;
+  margin-bottom: -5px;
+}
+
+.section-year {
+  font-size: 15px;
+  width: 100vw;
+  text-align: right;
+  padding-right: $margin;
+  font-weight: 100;
+  color: #0000006d;
 }
 
 $projWidth: calc($calcWidth / 3);
@@ -72,6 +94,7 @@ $projWidth: calc($calcWidth / 3);
   display: flex;
   width: $calcWidth;
   flex-wrap: wrap;
+  margin-top: $margin;
 }
 
 .home-project {
@@ -140,18 +163,32 @@ a:hover {
   margin-left: 250px;
 }
 
-/* all of these are in use to modify lightbox library */
+// image carousel overrides
 
-.ril__caption, .ril__toolbar {
-  background-color: rgb(0, 0, 0, 0) !important;
+.image-gallery-icon{
+  filter: none;
+  transition: none;
+  color: $linkColor;
 }
 
-.ril__zoomInButton {
-  background: none !important;
+.image-gallery-icon:hover{
+  color: $linkColor;
+  transition: none;
+  // transform: scale(1);
 }
 
-.ril__zoomOutButton {
-  background: none !important;
+.image-gallery {
+  width: 700px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.image-gallery-left-nav {
+  left: -150;
+}
+
+.image-gallery-right-nav {
+  right: -150;
 }
 
 .about-top {

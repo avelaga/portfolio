@@ -5,7 +5,7 @@ import About from './pages/About.js';
 import Miami from './pages/photo/Miami.js';
 import Portfolio from './pages/photo/Portfolio.js';
 import UserVoid from './pages/photo/UserVoid.js';
-import Published from './pages/photo/Published.js';
+import Editorial from './pages/photo/Editorial.js';
 import Software from './pages/Software.js';
 import Music from './pages/Music.js';
 import Hi from './pages/Hi.js';
@@ -36,7 +36,9 @@ function App() {
       <Route exact path='/portfolio' exact component={Portfolio} />
       <Route exact path='/miamivice' exact component={Miami} />
       <Route exact path='/uservoid' exact component={UserVoid} />
-      <Route exact path='/published' exact component={Published} />
+      {/* published is legacy link  */}
+      <Route exact path='/published' exact component={Editorial} />
+      <Route exact path='/editorial' exact component={Editorial} />
       <Route exact path='/software' exact component={Software} />
       <Route exact path='/music' exact component={Music} />
       <Route exact path='/hi' exact component={Hi} />
