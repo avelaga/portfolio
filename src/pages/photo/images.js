@@ -225,11 +225,18 @@ export const sparkImages = [
   pub23 
 ];
 
-export const miamiPublications = [
+export const miamiBookPics = [
   book1,
   book2,
   book3,
   book4,
+];
+
+export const miamiBookPicsCarousel = [
+  {original: book1, originalWidth: "500px"},
+  {original: book2, originalWidth: "500px"},
+  {original: book3, originalWidth: "500px"},
+  {original: book4, originalWidth: "500px"}
 ];
 
 export const sparkMagPics = [

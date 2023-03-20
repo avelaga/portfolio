@@ -6,13 +6,16 @@ import ModularPhoto from './ModularPhoto';
 import { portfolioImages } from './images.js';
 import '../pages.scss';
 
+// TODO: do i want to add a description or something?
 export default function Portfolio() {
-
   return (
     <div>
       <MediaQuery minDeviceWidth={500}><Navbar activeLink={"PORTFOLIO"} mobile={false} /></MediaQuery>
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"PORTFOLIO"} mobile={true} /></MediaQuery>
       <div className="page appear gallery">
+        <div className="section-title">Photography Portfolio</div>
+        {/* <div className="section-subtitle">subtitle goes here</div> */}
+        {/* <div className="section-year">2018 - 2019</div> */}
         <ModularPhoto img={portfolioImages[0]} width={1000} padding={false} align={"right"} numColumns={1} />
         <ModularPhoto img={portfolioImages[1]} width={700} padding={true} align={"center"} numColumns={1} />
         <ModularPhoto img={portfolioImages[2]} width={600} padding={true} align={"center"} numColumns={2} />
