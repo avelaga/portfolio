@@ -15,6 +15,7 @@ export default function UserVoid() {
         <div className="section-title">User Void</div>
         {/* <div className="section-subtitle">subtitle goes here</div> */}
         <div className="section-year">2019</div>
+        <div className="photo-mobile-spacer" />
         <ModularPhoto img={userVoidImages[0]} width={2000} padding={true} align={"center"} numColumns={1} />
         <ModularPhoto img={userVoidImages[1]} width={900} padding={true} align={"left"} numColumns={1} />
         <ModularPhoto img={userVoidImages[2]} width={600} padding={true} align={"right"} numColumns={1} />

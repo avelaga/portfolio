@@ -33,36 +33,44 @@ export default function ModularPhoto({ img, width, padding, align, numColumns })
     })
 
     let photoStyle = {};
-
-    let colWidth = usableWidth / numColumns;
-    if (width) {
-        if (width > colWidth) {
-            photoStyle["width"] = `${colWidth}px`;
-        } else {
-            photoStyle["width"] = `${width}px`;
-        }
-    }
-
-    if (padding) {
-        photoStyle["padding"] = bigPadding;
-    } else {
-        photoStyle["padding"] = smallPadding;
-    }
-
     let containerStyle = {};
-    if (align === "left") {
-        containerStyle["justifyContent"] = `flex-start`;
-    } else if ((align === "center")) {
-        containerStyle["justifyContent"] = `center`;
+
+    if(usableWidth + navbarWidth > 500){
+        // desktop
+        let colWidth = usableWidth / numColumns;
+        if (width) {
+            if (width > colWidth) {
+                photoStyle["width"] = `${colWidth}px`;
+            } else {
+                photoStyle["width"] = `${width}px`;
+            }
+        }
+
+        if (padding) {
+            photoStyle["padding"] = bigPadding;
+        } else {
+            photoStyle["padding"] = smallPadding;
+        }
+
+        if (align === "left") {
+            containerStyle["justifyContent"] = `flex-start`;
+        } else if ((align === "center")) {
+            containerStyle["justifyContent"] = `center`;
+        } else {
+            containerStyle["justifyContent"] = `flex-end`;
+        }
+
+        containerStyle["minHeight"] = "100vh";
+        containerStyle["alignItems"] = "center"
+
+        const containerWidth = usableWidth / numColumns;
+        containerStyle["width"] = `${containerWidth}px`;
     } else {
-        containerStyle["justifyContent"] = `flex-end`;
+        // mobile
+        photoStyle["width"] = "100vw";
+        photoStyle["marginBottom"] = "1px";
+        containerStyle["justifyContent"] = `center`;
     }
-
-    containerStyle["alignItems"] = "center"
-
-    const containerWidth = usableWidth / numColumns;
-    containerStyle["width"] = `${containerWidth}px`;
-    containerStyle["minHeight"] = "100vh";
 
     return <div className="modular-photo" style={containerStyle}>
         <img src={img} style={photoStyle} />

@@ -16,6 +16,7 @@ export default function Miami() {
         <div className="section-title">Miami Vice Cocaine Dream</div>
         {/* <div className="section-subtitle">subtitle goes here</div> */}
         <div className="section-year">2018 - 2019</div>
+        <div className="photo-mobile-spacer" />
         <ImageGallery
           items={miamiBookPicsCarousel}
           showThumbnails={false}
@@ -23,6 +24,7 @@ export default function Miami() {
           useBrowserFullscreen={false}
           showPlayButton={false}
         />
+        <div className="photo-mobile-spacer" />
         <ModularPhoto img={miamiImages[0]} width={2000} padding={true} align={"center"} numColumns={1} />
         <ModularPhoto img={miamiImages[1]} width={600} padding={true} align={"left"} numColumns={1} />
         <ModularPhoto img={miamiImages[2]} width={2000} padding={true} align={"center"} numColumns={1} />

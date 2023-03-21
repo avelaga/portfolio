@@ -19,6 +19,7 @@ export default function Editorial() {
         <div className="section-title">Editorial Work</div>
         <div className="section-subtitle">work produced for Spark Magazine</div>
         <div className="section-year">2019</div>
+        <div className="photo-mobile-spacer" />
           <ImageGallery 
           items={sparkMagPicsCarousel}
           showThumbnails={false}
@@ -26,6 +27,7 @@ export default function Editorial() {
           useBrowserFullscreen={false}
           showPlayButton={false}
           />
+          <div className="photo-mobile-spacer" />
         <ModularPhoto img={sparkImages[0]} width={2000} padding={true} align={"center"} numColumns={1} />
         <ModularPhoto img={sparkImages[1]} width={1000} padding={true} align={"center"} numColumns={2} />
         <ModularPhoto img={sparkImages[2]} width={1000} padding={false} align={"center"} numColumns={2} />
