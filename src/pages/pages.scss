@@ -572,11 +572,14 @@ processing {
     padding-right: $margin;
     margin-top: 0;
   }
+  .image-gallery-icon{
+    padding: 0;
+  }
   .image-gallery-left-nav {
-    left: -42;
+    left: -32;
   }
   .image-gallery-right-nav {
-    right: -42;
+    right: -32;
   }
   .hi-titles-container {
     width: 100vw;
