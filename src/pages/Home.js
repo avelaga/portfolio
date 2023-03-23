@@ -24,6 +24,7 @@ export default function Home() {
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={true} /></MediaQuery>
       <div className="appear page">
         <div className='home-title'>hi, i'm abhi - i make <blue>music</blue>, <red>photos</red>, and <green>transmedia art</green></div>
+        <div className="line" />
         <div className='section-title'>featured work</div>
         <div className='project-container'>
         {Project()}
