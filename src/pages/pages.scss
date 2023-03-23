@@ -344,40 +344,47 @@ processing {
   align-items: center;
   justify-content: center;
   width: $calcWidth;
+  position: relative
 }
 
 .software-half {
   width: calc($calcWidth / 2);
   padding: $margin;
+  padding-top: 0;
 }
 
 .software-full {
   width: $calcWidth;
   padding: $margin;
+  padding-top: 0;
 }
 
 .dadalab-text-container {
   display: flex;
-  // justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
-  // height: 100%;
 }
 
 .software-info {
-  width: 100%;
-  // height: 100%;
+  width: calc($calcWidth / 2);
+  position: absolute;
+  padding-right: $margin;
 }
 
 .software-caption {
   text-align: right;
-  width: 100%;
-  margin-top: 100%;
+  width: calc($calcWidth / 2);
+  padding-right: $margin;
+  padding-bottom: $margin;
+  position: absolute;
+  bottom: 0;
 }
 
 .software-youtube {
   width: $calcWidth;
   height: calc(($calcWidth/16) * 9);
   padding: $margin;
+  padding-top: 0;
 }
 
 @media (max-width: 500px) {
