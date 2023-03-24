@@ -32,13 +32,13 @@ export default function Software() {
           <div className="software-info">{theWorldMissesYouInfo}</div>
           <div className="software-caption">dadalab, austin, tx <br/>2022</div>
         </div>
-        <img src={dadalab1} className="software-half" />
+        <img src={dadalab1} className="software-half software-mobile-photo" />
       </div>
-      <img src={dadalab2} className='software-full' />
-      <img src={dadalab3} className='software-half' />
-      <img src={dadalab4} className='software-half' />
-      <img src={dadalab5} className='software-half' />
-      <YouTube videoId="CcSitqAJFZk" className="software-youtube"/>
+      <img src={dadalab2} className='software-full software-mobile-photo' />
+      <img src={dadalab3} className='software-half software-mobile-photo' />
+      <img src={dadalab4} className='software-half software-mobile-photo' />
+      <img src={dadalab5} className='software-half software-mobile-photo' />
+      <YouTube videoId="CcSitqAJFZk" className="software-youtube  software-mobile-photo"/>
       <div className="line" />
       <div className="section-title">say hi</div>
       <div className="section-year">2020</div>

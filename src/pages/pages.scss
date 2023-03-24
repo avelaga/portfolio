@@ -344,7 +344,7 @@ processing {
   align-items: center;
   justify-content: center;
   width: $calcWidth;
-  position: relative
+  position: relative;
 }
 
 .software-half {
@@ -407,6 +407,9 @@ processing {
     margin-right: $mobileMargin;
     margin-left: $mobileMargin;
   }
+  .line {
+    width: 100vw;
+  }
   .section-title {
     font-size: 40px;
     color: black;
@@ -420,6 +423,7 @@ processing {
     padding-right: $mobileMargin;
   }
   .section-year {
+    width: 100vw;
     padding-right: $mobileMargin;
   }
   .project-container {
@@ -558,5 +562,42 @@ processing {
   .menu-fadein {
     width: 100vw;
     height: 100vw;
+  }
+  .software-row {
+    flex-wrap: wrap;
+    width: 100vw;
+  }
+  .software-half {
+    width: 100vw;
+    padding: 0;
+  }
+  .software-full {
+    width: 100vw;
+    padding: 0;
+  }
+  .dadalab-text-container {
+    width: 100vw;
+    padding: $mobileMargin;
+  }
+  .software-info {
+    width: 100vw;
+    position: relative;
+    padding: 0;
+    text-align: right;
+    margin-bottom: $mobileMargin;
+  }
+  .software-caption {
+    width: 100vw;
+    padding: 0;
+    position: relative;
+    color: $linkColor;
+  }
+  .software-youtube {
+    width: 100vw;
+    height: calc((100vw/16) * 9);
+    padding: 0;
+  }
+  .software-mobile-photo {
+    margin-bottom: 1px;
   }
 }
