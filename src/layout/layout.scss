@@ -111,6 +111,7 @@ $borderColor: #C1C1C1;
   position: relative;
   padding-left: 25px;
   border-bottom: 1px solid $borderColor;
+  margin-top: 1px; // accounts for 1px bottom border so text remains cenetred
   animation-name: offSublink;
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
@@ -244,7 +245,8 @@ $navHeight: calc(100vh - 120px);
     width: 70vw;
     height: calc($navHeight / 20);
     padding-left: 0;
-    padding-top: 4px;
+    margin-top: 0px;
+    line-height: 32px;
     border-left: 1px solid $borderColor;
     border-right: 1px solid $borderColor;
   }
