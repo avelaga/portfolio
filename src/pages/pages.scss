@@ -110,6 +110,7 @@ $projWidth: calc($calcWidth / 3);
 .project-img {
   width: calc($projWidth - $margin);
   height: calc($projWidth - $margin);
+  object-fit: cover;
 }
 
 .project-title {

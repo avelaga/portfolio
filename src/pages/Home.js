@@ -1,16 +1,57 @@
 import React, { useEffect } from 'react';
 import Navbar from '../layout/Navbar';
 import MediaQuery from 'react-responsive';
-import project from '../../dist/images/software/project-sample.png';
+import worldMissesYou from '../../dist/images/software/dadalab/dadalab4.jpg';
+import breakMyFall from '../../dist/images/music/indulgent/breakMyFall.jpg';
+import noOneKnows from '../../dist/images/music/indulgent/noOneKnows.jpg';
+import rebound from '../../dist/images/music/indulgent/rebound.jpg';
+import miami1 from '../../dist/images/photos/miami/miami1.jpg';
+import uservoid1 from '../../dist/images/photos/uservoid/uservoid1.jpg';
 
-function Project() {
-  return <div className='home-project'>
-    <img src={project} className='project-img' />
-    <div className='project-title'>the world misses you</div>
-    <div className='project-medium'>led installation</div>
-    <div className='project-year'>2021</div>
-  </div>
-}
+const projects = [
+  {
+    cover: worldMissesYou,
+    title: "the world misses you",
+    medium: "led installation",
+    year: "2021",
+    link: "/software"
+  },
+  {
+    cover: miami1,
+    title: "miami vice cocaine dream",
+    medium: "photo series",
+    year: "2018 - 2019",
+    link: "/miamivice"
+  },
+  {
+    cover: rebound,
+    title: "rebound - single",
+    medium: "music",
+    year: "2022",
+    link: "https://open.spotify.com/track/6JTaf4T4GYIWPRbBioJnWu?si=47ae2a1a35b9475e"
+  },
+  {
+    cover: noOneKnows,
+    title: "no one knows - single",
+    medium: "music",
+    year: "2022",
+    link: "https://open.spotify.com/track/584ATM5plnkdi60rd6Ns42?si=fdb42d68f3fe4564"
+  },
+  {
+    cover: breakMyFall,
+    title: "break my fall - single",
+    medium: "music",
+    year: "2022",
+    link: "https://open.spotify.com/track/6FRTGOjhRkiJVDBRz5CWWt?si=0c305147687d436f"
+  },
+  {
+    cover: uservoid1,
+    title: "user void",
+    medium: "photo series",
+    year: "2019",
+    link: "/uservoid"
+  },
+]
 
 export default function Home() {
   // easter egg :)
@@ -23,16 +64,20 @@ export default function Home() {
       <MediaQuery minDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={false} /></MediaQuery>
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={true} /></MediaQuery>
       <div className="appear page">
-        <div className='home-title'>hi, i'm abhi - i make <blue>music</blue>, <red>photos</red>, and <green>transmedia art</green></div>
+        <div className='home-title'>hi, i'm abhi - i make <a href="/music"><blue>music</blue></a>, <a href="/portfolio"><red>photos</red></a>, and <a href="/software"><green>transmedia art</green></a></div>
         <div className="line" />
         <div className='section-title'>featured work</div>
         <div className='project-container'>
-        {Project()}
-        {Project()}
-        {Project()}
-        {Project()}
-        {Project()}
-        {Project()}
+          {projects.map((project) =>
+          <a href={project.link}>
+            <div className='home-project'>
+              <img src={project.cover} className='project-img' />
+              <div className='project-title'>{project.title}</div>
+              <div className='project-medium'>{project.medium}</div>
+              <div className='project-year'>{project.year}</div>
+            </div>
+            </a>
+          )}
         </div>
       </div>
     </div>
