@@ -406,11 +406,11 @@ processing {
   align-items: center;
   justify-content: center;
   width: $calcWidth;
+  margin-bottom: $margin;
 }
 
 .music-release {
   width: calc($calcWidth / 3);
-  // height: calc($calcWidth / 3);
   text-align: center;
 }
 

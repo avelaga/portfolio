@@ -72,7 +72,7 @@ export default function Music() {
             <div className="section-subtitle">drums</div>
             <div className="section-year">2022 - 2023</div>
             <img src={sd1} className="music-full" />
-            <div className="music-description">WHAT DO I SAY ABOUT SHIVERING DMEONSSS</div>
+            <div className="music-description">WHAT DO I SAY ABOUT SHIVERING DMEONSSS, dont forget i have more assets to compress that i could use in Desktop/compressed assets</div>
             <img src={fallingKid} className="music-half" />
             <div className="music-video">
                 <YouTube videoId="1ap9ObDNqAU" className="youtube-half" />
@@ -94,7 +94,7 @@ export default function Music() {
             <div className="section-year">2018 - 2019</div>
             <img src={mjf} className="music-full" />
             <div className="music-description">
-                As the drummer for Merry Jane & The Fondas from 2018 to 2019, I recorded a <a href="https://open.spotify.com/album/097Hlqmh6mqEv6GJbxf61L?si=NO5UrK5mTlymBRe4vKErNw">studio EP</a> with renowned guitarist and songwriter, <a href="https://en.wikipedia.org/wiki/Jackie_Venson">Jackie Venson</a>, and also played an <a href="https://schedule.sxsw.com/2019/artists/2008465">official SXSW showcase</a>.
+                As the drummer for Merry Jane & The Fondas from 2018 to 2019, I recorded a <a href="https://open.spotify.com/album/097Hlqmh6mqEv6GJbxf61L?si=NO5UrK5mTlymBRe4vKErNw">studio EP</a> with renowned guitarist and songwriter, Jackie Venson, and also played an <a href="https://schedule.sxsw.com/2019/artists/2008465">official SXSW showcase</a>.
             </div>
             <img src={mjfStudio} className="music-half" />
             <YouTube videoId="XXMGt_N6Mc0" className="youtube-half" />
