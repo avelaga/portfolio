@@ -41,8 +41,8 @@ export default function Hi() {
       <div className="appear page">
       <div>
         <div className="hi-titles-container">
-          <div className="hi-title">say hi to me in realtime</div>
-          <div className="hi-subtitle">hi, welcome to my site. clicking this button runs an animation on the led strip at my desk</div>
+          <div className="section-title">say hi to me in realtime</div>
+          <div className="section-subtitle">hi, welcome to my site. clicking this button runs an animation on the led strip at my desk</div>
         </div>
         <div className="hi-body">
           <div className="hi-button" onClick={buttonClicked} 

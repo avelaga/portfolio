@@ -472,6 +472,9 @@ processing {
     padding-right: $mobileMargin;
     font-family: 'Nimbus-Sans-Reg';
   }
+  .hi-titles-container > .section-title {
+    margin-bottom: $mobileMargin;
+  }
   .section-subtitle {
     font-size: 15px;
     padding-right: $mobileMargin;
@@ -539,21 +542,6 @@ processing {
     width: 100vw;
     justify-content: center;
     text-align: right;
-  }
-  .hi-title {
-    font-size: 40px;
-    width: 100vw;
-    padding-right: $mobileMargin;
-    padding-top: $mobileMargin;;
-    font-family: 'Nimbus-Sans-Reg';
-  }
-  .hi-subtitle {
-    font-size: 20px;
-    width: 100vw;
-    padding-bottom: $mobileMargin;
-    padding-top: $mobileMargin;
-    padding-right: $mobileMargin;
-    padding-left: $mobileMargin;
   }
   .hi-body {
     align-items: center;
