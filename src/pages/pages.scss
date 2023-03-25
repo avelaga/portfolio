@@ -387,6 +387,59 @@ processing {
   padding-top: 0;
 }
 
+.music-full {
+  width: $calcWidth;
+  height: calc(($calcWidth/16) * 9);
+  object-fit: cover;
+  padding: $margin;
+}
+
+.music-half {
+  width: calc($calcWidth/2);
+  padding: $margin;
+  padding-top: 0;
+}
+
+.music-releases {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: $calcWidth;
+}
+
+.music-release {
+  width: calc($calcWidth / 3);
+  // height: calc($calcWidth / 3);
+  text-align: center;
+}
+
+.music-cover {
+  width: calc($calcWidth / 3);
+  height: calc($calcWidth / 3);
+  padding: $margin;
+  padding-bottom: 5px;
+}
+
+.music-video {
+  text-align: center;
+  width: calc($calcWidth/2);
+  margin-bottom: $margin;
+}
+
+.youtube-half {
+  width: calc($calcWidth/2);
+  height: calc((($calcWidth/2)/16) * 9);
+  padding: $margin;
+  padding-bottom: 5px;
+}
+
+.music-description {
+  padding: $margin;
+  padding-top: 0;
+  width: $calcWidth;
+}
+
 @media (max-width: 500px) {
   .page-flex {
     display: flex;
