@@ -1,4 +1,5 @@
-$calcWidth: calc(100vw - 275px);
+$calcWidth: calc(100vw - 250px);
+// navbar is 225 px + 25px margin
 $margin: 30px;
 $mobileMargin: 10px;
 $borderColor: #C1C1C1;
@@ -11,7 +12,6 @@ $linkColor: #949494;
   display: flex;
   align-content: center;
   flex-wrap: wrap;
-  // width: $calcWidth;
   padding-left: 250px;
   animation-name: appear;
   animation-duration: 2.5s;
@@ -40,6 +40,7 @@ $linkColor: #949494;
 
 .line {
   width: $calcWidth;
+  overflow: hidden;
   border-bottom: 1px solid $borderColor;
 }
 
@@ -86,29 +87,28 @@ green {
   color: #0000006d;
 }
 
-$projWidth: calc($calcWidth / 3);
+$projWidth: calc(($calcWidth / 3) - 22px );
 
 .project-container {
   display: flex;
   width: $calcWidth;
   flex-wrap: wrap;
   margin-top: $margin;
+  justify-content: space-between;
 }
 
 .home-project {
   width: $projWidth;
-  padding-right: $margin;
-  padding-bottom: $margin;
+  margin-bottom: $margin;
 }
 
 .project-img {
-  width: calc($projWidth - $margin);
-  height: calc($projWidth - $margin);
+  width: $projWidth;
+  height: $projWidth;
   object-fit: cover;
 }
 
 .project-title {
-  width: $projWidth;
   font-family: 'Nimbus-Sans-Bol';
   font-size: 18px;
   margin-top: 5px;
@@ -116,12 +116,10 @@ $projWidth: calc($calcWidth / 3);
 }
 
 .project-medium {
-  width: $projWidth;
   font-size: 11px;
 }
 
 .project-year {
-  width: $projWidth;
   font-size: 11px;
 }
 
@@ -475,7 +473,6 @@ processing {
   .home-project {
     width: 100vw;
     padding: 0;
-    margin-bottom: $mobileMargin;
   }
   .project-img {
     width: 100vw;
