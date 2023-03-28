@@ -1,6 +1,7 @@
 $calcWidth: calc(100vw - 250px);
+$fakeCalcWidth: calc($calcWidth - 15px);
 // navbar is 225 px + 25px margin
-$margin: 30px;
+$margin: 25px;
 $mobileMargin: 10px;
 $borderColor: #C1C1C1;
 $linkColor: #949494;
@@ -12,7 +13,7 @@ $linkColor: #949494;
   display: flex;
   align-content: center;
   flex-wrap: wrap;
-  padding-left: 250px;
+  margin-left: 250px;
   animation-name: appear;
   animation-duration: 2.5s;
   animation-fill-mode: forwards;
@@ -333,16 +334,21 @@ processing {
   position: relative;
 }
 
-.software-half {
-  width: calc($calcWidth / 2);
-  padding: $margin;
-  padding-top: 0;
+.software-half-left {
+  width: 50%;
+  padding-right: calc($margin / 2);
+  margin-top: $margin;
+}
+
+.software-half-right {
+  width: 50%;
+  padding-left: calc($margin / 2);
+  margin-top: $margin;
 }
 
 .software-full {
-  width: $calcWidth;
-  padding: $margin;
-  padding-top: 0;
+  width: 100%;
+  margin-top: $margin;
 }
 
 .dadalab-text-container {
@@ -367,10 +373,10 @@ processing {
 }
 
 .software-youtube {
-  width: $calcWidth;
-  height: calc(($calcWidth/16) * 9);
-  padding: $margin;
-  padding-top: 0;
+  width: $fakeCalcWidth;
+  height: calc(($fakeCalcWidth/16) * 9);
+  margin-top: $margin;
+  margin-bottom: $margin;
 }
 
 .music-full {
@@ -431,7 +437,7 @@ processing {
     margin-top: 120px;
     align-content: flex-start;
     width: 100vw;
-    padding-left: 0;
+    margin-left: 0;
   }
   .home-title {
     font-size: 20px;
@@ -586,13 +592,20 @@ processing {
     flex-wrap: wrap;
     width: 100vw;
   }
-  .software-half {
+  .software-half-right {
     width: 100vw;
+    margin-top: 0;
+    padding: 0;
+  }
+  .software-half-left {
+    width: 100vw;
+    margin-top: 0;
     padding: 0;
   }
   .software-full {
     width: 100vw;
-    padding: 0;
+    margin-bottom: $mobileMargin;
+    margin-top: 0;
   }
   .dadalab-text-container {
     width: 100vw;
@@ -614,7 +627,8 @@ processing {
   .software-youtube {
     width: 100vw;
     height: calc((100vw/16) * 9);
-    padding: 0;
+
+    margin-top: 0;
   }
   .software-mobile-photo {
     margin-bottom: 1px;
