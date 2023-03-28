@@ -11,6 +11,11 @@ $linkColor: #949494;
   display: flex;
   align-content: center;
   flex-wrap: wrap;
+  // width: $calcWidth;
+  padding-left: 250px;
+  animation-name: appear;
+  animation-duration: 2.5s;
+  animation-fill-mode: forwards;
 }
 
 .flex {
@@ -20,21 +25,10 @@ $linkColor: #949494;
   align-items: center;
 }
 
-.page-flex {
-  display: flex;
-  width: $calcWidth;
-  padding-left: 250px;
-}
-
 .title {
   font-size: 50px;
   color: white;
   line-height: 50px;
-}
-
-.appear {
-  animation-name: appear;
-  animation-duration: 1s;
 }
 
 .home-title {
@@ -159,13 +153,6 @@ a:hover {
   display: 'block';
   width: 100%;
   padding: 2px;
-}
-
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  width: $calcWidth;
-  margin-left: 250px;
 }
 
 // image carousel overrides
@@ -442,14 +429,11 @@ processing {
 }
 
 @media (max-width: 500px) {
-  .page-flex {
-    display: flex;
-    width: 100vw;
-    padding-left: 0;
-  }
   .page {
     margin-top: 120px;
     align-content: flex-start;
+    width: 100vw;
+    padding-left: 0;
   }
   .home-title {
     font-size: 20px;
@@ -514,10 +498,6 @@ processing {
     width: 100vw;
     font-size: 15px; 
     padding-left: $mobileMargin;
-  }
-  .gallery {
-    margin-left: 0;
-    width: 100vw;
   }
   .photo-mobile-spacer {
     width: 100vw;

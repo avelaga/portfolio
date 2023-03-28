@@ -38,13 +38,13 @@ const bio = () => {
 };
 
 export default function About() {
-  return <div>
+  return <div className="page">
 
     {/* desktop  */}
     <MediaQuery minDeviceWidth={500}>
-      <div className="page-flex">
+      <div>
       <Navbar activeLink={"ABOUT"} mobile={false} />
-      <div className="appear page">
+      {/* <div className="appear page"> */}
           <div className="about-top">
             <LazyLoadImage src={me1} className="about-top-img" effect="opacity"  />
             <div className="about-second-text">
@@ -56,13 +56,13 @@ export default function About() {
             <LazyLoadImage src={mecrop} className="about-bottom-img" effect="opacity"  />
             {aboutBottomText()}
           </div>
-        </div>
+        {/* </div> */}
       </div>
     </MediaQuery>
 
     {/* mobile  */}
     <MediaQuery maxDeviceWidth={500}>
-      <div className="page">
+      <div>
       <Navbar activeLink={"ABOUT"} mobile={true} />
         <div className="appear">
           <LazyLoadImage effect="opacity" src={mecrop} className="about-top-img"  />

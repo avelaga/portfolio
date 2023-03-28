@@ -21,10 +21,9 @@ such as rain drops when it's raining and a twinkling animation when it turns nig
 bringing the outside conditions inside and giving the indoors a life of its own`;
 
 export default function Software() {
-  return <div>
+  return <div className="page">
     <MediaQuery minDeviceWidth={500}><Navbar activeLink={"SOFTWARE"} mobile={false} /></MediaQuery>
     <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"SOFTWARE"} mobile={true} /></MediaQuery>
-    <div className="appear page gallery">
       <div className="section-title">the world misses you</div>
       <div className="section-year">2021</div>
       <div className='software-row'>
@@ -48,6 +47,5 @@ export default function Software() {
       <div className="line" />
       <div className="section-title">acid test</div>
       <div className="section-year">2019</div>
-    </div>
   </div>;
 };

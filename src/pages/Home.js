@@ -60,15 +60,14 @@ export default function Home() {
   });
 
   return (
-    <div className="page-flex">
+    <div className="page">
       <MediaQuery minDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={false} /></MediaQuery>
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={true} /></MediaQuery>
-      <div className="appear page">
-        <div className='home-title'>hi, i'm abhi - i make <a href="/music"><blue>music</blue></a>, <a href="/portfolio"><red>photos</red></a>, and <a href="/software"><green>transmedia art</green></a></div>
-        <div className="line" />
-        <div className='section-title'>featured work</div>
-        <div className='project-container'>
-          {projects.map((project) =>
+      <div className='home-title'>hi, i'm abhi - i make <a href="/music"><blue>music</blue></a>, <a href="/portfolio"><red>photos</red></a>, and <a href="/software"><green>transmedia art</green></a></div>
+      <div className="line" />
+      <div className='section-title'>featured work</div>
+      <div className='project-container'>
+        {projects.map((project) =>
           <a href={project.link}>
             <div className='home-project'>
               <img src={project.cover} className='project-img' />
@@ -76,9 +75,8 @@ export default function Home() {
               <div className='project-medium'>{project.medium}</div>
               <div className='project-year'>{project.year}</div>
             </div>
-            </a>
-          )}
-        </div>
+          </a>
+        )}
       </div>
     </div>
   )

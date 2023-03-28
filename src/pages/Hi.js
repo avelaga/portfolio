@@ -35,10 +35,9 @@ export default function Hi() {
   }
 
   return (
-    <div className="page-flex">
+    <div className="page">
       <MediaQuery minDeviceWidth={500}><Navbar activeLink={"HI"} mobile={false} /></MediaQuery>
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"HI"} mobile={true} /></MediaQuery>
-      <div className="appear page">
       <div>
         <div className="hi-titles-container">
           <div className="section-title">say hi to me in realtime</div>
@@ -54,7 +53,6 @@ export default function Hi() {
             <source src={hi} type="video/mp4" />
           </video>
         </div>
-      </div>
       </div>
     </div>
   )

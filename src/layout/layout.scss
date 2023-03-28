@@ -1,12 +1,6 @@
 $linkColor: #949494;
 $borderColor: #C1C1C1;
 
-.appear {
-  animation-name: appear;
-  animation-duration: 2.5s;
-  animation-fill-mode: forwards;
-}
-
 .nav-title {
   font-size: 40px;
   color: black;
@@ -29,18 +23,14 @@ $borderColor: #C1C1C1;
   height: 100vh;
   color: $linkColor;
   width: 225px;
-  margin-right: 25px;
   padding: 0px;
   display: flex;
   align-content: center;
   align-items: center;
-
+  z-index: 1000;
   position: fixed;
+  top: 0;
   left: 0;
-
-  animation-name: appear;
-  animation-duration: 2.5s;
-  animation-fill-mode: forwards;
 }
 
 .link-container {
@@ -362,14 +352,5 @@ $navHeight: calc(100vh - 120px);
   }
   to {
     color: $linkColor;
-  }
-}
-
-@keyframes appear {
-  from {
-    opacity: 0
-  }
-  to {
-    opacity: 1
   }
 }
