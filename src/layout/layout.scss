@@ -68,7 +68,7 @@ $borderColor: #C1C1C1;
 }
 
 .link {
-  color: $linkColor !important;
+  color: $linkColor;
   animation-name: offText;
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
@@ -162,12 +162,35 @@ $navHeight: calc(100vh - 120px);
   .navbar {
     background-color: none;
     width: 100vw;
-    z-index: 1;
     margin: 0;
     position: fixed;
     top: 0;
     align-content: flex-start; 
     height: fit-content;
+  }
+  .blur {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+
+    animation-name: blur;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+  .unblur {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+
+    animation-name: unblur;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
   }
   .nav-header {
     width: 100vw;
@@ -175,11 +198,10 @@ $navHeight: calc(100vh - 120px);
     align-items: center;
     justify-content: space-between;
     height: 120px;
-    background-color: white;
-    border-bottom: 1px solid $borderColor;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
   }
   .nav-title-container {
-    border-right: 1px solid $borderColor;
     height: 120px;
     display: flex;
     flex-wrap: wrap;
@@ -199,9 +221,13 @@ $navHeight: calc(100vh - 120px);
   }
   .link-container {
     width: 100vw;
-    background-color: white;
     text-align: center;
     border: none;
+
+
+  animation-name: appear;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
   }
   .link {
     display: flex;
@@ -212,6 +238,9 @@ $navHeight: calc(100vh - 120px);
     padding-top: 8px;
     font-size: 30px;
     padding-left: 0;
+    color: white;
+
+    animation: none;
   }
   .last-link {
     border-bottom: 1px solid $borderColor;
@@ -232,10 +261,12 @@ $navHeight: calc(100vh - 120px);
     line-height: 32px;
     border-left: 1px solid $borderColor;
     border-right: 1px solid $borderColor;
+    color: white;
+
+    animation: none;
   }
   .external-link-container {
     height: calc($navHeight * (3 / 10));
-    background-color: white;
   }
   .external-link {
     width: 100vw;
@@ -243,6 +274,37 @@ $navHeight: calc(100vh - 120px);
     font-size: 15px;
     text-align: center;
     padding: 0;
+    color: white !important;
+  }
+}
+
+@keyframes blur {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0);
+    z-index: -1;
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+  }
+}
+
+@keyframes unblur {
+  from {
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0);
+    z-index: -1;
   }
 }
 
