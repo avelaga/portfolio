@@ -142,23 +142,11 @@ $borderColor: #C1C1C1;
   width: 160px;
 }
 
-// .link:hover {
-//   animation-name: overText;
-//   animation-duration: 0.7s;
-//   animation-fill-mode: forwards;
-// }
-
-.nav-back {
-  background-color: none;
-}
-
 $navHeight: calc(100vh - 120px);
 
 @media (max-width: 500px) {
   .nav-title {
     padding-left: 20px;
-    // text-align: center;
-    // font-size: 20px;
     font-style: italic;
     font-size: 30px;
   }
@@ -242,12 +230,6 @@ $navHeight: calc(100vh - 120px);
     border-left: 1px solid $borderColor;
     border-right: 1px solid $borderColor;
   }
-  // .link-color {
-  //   height: 25px;
-  // }
-  // .link-text {
-  //   height: 25px;
-  // }
   .external-link-container {
     height: calc($navHeight * (3 / 10));
     background-color: white;
@@ -258,48 +240,6 @@ $navHeight: calc(100vh - 120px);
     font-size: 15px;
     text-align: center;
     padding: 0;
-  }
-  .nav-back {
-    width: 100vw;
-    height: 100vh;
-    padding: 0px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    display: flex;
-    justify-content: flex-start;
-    align-content: flex-start;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    animation-name: hideBack;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-  }
-
-  .header-back {
-    width: 100vw;
-    height: 118px;
-    padding: 0px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-  }
-}
-
-@keyframes hideBack {
-  from {
-    background-color: rgba(0, 0, 0, 0);
-    -webkit-backdrop-filter: blur(0);
-    backdrop-filter: blur(0);
-  }
-  to {
-    background-color: rgba(0, 0, 0, 0.2);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
   }
 }
 

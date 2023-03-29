@@ -61,7 +61,6 @@ green {
   text-align: right;
   width: $calcWidth;
   padding-right: $margin;
-  // font-family: 'Nimbus-Sans-Reg';
 }
 
 .section-subtitle {
@@ -159,7 +158,6 @@ a:hover {
 .image-gallery-icon:hover{
   color: $linkColor;
   transition: none;
-  // transform: scale(1);
 }
 
 .image-gallery {
@@ -224,30 +222,12 @@ a:hover {
   font-size: 12px;
 }
 
-.photo-flex {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-}
-
 .hi-titles-container {
   display: flex;
   width: calc(100vw - 350px);
   justify-content: flex-end;
   flex-wrap: wrap;
   text-align: right;
-}
-
-.hi-title {
-  font-size: 50px;
-  line-height: 50px;
-  width: calc(100vw - 350px);
-}
-
-.hi-subtitle {
-  width: calc(100vw - 350px);
 }
 
 .hi-body {
@@ -279,14 +259,6 @@ a:hover {
 
 ut {
   color: rgb(191, 87, 0);
-}
-
-pi {
-  color: rgb(195, 33, 74);
-}
-
-arduino {
-  color: rgb(1, 152, 158);
 }
 
 processing {
@@ -407,22 +379,18 @@ processing {
 
 .music-cover {
   width: 100%;
-  // padding: $margin;
   padding-bottom: 5px;
 }
 
 .music-video {
   text-align: center;
   width: 50%;
-  // margin-bottom: $margin;
   margin-top: $margin;
 }
 
 .music-video-full {
   text-align: center;
   width: 100%;
-  // height: calc(($calcWidth/16)*9);
-  // margin-bottom: $margin;
   margin-top: $margin;
 }
 
@@ -597,10 +565,6 @@ processing {
     height: auto;
     width:100vw;
   }
-  .menu-fadein {
-    width: 100vw;
-    height: 100vw;
-  }
   .row {
     margin-left: 0; // idk why its being set to -15
     width: 100vw;
@@ -640,7 +604,6 @@ processing {
   .software-youtube {
     width: 100vw;
     height: calc((100vw/16) * 9);
-
     margin-top: 0;
   }
   .software-mobile-photo {
