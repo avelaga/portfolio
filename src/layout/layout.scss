@@ -188,6 +188,7 @@ $navHeight: calc(100vh - 120px);
     justify-content: space-between;
     height: 120px;
     background-color: white;
+    border-bottom: 1px solid $borderColor;
   }
   .nav-title-container {
     border-right: 1px solid $borderColor;
@@ -212,6 +213,7 @@ $navHeight: calc(100vh - 120px);
     width: 100vw;
     background-color: white;
     text-align: center;
+    border: none;
   }
   .link {
     display: flex;

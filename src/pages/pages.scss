@@ -453,17 +453,16 @@ processing {
     margin-right: 0;
   }
   .home-title {
-    font-size: 20px;
-    border-bottom: 1px solid $borderColor;
-    width: calc(100vw - (2 * $mobileMargin));
+    font-size: 18px;
+    width: 100vw;
     text-align: center;
-    padding-bottom: $mobileMargin;
-    padding-top: $mobileMargin;
-    margin-right: $mobileMargin;
-    margin-left: $mobileMargin;
+    padding: $mobileMargin;
+    margin: 0;
   }
   .line {
-    width: 100vw;
+    width: 100%;
+    margin-left: $mobileMargin;
+    margin-right: $mobileMargin;
   }
   .title {
     font-size: 40px;
