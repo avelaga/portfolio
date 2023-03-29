@@ -26,12 +26,6 @@ $linkColor: #949494;
   align-items: center;
 }
 
-.title {
-  font-size: 50px;
-  color: white;
-  line-height: 50px;
-}
-
 .home-title {
   font-size: 40px;
   width: $calcWidth;
@@ -60,7 +54,7 @@ green {
   color: white;
 }
 
-.section-title {
+.title {
   font-size: 80px;
   margin-bottom: -20px;
   color: black;
@@ -326,27 +320,27 @@ processing {
   transition: opacity 1s !important;
 }
 
-.software-row {
+.row {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: $calcWidth;
+  width: 100%;
   position: relative;
 }
 
-.software-half-left {
+.half-left {
   width: 50%;
   padding-right: calc($margin / 2);
   margin-top: $margin;
 }
 
-.software-half-right {
+.half-right {
   width: 50%;
   padding-left: calc($margin / 2);
   margin-top: $margin;
 }
 
-.software-full {
+.full {
   width: 100%;
   margin-top: $margin;
 }
@@ -380,56 +374,74 @@ processing {
 }
 
 .music-full {
-  width: $calcWidth;
+  width: 100%;
   height: calc(($calcWidth/16) * 9);
   object-fit: cover;
-  padding: $margin;
+  margin-bottom: $margin;
+  margin-top: $margin;
 }
 
 .music-description {
-  padding: $margin;
-  padding-top: 0;
-  width: $calcWidth;
+  width: 100%;
 }
 
 .music-half {
-  width: calc($calcWidth/2);
-  padding: $margin;
-  padding-top: 0;
+  width: 50%;
+  margin-top: $margin;
 }
 
 .music-releases {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  width: $calcWidth;
+  justify-content: space-evenly;
+  width: 100%;
   margin-bottom: $margin;
+  margin-top: $margin;
 }
 
 .music-release {
-  width: calc($calcWidth / 3);
+  width: 31%;
   text-align: center;
 }
 
 .music-cover {
-  width: calc($calcWidth / 3);
-  height: calc($calcWidth / 3);
-  padding: $margin;
+  width: 100%;
+  // padding: $margin;
   padding-bottom: 5px;
 }
 
 .music-video {
   text-align: center;
-  width: calc($calcWidth/2);
-  margin-bottom: $margin;
+  width: 50%;
+  // margin-bottom: $margin;
+  margin-top: $margin;
 }
 
-.youtube-half {
-  width: calc($calcWidth/2);
-  height: calc((($calcWidth/2)/16) * 9);
-  padding: $margin;
-  padding-bottom: 5px;
+.music-video-full {
+  text-align: center;
+  width: 100%;
+  // height: calc(($calcWidth/16)*9);
+  // margin-bottom: $margin;
+  margin-top: $margin;
+}
+
+.youtube-half-left {
+  width: 100%;
+  margin-bottom: 5px;
+  padding-right: calc($margin/2);
+}
+
+.youtube-half-right {
+  width: 100%;
+  margin-bottom: 5px;
+  padding-left: calc($margin/2);
+}
+
+.youtube-full {
+  width: 100%;
+  height: calc(($calcWidth/16)*9);
+  margin-bottom: 5px;
 }
 
 @media (max-width: 500px) {
@@ -438,6 +450,7 @@ processing {
     align-content: flex-start;
     width: 100vw;
     margin-left: 0;
+    margin-right: 0;
   }
   .home-title {
     font-size: 20px;
@@ -452,7 +465,7 @@ processing {
   .line {
     width: 100vw;
   }
-  .section-title {
+  .title {
     font-size: 40px;
     color: black;
     text-align: right;
@@ -460,10 +473,10 @@ processing {
     padding-right: $mobileMargin;
     font-family: 'Nimbus-Sans-Reg';
   }
-  .hi-titles-container > .section-title {
+  .hi-titles-container > .title {
     margin-bottom: $mobileMargin;
   }
-  .section-subtitle {
+  .subtitle {
     font-size: 15px;
     padding-right: $mobileMargin;
   }
@@ -588,21 +601,21 @@ processing {
     width: 100vw;
     height: 100vw;
   }
-  .software-row {
-    flex-wrap: wrap;
+  .row {
+    margin-left: 0; // idk why its being set to -15
     width: 100vw;
   }
-  .software-half-right {
-    width: 100vw;
-    margin-top: 0;
-    padding: 0;
-  }
-  .software-half-left {
+  .half-right {
     width: 100vw;
     margin-top: 0;
     padding: 0;
   }
-  .software-full {
+  .half-left {
+    width: 100vw;
+    margin-top: 0;
+    padding: 0;
+  }
+  .full {
     width: 100vw;
     margin-bottom: $mobileMargin;
     margin-top: 0;
@@ -637,6 +650,7 @@ processing {
     width: 100vw;
     height: calc((100vw/16) * 9);
     padding: 0;
+    margin-bottom: 0;
   }
   .music-description {
     padding: $mobileMargin;
@@ -644,19 +658,19 @@ processing {
     text-align: right;
   }
   .music-half {
-    width: calc(100vw/2);
+    width: 100vw;
     padding: $mobileMargin;
     padding-top: 0;
   }
   .music-releases {
-    justify-content: space-between;
+    justify-content: center;
     width: 100vw;
     margin-bottom: $mobileMargin;
     font-size: 10px;
+    margin-top: 0;
   }
   .music-release {
     width: calc(100vw / 2);
-    text-align: right;
     padding-right: $mobileMargin;
   }
   .music-cover {
@@ -666,13 +680,24 @@ processing {
   }
   .music-video {
     text-align: center;
-    width: calc(100vw/2);
+    width: 100vw;
     margin-bottom: $mobileMargin;
+    margin-top: 0;
     font-size: 10px;
+    box-sizing: none;
   }
-  .youtube-half {
-    width: calc(100vw/2);
-    height: calc(((100vw/2)/16) * 9);
-    padding: $mobileMargin;
+  .youtube-half-left {
+    width: 100vw;
+    height: calc((100vw/16) * 9);
+    padding-right: 0;
+  }
+  .youtube-half-right {
+    width: 100vw;
+    height: calc((100vw/16) * 9);
+    padding-left: 0;
+  }
+  .youtube-full {
+    width: 100vw;
+    height: calc((100vw/16) * 9);
   }
 }

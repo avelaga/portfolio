@@ -12,7 +12,7 @@ export default function Portfolio() {
     <div className="page">
       <MediaQuery minDeviceWidth={500}><Navbar activeLink={"PORTFOLIO"} mobile={false} /></MediaQuery>
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"PORTFOLIO"} mobile={true} /></MediaQuery>
-      <div className="section-title">Photography Portfolio</div>
+      <div className="title">Photography Portfolio</div>
       {/* <div className="section-subtitle">subtitle goes here</div> */}
       {/* <div className="section-year">2018 - 2019</div> */}
       <div className="photo-mobile-spacer" />

@@ -15,7 +15,7 @@ export default function Editorial() {
     <div className="page">
       <MediaQuery minDeviceWidth={500}><Navbar activeLink={"EDITORIAL"} mobile={false} /></MediaQuery>
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"EDITORIAL"} mobile={true} /></MediaQuery>
-      <div className="section-title">Editorial Work</div>
+      <div className="title">Editorial Work</div>
       <div className="section-subtitle">work produced for Spark Magazine</div>
       <div className="section-year">2019</div>
       <div className="photo-mobile-spacer" />

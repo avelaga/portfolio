@@ -12,7 +12,7 @@ export default function Miami() {
     <div className="page">
       <MediaQuery minDeviceWidth={500}><Navbar activeLink={"MIAMI"} mobile={false} /></MediaQuery>
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"MIAMI"} mobile={true} /></MediaQuery>
-      <div className="section-title">Miami Vice Cocaine Dream</div>
+      <div className="title">Miami Vice Cocaine Dream</div>
       {/* <div className="section-subtitle">subtitle goes here</div> */}
       <div className="section-year">2018 - 2019</div>
       <div className="photo-mobile-spacer" />

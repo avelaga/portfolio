@@ -11,7 +11,7 @@ export default function UserVoid() {
     <div className="page">
       <MediaQuery minDeviceWidth={500}><Navbar activeLink={"USERVOID"} mobile={false} /></MediaQuery>
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"USERVOID"} mobile={true} /></MediaQuery>
-      <div className="section-title">User Void</div>
+      <div className="title">User Void</div>
       {/* <div className="section-subtitle">subtitle goes here</div> */}
       <div className="section-year">2019</div>
       <div className="photo-mobile-spacer" />

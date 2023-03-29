@@ -24,28 +24,28 @@ export default function Software() {
   return <div className="page">
     <MediaQuery minDeviceWidth={500}><Navbar activeLink={"SOFTWARE"} mobile={false} /></MediaQuery>
     <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"SOFTWARE"} mobile={true} /></MediaQuery>
-      <div className="section-title">the world misses you</div>
+      <div className="title">the world misses you</div>
       <div className="section-year">2021</div>
-      <div className='software-row'>
-        <div className="software-half-right dadalab-text-container">
+      <div className='row'>
+        <div className="half-right dadalab-text-container">
           <div className="software-info">{theWorldMissesYouInfo}</div>
           <div className="software-caption">dadalab, austin, tx <br/>2022</div>
         </div>
-        <img src={dadalab1} className="software-half-right software-mobile-photo" />
+        <img src={dadalab1} className="half-right software-mobile-photo" />
       </div>
-      <img src={dadalab2} className='software-full software-mobile-photo' />
-      <img src={dadalab3} className='software-half-left software-mobile-photo' />
-      <img src={dadalab4} className='software-half-right software-mobile-photo' />
+      <img src={dadalab2} className='full software-mobile-photo' />
+      <img src={dadalab3} className='half-left software-mobile-photo' />
+      <img src={dadalab4} className='half-right software-mobile-photo' />
       {/* <img src={dadalab5} className='software-half-left software-mobile-photo' /> */}
       <YouTube videoId="CcSitqAJFZk" className="software-youtube  software-mobile-photo"/>
       <div className="line" />
-      <div className="section-title">say hi</div>
+      <div className="title">say hi</div>
       <div className="section-year">2020</div>
       <div className="line" />
-      <div className="section-title">electric forest</div>
+      <div className="title">electric forest</div>
       <div className="section-year">2020</div>
       <div className="line" />
-      <div className="section-title">acid test</div>
+      <div className="title">acid test</div>
       <div className="section-year">2019</div>
   </div>;
 };

@@ -40,7 +40,7 @@ export default function Hi() {
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"HI"} mobile={true} /></MediaQuery>
       <div>
         <div className="hi-titles-container">
-          <div className="section-title">say hi to me in realtime</div>
+          <div className="title">say hi to me in realtime</div>
           <div className="section-subtitle">hi, welcome to my site. clicking this button runs an animation on the led strip at my desk</div>
         </div>
         <div className="hi-body">

@@ -65,7 +65,7 @@ export default function Home() {
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={true} /></MediaQuery>
       <div className='home-title'>hi, i'm abhi - i make <a href="/music"><blue>music</blue></a>, <a href="/portfolio"><red>photos</red></a>, and <a href="/software"><green>transmedia art</green></a></div>
       <div className="line" />
-      <div className='section-title'>featured work</div>
+      <div className='title'>featured work</div>
       <div className='project-container'>
         {projects.map((project) =>
           <a href={project.link}>
