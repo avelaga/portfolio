@@ -469,13 +469,14 @@ processing {
     color: black;
     text-align: right;
     width: 100vw;
+    margin-top: $mobileMargin;
     padding-right: $mobileMargin;
     font-family: 'Nimbus-Sans-Reg';
   }
   .hi-titles-container > .title {
     margin-bottom: $mobileMargin;
   }
-  .subtitle {
+  .section-subtitle {
     font-size: 15px;
     padding-right: $mobileMargin;
   }
@@ -650,6 +651,7 @@ processing {
     height: calc((100vw/16) * 9);
     padding: 0;
     margin-bottom: 0;
+    margin-top: $mobileMargin;
   }
   .music-description {
     padding: $mobileMargin;
