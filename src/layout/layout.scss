@@ -54,7 +54,7 @@ $borderColor: #C1C1C1;
   position: relative;
   letter-spacing:2px;
   font-size: 10px;
-  animation-name: offExternalText;
+  animation-name: offExternalLink;
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
   padding-left: 25px;
@@ -62,14 +62,14 @@ $borderColor: #C1C1C1;
 }
 
 .external-link:hover {
-  animation-name: overExternalText;
+  animation-name: onExternalLink;
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
 }
 
 .link {
   color: $linkColor;
-  animation-name: offText;
+  animation-name: offLink;
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
   font-size: 25px;
@@ -78,6 +78,12 @@ $borderColor: #C1C1C1;
 
   border-bottom: 1px solid $borderColor;
   font-family: 'Nimbus-Sans-BolIta';
+}
+
+.link:hover {
+  animation-name: onLink;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
 }
 
 .last-link {
@@ -102,13 +108,13 @@ $borderColor: #C1C1C1;
   padding-left: 25px;
   border-bottom: 1px solid $borderColor;
   padding-top: 1px; // accounts for 1px bottom border so text remains cenetred
-  animation-name: offSublink;
+  animation-name: offLink;
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
 }
 
 .sublink:hover {
-  animation-name: overSublink;
+  animation-name: onLink;
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
 }
@@ -301,7 +307,7 @@ $navHeight: calc(100svh - 120px);
   }
 }
 
-@keyframes overSublink {
+@keyframes onLink {
   from {
     color: $linkColor
   }
@@ -310,7 +316,7 @@ $navHeight: calc(100svh - 120px);
   }
 }
 
-@keyframes offSublink {
+@keyframes offLink {
   from {
     color: black
   }
@@ -319,7 +325,7 @@ $navHeight: calc(100svh - 120px);
   }
 }
 
-@keyframes overExternalText {
+@keyframes onExternalLink {
   from {
     color: rgb(180, 180, 180)
   }
@@ -328,7 +334,7 @@ $navHeight: calc(100svh - 120px);
   }
 }
 
-@keyframes offExternalText {
+@keyframes offExternalLink {
   from {
     color: black
   }
@@ -337,7 +343,7 @@ $navHeight: calc(100svh - 120px);
   }
 }
 
-@keyframes overText {
+@keyframes onText {
   from {
     color: $linkColor;
   }
