@@ -1,8 +1,5 @@
 import React from 'react';
-import MediaQuery from 'react-responsive';
 import Navbar from '../layout/Navbar'
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
 import YouTube from 'react-youtube';
 import dadalab1 from "../../dist/images/software/dadalab/dadalab1.jpg";
 import dadalab2 from "../../dist/images/software/dadalab/dadalab2.jpg";
@@ -22,8 +19,7 @@ bringing the outside conditions inside and giving the indoors a life of its own`
 
 export default function Software() {
   return <div className="page">
-    <MediaQuery minDeviceWidth={500}><Navbar activeLink={"SOFTWARE"} mobile={false} /></MediaQuery>
-    <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"SOFTWARE"} mobile={true} /></MediaQuery>
+    <Navbar activeLink={"SOFTWARE"} />
       <div className="title">the world misses you</div>
       <div className="section-year">2021</div>
       <div className='row'>

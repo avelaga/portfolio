@@ -11,14 +11,12 @@ import Music from './pages/Music.js';
 import Hi from './pages/Hi.js';
 import Navbar from './layout/Navbar';
 import ConnectedWorld from './pages/ConnectedWorld.js';
-import MediaQuery from 'react-responsive'
 import './App.scss';
 
 const ErrorPage = () => {
   return (
     <div>
-      <MediaQuery minDeviceWidth={500}><Navbar activeLink={"ERROR"} mobile={false} /></MediaQuery>
-      <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"ERROR"} mobile={true} /></MediaQuery>
+      <Navbar activeLink={"ERROR"} /> 
       <div className="error" >
         <div className="error-text">It looks like you're lost :(</div>
       </div>

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Navbar from '../layout/Navbar';
-import MediaQuery from 'react-responsive';
 import worldMissesYou from '../../dist/images/software/dadalab/dadalab4.jpg';
 import breakMyFall from '../../dist/images/music/indulgent/breakMyFall.jpg';
 import noOneKnows from '../../dist/images/music/indulgent/noOneKnows.jpg';
@@ -61,8 +60,7 @@ export default function Home() {
 
   return (
     <div className="page">
-      <MediaQuery minDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={false} /></MediaQuery>
-      <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={true} /></MediaQuery>
+      <Navbar activeLink={"HOME"} />
       <div className='home-title'>hi, i'm abhi - i make <a href="/music"><blue>music</blue></a>, <a href="/portfolio"><red>photos</red></a>, and <a href="/software"><green>transmedia art</green></a></div>
       <div className="line" />
       <div className='title'>featured work</div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import MediaQuery from 'react-responsive';
 import Navbar from '../../layout/Navbar';
 import ModularPhoto from './ModularPhoto';
 import { userVoidImages } from './images.js';
@@ -9,8 +8,7 @@ import '../pages.scss';
 export default function UserVoid() {
   return (
     <div className="page">
-      <MediaQuery minDeviceWidth={500}><Navbar activeLink={"USERVOID"} mobile={false} /></MediaQuery>
-      <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"USERVOID"} mobile={true} /></MediaQuery>
+     <Navbar activeLink={"USERVOID"} />
       <div className="title">User Void</div>
       {/* <div className="section-subtitle">subtitle goes here</div> */}
       <div className="section-year">2019</div>

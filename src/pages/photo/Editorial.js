@@ -1,20 +1,15 @@
 import React from 'react';
-import MediaQuery from 'react-responsive';
-import 'react-image-lightbox/style.css';
 import Navbar from '../../layout/Navbar';
 import ModularPhoto from './ModularPhoto';
-import { sparkImages, sparkMagPicsCarousel, getHeight, getWidth } from './images.js';
+import { sparkImages, sparkMagPicsCarousel } from './images.js';
 import '../pages.scss';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import ImageGallery from 'react-image-gallery';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
 
 // TODO: lazy load 
 export default function Editorial() {
   return (
     <div className="page">
-      <MediaQuery minDeviceWidth={500}><Navbar activeLink={"EDITORIAL"} mobile={false} /></MediaQuery>
-      <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"EDITORIAL"} mobile={true} /></MediaQuery>
+      <Navbar activeLink={"EDITORIAL"} />
       <div className="title">Editorial Work</div>
       <div className="section-subtitle">work produced for Spark Magazine</div>
       <div className="section-year">2019</div>

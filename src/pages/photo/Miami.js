@@ -1,5 +1,4 @@
 import React from 'react';
-import MediaQuery from 'react-responsive';
 import Navbar from '../../layout/Navbar';
 import ModularPhoto from './ModularPhoto';
 import { miamiImages, miamiBookPicsCarousel } from './images.js';
@@ -10,8 +9,7 @@ import '../pages.scss';
 export default function Miami() {
   return (
     <div className="page">
-      <MediaQuery minDeviceWidth={500}><Navbar activeLink={"MIAMI"} mobile={false} /></MediaQuery>
-      <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"MIAMI"} mobile={true} /></MediaQuery>
+      <Navbar activeLink={"MIAMI"} />
       <div className="title">Miami Vice Cocaine Dream</div>
       {/* <div className="section-subtitle">subtitle goes here</div> */}
       <div className="section-year">2018 - 2019</div>

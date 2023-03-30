@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
+// import mediaQuery from './mediaQuery';
 import './layout.scss'
 
-export default function Navbar({ activeLink, mobile }) {
+export default function Navbar({ activeLink }) {
 
+  // let mobile = mediaQuery();
+  let mobile = window.innerWidth < 500;
   const [collapsed, setCollapsed] = useState(mobile);
+  console.log(collapsed);
 
   const activeStyle = {
     backgroundColor: 'black'

@@ -2,9 +2,6 @@ import React from "react";
 import Navbar from '../layout/Navbar';
 import YouTube from 'react-youtube';
 import './pages.scss';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import MediaQuery from 'react-responsive';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
 
 import drums from '../../dist/images/music/indulgent/drums.jpg';
 import guitar1 from '../../dist/images/music/indulgent/guitar1.jpg';
@@ -26,8 +23,7 @@ import fallingKid from '../../dist/images/music/sd/fallingKid.jpg';
 
 export default function Music() {
     return <div className="page">
-        <MediaQuery minDeviceWidth={500}><Navbar activeLink={"MUSIC"} mobile={false} /></MediaQuery>
-        <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"MUSIC"} mobile={true} /></MediaQuery>
+        <Navbar activeLink={"MUSIC"} />
         <div className="title">INDULGENT</div>
         <div className="section-subtitle">guitar, vocals, drums, bass</div>
         <div className="section-year">2015 - present</div>

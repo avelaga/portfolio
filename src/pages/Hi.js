@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Navbar from '../layout/Navbar';
 const axios = require("axios").default;
 import hi from '../../dist/images/hi.mp4';
-import MediaQuery from 'react-responsive';
 
 const onColor = {
   backgroundColor: 'rgb(0, 212, 0)'
@@ -11,6 +10,8 @@ const onColor = {
 const errorColor = {
   backgroundColor: 'red'
 }
+
+// TODO: horizontal scroll bar when width is made small on desktop
 
 export default function Hi() {
   const [sent, setSent] = useState(false);
@@ -36,8 +37,7 @@ export default function Hi() {
 
   return (
     <div className="page">
-      <MediaQuery minDeviceWidth={500}><Navbar activeLink={"HI"} mobile={false} /></MediaQuery>
-      <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"HI"} mobile={true} /></MediaQuery>
+      <Navbar activeLink={"HI"} />
       <div>
         <div className="hi-titles-container">
           <div className="title">say hi to me in realtime</div>

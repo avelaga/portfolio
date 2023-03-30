@@ -1,6 +1,4 @@
 import React from 'react';
-import MediaQuery from 'react-responsive';
-import 'react-image-lightbox/style.css';
 import Navbar from '../../layout/Navbar';
 import ModularPhoto from './ModularPhoto';
 import { portfolioImages } from './images.js';
@@ -10,8 +8,7 @@ import '../pages.scss';
 export default function Portfolio() {
   return (
     <div className="page">
-      <MediaQuery minDeviceWidth={500}><Navbar activeLink={"PORTFOLIO"} mobile={false} /></MediaQuery>
-      <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"PORTFOLIO"} mobile={true} /></MediaQuery>
+      <Navbar activeLink={"PORTFOLIO"} />
       <div className="title">Photography Portfolio</div>
       {/* <div className="section-subtitle">subtitle goes here</div> */}
       {/* <div className="section-year">2018 - 2019</div> */}
