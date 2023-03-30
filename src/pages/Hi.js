@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../layout/Navbar';
 const axios = require("axios").default;
-import hi from '../../dist/images/hi.mp4';
+import hi from '../../public/images/hi.mp4';
 
 const onColor = {
   backgroundColor: 'rgb(0, 212, 0)'

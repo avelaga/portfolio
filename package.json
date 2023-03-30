@@ -18,8 +18,9 @@
     "sass": "^1.45.1"
   },
   "scripts": {
-    "dev": "webpack-dev-server --open --mode development --host 0.0.0.0",
-    "build": "webpack --mode production"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "eslintConfig": {
     "extends": "react-app"
