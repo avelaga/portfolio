@@ -142,7 +142,7 @@ $borderColor: #C1C1C1;
   width: 160px;
 }
 
-$navHeight: calc(100vh - 120px);
+$navHeight: calc(100svh - 120px);
 
 @media (max-width: 500px) {
   .nav-title {
@@ -252,6 +252,7 @@ $navHeight: calc(100vh - 120px);
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    border: none;
   }
   .sublink {
     width: 70vw;
