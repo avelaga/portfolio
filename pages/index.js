@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image'
 import Navbar from './Navbar';
+import styles from '../styles/Pages.module.scss'
 // import worldMissesYou from '../../dist/images/software/dadalab/dadalab4.jpg';
 // import breakMyFall from '../../dist/images/music/indulgent/breakMyFall.jpg';
 // import noOneKnows from '../../dist/images/music/indulgent/noOneKnows.jpg';
@@ -93,19 +94,19 @@ export default function Home() {
         </script> */}
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.min.js" />
       </Head>
-      <div className="page">
+      <div className={styles.page}>
         <Navbar activeLink={"HOME"} />
-        <div className='home-title'>hi, i'm abhi - i make <a href="/music"><blue>music</blue></a>, <a href="/portfolio"><red>photos</red></a>, and <a href="/software"><green>transmedia art</green></a></div>
-        <div className="line" />
-        <div className='title'>featured work</div>
-        <div className='project-container'>
+        <div className={styles.home_title}>hi, i'm abhi - i make <a href="/music"><blue>music</blue></a>, <a href="/portfolio"><red>photos</red></a>, and <a href="/software"><green>transmedia art</green></a></div>
+        <div className={styles.line}/>
+        <div className={styles.title}>featured work</div>
+        <div className={styles.project_container}>
           {projects.map((project) =>
             <a href={project.link}>
-              <div className='home-project'>
-                <Image src={project.cover} className='project-img' width={300} height={300} />
-                <div className='project-title'>{project.title}</div>
-                <div className='project-medium'>{project.medium}</div>
-                <div className='project-year'>{project.year}</div>
+              <div className={styles.home_project}>
+                <Image src={project.cover} className={styles.project_img} width={300} height={300} />
+                <div className={styles.project_title}>{project.title}</div>
+                <div className={styles.project_medium}>{project.medium}</div>
+                <div className={styles.project_year}>{project.year}</div>
               </div>
             </a>
           )}
