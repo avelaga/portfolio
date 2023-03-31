@@ -2,7 +2,7 @@ $linkColor: #949494;
 $borderColor: #C1C1C1;
 $mobileMargin: 10px;
 
-.nav-title {
+.nav_title {
   font-size: 40px;
   color: black;
   line-height: 40px;
@@ -34,7 +34,7 @@ $mobileMargin: 10px;
   left: 0;
 }
 
-.link-container {
+.link_container {
   width: 225px;
   border: 1px solid $borderColor;
   border-left: none;
@@ -42,14 +42,14 @@ $mobileMargin: 10px;
   font-family: 'Nimbus-Sans-BolIta';
 }
 
-.external-link-container {
+.external_link_container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.external-link {
+.external_link {
   height: 15px;
   width: 225px;
   position: relative;
@@ -62,7 +62,7 @@ $mobileMargin: 10px;
   font-family: 'Nimbus-Sans-BolIta';
 }
 
-.external-link:hover {
+.external_link:hover {
   animation-name: onExternalLink;
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
@@ -87,17 +87,17 @@ $mobileMargin: 10px;
   animation-fill-mode: forwards;
 }
 
-.last-link {
+.last_link {
   @extend .link;
   border-bottom: none;
 }
 
-.resume-link {
+.resume_link {
   @extend .link;
   border-top: 1px solid $borderColor;
 }
 
-.sublink-container {
+.sublink_container {
   margin-left: 25px;
   border-left: 1px solid $borderColor;
 }
@@ -120,12 +120,12 @@ $mobileMargin: 10px;
   animation-fill-mode: forwards;
 }
 
-.last-sublink {
+.last_sublink {
   @extend .sublink;
   border: none;
 }
 
-.link-color {
+.link_color {
   background-color: black;
   width: 0;
   height: 20px;
@@ -135,7 +135,7 @@ $mobileMargin: 10px;
   transition: width .7s;
 }
 
-.link-text {
+.link_text {
   width: 160px;
   height: 20px;
   position: absolute;
@@ -145,14 +145,14 @@ $mobileMargin: 10px;
   border-top: 0px;
 }
 
-.link:hover .link-color {
+.link:hover .link_color {
   width: 160px;
 }
 
 $navHeight: calc(100svh - 120px);
 
 @media (max-width: 500px) {
-  .nav-title {
+  .nav_title {
     padding-left: 20px;
     font-style: italic;
     font-size: 30px;
@@ -201,14 +201,14 @@ $navHeight: calc(100svh - 120px);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
   }
-  .nav-header {
+  .nav_header {
     width: 100vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 120px;
   }
-  .nav-title-container {
+  .nav_title_container {
     height: 120px;
     display: flex;
     flex-wrap: wrap;
@@ -216,7 +216,7 @@ $navHeight: calc(100svh - 120px);
     justify-content: center;
     width: 60vw;
   }
-  .menu-button {
+  .menu_button {
     font-size: 30px;
     color: black;
     height: 120px;
@@ -226,7 +226,7 @@ $navHeight: calc(100svh - 120px);
     justify-content: center;
     align-items: center;
   }
-  .link-container {
+  .link_container {
     width: 100vw;
     text-align: center;
     border: none;
@@ -249,10 +249,10 @@ $navHeight: calc(100svh - 120px);
 
     animation: none;
   }
-  .last-link {
+  .last_link {
     border-bottom: 1px solid $borderColor;
   }
-  .sublink-container {
+  .sublink_container {
     margin-left: 0;
     width: 100vw;
     display: flex;
@@ -273,12 +273,12 @@ $navHeight: calc(100svh - 120px);
 
     animation: none;
   }
-  .external-link-container {
+  .external_link_container {
     height: calc($navHeight * (3 / 10));
     align-items: flex-end;
     padding-left: $mobileMargin;
   }
-  .external-link {
+  .external_link {
     width: 100vw;
     height: auto;
     font-size: 15px;

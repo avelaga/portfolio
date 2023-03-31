@@ -6,14 +6,14 @@ import mepurple from "../../dist/images/home/mepurple.jpg";
 import mecrop from "../../dist/images/home/mecrop.jpg";
 import medrums from "../../dist/images/home/medrums.jpg";
 import resume from "../../dist/images/Resume.pdf";
-import './pages.scss';
+import styles from '@/styles/Pages.module.scss';
 
 const mobileImg = {
   width: '100vw'
 };
 
 const aboutBottomText = () => {
-  return <div className="about-bottom-text">
+  return <div className={styles.about-bottom-text}>
     <a href="mailto:abhinav.velaga@utexas.edu">abhinav.velaga@utexas.edu</a>
     <br />
     <a href="https://www.instagram.com/abhi.velaga/" target='_blank'>@abhi.velaga</a>
@@ -38,21 +38,21 @@ const bio = () => {
 
 export default function About() {
   let mobile = window.innerWidth < 500;
-  return <div className="page">
+  return <div className={styles.page}>
 
     {/* desktop  */}
     {!mobile &&
       <div>
         <Navbar activeLink={"ABOUT"} />
-        <div className="about-top">
-          <img src={me1} className="about-top-img" effect="opacity" />
-          <div className="about-second-text">
+        <div className={styles.about-top}>
+          <img src={me1} className={styles.about-top-img} effect="opacity" />
+          <div className={styles.about-second-text}>
             {bio()}
           </div>
-          <img src={medrums} className="about-right-img" effect="opacity" />
+          <img src={medrums} className={styles.about-right-img} effect="opacity" />
         </div>
-        <div className="about-bottom">
-          <img src={mecrop} className="about-bottom-img" effect="opacity" />
+        <div className={styles.about-bottom}>
+          <img src={mecrop} className={styles.about-bottom-img} effect="opacity" />
           {aboutBottomText()}
         </div>
       </div>
@@ -62,15 +62,15 @@ export default function About() {
     {mobile &&
       <div>
         <Navbar activeLink={"ABOUT"} />
-        <div className="appear">
-          <img effect="opacity" src={mecrop} className="about-top-img" />
-          <div className="about-first-text">
+        <div className={styles.appear}>
+          <img effect="opacity" src={mecrop} className={styles.about-top-img} />
+          <div className={styles.about-first-text}>
             {bio()}
           </div>
 
-          <img effect="opacity" src={medrums} className="about-bottom-img" />
+          <img effect="opacity" src={medrums} className={styles.about-bottom-img} />
           {aboutBottomText()}
-          <img src={me1} className="about-right-img" effect="opacity" />
+          <img src={me1} className={styles.about-right-img} effect="opacity" />
         </div>
       </div>
     }
