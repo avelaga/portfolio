@@ -186,6 +186,7 @@ $projWidth: calc(($calcWidth / 3) - 22px );
 
 .about_top_img {
   width: calc($calcWidth / 2 - $margin);
+  height: auto;
   margin-right: $margin;
 }
 
@@ -213,10 +214,12 @@ $projWidth: calc(($calcWidth / 3) - 22px );
   width: calc($calcWidth / 3 - $margin);
   margin-right: $margin;
   margin-left: calc($calcWidth / 6);
+  height: auto;
 }
 
 .about_right_img {
   width: calc($calcWidth / 4);
+  height: auto;
 }
 
 .about_bottom_text {

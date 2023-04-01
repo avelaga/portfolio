@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import Navbar from '../layout/Navbar';
+import React, {useState} from "react";
+import Head from 'next/head';
+import Image from 'next/image'
+import Navbar from '../Navbar'
 const axios = require("axios").default;
-import hi from '../../public/images/hi.mp4';
+import styles from '../../styles/Pages.module.scss';
 
 const onColor = {
   backgroundColor: 'rgb(0, 212, 0)'
@@ -34,23 +36,23 @@ export default function Hi() {
         setError(true);
       });
   }
-
+// TODO: style completed/error message
   return (
-    <div className="page">
+    <div className={styles.page}>
       <Navbar activeLink={"HI"} />
       <div>
-        <div className="hi-titles-container">
-          <div className="title">say hi to me in realtime</div>
-          <div className="section-subtitle">hi, welcome to my site. clicking this button runs an animation on the led strip at my desk</div>
+        <div className={styles.hi_titles_container}>
+          <div className={styles.title}>say hi to me in realtime</div>
+          <div className={styles.section_subtitle}>hi, welcome to my site. clicking this button runs an animation on the led strip at my desk</div>
         </div>
-        <div className="hi-body">
-          <div className="hi-button" onClick={buttonClicked} 
+        <div className={styles.hi_body}>
+          <div className={styles.hi_button} onClick={buttonClicked} 
           // style={error ? errorColor : on ? onColor : offColor}
           >HELLO</div>
-          {sent && <div className="appear">message received</div>}
-          {error && <div className="appear">i got an error, it looks like someone broke it :( maybe try again tomorrow</div>}
-          <video playsInline autoPlay muted loop className="hi-gif">
-            <source src={hi} type="video/mp4" />
+          {sent && <div className={styles.appear}>message received</div>}
+          {error && <div className={styles.appear}>i got an error, it looks like someone broke it :( maybe try again tomorrow</div>}
+          <video playsInline autoPlay muted loop className={styles.hi_gif}>
+            <source src="/images/hi.mp4" type="video/mp4" />
           </video>
         </div>
       </div>
