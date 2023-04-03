@@ -302,12 +302,14 @@ $projWidth: calc(($calcWidth / 3) - 22px );
 
 .half_left {
   width: 50%;
+  height: auto;
   padding-right: calc($margin / 2);
   margin-top: $margin;
 }
 
 .half_right {
   width: 50%;
+  height: auto;
   padding-left: calc($margin / 2);
   margin-top: $margin;
 }
@@ -359,6 +361,7 @@ $projWidth: calc(($calcWidth / 3) - 22px );
 
 .music_half {
   width: 50%;
+  height: auto;
   margin-top: $margin;
 }
 
@@ -379,6 +382,7 @@ $projWidth: calc(($calcWidth / 3) - 22px );
 
 .music_cover {
   width: 100%;
+  height: auto;
   padding-bottom: 5px;
 }
 

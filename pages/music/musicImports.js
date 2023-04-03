@@ -1,13 +1,13 @@
-import fourAm from '../../dist/images/music/indulgent/4am.jpg';
-// import letMeBe from '../../dist/images/music/indulgent/letMeBe.jpg';
-import toxic from '../../dist/images/music/indulgent/toxic.jpg';
-// import strippedDown from '../../dist/images/music/indulgent/strippedDown.jpg';
-import pleasureCruise from '../../dist/images/music/indulgent/pleasureCruise.jpg';
-import bleachYourHeart from '../../dist/images/music/indulgent/bleachYourHeart.jpg';
-import noDrive from '../../dist/images/music/indulgent/noDrive.jpg';
-import breakMyFall from '../../dist/images/music/indulgent/breakMyFall.jpg';
-import noOneKnows from '../../dist/images/music/indulgent/noOneKnows.jpg';
-import rebound from '../../dist/images/music/indulgent/rebound.jpg';
+import fourAm from '../../public/images/music/indulgent/4am.jpg';
+// import letMeBe from '../../public/images/music/indulgent/letMeBe.jpg';
+import toxic from '../../public/images/music/indulgent/toxic.jpg';
+// import strippedDown from '../../public/images/music/indulgent/strippedDown.jpg';
+import pleasureCruise from '../../public/images/music/indulgent/pleasureCruise.jpg';
+import bleachYourHeart from '../../public/images/music/indulgent/bleachYourHeart.jpg';
+import noDrive from '../../public/images/music/indulgent/noDrive.jpg';
+import breakMyFall from '../../public/images/music/indulgent/breakMyFall.jpg';
+import noOneKnows from '../../public/images/music/indulgent/noOneKnows.jpg';
+import rebound from '../../public/images/music/indulgent/rebound.jpg';
 
 export const indulgentReleases = [
     {

@@ -19,35 +19,35 @@ const projects = [
     link: "/software"
   },
   {
-    cover: "/images/software/dadalab/dadalab4.jpg",
+    cover: "/images/photos/miami/miami1.jpg",
     title: "miami vice cocaine dream",
     medium: "photo series",
     year: "2018 - 2019",
     link: "/miamivice"
   },
   {
-    cover: "/images/software/dadalab/dadalab4.jpg",
+    cover: "/images/music/indulgent/rebound.jpg",
     title: "rebound - single",
     medium: "music",
     year: "2022",
     link: "https://open.spotify.com/track/6JTaf4T4GYIWPRbBioJnWu?si=47ae2a1a35b9475e"
   },
   {
-    cover: "/images/software/dadalab/dadalab4.jpg",
+    cover: "/images/music/indulgent/noOneKnows.jpg",
     title: "no one knows - single",
     medium: "music",
     year: "2022",
     link: "https://open.spotify.com/track/584ATM5plnkdi60rd6Ns42?si=fdb42d68f3fe4564"
   },
   {
-    cover: "/images/software/dadalab/dadalab4.jpg",
+    cover: "/images/music/indulgent/breakMyFall.jpg",
     title: "break my fall - single",
     medium: "music",
     year: "2022",
     link: "https://open.spotify.com/track/6FRTGOjhRkiJVDBRz5CWWt?si=0c305147687d436f"
   },
   {
-    cover: "/images/software/dadalab/dadalab4.jpg",
+    cover: "/images/photos/uservoid/uservoid1.jpg",
     title: "user void",
     medium: "photo series",
     year: "2019",
@@ -94,7 +94,7 @@ export default function Home() {
         </script> */}
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.min.js" />
       </Head>
-
+{/* TODO: add some more animation, such as growing images on hover to better make clear that theyre clickable */}
       <div className={styles.page}>
         <Navbar activeLink={"HOME"} />
         <div className={styles.home_title}>hi, i'm abhi - i make <a href="/music"><blue>music</blue></a>, <a href="/portfolio"><red>photos</red></a>, and <a href="/software"><green>transmedia art</green></a></div>
@@ -104,6 +104,7 @@ export default function Home() {
           {projects.map((project) =>
             <a href={project.link}>
               <div className={styles.home_project}>
+                {/* TODO: is this the right width and height? */}
                 <Image src={project.cover} className={styles.project_img} width={300} height={300} />
                 <div className={styles.project_title}>{project.title}</div>
                 <div className={styles.project_medium}>{project.medium}</div>
