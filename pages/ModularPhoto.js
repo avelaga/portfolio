@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import '../pages.scss';
+import Image from 'next/image'
+import styles from '../styles/Pages.module.scss'
 
 // 3 image widths OR heights - other aspect will be auto
 // second prop for w or h
@@ -17,25 +18,19 @@ const bigPadding = "5rem";
 const smallPadding = "1rem";
 const navbarWidth = 275;
 
-// TODO: lazy load images
+// TODO: use next Image blur lazy load, also add transition css 
 
 export default function ModularPhoto({ img, width, padding, align, numColumns }) {
-    const [usableWidth, setUsableWidth] = useState(window.innerWidth - navbarWidth);
 
-    const handleResize = () => {
-        setUsableWidth(window.innerWidth - navbarWidth);
-    }
 
-    useEffect(() => {
-        window.addEventListener("resize", handleResize)
-    })
+    const [windowWidth] = useDeviceSize();
 
     let photoStyle = {};
     let containerStyle = {};
-
-    if(usableWidth + navbarWidth > 500){
+    photoStyle["height"] = "auto";
+    if (windowWidth > 500) {
         // desktop
-        let colWidth = usableWidth / numColumns;
+        let colWidth = (windowWidth - navbarWidth) / numColumns;
         if (width) {
             if (width > colWidth) {
                 photoStyle["width"] = `${colWidth}px`;
@@ -61,7 +56,7 @@ export default function ModularPhoto({ img, width, padding, align, numColumns })
         containerStyle["minHeight"] = "100vh";
         containerStyle["alignItems"] = "center"
 
-        const containerWidth = usableWidth / numColumns;
+        const containerWidth = (window.innerWidth - navbarWidth) / numColumns;
         containerStyle["width"] = `${containerWidth}px`;
     } else {
         // mobile
@@ -70,7 +65,29 @@ export default function ModularPhoto({ img, width, padding, align, numColumns })
         containerStyle["justifyContent"] = `center`;
     }
 
-    return <div className="modular-photo" style={containerStyle}>
-        <img src={img} style={photoStyle} />
+    return <div className={styles.modular_photo} style={containerStyle}>
+        <Image src={img} style={photoStyle} />
     </div>
+}
+
+const useDeviceSize = () => {
+
+    const [width, setWidth] = useState(0)
+    const [height, setHeight] = useState(0)
+
+    const handleWindowResize = () => {
+        setWidth(window.innerWidth);
+        setHeight(window.innerHeight);
+    }
+
+    useEffect(() => {
+        // component is mounted and window is available
+        handleWindowResize();
+        window.addEventListener('resize', handleWindowResize);
+        // unsubscribe from the event on component unmount
+        return () => window.removeEventListener('resize', handleWindowResize);
+    }, []);
+
+    return [width, height]
+
 }
