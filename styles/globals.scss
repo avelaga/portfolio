@@ -55,4 +55,10 @@ code {
 
 a {
   color: #949494;
+  transition: color .3s;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
 }

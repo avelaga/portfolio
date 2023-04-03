@@ -67,7 +67,7 @@ export default function Home() {
       <Head>
         <title>Abhi Velaga</title>
         <meta property="og:title" content="Abhi Velaga" />
-
+{/* TODO: change photos for each page */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
@@ -94,7 +94,7 @@ export default function Home() {
         </script> */}
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.min.js" />
       </Head>
-      
+
       <div className={styles.page}>
         <Navbar activeLink={"HOME"} />
         <div className={styles.home_title}>hi, i'm abhi - i make <a href="/music"><blue>music</blue></a>, <a href="/portfolio"><red>photos</red></a>, and <a href="/software"><green>transmedia art</green></a></div>
