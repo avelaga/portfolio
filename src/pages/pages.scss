@@ -253,6 +253,19 @@ a:hover {
   color: rgb(173, 173, 173);
 }
 
+.hi-button-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.msg-success {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
 .hi-gif {
   display: block;
   padding-top: 20px;

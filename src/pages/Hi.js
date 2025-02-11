@@ -44,11 +44,13 @@ export default function Hi() {
           <div className="section-subtitle">hi, welcome to my site. clicking this button runs an animation on the led strip at my desk</div>
         </div>
         <div className="hi-body">
-          <div className="hi-button" onClick={buttonClicked} 
-          // style={error ? errorColor : on ? onColor : offColor}
-          >HELLO</div>
-          {sent && <div className="appear">message received</div>}
-          {error && <div className="appear">i got an error, it looks like someone broke it :( maybe try again tomorrow</div>}
+          <div className="hi-button-parent">
+            <div className="hi-button" onClick={buttonClicked} 
+            // style={error ? errorColor : on ? onColor : offColor}
+            >HELLO</div>
+            {sent && <div className="appear msg-success">message received</div>}
+            {error && <div className="appear">i got an error, it looks like someone broke it :( maybe try again tomorrow</div>}
+          </div>
           <video playsInline autoPlay muted loop className="hi-gif">
             <source src={hi} type="video/mp4" />
           </video>
