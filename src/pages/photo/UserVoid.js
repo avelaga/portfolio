@@ -1,50 +1,41 @@
-import React , { useState } from 'react';
-import Lightbox from 'react-image-lightbox';
+import React from 'react';
 import MediaQuery from 'react-responsive';
-import 'react-image-lightbox/style.css';
-import Navbar from '../../layout/Navbar'
-import { userVoidImages, getHeight, getWidth } from './images.js';
+import Navbar from '../../layout/Navbar';
+import ModularPhoto from './ModularPhoto';
+import { userVoidImages } from './images.js';
 import '../pages.scss';
-import Columned from "react-columned";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
 
+// TODO: lazy load, add artist statement? 
 export default function UserVoid() {
-  const [photoIndex, setPhotoIndex] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const mapImages = function(cols, images) {
-    return <Columned columns={cols} className="gallery">
-      {images.map((value, index) => {
-        return <LazyLoadImage key={index} className="img" src={value} onClick={() => {setIsOpen(true); setPhotoIndex(index)}} effect="opacity" height={getHeight(value)} width={getWidth(value)} />
-      })}
-    </Columned>
-  };
-
   return (
-    <div>
+    <div className="page">
       <MediaQuery minDeviceWidth={500}><Navbar activeLink={"USERVOID"} mobile={false} /></MediaQuery>
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"USERVOID"} mobile={true} /></MediaQuery>
-      <div className="page">
-        <div className="appear">
-          <MediaQuery minDeviceWidth={500}>{mapImages(3, userVoidImages)}</MediaQuery>
-          <MediaQuery maxDeviceWidth={500}>{mapImages(1, userVoidImages)}</MediaQuery>
-          {isOpen && (
-            <Lightbox
-              mainSrc={userVoidImages[photoIndex]}
-              nextSrc={userVoidImages[(photoIndex + 1) % userVoidImages.length]}
-              prevSrc={userVoidImages[(photoIndex + userVoidImages.length - 1) % userVoidImages.length]}
-              onCloseRequest={() => setIsOpen(false)}
-              onMovePrevRequest={() =>
-                setPhotoIndex((photoIndex + userVoidImages.length - 1) % userVoidImages.length)
-              }
-              onMoveNextRequest={() =>
-                setPhotoIndex((photoIndex + 1) % userVoidImages.length)
-              }
-            />
-          )}
-        </div>
-      </div>
+      <div className="title">User Void</div>
+      {/* <div className="section-subtitle">subtitle goes here</div> */}
+      <div className="section-year">2019</div>
+      <div className="photo-mobile-spacer" />
+      <ModularPhoto img={userVoidImages[0]} width={2000} padding={true} align={"center"} numColumns={1} />
+      <ModularPhoto img={userVoidImages[1]} width={900} padding={true} align={"left"} numColumns={1} />
+      <ModularPhoto img={userVoidImages[2]} width={600} padding={true} align={"right"} numColumns={1} />
+      <ModularPhoto img={userVoidImages[3]} width={700} padding={true} align={"center"} numColumns={2} />
+      <ModularPhoto img={userVoidImages[4]} width={1000} padding={false} align={"center"} numColumns={2} />
+      <ModularPhoto img={userVoidImages[5]} width={2000} padding={false} align={"center"} numColumns={1} />
+      <ModularPhoto img={userVoidImages[6]} width={600} padding={false} align={"center"} numColumns={2} />
+      <ModularPhoto img={userVoidImages[7]} width={600} padding={false} align={"center"} numColumns={2} />
+      <ModularPhoto img={userVoidImages[8]} width={900} padding={true} align={"center"} numColumns={1} />
+      <ModularPhoto img={userVoidImages[9]} width={800} padding={true} align={"right"} numColumns={1} />
+      <ModularPhoto img={userVoidImages[10]} width={800} padding={true} align={"center"} numColumns={1} />
+      <ModularPhoto img={userVoidImages[11]} width={600} padding={true} align={"center"} numColumns={2} />
+      <ModularPhoto img={userVoidImages[12]} width={800} padding={false} align={"center"} numColumns={2} />
+      <ModularPhoto img={userVoidImages[13]} width={2000} padding={true} align={"center"} numColumns={1} />
+      <ModularPhoto img={userVoidImages[14]} width={600} padding={true} align={"center"} numColumns={1} />
+      <ModularPhoto img={userVoidImages[15]} width={600} padding={true} align={"center"} numColumns={2} />
+      <ModularPhoto img={userVoidImages[16]} width={800} padding={false} align={"center"} numColumns={2} />
+      <ModularPhoto img={userVoidImages[17]} width={700} padding={true} align={"center"} numColumns={1} />
+      <ModularPhoto img={userVoidImages[18]} width={600} padding={false} align={"center"} numColumns={2} />
+      <ModularPhoto img={userVoidImages[19]} width={600} padding={false} align={"center"} numColumns={2} />
+      <ModularPhoto img={userVoidImages[20]} width={700} padding={true} align={"right"} numColumns={1} />
     </div>
   )
 };

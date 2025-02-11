@@ -1,50 +1,41 @@
-import React , { useState } from 'react';
-import Lightbox from 'react-image-lightbox';
-import MediaQuery from 'react-responsive'
+import React from 'react';
+import MediaQuery from 'react-responsive';
 import 'react-image-lightbox/style.css';
-import Navbar from '../../layout/Navbar'
-import { portfolioImages, getHeight, getWidth } from './images.js';
+import Navbar from '../../layout/Navbar';
+import ModularPhoto from './ModularPhoto';
+import { portfolioImages } from './images.js';
 import '../pages.scss';
-import Columned from "react-columned";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
 
+// TODO: do i want to add a description or something?
 export default function Portfolio() {
-  const [photoIndex, setPhotoIndex] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const mapImages = function(cols, images) {
-    return <Columned columns={cols} className="gallery">
-      {images.map((value, index) => {
-        return <LazyLoadImage key={index} className="img" src={value} onClick={() => {setIsOpen(true); setPhotoIndex(index)}} effect="opacity" height={getHeight(value)} width={getWidth(value)} />
-      })}
-    </Columned>
-  };
-
   return (
-    <div>
+    <div className="page">
       <MediaQuery minDeviceWidth={500}><Navbar activeLink={"PORTFOLIO"} mobile={false} /></MediaQuery>
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"PORTFOLIO"} mobile={true} /></MediaQuery>
-      <div className="page">
-        <div className="appear">
-          <MediaQuery minDeviceWidth={500}>{mapImages(3, portfolioImages)}</MediaQuery>
-          <MediaQuery maxDeviceWidth={500}>{mapImages(1, portfolioImages)}</MediaQuery>
-          {isOpen && (
-            <Lightbox
-              mainSrc={portfolioImages[photoIndex]}
-              nextSrc={portfolioImages[(photoIndex + 1) % portfolioImages.length]}
-              prevSrc={portfolioImages[(photoIndex + portfolioImages.length - 1) % portfolioImages.length]}
-              onCloseRequest={() => setIsOpen(false)}
-              onMovePrevRequest={() =>
-                setPhotoIndex((photoIndex + portfolioImages.length - 1) % portfolioImages.length)
-              }
-              onMoveNextRequest={() =>
-                setPhotoIndex((photoIndex + 1) % portfolioImages.length)
-              }
-            />
-          )}
-        </div>
-      </div>
+      <div className="title">Photography Portfolio</div>
+      {/* <div className="section-subtitle">subtitle goes here</div> */}
+      {/* <div className="section-year">2018 - 2019</div> */}
+      <div className="photo-mobile-spacer" />
+      <ModularPhoto img={portfolioImages[0]} width={1000} padding={false} align={"right"} numColumns={1} />
+      <ModularPhoto img={portfolioImages[1]} width={700} padding={true} align={"center"} numColumns={1} />
+      <ModularPhoto img={portfolioImages[2]} width={600} padding={true} align={"center"} numColumns={2} />
+      <ModularPhoto img={portfolioImages[3]} width={600} padding={true} align={"center"} numColumns={2} />
+      <ModularPhoto img={portfolioImages[4]} width={800} padding={true} align={"right"} numColumns={1} />
+      <ModularPhoto img={portfolioImages[5]} width={2000} padding={false} align={"center"} numColumns={1} />
+      <ModularPhoto img={portfolioImages[6]} width={600} padding={false} align={"center"} numColumns={2} />
+      <ModularPhoto img={portfolioImages[7]} width={600} padding={false} align={"center"} numColumns={2} />
+      <ModularPhoto img={portfolioImages[8]} width={600} padding={true} align={"left"} numColumns={1} />
+      <ModularPhoto img={portfolioImages[9]} width={1200} padding={true} align={"right"} numColumns={1} />
+      <ModularPhoto img={portfolioImages[10]} width={800} padding={true} align={"left"} numColumns={1} />
+      <ModularPhoto img={portfolioImages[11]} width={2000} padding={true} align={"center"} numColumns={1} />
+      <ModularPhoto img={portfolioImages[12]} width={2000} padding={true} align={"center"} numColumns={1} />
+      <ModularPhoto img={portfolioImages[13]} width={700} padding={true} align={"left"} numColumns={1} />
+      <ModularPhoto img={portfolioImages[14]} width={600} padding={true} align={"left"} numColumns={1} />
+      <ModularPhoto img={portfolioImages[15]} width={600} padding={true} align={"left"} numColumns={2} />
+      <ModularPhoto img={portfolioImages[16]} width={500} padding={true} align={"left"} numColumns={2} />
+      <ModularPhoto img={portfolioImages[17]} width={1000} padding={true} align={"left"} numColumns={1} />
+      <ModularPhoto img={portfolioImages[18]} width={600} padding={true} align={"left"} numColumns={2} />
+      <ModularPhoto img={portfolioImages[19]} width={600} padding={true} align={"left"} numColumns={2} />
     </div>
   )
 };

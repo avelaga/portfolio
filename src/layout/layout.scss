@@ -1,53 +1,128 @@
-.appear {
-  animation-name: appear;
-  animation-duration: 2.5s;
-  animation-fill-mode: forwards;
-}
+$linkColor: #949494;
+$borderColor: #C1C1C1;
+$mobileMargin: 10px;
 
 .nav-title {
   font-size: 40px;
-  color: white;
-  font-style: italic;
+  color: black;
   line-height: 40px;
+  padding-left: 25px;
+  font-family: 'Berthold-Akzidenz-Grotesk-Light-Extended';
 }
 
 .subtitle {
-  width: 100%;
   height: 15px;
   color: grey;
   margin-bottom: 20px;
   font-size: 10px;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
+  padding-left: 25px;
+  font-family: 'Berthold-Akzidenz-Grotesk-Light-Extended';
 }
 
 .navbar {
-  width: 250px;
-  height: 0;
+  height: 100vh;
+  color: $linkColor;
+  width: 225px;
   padding: 0px;
-  position: fixed;
-  top: 50px;
-  left: 20px;
-  z-index: 1;
   display: flex;
-  justify-content: flex-start;
-  align-content: flex-start;
+  align-content: center;
+  align-items: center;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
 
-  animation-name: appear;
-  animation-duration: 2.5s;
+.link-container {
+  width: 225px;
+  border: 1px solid $borderColor;
+  border-left: none;
+  margin-right: 0;
+  font-family: 'Nimbus-Sans-BolIta';
+}
+
+.external-link-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.external-link {
+  height: 15px;
+  width: 225px;
+  position: relative;
+  letter-spacing:2px;
+  font-size: 10px;
+  animation-name: offExternalLink;
+  animation-duration: 0.7s;
   animation-fill-mode: forwards;
-  
+  padding-left: 25px;
+  font-family: 'Nimbus-Sans-BolIta';
+}
+
+.external-link:hover {
+  animation-name: onExternalLink;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
 }
 
 .link {
-  color: rgb(255, 230, 0);
-  height: 20px;
-  width: 220px;
-  position: relative;
-  animation-name: offText;
+  color: $linkColor;
+  animation-name: offLink;
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
-  letter-spacing: 4px;
-  font-size: 15px;
+  font-size: 25px;
+  height: 30px;
+  padding-left: 25px;
+
+  border-bottom: 1px solid $borderColor;
+  font-family: 'Nimbus-Sans-BolIta';
+}
+
+.link:hover {
+  animation-name: onLink;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+}
+
+.last-link {
+  @extend .link;
+  border-bottom: none;
+}
+
+.resume-link {
+  @extend .link;
+  border-top: 1px solid $borderColor;
+}
+
+.sublink-container {
+  margin-left: 25px;
+  border-left: 1px solid $borderColor;
+}
+
+.sublink {
+  // account for 1px border on each side, 198 prevents overflow
+  width: 198px;
+  position: relative;
+  padding-left: 25px;
+  border-bottom: 1px solid $borderColor;
+  padding-top: 1px; // accounts for 1px bottom border so text remains cenetred
+  animation-name: offLink;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+}
+
+.sublink:hover {
+  animation-name: onLink;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+}
+
+.last-sublink {
+  @extend .sublink;
+  border: none;
 }
 
 .link-color {
@@ -58,7 +133,6 @@
   top: 1px;
   left: -20px;
   transition: width .7s;
-  border-radius: 0px 100px 100px 0px;
 }
 
 .link-text {
@@ -67,167 +141,207 @@
   position: absolute;
   top: 0;
   left: 0;
-  color: rgb(255, 230, 0);
+  border: 1px solid black;
+  border-top: 0px;
 }
 
 .link:hover .link-color {
   width: 160px;
 }
 
-// .link:hover {
-//   animation-name: overText;
-//   animation-duration: 0.7s;
-//   animation-fill-mode: forwards;
-// }
-
-.external-link {
-  color: rgb(180, 180, 180);
-  height: 15px;
-  width: 300px;
-  position: relative;
-  letter-spacing: 4px;
-  font-size: 10px;
-  animation-name: offExternalText;
-  animation-duration: 0.7s;
-  animation-fill-mode: forwards;
-}
-
-.external-link:hover {
-  animation-name: overExternalText;
-  animation-duration: 0.7s;
-  animation-fill-mode: forwards;
-}
-
-.nav-back {
-  background-color: none;
-}
+$navHeight: calc(100svh - 120px);
 
 @media (max-width: 500px) {
   .nav-title {
-    font-size: 45px;
-    line-height: 40px;
-    width: 50vw;
-  }
-  .navbar {
-    top: 10px;
-    left: 10px;
-  }
-  .link {
-    height: 25px;
-    font-size: 20px;
-  }
-  .link-color {
-    height: 25px;
-  }
-  .link-text {
-    height: 25px;
-  }
-  .external-link {
-    height: 20px;
-    font-size: 15px;
+    padding-left: 20px;
+    font-style: italic;
+    font-size: 30px;
   }
   .subtitle {
-    height: 18px;
-    font-size: 13px;
+    font-size: 12px;
+    line-height: 17px;
+    height: auto;
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-top: -20px;
+    text-align: center;
   }
-  .nav-back {
+  .navbar {
+    background-color: none;
+    width: 100vw;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    align-content: flex-start; 
+    height: fit-content;
+  }
+  .blur {
+    position: fixed;
+    left: 0;
+    top: 0;
     width: 100vw;
     height: 100vh;
-    padding: 0px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    display: flex;
-    justify-content: flex-start;
-    align-content: flex-start;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    animation-name: hideBack;
+    z-index: 999;
+    animation-name: blur;
     animation-duration: 1s;
     animation-fill-mode: forwards;
-  }
-
-  .header-back {
-    width: 100vw;
-    height: 118px;
-    padding: 0px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-  }
-}
-
-@keyframes hideBack {
-  from {
-    background-color: rgba(0, 0, 0, 0);
-    -webkit-backdrop-filter: blur(0);
-    backdrop-filter: blur(0);
-  }
-  to {
-    background-color: rgba(0, 0, 0, 0.2);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
   }
+  .unblur {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 120px;
+    z-index: 999;
+    animation-name: unblur;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+  .nav-header {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 120px;
+  }
+  .nav-title-container {
+    height: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 60vw;
+  }
+  .menu-button {
+    font-size: 30px;
+    color: black;
+    height: 120px;
+    width: 40vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .link-container {
+    width: 100vw;
+    text-align: center;
+    border: none;
+
+
+  animation-name: appear;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  }
+  .link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100vw;
+    height: calc($navHeight / 10);
+    padding-top: 8px;
+    font-size: 30px;
+    padding-left: $mobileMargin;
+    color: white;
+
+    animation: none;
+  }
+  .last-link {
+    border-bottom: 1px solid $borderColor;
+  }
+  .sublink-container {
+    margin-left: 0;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    border: none;
+  }
+  .sublink {
+    width: 70vw;
+    height: calc($navHeight / 20);
+    padding-left: $mobileMargin;
+    margin-top: 0px;
+    line-height: 32px;
+    border-left: 1px solid $borderColor;
+    color: white;
+    text-align: left;
+
+    animation: none;
+  }
+  .external-link-container {
+    height: calc($navHeight * (3 / 10));
+    align-items: flex-end;
+    padding-left: $mobileMargin;
+  }
+  .external-link {
+    width: 100vw;
+    height: auto;
+    font-size: 15px;
+    text-align: left;
+    padding: 0;
+    color: white !important;
+  }
 }
 
-.nav-header {
-  width: 95vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+@keyframes blur {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+    height: 120px;
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+  }
 }
 
-.menu-button {
-  font-size: 30px;
-  color: rgb(0, 255, 255);
-  line-height: 24px;
+@keyframes unblur {
+  from {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0);
+    height: 120px;
+  }
 }
 
-@keyframes overExternalText {
+@keyframes onLink {
+  from {
+    color: $linkColor
+  }
+  to {
+    color: black
+  }
+}
+
+@keyframes offLink {
+  from {
+    color: black
+  }
+  to {
+    color: $linkColor
+  }
+}
+
+@keyframes onExternalLink {
   from {
     color: rgb(180, 180, 180)
   }
   to {
-    color: white
+    color: black
   }
-}
+} 
 
-@keyframes offExternalText {
+@keyframes offExternalLink {
   from {
-    color: white
+    color: black
   }
   to {
     color: rgb(180, 180, 180)
-  }
-}
-
-@keyframes overText {
-  from {
-    color: rgb(0, 255, 255)
-  }
-  to {
-    color: white
-  }
-}
-
-@keyframes offText {
-  from {
-    color: white
-  }
-  to {
-    color: rgb(0, 255, 255)
-  }
-}
-
-@keyframes appear {
-  from {
-    opacity: 0
-  }
-  to {
-    opacity: 1
   }
 }

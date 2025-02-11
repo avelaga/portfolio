@@ -25,6 +25,34 @@ code {
   src: local('Berthold-Akzidenz-Grotesk'), url(./fonts/Berthold-Akzidenz-Grotesk-BE-Li-Tall-Normal.otf) format('opentype');
 }
 
+@font-face {
+  font-family: 'Nimbus-Sans-Reg';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Nimbus-Sans-Reg'), url(./fonts/NimbusSanL-Reg.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Nimbus-Sans-RegIta';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Nimbus-Sans-RegIta'), url(./fonts/NimbusSanL-RegIta.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Nimbus-Sans-Bol';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Nimbus-Sans-Bol'), url(./fonts/NimbusSanL-Bol.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Nimbus-Sans-BolIta';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Nimbus-Sans-BolIta'), url(./fonts/NimbusSanL-BolIta.otf) format('opentype');
+}
+
 a {
-  color: rgb(255, 230, 0);
+  color: #949494;
 }

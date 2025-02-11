@@ -199,7 +199,7 @@ export const miamiImages = [
   miami30
 ];
 
-export const publishedImages = [
+export const sparkImages = [
   pub1,
   pub2,
   pub3,
@@ -225,14 +225,21 @@ export const publishedImages = [
   pub23 
 ];
 
-export const miamiPublications = [
+export const miamiBookPics = [
   book1,
   book2,
   book3,
   book4,
 ];
 
-export const sparkPublications = [
+export const miamiBookPicsCarousel = [
+  {original: book1, originalWidth: "500px"},
+  {original: book2, originalWidth: "500px"},
+  {original: book3, originalWidth: "500px"},
+  {original: book4, originalWidth: "500px"}
+];
+
+export const sparkMagPics = [
   // crowd,
   cover,
   one1,
@@ -246,46 +253,18 @@ export const sparkPublications = [
   three1,
   three2,
   // three3,
-  
 ];
 
-export const allPublications = [
-  pub1,
-  pub2,
-  pub3,
-  pub4,
-  pub5,
-  pub6,
-  pub7,
-  pub8,
-  pub9,
-  pub10,
-  pub11,
-  pub12, 
-  pub13, 
-  pub14, 
-  pub15, 
-  pub16, 
-  pub17, 
-  pub18, 
-  pub19, 
-  pub20, 
-  pub21, 
-  pub22, 
-  pub23,
-  cover,
-  one1,
-  one3,
-  one4,
-  two1,
-  two3,
-  two4,
-  three1,
-  three2,
-  book1,
-  book2,
-  book3,
-  book4
+export const sparkMagPicsCarousel = [
+  {original: cover, originalWidth: "500px"},
+  {original: one1, originalWidth: "500px"},
+  {original: one3, originalWidth: "500px"},
+  {original: one4, originalWidth: "500px"},
+  {original: two1, originalWidth: "500px"},
+  {original: two3, originalWidth: "500px"},
+  {original: two4, originalWidth: "500px"},
+  {original: three1, originalWidth: "500px"},
+  {original: three2, originalWidth: "500px"}
 ];
 
 export function getWidth(image) {
