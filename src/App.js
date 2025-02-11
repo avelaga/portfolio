@@ -9,6 +9,7 @@ import Editorial from './pages/photo/Editorial.js';
 import Software from './pages/Software.js';
 import Music from './pages/Music.js';
 import Hi from './pages/Hi.js';
+import Youtube from './pages/Youtube.js';
 import Navbar from './layout/Navbar';
 import ConnectedWorld from './pages/ConnectedWorld.js';
 import MediaQuery from 'react-responsive'
@@ -31,6 +32,7 @@ function App() {
     <Switch>
       <Route exact path='/' exact component={Home} />
       <Route exact path='/about' exact component={About} />
+      <Route exact path='/youtube' exact component={Youtube} />
       {/* /photo is legacy link */}
       <Route exact path='/photo' exact component={Portfolio} />
       <Route exact path='/portfolio' exact component={Portfolio} />

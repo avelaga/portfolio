@@ -274,7 +274,7 @@ $navHeight: calc(100svh - 120px);
     animation: none;
   }
   .external-link-container {
-    height: calc($navHeight * (3 / 10));
+    height: calc($navHeight * (2 / 10));
     align-items: flex-end;
     padding-left: $mobileMargin;
   }
