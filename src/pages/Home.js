@@ -3,7 +3,7 @@ import Navbar from '../layout/Navbar';
 import MediaQuery from 'react-responsive';
 import worldMissesYou from '../../dist/images/software/dadalab/dadalab4.jpg';
 import breakMyFall from '../../dist/images/music/indulgent/breakMyFall.jpg';
-import noOneKnows from '../../dist/images/music/indulgent/noOneKnows.jpg';
+import noOneKnows from '../../dist/images/music/indulgent/noOneKnows1.jpg';
 import rebound from '../../dist/images/music/indulgent/rebound.jpg';
 import miami1 from '../../dist/images/photos/miami/miami1.jpg';
 import uservoid1 from '../../dist/images/photos/uservoid/uservoid1.jpg';

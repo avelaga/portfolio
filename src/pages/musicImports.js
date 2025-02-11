@@ -6,7 +6,7 @@ import pleasureCruise from '../../dist/images/music/indulgent/pleasureCruise.jpg
 import bleachYourHeart from '../../dist/images/music/indulgent/bleachYourHeart.jpg';
 import noDrive from '../../dist/images/music/indulgent/noDrive.jpg';
 import breakMyFall from '../../dist/images/music/indulgent/breakMyFall.jpg';
-import noOneKnows from '../../dist/images/music/indulgent/noOneKnows.jpg';
+import noOneKnows from '../../dist/images/music/indulgent/noOneKnows1.jpg';
 import rebound from '../../dist/images/music/indulgent/rebound.jpg';
 
 export const indulgentReleases = [
