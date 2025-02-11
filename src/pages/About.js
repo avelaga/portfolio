@@ -27,8 +27,8 @@ const aboutBottomText = () => {
   <br />
   <a href="youtube.com/@abhi.velaga" target='_blank'>youtube</a>
   <br />
-  <a href="https://dribbble.com/avelaga" target='_blank'>dribbble</a>
-  <br />
+  {/* <a href="https://dribbble.com/avelaga" target='_blank'>dribbble</a>
+  <br /> */}
   <a href="https://www.github.com/avelaga/" target='_blank'>github</a>
   </div>
 };
