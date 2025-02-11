@@ -23,7 +23,7 @@ export default function Hi() {
 
   const buttonClicked = () => {
     setOn(true);
-    const url = "https://p3g4inxilgsfwwjcgjdyf4nqzy0bcoia.lambda-url.us-east-1.on.aws/ ";
+    const url = "https://p3g4inxilgsfwwjcgjdyf4nqzy0bcoia.lambda-url.us-east-1.on.aws/";
     axios
       .get(
         url
@@ -33,8 +33,8 @@ export default function Hi() {
         setOn(false);
       })
       .catch(err => {
-        setSent(true);
-        setOn(false);
+        console.log("god dang it who broke it now")
+        setError(true);
       });
   }
 
