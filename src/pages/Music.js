@@ -51,9 +51,9 @@ export default function Music() {
 
         <div className="title">CALADAN</div>
         <div className="section-subtitle">drums</div>
-        <div className="section-year">2022 - present</div>
+        <div className="section-year">2022 - 2023</div>
         <img src={caladan} className="music-full" />
-        <div className="music-description">WHAT DO I SAY ABOUT CALDAN</div>
+        {/* <div className="music-description">WHAT DO I SAY ABOUT CALDAN</div> */}
         <div className="music-video">
             <YouTube videoId="VQsZdVG8A8I" className="youtube-half-left" />
             hole in the wall <br />
@@ -71,7 +71,7 @@ export default function Music() {
         <div className="section-subtitle">drums</div>
         <div className="section-year">2022 - 2023</div>
         <img src={sd1} className="music-full" />
-        <div className="music-description">WHAT DO I SAY ABOUT SHIVERING DMEONSSS, dont forget i have more assets to compress that i could use in Desktop/compressed assets</div>
+        {/* <div className="music-description">WHAT DO I SAY ABOUT SHIVERING DMEONSSS, dont forget i have more assets to compress that i could use in Desktop/compressed assets</div> */}
         <img src={fallingKid} className="music-half" />
         <div className="music-video">
             <YouTube videoId="1ap9ObDNqAU" className="youtube-half-right" />

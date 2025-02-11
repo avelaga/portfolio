@@ -38,14 +38,14 @@ export default function Software() {
       <img src={dadalab4} className='half-right software-mobile-photo' />
       {/* <img src={dadalab5} className='software-half-left software-mobile-photo' /> */}
       <YouTube videoId="CcSitqAJFZk" className="software-youtube  software-mobile-photo"/>
-      <div className="line" />
+      {/* <div className="line" />
       <div className="title">say hi</div>
       <div className="section-year">2020</div>
       <div className="line" />
       <div className="title">electric forest</div>
-      <div className="section-year">2020</div>
-      <div className="line" />
+      <div className="section-year">2020</div> */}
+      {/* <div className="line" />
       <div className="title">acid test</div>
-      <div className="section-year">2019</div>
+      <div className="section-year">2019</div> */}
   </div>;
 };
