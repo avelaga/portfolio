@@ -9,7 +9,7 @@
 /coverage
 
 # production
-/dist/**/*.jpg
+/dist/*.jpg
 /build
 /.next
 

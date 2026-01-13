@@ -10,6 +10,7 @@ import drums from '../../dist/images/music/indulgent/drums.jpg';
 import guitar1 from '../../dist/images/music/indulgent/guitar1.jpg';
 import guitar2 from '../../dist/images/music/indulgent/guitar2.jpg';
 import mebed from '../../dist/images/music/indulgent/mebed.jpg';
+import indulgentlive from '../../dist/images/music/indulgent/indulgentlive.jpg';
 import { indulgentReleases } from './musicImports.js';
 
 import caladan from '../../dist/images/music/caladan/caladan.jpg';
@@ -31,7 +32,7 @@ export default function Music() {
         <div className="title">INDULGENT</div>
         <div className="section-subtitle">guitar, vocals, drums, bass</div>
         <div className="section-year">2015 - present</div>
-        <img src={mebed} className="music-full" />
+        <img src={indulgentlive} className="music-full" />
         <div className="music-description">I perform all vocals, drums, guitars, and bass myself for my solo project, Indulgent, and released my recent album, <a href="https://open.spotify.com/album/2d7c0N7uNdi3jfdsTWeZNV?si=K98wvkQmQd6uMvHFrQt2ng">No Drive Will Take Me Home</a>, in 2018 and my debut album, <a href="https://open.spotify.com/album/67RH1N86fW4hIA10m3DhFl?si=Hl4dag6_QhSyX3f4Zv0mhg">Toxic</a>, in 2015.</div>
         <img src={guitar1} className="half-left" />
         <img src={guitar2} className="half-right" />
