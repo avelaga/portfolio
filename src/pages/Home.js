@@ -8,6 +8,7 @@ import rebound from '../../dist/images/music/indulgent/rebound.jpg';
 import miami1 from '../../dist/images/photos/miami/miami1.jpg';
 import uservoid1 from '../../dist/images/photos/uservoid/uservoid1.jpg';
 import rebuildthumb from '../../dist/images/rebuildthumbsq.jpg';
+import resume from "../../dist/images/Resume.pdf";
 
 const projects = [
     {
@@ -72,7 +73,7 @@ export default function Home() {
       <MediaQuery minDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={false} /></MediaQuery>
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={true} /></MediaQuery>
       {/* <div className='home-title'>hi, i'm abhi - i make <a href="/music"><blue>music</blue></a>, <a href="/portfolio"><red>photos</red></a>, and <a href="/software"><green>transmedia art</green></a></div> */}
-      <div className='home-title'>hi, i'm abhi - an interdisciplinary creator and software developer</div>
+      <div className='home-title'>hi, i'm abhi - an interdisciplinary creator and <blue><a href={resume} target="_blank" className="home-resume">software developer</a></blue></div>
        <div className="line" />
       <div className='title'>featured work</div>
       <div className='project-container'>

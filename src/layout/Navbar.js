@@ -44,7 +44,7 @@ export default function Navbar({ activeLink, mobile }) {
               </div>
             </div>
           </a>
-          {!mobile && <div className='subtitle'>musician, developer, artist</div>}
+          {!mobile && <div className='subtitle'>musician/creator/developer</div>}
         </div>
 
         {mobile && <div className="menu-button" onClick={() => setCollapsed(!collapsed)}>

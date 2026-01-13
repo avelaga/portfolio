@@ -55,6 +55,18 @@ $linkColor: #949494;
   border-bottom: 1px solid $borderColor;
 }
 
+.home-resume {
+  transition: color 1s;
+  transition: background-color 1s;
+  color: #4268B3;
+  background-color: white;
+}
+
+.home-resume:hover {
+  background-color: #4268B3;
+  color: white;
+}
+
 blue {
   background-color: #4268B3;
   color: white;
