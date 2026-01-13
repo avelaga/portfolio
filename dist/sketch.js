@@ -160,12 +160,12 @@ function draw() {
       let n = noise(x * 0.01, y * 0.01, t);
 
       // Map noise to dot size
-      let dotSize = map(n, 0, 1, -1, 5);
-      fill(0,0,0,75)
-      circle(x, y, dotSize);
+      let dotSize = map(n, 0, 1, -1, 30);
+      fill(0,0,0,50)
+      circle(x, y+dotSize, dotSize/5);
     }
   }
 
   // Move through noise space slowly
-  t += 0.01
+  t += 0.005
 }

@@ -1,7 +1,7 @@
 # Portfolio
 
-my portfolio website that showcases my photography, music, software work, and achievements. 
+my portfolio website that showcases my photography, music, and creative software work.
 
 https://abhi.work
 
-![Imgur](https://i.imgur.com/DK0FhvH.png)
+![Imgur](https://i.imgur.com/lw09BEg.jpeg)
