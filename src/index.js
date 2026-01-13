@@ -5,9 +5,11 @@ import './fonts/Berthold-Akzidenz-Grotesk-BE-Li.otf';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
+import ScriptTag from 'react-script-tag';
 
 ReactDOM.render(
   <BrowserRouter>
+    <ScriptTag type="text/javascript" src="sketch.js"/>
     <App />
   </BrowserRouter>,
   document.getElementById('app')
