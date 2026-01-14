@@ -44,7 +44,7 @@ export default function Navbar({ activeLink, mobile }) {
               </div>
             </div>
           </a>
-          {!mobile && <div className='subtitle'>musician/creator/developer</div>}
+          {!mobile && <div className='subtitle'>creator and developer</div>}
         </div>
 
         {mobile && <div className="menu-button" onClick={() => setCollapsed(!collapsed)}>
@@ -72,17 +72,17 @@ export default function Navbar({ activeLink, mobile }) {
 
           <div className='external-link-container'>
             {!mobile && <div className='external-link' />}
-            <a className="external-link" href="https://open.spotify.com/artist/7JCVu8JTFAFrHqnYnGVPhi?si=wAs1clwUTiqOqS8e8RUJqg" target="_blank">
-              SPOTIFY
+            <a className="external-link" href="https://www.youtube.com/@abhi.velaga/" target="_blank">
+              YOUTUBE
             </a>
             <a className="external-link" href="https://www.instagram.com/abhi.velaga/" target="_blank">
               INSTAGRAM
             </a>
+            <a className="external-link" href="https://open.spotify.com/artist/7JCVu8JTFAFrHqnYnGVPhi?si=wAs1clwUTiqOqS8e8RUJqg" target="_blank">
+              SPOTIFY
+            </a>
             <a className="external-link" href="https://www.instagram.com/abhi.film/" target="_blank">
               PHOTO INSTAGRAM
-            </a>
-            <a className="external-link" href="https://www.youtube.com/@abhi.velaga/" target="_blank">
-              YOUTUBE
             </a>
             <a className="external-link" href="mailto:abhinav.velaga@utexas.edu">
               CONTACT

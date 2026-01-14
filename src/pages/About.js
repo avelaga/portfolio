@@ -34,7 +34,7 @@ const aboutBottomText = () => {
 };
 
 const bio = () => {
-  return <>I'm an interdisciplinary creator, musician, and software developer based in Austin, TX, where I work as a senior software engineer at <processing>Visa</processing> and studied both Computer Science and Studio Art at <ut>The University of Texas at Austin</ut></>
+  return <>I'm a musician, interdisciplinary creator, and software developer based in Austin, TX, where I work as a senior software engineer at <processing>Visa</processing> and studied both Computer Science and Studio Art at <ut>The University of Texas at Austin</ut></>
 };
 
 export default function About() {

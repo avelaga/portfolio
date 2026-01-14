@@ -73,7 +73,7 @@ export default function Home() {
       <MediaQuery minDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={false} /></MediaQuery>
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={true} /></MediaQuery>
       {/* <div className='home-title'>hi, i'm abhi - i make <a href="/music"><blue>music</blue></a>, <a href="/portfolio"><red>photos</red></a>, and <a href="/software"><green>transmedia art</green></a></div> */}
-      <div className='home-title'>hi, i'm abhi - an interdisciplinary creator and <blue><a href={resume} target="_blank" className="home-resume">software developer</a></blue></div>
+      <div className='home-title'>hi, i'm abhi - a musician, interdisciplinary creator, and <blue><a href={resume} target="_blank" className="home-resume">software developer</a></blue></div>
        <div className="line" />
       <div className='title'>featured work</div>
       <div className='project-container'>
