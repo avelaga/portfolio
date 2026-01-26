@@ -1,0 +1,165 @@
+---
+import Navbar from "./layout/Navbar.astro"; // if React: "../layout/Navbar.jsx" + add client:load (see note below)
+import BaseLayout from "./layout/BaseLayout.astro"
+
+const resumeUrl = "/images/Resume.pdf";
+
+const projects = [
+	{
+		cover: "/images/rebuildthumbsq.jpg",
+		title: "totaled car rebuild",
+		medium: "youtube series",
+		year: "2025",
+		link: "https://youtu.be/_lGyHqbhK-A?si=eCnqV4fGK9G9aiFj",
+	},
+	{
+		cover: "/images/software/dadalab/dadalab4.jpg",
+		title: "the world misses you",
+		medium: "led installation",
+		year: "2021",
+		link: "/software",
+	},
+	{
+		cover: "/images/photos/miami/miami1.jpg",
+		title: "miami vice cocaine dream",
+		medium: "photo series",
+		year: "2018 - 2019",
+		link: "/miamivice",
+	},
+	{
+		cover: "/images/music/indulgent/rebound.jpg",
+		title: "rebound - single",
+		medium: "music",
+		year: "2022",
+		link: "https://open.spotify.com/track/6JTaf4T4GYIWPRbBioJnWu?si=47ae2a1a35b9475e",
+	},
+	{
+		cover: "/images/music/indulgent/noOneKnows1.jpg",
+		title: "no one knows - single",
+		medium: "music",
+		year: "2022",
+		link: "https://open.spotify.com/track/584ATM5plnkdi60rd6Ns42?si=fdb42d68f3fe4564",
+	},
+	{
+		cover: "/images/photos/uservoid/uservoid1.jpg",
+		title: "user void",
+		medium: "photo series",
+		year: "2019",
+		link: "/uservoid",
+	},
+];
+---
+
+<BaseLayout>
+	<div class="page">
+		<!-- If your Navbar.astro expects mobile prop, just render both and let your Navbar handle it -->
+		<div class="nav-desktop">
+			<Navbar activeLink="HOME" mobile={false} />
+		</div>
+		<div class="nav-mobile">
+			<Navbar activeLink="HOME" mobile={true} />
+		</div>
+
+		<div class="home-title">
+			hi, i'm abhi - a musician, interdisciplinary creator, and
+			<blue>
+				<a
+					href={resumeUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="home-resume"
+				>
+					software developer
+				</a>
+			</blue>
+		</div>
+
+		<div class="line"></div>
+
+		<div class="title">featured work</div>
+
+		<div class="project-container">
+			{
+				projects.map((project) => (
+					<a
+						href={project.link}
+						target={
+							project.link.startsWith("http")
+								? "_blank"
+								: undefined
+						}
+						rel={
+							project.link.startsWith("http")
+								? "noopener noreferrer"
+								: undefined
+						}
+					>
+						<div class="home-project">
+							<img
+								src={project.cover}
+								class="project-img"
+								loading="lazy"
+								decoding="async"
+								alt={project.title}
+							/>
+							<div class="project-title">{project.title}</div>
+							<div class="project-medium">{project.medium}</div>
+							<div class="project-year">{project.year}</div>
+						</div>
+					</a>
+				))
+			}
+		</div>
+	</div>
+</BaseLayout>
+
+<!-- replaces react-responsive MediaQuery -->
+<style>
+	.nav-desktop {
+		display: block;
+	}
+	.nav-mobile {
+		display: none;
+	}
+
+	@media (max-width: 500px) {
+		.nav-desktop {
+			display: none;
+		}
+		.nav-mobile {
+			display: block;
+		}
+	}
+</style>
+
+<!-- Easter egg console log (runs in browser) -->
+<script>
+	console.log(` _____
+|_   _|
+  | |
+  | |
+ _| |_
+ \\___/
+
+ ___  ___  ___
+/ __|/ _ \\/ _ \\
+\\__ \\  __/  __/
+|___/\\___|\\___|
+
+ _   _  ___  _   _
+| | | |/ _ \\| | | |
+| |_| | (_) | |_| |
+ \\__, |\\___/ \\__,_|
+  __/ |
+ |___/
+
+                      _    _
+                     | |  (_)
+ ___ _ __   ___  __ _| | ___ _ __   __ _
+/ __| '_ \\ / _ \\/ _\` | |/ / | '_ \\ / _\` |
+\\__ \\ | | |  __/ (_| |   <| | | | | (_| |
+|___/_| |_|\\___|\\__,_|_|\\_\\_|_| |_|\\__, |
+                                    __/ |
+                                   |___/
+`);
+</script>

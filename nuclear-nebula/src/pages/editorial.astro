@@ -1,0 +1,88 @@
+---
+import Navbar from "./layout/Navbar.astro";
+import ModularPhoto from "./components/ModularPhoto.astro";
+import { sparkImages, sparkMagPics } from "./data/photos.js";
+import "./styles/pages.scss";
+import "./styles/global.scss";
+---
+
+<div class="page">
+  <div class="nav-desktop">
+    <Navbar activeLink="EDITORIAL" mobile={false} />
+  </div>
+  <div class="nav-mobile">
+    <Navbar activeLink="EDITORIAL" mobile={true} />
+  </div>
+
+  <div class="title">Editorial Work</div>
+  <div class="section-subtitle">work produced for Spark Magazine</div>
+  <div class="section-year">2019</div>
+
+  <div class="photo-mobile-spacer"></div>
+
+  <!-- Simple “carousel” replacement: horizontal scroll strip -->
+  <div class="spark-strip" aria-label="Spark magazine spread">
+    {sparkMagPics.map((src) => (
+      <img class="spark-strip-img" src={src} loading="lazy" decoding="async" alt="Spark magazine page" />
+    ))}
+  </div>
+
+  <div class="photo-mobile-spacer"></div>
+
+  <ModularPhoto img={sparkImages[0]} width={2000} padding={true} align="center" numColumns={1} />
+  <ModularPhoto img={sparkImages[1]} width={1000} padding={true} align="center" numColumns={2} />
+  <ModularPhoto img={sparkImages[2]} width={1000} padding={false} align="center" numColumns={2} />
+  <ModularPhoto img={sparkImages[3]} width={1000} padding={true} align="center" numColumns={1} />
+  <ModularPhoto img={sparkImages[4]} width={1000} padding={true} align="center" numColumns={2} />
+  <ModularPhoto img={sparkImages[5]} width={1000} padding={true} align="center" numColumns={2} />
+  <ModularPhoto img={sparkImages[6]} width={1000} padding={false} align="center" numColumns={2} />
+  <ModularPhoto img={sparkImages[7]} width={1000} padding={false} align="center" numColumns={2} />
+  <ModularPhoto img={sparkImages[8]} width={600} padding={true} align="center" numColumns={2} />
+  <ModularPhoto img={sparkImages[9]} width={600} padding={true} align="center" numColumns={2} />
+  <ModularPhoto img={sparkImages[10]} width={1000} padding={false} align="center" numColumns={3} />
+  <ModularPhoto img={sparkImages[11]} width={1000} padding={false} align="center" numColumns={3} />
+  <ModularPhoto img={sparkImages[12]} width={1000} padding={false} align="center" numColumns={3} />
+  <ModularPhoto img={sparkImages[13]} width={500} padding={true} align="left" numColumns={1} />
+  <ModularPhoto img={sparkImages[14]} width={1000} padding={true} align="center" numColumns={1} />
+  <ModularPhoto img={sparkImages[15]} width={1000} padding={true} align="center" numColumns={2} />
+  <ModularPhoto img={sparkImages[16]} width={1000} padding={true} align="center" numColumns={2} />
+  <ModularPhoto img={sparkImages[17]} width={1000} padding={true} align="center" numColumns={2} />
+  <ModularPhoto img={sparkImages[18]} width={1000} padding={true} align="center" numColumns={2} />
+  <ModularPhoto img={sparkImages[19]} width={1000} padding={true} align="center" numColumns={2} />
+  <ModularPhoto img={sparkImages[20]} width={2000} padding={true} align="center" numColumns={1} />
+  <ModularPhoto img={sparkImages[21]} width={1000} padding={true} align="center" numColumns={2} />
+  <ModularPhoto img={sparkImages[22]} width={1000} padding={true} align="center" numColumns={2} />
+</div>
+
+<style>
+  .nav-desktop { display: block; }
+  .nav-mobile { display: none; }
+
+  @media (max-width: 500px) {
+    .nav-desktop { display: none; }
+    .nav-mobile { display: block; }
+  }
+
+  /* Simple horizontal “gallery” */
+  .spark-strip {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 0 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .spark-strip-img {
+    height: 60vh;
+    width: auto;
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    display: block;
+  }
+
+  @media (max-width: 500px) {
+    .spark-strip-img {
+      height: 55vh;
+    }
+  }
+</style>

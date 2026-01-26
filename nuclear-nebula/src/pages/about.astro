@@ -1,0 +1,127 @@
+---
+import Navbar from "./layout/Navbar.astro"; // or .jsx if you keep it React 
+import "./styles/pages.scss"; // move your pages.scss to src/styles/
+import "./styles/global.scss"; // move your pages.scss to src/styles/
+
+const resumeUrl = "/images/Resume.pdf"; // adjust if you put it in /files/
+
+const bioHtml = `I'm a musician, interdisciplinary creator, and software developer based in Austin, TX, where I work as a senior software engineer at <processing>Visa</processing> and studied both Computer Science and Studio Art at <ut>The University of Texas at Austin</ut>`;
+---
+
+<div class="page">
+  <!-- Desktop -->
+  <div class="about-desktop">
+    <Navbar activeLink="ABOUT" mobile={false} />
+
+    <div class="about-top">
+      <img
+        src="/images/home/room.jpg"
+        class="about-top-img fadein"
+        loading="lazy"
+        decoding="async"
+        alt="Room"
+      />
+
+      <div class="about-second-text" set:html={bioHtml}></div>
+
+      <img
+        src="/images/home/medrums.jpg"
+        class="about-right-img fadein"
+        loading="lazy"
+        decoding="async"
+        alt="Drums"
+      />
+    </div>
+
+    <div class="about-bottom">
+      <img
+        src="/images/home/mecrop.jpg"
+        class="about-bottom-img fadein"
+        loading="lazy"
+        decoding="async"
+        alt="Portrait"
+      />
+
+      <div class="about-bottom-text">
+        <a href="mailto:abhinav.velaga@utexas.edu">abhinav.velaga@utexas.edu</a>
+        <br />
+        <a href="https://www.instagram.com/abhi.velaga/" target="_blank" rel="noopener noreferrer">@abhi.velaga</a>
+        <br />
+        <a href="https://www.instagram.com/abhi.film/" target="_blank" rel="noopener noreferrer">@abhi.film</a>
+        <br />
+        <a href={resumeUrl} target="_blank" rel="noopener noreferrer">[ resume ]</a>
+        <br />
+        <a href="https://youtube.com/@abhi.velaga" target="_blank" rel="noopener noreferrer">youtube</a>
+        <br />
+        <a href="https://www.github.com/avelaga/" target="_blank" rel="noopener noreferrer">github</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile -->
+  <div class="about-mobile">
+    <Navbar activeLink="ABOUT" mobile={true} />
+
+    <div class="appear">
+      <img
+        src="/images/home/mecrop.jpg"
+        class="about-top-img fadein"
+        loading="lazy"
+        decoding="async"
+        alt="Portrait"
+      />
+
+      <div class="about-first-text" set:html={bioHtml}></div>
+
+      <img
+        src="/images/home/medrums.jpg"
+        class="about-bottom-img fadein"
+        loading="lazy"
+        decoding="async"
+        alt="Drums"
+      />
+
+      <div class="about-bottom-text">
+        <a href="mailto:abhinav.velaga@utexas.edu">abhinav.velaga@utexas.edu</a>
+        <br />
+        <a href="https://www.instagram.com/abhi.velaga/" target="_blank" rel="noopener noreferrer">@abhi.velaga</a>
+        <br />
+        <a href="https://www.instagram.com/abhi.film/" target="_blank" rel="noopener noreferrer">@abhi.film</a>
+        <br />
+        <a href={resumeUrl} target="_blank" rel="noopener noreferrer">[ resume ]</a>
+        <br />
+        <a href="https://youtube.com/@abhi.velaga" target="_blank" rel="noopener noreferrer">youtube</a>
+        <br />
+        <a href="https://www.github.com/avelaga/" target="_blank" rel="noopener noreferrer">github</a>
+      </div>
+
+      <img
+        src="/images/home/room.jpg"
+        class="about-right-img fadein"
+        loading="lazy"
+        decoding="async"
+        alt="Room"
+      />
+    </div>
+  </div>
+</div>
+
+<style>
+  /* replaces MediaQuery breakpoint behavior */
+  .about-desktop { display: block; }
+  .about-mobile { display: none; }
+
+  @media (max-width: 500px) {
+    .about-desktop { display: none; }
+    .about-mobile { display: block; }
+  }
+
+  /* optional: mimic LazyLoadImage opacity effect */
+  .fadein {
+    opacity: 0;
+    animation: fadeIn 350ms ease forwards;
+  }
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+</style>

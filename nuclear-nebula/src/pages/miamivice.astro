@@ -1,0 +1,94 @@
+---
+import Navbar from "./layout/Navbar.astro";
+import ModularPhoto from "./components/ModularPhoto.astro";
+import { miamiImages, miamiBookPics } from "./data/photos.js";
+import BaseLayout from "./layout/BaseLayout.astro"
+---
+<BaseLayout>
+<div class="page">
+  <div class="nav-desktop">
+    <Navbar activeLink="MIAMI" mobile={false} />
+  </div>
+  <div class="nav-mobile">
+    <Navbar activeLink="MIAMI" mobile={true} />
+  </div>
+
+  <div class="title">Miami Vice Cocaine Dream</div>
+  <div class="section-year">2018 - 2019</div>
+
+  <div class="photo-mobile-spacer"></div>
+
+  <!-- Simple “carousel” replacement: horizontal scroll strip -->
+  <div class="book-strip" aria-label="Miami book pages">
+    {miamiBookPics.map((src) => (
+      <img class="book-strip-img" src={src} loading="lazy" decoding="async" alt="Miami book page" />
+    ))}
+  </div>
+
+  <div class="photo-mobile-spacer"></div>
+
+  <ModularPhoto img={miamiImages[0]} width={2000} padding={true} align="center" numColumns={1} />
+  <ModularPhoto img={miamiImages[1]} width={600} padding={true} align="left" numColumns={1} />
+  <ModularPhoto img={miamiImages[2]} width={2000} padding={true} align="center" numColumns={1} />
+  <ModularPhoto img={miamiImages[3]} width={2000} padding={true} align="center" numColumns={1} />
+  <ModularPhoto img={miamiImages[4]} width={900} padding={true} align="right" numColumns={1} />
+  <ModularPhoto img={miamiImages[5]} width={2000} padding={false} align="center" numColumns={1} />
+  <ModularPhoto img={miamiImages[6]} width={600} padding={false} align="center" numColumns={2} />
+  <ModularPhoto img={miamiImages[7]} width={600} padding={false} align="center" numColumns={2} />
+  <ModularPhoto img={miamiImages[8]} width={900} padding={true} align="center" numColumns={1} />
+  <ModularPhoto img={miamiImages[9]} width={800} padding={true} align="right" numColumns={1} />
+  <ModularPhoto img={miamiImages[10]} width={800} padding={true} align="left" numColumns={1} />
+  <ModularPhoto img={miamiImages[11]} width={600} padding={true} align="center" numColumns={2} />
+  <ModularPhoto img={miamiImages[12]} width={600} padding={false} align="center" numColumns={2} />
+  <ModularPhoto img={miamiImages[13]} width={700} padding={true} align="left" numColumns={1} />
+  <ModularPhoto img={miamiImages[14]} width={600} padding={true} align="left" numColumns={1} />
+  <ModularPhoto img={miamiImages[15]} width={600} padding={true} align="center" numColumns={2} />
+  <ModularPhoto img={miamiImages[16]} width={800} padding={false} align="center" numColumns={2} />
+  <ModularPhoto img={miamiImages[17]} width={700} padding={true} align="right" numColumns={1} />
+  <ModularPhoto img={miamiImages[18]} width={600} padding={false} align="center" numColumns={2} />
+  <ModularPhoto img={miamiImages[19]} width={600} padding={false} align="center" numColumns={2} />
+  <ModularPhoto img={miamiImages[20]} width={1200} padding={true} align="center" numColumns={1} />
+  <ModularPhoto img={miamiImages[21]} width={600} padding={true} align="left" numColumns={2} />
+  <ModularPhoto img={miamiImages[22]} width={900} padding={true} align="right" numColumns={1} />
+  <ModularPhoto img={miamiImages[23]} width={600} padding={true} align="center" numColumns={2} />
+  <ModularPhoto img={miamiImages[24]} width={900} padding={false} align="center" numColumns={2} />
+  <ModularPhoto img={miamiImages[25]} width={1200} padding={true} align="center" numColumns={1} />
+  <ModularPhoto img={miamiImages[26]} width={600} padding={false} align="center" numColumns={2} />
+  <ModularPhoto img={miamiImages[27]} width={600} padding={false} align="center" numColumns={2} />
+  <ModularPhoto img={miamiImages[28]} width={600} padding={false} align="center" numColumns={2} />
+  <ModularPhoto img={miamiImages[29]} width={600} padding={false} align="center" numColumns={1} />
+</div>
+</BaseLayout>
+
+<style>
+  .nav-desktop { display: block; }
+  .nav-mobile { display: none; }
+
+  @media (max-width: 500px) {
+    .nav-desktop { display: none; }
+    .nav-mobile { display: block; }
+  }
+
+  /* Simple horizontal “gallery” strip */
+  .book-strip {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 0 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .book-strip-img {
+    height: 60vh;
+    width: auto;
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    display: block;
+  }
+
+  @media (max-width: 500px) {
+    .book-strip-img {
+      height: 55vh;
+    }
+  }
+</style>

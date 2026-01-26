@@ -1,0 +1,114 @@
+---
+const { activeLink, mobile } = Astro.props;
+import BaseLayout from "./BaseLayout.astro";
+
+const isPhotoPage =
+  activeLink === "PORTFOLIO" ||
+  activeLink === "MIAMI" ||
+  activeLink === "USERVOID" ||
+  activeLink === "EDITORIAL";
+
+const initiallyCollapsed = !!mobile;
+const initialTextClass = mobile && !initiallyCollapsed ? "navtext-white" : "navtext-default";
+---
+
+<BaseLayout>
+<div
+  class="nav-root"
+  data-mobile={mobile ? "true" : "false"}
+  data-collapsed={initiallyCollapsed ? "true" : "false"}
+>
+  <div class={initiallyCollapsed ? "unblur" : "blur"} data-blur></div>
+
+  <div class="navbar">
+    <div class="nav-header">
+      <div class="nav-title-container">
+        <a href="/">
+          <div class="nav-title">
+            <div class={initialTextClass} data-title>ABHI VELAGA</div>
+          </div>
+        </a>
+        {!mobile && <div class="subtitle">creator and developer</div>}
+      </div>
+
+      {mobile && (
+        <button class="menu-button" type="button" data-menu aria-expanded="false">
+          <div class={initialTextClass} data-menu-text>MENU</div>
+        </button>
+      )}
+    </div>
+
+    <div class:list={{ "nav-links": true, "is-collapsed": initiallyCollapsed }} data-links>
+      <div class="link-container">
+        <a href="/about"><div class:list={{ link: true, active: activeLink === "ABOUT" }}>ABOUT</div></a>
+        <a href="/portfolio"><div class:list={{ link: true, active: isPhotoPage }}>PHOTO</div></a>
+
+        <div class="sublink-container">
+          <a href="/portfolio"><div class:list={{ sublink: true, active: activeLink === "PORTFOLIO" }}>portfolio</div></a>
+          <a href="/miamivice"><div class:list={{ sublink: true, active: activeLink === "MIAMI" }}>miami vice cocaine dream</div></a>
+          <a href="/uservoid"><div class:list={{ sublink: true, active: activeLink === "USERVOID" }}>user void</div></a>
+          <a href="/editorial"><div class:list={{ "last-sublink": true, active: activeLink === "EDITORIAL" }}>editorial work</div></a>
+        </div>
+
+        <a href="/music"><div class:list={{ "resume-link": true, active: activeLink === "MUSIC" }}>MUSIC</div></a>
+        <a href="/software"><div class:list={{ link: true, active: activeLink === "SOFTWARE" }}>SOFTWARE</div></a>
+        <a href="/hi"><div class:list={{ "last-link": true, active: activeLink === "HI" }}>SAY HI</div></a>
+      </div>
+
+      <div class="external-link-container">
+        {!mobile && <div class="external-link" />}
+        <a class="external-link" href="https://www.youtube.com/@abhi.velaga/" target="_blank" rel="noopener noreferrer">YOUTUBE</a>
+        <a class="external-link" href="https://www.instagram.com/abhi.velaga/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+        <a class="external-link" href="https://open.spotify.com/artist/7JCVu8JTFAFrHqnYnGVPhi?si=wAs1clwUTiqOqS8e8RUJqg" target="_blank" rel="noopener noreferrer">SPOTIFY</a>
+        <a class="external-link" href="https://www.instagram.com/abhi.film/" target="_blank" rel="noopener noreferrer">PHOTO INSTAGRAM</a>
+        <a class="external-link" href="mailto:abhinav.velaga@utexas.edu">CONTACT</a>
+      </div>
+    </div>
+  </div>
+</div>
+</BaseLayout>
+
+<script>
+  // IMPORTANT: query from document, not currentScript.closest()
+  const root = document.querySelector(".nav-root[data-mobile='true']");
+  if (!root) {
+    console.warn("Mobile navbar root not found");
+  } else {
+    const blurEl = root.querySelector("[data-blur]");
+    const linksEl = root.querySelector("[data-links]");
+    const btn = root.querySelector("[data-menu]");
+    const titleEl = root.querySelector("[data-title]");
+    const menuTextEl = root.querySelector("[data-menu-text]");
+
+    function setCollapsed(collapsed) {
+      root.dataset.collapsed = collapsed ? "true" : "false";
+
+      blurEl?.classList.toggle("blur", !collapsed);
+      blurEl?.classList.toggle("unblur", collapsed);
+
+      linksEl?.classList.toggle("is-collapsed", collapsed);
+
+      btn?.setAttribute("aria-expanded", collapsed ? "false" : "true");
+
+      const white = !collapsed;
+      titleEl?.classList.toggle("navtext-white", white);
+      titleEl?.classList.toggle("navtext-default", !white);
+      menuTextEl?.classList.toggle("navtext-white", white);
+      menuTextEl?.classList.toggle("navtext-default", !white);
+    }
+
+    setCollapsed(root.dataset.collapsed === "true");
+
+    btn?.addEventListener("click", () => {
+      const collapsed = root.dataset.collapsed === "true";
+      setCollapsed(!collapsed);
+    });
+  }
+</script>
+
+<style>
+  .navtext-default { transition: color 1s; }
+  .navtext-white { color: white; transition: color 1s; }
+  .active { background-color: black; }
+  .is-collapsed { display: none; }
+</style>

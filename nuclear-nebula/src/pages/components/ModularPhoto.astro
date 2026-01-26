@@ -1,0 +1,76 @@
+---
+const {
+  img,
+  width,          // number (px)
+  padding = true, // boolean
+  align = "center",
+  numColumns = 1,
+  alt = "",
+} = Astro.props;
+
+// constants from your React component
+const NAVBAR_WIDTH = 275;
+
+// if width is missing, treat it like "no limit"
+const requestedWidth = typeof width === "number" ? width : 99999;
+
+// map align -> flex justification
+const justify =
+  align === "left" ? "flex-start" :
+  align === "right" ? "flex-end" :
+  "center";
+
+const pad = padding ? "5rem" : "1rem";
+---
+
+<div
+  class="modular-photo"
+  style={`
+    --navbar-width: ${NAVBAR_WIDTH}px;
+    --num-columns: ${Number(numColumns) || 1};
+    --requested-width: ${requestedWidth}px;
+    --photo-pad: ${pad};
+    --justify: ${justify};
+  `}
+>
+  <img src={img} alt={alt} loading="lazy" decoding="async" />
+</div>
+
+<style>
+  .modular-photo {
+    display: flex;
+    justify-content: var(--justify);
+    align-items: center;
+    min-height: 100vh;
+
+    /* matches your containerStyle width = usableWidth/numColumns */
+    width: calc((100vw - var(--navbar-width)) / var(--num-columns));
+  }
+
+  .modular-photo img {
+    /* matches: width = min(requestedWidth, colWidth) */
+    width: min(
+      var(--requested-width),
+      calc((100vw - var(--navbar-width)) / var(--num-columns))
+    );
+
+    padding: var(--photo-pad);
+    height: auto;
+    display: block;
+  }
+
+  /* mobile branch: usableWidth + navbarWidth <= 500  -> effectively <= 500px viewport */
+  @media (max-width: 500px) {
+    .modular-photo {
+      width: 100vw;
+      min-height: auto;
+      justify-content: center;
+    }
+
+    .modular-photo img {
+      width: 100vw;
+      padding: 0;          /* your React didn’t pad on mobile */
+      margin-bottom: 1px;
+    }
+  }
+</style>

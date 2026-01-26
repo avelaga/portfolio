@@ -1,0 +1,97 @@
+---
+import Navbar from "./layout/Navbar.astro";
+import BaseLayout from "./layout/BaseLayout.astro"
+
+const hiVideo = "/images/hi.mp4";
+const LAMBDA_URL = "https://p3g4inxilgsfwwjcgjdyf4nqzy0bcoia.lambda-url.us-east-1.on.aws/";
+---
+
+<BaseLayout>
+<div class="page">
+  <div class="nav-desktop">
+    <Navbar activeLink="HI" mobile={false} />
+  </div>
+  <div class="nav-mobile">
+    <Navbar activeLink="HI" mobile={true} />
+  </div>
+
+  <div>
+    <div class="hi-titles-container">
+      <div class="title">say hi to me in realtime</div>
+      <div class="section-subtitle">
+        hi, welcome to my site. clicking this button runs an animation on the led strip at my desk
+      </div>
+    </div>
+
+    <div class="hi-body">
+      <div class="hi-button-parent">
+        <button class="hi-button" type="button" id="hiBtn">HELLO</button>
+
+        <div class="appear msg-success is-hidden" id="msgSuccess">message received</div>
+        <div class="appear is-hidden" id="msgError">
+          i got an error, it looks like someone broke it :( maybe try again tomorrow
+        </div>
+      </div>
+
+      <video playsinline autoplay muted loop class="hi-gif">
+        <source src={hiVideo} type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</div>
+</BaseLayout>
+
+<!-- replaces react-responsive MediaQuery -->
+<style>
+  .nav-desktop { display: block; }
+  .nav-mobile { display: none; }
+
+  @media (max-width: 500px) {
+    .nav-desktop { display: none; }
+    .nav-mobile { display: block; }
+  }
+
+  .is-hidden { display: none; }
+</style>
+
+<script>
+  const btn = document.getElementById("hiBtn");
+  const msgSuccess = document.getElementById("msgSuccess");
+  const msgError = document.getElementById("msgError");
+
+  const LAMBDA_URL = "https://p3g4inxilgsfwwjcgjdyf4nqzy0bcoia.lambda-url.us-east-1.on.aws/";
+
+  function show(el) { el?.classList.remove("is-hidden"); }
+  function hide(el) { el?.classList.add("is-hidden"); }
+
+  btn?.addEventListener("click", async () => {
+    // reset messages
+    hide(msgSuccess);
+    hide(msgError);
+
+    // "on" state (green) + disable button
+    btn.disabled = true;
+    btn.classList.add("is-on");
+    btn.classList.remove("is-error");
+
+    try {
+      const res = await fetch(LAMBDA_URL, { method: "GET" });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      show(msgSuccess);
+    } catch (e) {
+      console.log("god dang it who broke it now");
+      btn.classList.add("is-error");
+      show(msgError);
+    } finally {
+      btn.classList.remove("is-on");
+      btn.disabled = false;
+    }
+  });
+</script>
+
+<style>
+  /* Replace your old inline colors with classes */
+  .hi-button.is-on { background-color: rgb(0, 212, 0); }
+  .hi-button.is-error { background-color: red; }
+</style>
