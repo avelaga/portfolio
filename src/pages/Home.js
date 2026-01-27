@@ -52,7 +52,7 @@ const projects = [
   //   medium: "music",
   //   year: "2022",
   //   link: "https://open.spotify.com/track/6FRTGOjhRkiJVDBRz5CWWt?si=0c305147687d436f"
-  // },
+  // }, 
   {
     cover: uservoid1,
     title: "user void",
