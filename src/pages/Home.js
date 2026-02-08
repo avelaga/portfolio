@@ -10,6 +10,7 @@ import uservoid1 from '../../dist/images/photos/uservoid/uservoid1.jpg';
 import rebuildthumb from '../../dist/images/rebuildthumbsq.jpg';
 import resume from "../../dist/images/Resume.pdf";
 
+
 const projects = [
     {
     cover: rebuildthumb,
