@@ -307,6 +307,15 @@ processing {
   color: rgb(35, 117, 189)
 }
 
+yt {
+  color: rgb(245, 70, 70);
+  transition: color .7s;
+}
+
+yt:hover {
+  color: rgb(30, 0, 255);
+}
+
 .modular-photo {
   display: flex;
 }

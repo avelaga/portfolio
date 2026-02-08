@@ -55,4 +55,9 @@ code {
 
 a {
   color: #949494;
+  transition: color .7s;
+}
+
+a:hover {
+  color: black;
 }
