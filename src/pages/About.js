@@ -76,7 +76,7 @@ export default function About() {
 
           <LazyLoadImage effect="opacity" src={medrums} className="about-bottom-img" />
           {aboutBottomText()}
-          <LazyLoadImage src={me1} className="about-right-img" effect="opacity" />
+          <LazyLoadImage src={indulgentlive} className="about-right-img" effect="opacity" />
         </div>
       </div>
     </MediaQuery>
