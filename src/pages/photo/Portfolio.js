@@ -13,8 +13,8 @@ export default function Portfolio() {
       <MediaQuery minDeviceWidth={500}><Navbar activeLink={"PORTFOLIO"} mobile={false} /></MediaQuery>
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"PORTFOLIO"} mobile={true} /></MediaQuery>
       <div className="title">Photography Portfolio</div>
-      {/* <div className="section-subtitle">subtitle goes here</div> */}
-      {/* <div className="section-year">2018 - 2019</div> */}
+      <div className="section-subtitle">selected works</div>
+      <div className="section-year">2018 - 2020</div>
       <div className="photo-mobile-spacer" />
       <ModularPhoto img={portfolioImages[0]} width={1000} padding={false} align={"right"} numColumns={1} />
       <ModularPhoto img={portfolioImages[1]} width={700} padding={true} align={"center"} numColumns={1} />

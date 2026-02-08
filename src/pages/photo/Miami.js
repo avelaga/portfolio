@@ -15,6 +15,10 @@ export default function Miami() {
       <div className="title">Miami Vice Cocaine Dream</div>
       {/* <div className="section-subtitle">subtitle goes here</div> */}
       <div className="section-year">2018 - 2019</div>
+      <div className="artist-statement">
+        Miami Vice Cocaine Dream explores a house alive with constant energy - a space where teenagers navigate the transition from adolescence to adulthood. By day it slumbers; by night it becomes a theater of memory, risk, and freedom, unbound by supervision or responsibility.<br /><br />
+        My work documents this liminal period, capturing the artifacts and atmospheres that define it: empty bottles, posters, mismatched furniture, and makeshift objects. Through cinematic lighting, props, and occasional models, I amplify the space, creating photographs that blur documentary and imagination. Each image reflects the realities of the house while revealing the dreamlike intensity of youth lived on its own terms.
+      </div>
       <div className="photo-mobile-spacer" />
       <ImageGallery
         items={miamiBookPicsCarousel}
