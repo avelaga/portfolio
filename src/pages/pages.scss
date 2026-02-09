@@ -283,6 +283,11 @@ a:hover {
   cursor: pointer;
   background-color: #EAEAEA;
   border: 1px dotted #949494;
+  transition: background-color .7s;
+}
+
+.sending{
+  background-color: rgb(230, 44, 208);
 }
 
 .hi-button:active {
@@ -294,12 +299,14 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 400px;
   flex-wrap: wrap;
+  margin: auto;
 }
 
 .msg-success {
-  width: 100%;
+  width: 300px;
+  height: 50px;
   text-align: center;
   margin-top: 20px;
 }
@@ -593,6 +600,10 @@ yt:hover {
     flex-wrap: wrap;
     width: 100vw;
     margin-top: calc(4 * $mobileMargin);
+  }
+
+  .hi-button-parent {
+    width: 100vw;
   }
 
   .hi-button {
