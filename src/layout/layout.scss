@@ -32,6 +32,8 @@ $mobileMargin: 10px;
   position: fixed;
   top: 0;
   left: 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .link-container {
