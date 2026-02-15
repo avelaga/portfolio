@@ -5,7 +5,7 @@ import "./styles/global.scss"; // move your pages.scss to src/styles/
 
 const resumeUrl = "/images/Resume.pdf"; // adjust if you put it in /files/
 
-const bioHtml = `I'm a musician, interdisciplinary creator, and software developer based in Austin, TX, where I work as a senior software engineer at <processing>Visa</processing> and studied both Computer Science and Studio Art at <ut>The University of Texas at Austin</ut>`;
+const bioHtml = `I'm a musician, interdisciplinary creator, and software developer based in Austin, TX, where I work as a senior software engineer at <processing>Visa</processing> and studied both Computer Science and Studio Art at <ut>The University of Texas at Austin</ut>. <br /><br />My career centers on building and shipping polished websites with a focus on tight UX, while my creative practice spans music, visual storytelling, and digital media. Most recently I've been passionate about documenting and sharing my journey learning how to work on cars on my <a href="https://youtube.com/@abhi.velaga" target="_blank"><yt>youtube channel</yt></a>.`;
 ---
 
 <div class="page">
@@ -15,7 +15,7 @@ const bioHtml = `I'm a musician, interdisciplinary creator, and software develop
 
     <div class="about-top">
       <img
-        src="/images/home/room.jpg"
+        src="/images/music/indulgent/indulgentlive.jpg"
         class="about-top-img fadein"
         loading="lazy"
         decoding="async"
@@ -43,17 +43,22 @@ const bioHtml = `I'm a musician, interdisciplinary creator, and software develop
       />
 
       <div class="about-bottom-text">
-        <a href="mailto:abhinav.velaga@utexas.edu">abhinav.velaga@utexas.edu</a>
-        <br />
-        <a href="https://www.instagram.com/abhi.velaga/" target="_blank" rel="noopener noreferrer">@abhi.velaga</a>
-        <br />
-        <a href="https://www.instagram.com/abhi.film/" target="_blank" rel="noopener noreferrer">@abhi.film</a>
-        <br />
-        <a href={resumeUrl} target="_blank" rel="noopener noreferrer">[ resume ]</a>
-        <br />
-        <a href="https://youtube.com/@abhi.velaga" target="_blank" rel="noopener noreferrer">youtube</a>
-        <br />
-        <a href="https://www.github.com/avelaga/" target="_blank" rel="noopener noreferrer">github</a>
+    <a href="mailto:abhinav.velaga@utexas.edu">abhinav.velaga@utexas.edu</a>
+    <br />
+    <a href="https://www.instagram.com/abhi.velaga/" target='_blank'>@abhi.velaga</a>
+    <br />
+    <a href="https://www.instagram.com/abhi.film/" target='_blank'>@abhi.film</a>
+    <br />
+    <a href={resumeUrl} target='_blank'>[ resume ]</a>
+    <br />
+    <a href="youtube.com/@abhi.velaga" target='_blank'>youtube</a>
+    <br />
+    {/* <a href="https://dribbble.com/avelaga" target='_blank'>dribbble</a>
+  <br /> */}
+    <a href="https://www.github.com/avelaga/" target='_blank'>github</a>
+    <br />
+    <a href="https://shop.abhi.work" target='_blank'>merch</a>
+    <br />
       </div>
     </div>
   </div>
@@ -81,22 +86,27 @@ const bioHtml = `I'm a musician, interdisciplinary creator, and software develop
         alt="Drums"
       />
 
-      <div class="about-bottom-text">
-        <a href="mailto:abhinav.velaga@utexas.edu">abhinav.velaga@utexas.edu</a>
-        <br />
-        <a href="https://www.instagram.com/abhi.velaga/" target="_blank" rel="noopener noreferrer">@abhi.velaga</a>
-        <br />
-        <a href="https://www.instagram.com/abhi.film/" target="_blank" rel="noopener noreferrer">@abhi.film</a>
-        <br />
-        <a href={resumeUrl} target="_blank" rel="noopener noreferrer">[ resume ]</a>
-        <br />
-        <a href="https://youtube.com/@abhi.velaga" target="_blank" rel="noopener noreferrer">youtube</a>
-        <br />
-        <a href="https://www.github.com/avelaga/" target="_blank" rel="noopener noreferrer">github</a>
-      </div>
+<div class="about-bottom-text">
+    <a href="mailto:abhinav.velaga@utexas.edu">abhinav.velaga@utexas.edu</a>
+    <br />
+    <a href="https://www.instagram.com/abhi.velaga/" target='_blank'>@abhi.velaga</a>
+    <br />
+    <a href="https://www.instagram.com/abhi.film/" target='_blank'>@abhi.film</a>
+    <br />
+    <a href={resumeUrl} target='_blank'>[ resume ]</a>
+    <br />
+    <a href="youtube.com/@abhi.velaga" target='_blank'>youtube</a>
+    <br />
+    {/* <a href="https://dribbble.com/avelaga" target='_blank'>dribbble</a>
+  <br /> */}
+    <a href="https://www.github.com/avelaga/" target='_blank'>github</a>
+    <br />
+    <a href="https://shop.abhi.work" target='_blank'>merch</a>
+    <br />
+  </div>
 
       <img
-        src="/images/home/room.jpg"
+        src="/images/music/indulgent/indulgentlive.jpg"
         class="about-right-img fadein"
         loading="lazy"
         decoding="async"
