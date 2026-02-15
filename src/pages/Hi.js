@@ -4,33 +4,26 @@ const axios = require("axios").default;
 import hi from '../../dist/images/hi.mp4';
 import MediaQuery from 'react-responsive';
 
-const onColor = {
-  backgroundColor: 'rgb(0, 212, 0)'
-}
-
-const errorColor = {
-  backgroundColor: 'red'
-}
-
 export default function Hi() {
-  const [sent, setSent] = useState(false);
-  const [on, setOn] = useState(false);
-  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(null);
 
   const buttonClicked = () => {
-    setOn(true);
+    setLoading(true);
+    setStatus(null);
     const url = "https://p3g4inxilgsfwwjcgjdyf4nqzy0bcoia.lambda-url.us-east-1.on.aws/";
     axios
       .get(
         url
       )
       .then(res => {
-        setSent(true);
-        setOn(false);
+        setLoading(false);
+        setStatus("message recieved :)");
       })
       .catch(err => {
         console.log("god dang it who broke it now")
-        setError(true);
+        setLoading(false);
+        setStatus("i got an error, it looks like someone broke it :( maybe try again tomorrow");
       });
   }
 
@@ -45,11 +38,16 @@ export default function Hi() {
         </div>
         <div className="hi-body">
           <div className="hi-button-parent">
-            <div className="hi-button" onClick={buttonClicked} 
-            // style={error ? errorColor : on ? onColor : offColor}
-            >HELLO</div>
-            {sent && <div className="appear msg-success">message received</div>}
-            {error && <div className="appear">i got an error, it looks like someone broke it :( maybe try again tomorrow</div>}
+            <button
+              type="submit"
+              disabled={loading}
+              className={loading ? "hi-button sending": "hi-button"}
+              onClick={buttonClicked}
+            >
+              {loading ? "sending..." : "HELLO"}
+            </button>
+            {!status && <div className="appear msg-success"></div>}
+            {status && <div className="appear msg-success">{status}</div>}
           </div>
           <video playsInline autoPlay muted loop className="hi-gif">
             <source src={hi} type="video/mp4" />

@@ -10,6 +10,7 @@ import uservoid1 from '../../dist/images/photos/uservoid/uservoid1.jpg';
 import rebuildthumb from '../../dist/images/rebuildthumbsq.jpg';
 import resume from "../../dist/images/Resume.pdf";
 
+
 const projects = [
     {
     cover: rebuildthumb,
@@ -52,7 +53,7 @@ const projects = [
   //   medium: "music",
   //   year: "2022",
   //   link: "https://open.spotify.com/track/6FRTGOjhRkiJVDBRz5CWWt?si=0c305147687d436f"
-  // },
+  // }, 
   {
     cover: uservoid1,
     title: "user void",

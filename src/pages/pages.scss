@@ -109,7 +109,7 @@ green {
   color: #0000006d;
 }
 
-$projWidth: calc(($calcWidth / 3) - 22px );
+$projWidth: calc(($calcWidth / 3) - 22px);
 
 .project-container {
   display: flex;
@@ -146,10 +146,19 @@ $projWidth: calc(($calcWidth / 3) - 22px );
   font-size: 11px;
 }
 
+.artist-statement {
+  text-align: right;
+  padding-right: $margin;
+  padding-left: 300px;
+  width: 100%;
+  margin-left: auto;
+}
+
 @keyframes appear {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -161,6 +170,7 @@ $projWidth: calc(($calcWidth / 3) - 22px );
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -178,13 +188,13 @@ a:hover {
 
 // image carousel overrides
 
-.image-gallery-icon{
+.image-gallery-icon {
   filter: none;
   transition: none;
   color: $linkColor;
 }
 
-.image-gallery-icon:hover{
+.image-gallery-icon:hover {
   color: $linkColor;
   transition: none;
 }
@@ -273,6 +283,11 @@ a:hover {
   cursor: pointer;
   background-color: #EAEAEA;
   border: 1px dotted #949494;
+  transition: background-color .7s;
+}
+
+.sending{
+  background-color: rgb(230, 44, 208);
 }
 
 .hi-button:active {
@@ -284,11 +299,14 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 400px;
   flex-wrap: wrap;
+  margin: auto;
 }
+
 .msg-success {
-  width: 100%;
+  width: 300px;
+  height: 50px;
   text-align: center;
   margin-top: 20px;
 }
@@ -305,6 +323,15 @@ ut {
 
 processing {
   color: rgb(35, 117, 189)
+}
+
+yt {
+  color: rgb(245, 70, 70);
+  transition: color .7s;
+}
+
+yt:hover {
+  color: rgb(30, 0, 255);
 }
 
 .modular-photo {
@@ -462,6 +489,7 @@ processing {
     margin-left: 0;
     margin-right: 0;
   }
+
   .home-title {
     font-size: 18px;
     width: 100vw;
@@ -469,11 +497,13 @@ processing {
     padding: $mobileMargin;
     margin: 0;
   }
+
   .line {
     width: 100%;
     margin-left: $mobileMargin;
     margin-right: $mobileMargin;
   }
+
   .title {
     font-size: 40px;
     color: black;
@@ -483,30 +513,37 @@ processing {
     padding-right: $mobileMargin;
     font-family: 'Nimbus-Sans-Reg';
   }
-  .hi-titles-container > .title {
+
+  .hi-titles-container>.title {
     margin-bottom: $mobileMargin;
   }
+
   .section-subtitle {
     font-size: 15px;
     padding-right: $mobileMargin;
   }
+
   .section-year {
     width: 100vw;
     padding-right: $mobileMargin;
   }
+
   .project-container {
     display: flex;
     width: 100vw;
     flex-wrap: wrap;
   }
+
   .home-project {
     width: 100vw;
     padding: 0;
   }
+
   .project-img {
     width: 100vw;
     height: 100vw;
   }
+
   .project-title {
     width: 100vw;
     font-family: 'Nimbus-Sans-Bol';
@@ -515,64 +552,81 @@ processing {
     margin-bottom: -7px;
     padding-left: $mobileMargin;
   }
+
   .project-medium {
     width: 100vw;
     font-size: 15px;
     padding-left: $mobileMargin;
   }
+
   .project-year {
     width: 100vw;
-    font-size: 15px; 
+    font-size: 15px;
     padding-left: $mobileMargin;
   }
+
   .photo-mobile-spacer {
     width: 100vw;
     height: 25;
   }
+
   .image-gallery {
     width: 100vw;
     padding-left: $margin;
     padding-right: $margin;
     margin-top: 0;
   }
-  .image-gallery-icon{
+
+  .image-gallery-icon {
     padding: 0;
   }
+
   .image-gallery-left-nav {
     left: -32;
   }
+
   .image-gallery-right-nav {
     right: -32;
   }
+
   .hi-titles-container {
     width: 100vw;
     justify-content: center;
     text-align: right;
   }
+
   .hi-body {
     align-items: center;
     flex-wrap: wrap;
     width: 100vw;
     margin-top: calc(4 * $mobileMargin);
   }
+
+  .hi-button-parent {
+    width: 100vw;
+  }
+
   .hi-button {
     width: 100vw;
     margin: 0;
     margin-left: calc(4 * $mobileMargin);
     margin-right: calc(4 * $mobileMargin);
   }
-  .hi-gif { 
+
+  .hi-gif {
     width: 100vw;
     height: auto;
     max-height: none;
     margin-top: calc(4 * $mobileMargin);
   }
+
   .about-top-img {
     width: 100vw;
     height: 100vw;
-    margin-right: 0;  
+    margin-right: 0;
     object-fit: cover;
   }
+
   .about-first-text {
     width: 100vw;
     color: black;
@@ -581,6 +635,7 @@ processing {
     padding: 20px;
     text-align: center;
   }
+
   .about-second-text {
     width: 100vw;
     color: rgb(221, 221, 221);
@@ -589,12 +644,14 @@ processing {
     padding: 20px;
     text-align: center;
   }
+
   .about-bottom-img {
     width: 100vw;
     margin-right: 0;
     margin-left: 0;
     margin-bottom: 0;
   }
+
   .about-bottom-text {
     width: 100vw;
     color: rgb(221, 221, 221);
@@ -603,33 +660,40 @@ processing {
     padding: 20px;
     text-align: right;
   }
+
   .about-right-img {
     height: auto;
-    width:100vw;
+    width: 100vw;
   }
+
   .row {
     margin-left: 0; // idk why its being set to -15
     width: 100vw;
   }
+
   .half-right {
     width: 100vw;
     margin-top: 0;
     padding: 0;
   }
+
   .half-left {
     width: 100vw;
     margin-top: 0;
     padding: 0;
   }
+
   .full {
     width: 100vw;
     margin-bottom: $mobileMargin;
     margin-top: 0;
   }
+
   .dadalab-text-container {
     width: 100vw;
     padding: $mobileMargin;
   }
+
   .software-info {
     width: 100vw;
     position: relative;
@@ -637,20 +701,24 @@ processing {
     text-align: right;
     margin-bottom: $mobileMargin;
   }
+
   .software-caption {
     width: 100vw;
     padding: 0;
     position: relative;
     color: $linkColor;
   }
+
   .software-youtube {
     width: 100vw;
     height: calc((100vw/16) * 9);
     margin-top: 0;
   }
+
   .software-mobile-photo {
     margin-bottom: 1px;
   }
+
   .music-full {
     width: 100vw;
     height: calc((100vw/16) * 9);
@@ -658,16 +726,19 @@ processing {
     margin-bottom: 0;
     margin-top: $mobileMargin;
   }
+
   .music-description {
     padding: $mobileMargin;
     width: 100vw;
     text-align: right;
   }
+
   .music-half {
     width: 100vw;
     padding: $mobileMargin;
     padding-top: 0;
   }
+
   .music-releases {
     justify-content: center;
     width: 100vw;
@@ -675,15 +746,18 @@ processing {
     font-size: 10px;
     margin-top: 0;
   }
+
   .music-release {
     width: calc(100vw / 2);
     padding-right: $mobileMargin;
   }
+
   .music-cover {
     width: calc(100vw / 2);
     height: calc(100vw / 2);
     padding: $mobileMargin;
   }
+
   .music-video {
     text-align: center;
     width: 100vw;
@@ -692,18 +766,28 @@ processing {
     font-size: 10px;
     box-sizing: none;
   }
+
   .youtube-half-left {
     width: 100vw;
     height: calc((100vw/16) * 9);
     padding-right: 0;
   }
+
   .youtube-half-right {
     width: 100vw;
     height: calc((100vw/16) * 9);
     padding-left: 0;
   }
+
   .youtube-full {
     width: 100vw;
     height: calc((100vw/16) * 9);
   }
+
+  .artist-statement {
+  text-align: right;
+  padding-left: $margin;
+  width: 100%;
+  margin-left: 0;
+}
 }
