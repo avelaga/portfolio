@@ -6,9 +6,7 @@ import 'react-image-lightbox/style.css';
 import Navbar from '../../src/components/Navbar';
 import ModularPhoto from '../../src/components/ModularPhoto';
 import { sparkImages, sparkMagPicsCarousel } from '../../src/data/images.js';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import ImageGallery from 'react-image-gallery';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
 
 export default function Editorial() {
   return (

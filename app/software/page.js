@@ -3,8 +3,6 @@
 import React from 'react';
 import MediaQuery from 'react-responsive';
 import Navbar from '../../src/components/Navbar';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
 import YouTube from 'react-youtube';
 
 const theWorldMissesYouInfo = `"the world misses you" is a led installation that responds to the changing
@@ -23,11 +21,11 @@ export default function Software() {
           <div className="software-info">{theWorldMissesYouInfo}</div>
           <div className="software-caption">dadalab, austin, tx <br/>2022</div>
         </div>
-        <img src="/images/software/dadalab/dadalab1.jpg" className="half-right software-mobile-photo" />
+        <img src="/images/software/dadalab/dadalab1.jpg" className="half-right software-mobile-photo" loading="lazy" />
       </div>
-      <img src="/images/software/dadalab/dadalab2.jpg" className='full software-mobile-photo' />
-      <img src="/images/software/dadalab/dadalab3.jpg" className='half-left software-mobile-photo' />
-      <img src="/images/software/dadalab/dadalab4.jpg" className='half-right software-mobile-photo' />
+      <img src="/images/software/dadalab/dadalab2.jpg" className='full software-mobile-photo' loading="lazy" />
+      <img src="/images/software/dadalab/dadalab3.jpg" className='half-left software-mobile-photo' loading="lazy" />
+      <img src="/images/software/dadalab/dadalab4.jpg" className='half-right software-mobile-photo' loading="lazy" />
       <YouTube videoId="CcSitqAJFZk" className="software-youtube  software-mobile-photo"/>
   </div>;
 }

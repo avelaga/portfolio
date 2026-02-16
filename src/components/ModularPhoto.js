@@ -21,7 +21,7 @@ export default function ModularPhoto({ img, width, padding, align, numColumns })
     // Don't render until we know the window width (prevents hydration mismatch)
     if (usableWidth === null) {
         return <div className="modular-photo">
-            <img src={img} style={{ width: "100vw", marginBottom: "1px" }} />
+            <img src={img} style={{ width: "100vw", marginBottom: "1px" }} loading="lazy" />
         </div>;
     }
 
@@ -66,6 +66,6 @@ export default function ModularPhoto({ img, width, padding, align, numColumns })
     }
 
     return <div className="modular-photo" style={containerStyle}>
-        <img src={img} style={photoStyle} />
+        <img src={img} style={photoStyle} loading="lazy" />
     </div>;
 }

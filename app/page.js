@@ -66,7 +66,7 @@ export default function Home() {
         {projects.map((project, idx) => project ? (
           <a href={project.link} key={idx}>
             <div className='home-project'>
-              <img src={project.cover} className='project-img' />
+              <img src={project.cover} className='project-img' loading="lazy" />
               <div className='project-title'>{project.title}</div>
               <div className='project-medium'>{project.medium}</div>
               <div className='project-year'>{project.year}</div>

@@ -3,8 +3,6 @@
 import React from "react";
 import Navbar from '../../src/components/Navbar';
 import MediaQuery from 'react-responsive';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
 
 const aboutBottomText = () => {
   return <div className="about-bottom-text">
@@ -37,14 +35,14 @@ export default function About() {
       <div>
         <Navbar activeLink={"ABOUT"} mobile={false} />
         <div className="about-top">
-          <LazyLoadImage src="/images/music/indulgent/indulgentlive.jpg" className="about-top-img" effect="opacity" />
+          <img src="/images/music/indulgent/indulgentlive.jpg" className="about-top-img" loading="lazy" />
           <div className="about-second-text">
             {bio()}
           </div>
-          <LazyLoadImage src="/images/home/medrums.jpg" className="about-right-img" effect="opacity" />
+          <img src="/images/home/medrums.jpg" className="about-right-img" loading="lazy" />
         </div>
         <div className="about-bottom">
-          <LazyLoadImage src="/images/home/mecrop.jpg" className="about-bottom-img" effect="opacity" />
+          <img src="/images/home/mecrop.jpg" className="about-bottom-img" loading="lazy" />
           {aboutBottomText()}
         </div>
       </div>
@@ -55,14 +53,14 @@ export default function About() {
       <div>
         <Navbar activeLink={"ABOUT"} mobile={true} />
         <div className="appear">
-          <LazyLoadImage effect="opacity" src="/images/home/mecrop.jpg" className="about-top-img" />
+          <img src="/images/home/mecrop.jpg" className="about-top-img" loading="lazy" />
           <div className="about-first-text">
             {bio()}
           </div>
 
-          <LazyLoadImage effect="opacity" src="/images/home/medrums.jpg" className="about-bottom-img" />
+          <img src="/images/home/medrums.jpg" className="about-bottom-img" loading="lazy" />
           {aboutBottomText()}
-          <LazyLoadImage src="/images/music/indulgent/indulgentlive.jpg" className="about-right-img" effect="opacity" />
+          <img src="/images/music/indulgent/indulgentlive.jpg" className="about-right-img" loading="lazy" />
         </div>
       </div>
     </MediaQuery>
