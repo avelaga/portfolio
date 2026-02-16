@@ -7,6 +7,7 @@ import './styles/layout.scss';
 import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Lenis from 'lenis';
+import p5 from 'p5';
 import Script from 'next/script';
 
 export default function RootLayout({ children }) {
@@ -28,6 +29,39 @@ export default function RootLayout({ children }) {
     }
     requestAnimationFrame(raf);
     return () => lenis.destroy();
+  }, []);
+
+  useEffect(() => {
+    const spacing = 30;
+    const margin = 30;
+    let t = 0;
+
+    const sketch = new p5((p) => {
+      p.setup = () => {
+        p.createCanvas(p.windowWidth, p.windowHeight);
+        p.noStroke();
+      };
+
+      p.draw = () => {
+        p.background(255);
+        p.fill(0);
+        for (let y = margin; y <= p.height - margin; y += spacing) {
+          for (let x = margin; x <= p.width - margin; x += spacing) {
+            let n = p.noise(x * 0.01, y * 0.01, t);
+            let dotSize = p.map(n, 0, 1, -1, 30);
+            p.fill(0, 0, 0, 50);
+            p.circle(x, y + dotSize, dotSize / 5);
+          }
+        }
+        t += 0.005;
+      };
+
+      p.windowResized = () => {
+        p.resizeCanvas(p.windowWidth, p.windowHeight);
+      };
+    });
+
+    return () => sketch.remove();
   }, []);
 
   return (
@@ -52,10 +86,6 @@ export default function RootLayout({ children }) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image:alt" content="Software Developer, Musician, Artist" />
         <Script
-          src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.min.js"
-          strategy="beforeInteractive"
-        />
-        <Script
           src="https://www.googletagmanager.com/gtag/js?id=UA-165347174-1"
           strategy="afterInteractive"
         />
@@ -69,7 +99,6 @@ export default function RootLayout({ children }) {
         </Script>
       </head>
       <body>
-        <Script src="/sketch.js" strategy="beforeInteractive"/>
         {children}
       </body>
     </html>
