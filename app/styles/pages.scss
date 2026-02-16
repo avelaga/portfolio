@@ -84,11 +84,15 @@ green {
 
 .title {
   font-size: 80px;
-  margin-bottom: -10px;
   color: black;
   text-align: right;
   width: $calcWidth;
   padding-right: $margin;
+  margin-bottom: -8px;
+}
+
+.featured {
+  margin-bottom: 0px;
 }
 
 .section-subtitle {
@@ -115,7 +119,6 @@ $projWidth: calc(($calcWidth / 3) - 22px);
   display: flex;
   width: $calcWidth;
   flex-wrap: wrap;
-  margin-top: $margin;
   justify-content: space-between;
 }
 
@@ -286,7 +289,7 @@ a:hover {
   transition: background-color .7s;
 }
 
-.sending{
+.sending {
   background-color: rgb(230, 44, 208);
 }
 
@@ -465,19 +468,21 @@ yt:hover {
 
 .youtube-half-left {
   width: 100%;
+  aspect-ratio: 16 / 9;
   margin-bottom: 5px;
   padding-right: calc($margin/2);
 }
 
 .youtube-half-right {
   width: 100%;
+  aspect-ratio: 16 / 9;
   margin-bottom: 5px;
   padding-left: calc($margin/2);
 }
 
 .youtube-full {
   width: 100%;
-  height: calc(($calcWidth/16)*9);
+  aspect-ratio: 16 / 9;
   margin-bottom: 5px;
 }
 
@@ -617,7 +622,7 @@ yt:hover {
     width: 100vw;
     height: auto;
     max-height: none;
-    margin-top: calc(4 * $mobileMargin);
+    padding-top: 0px;
   }
 
   .about-top-img {
@@ -669,6 +674,7 @@ yt:hover {
   .row {
     margin-left: 0; // idk why its being set to -15
     width: 100vw;
+    flex-wrap: wrap;
   }
 
   .half-right {
@@ -762,7 +768,7 @@ yt:hover {
     text-align: center;
     width: 100vw;
     margin-bottom: $mobileMargin;
-    margin-top: 0;
+    margin-top: $mobileMargin;
     font-size: 10px;
     box-sizing: none;
   }
@@ -785,9 +791,9 @@ yt:hover {
   }
 
   .artist-statement {
-  text-align: right;
-  padding-left: $margin;
-  width: 100%;
-  margin-left: 0;
-}
+    text-align: right;
+    padding-left: $margin;
+    width: 100%;
+    margin-left: 0;
+  }
 }

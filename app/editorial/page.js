@@ -3,9 +3,9 @@
 import React from 'react';
 import MediaQuery from 'react-responsive';
 import 'react-image-lightbox/style.css';
-import Navbar from '../../src/components/Navbar';
-import ModularPhoto from '../../src/components/ModularPhoto';
-import { sparkImages, sparkMagPicsCarousel } from '../../src/data/images.js';
+import Navbar from '../components/Navbar';
+import ModularPhoto from '../components/ModularPhoto';
+import { sparkImages, sparkMagPicsCarousel } from '../data/images.js';
 import ImageGallery from 'react-image-gallery';
 
 export default function Editorial() {

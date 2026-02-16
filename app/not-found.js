@@ -2,7 +2,7 @@
 
 import React from 'react';
 import MediaQuery from 'react-responsive';
-import Navbar from '../src/components/Navbar';
+import Navbar from './components/Navbar';
 
 export default function NotFound() {
   return (

@@ -2,9 +2,9 @@
 
 import React from 'react';
 import MediaQuery from 'react-responsive';
-import Navbar from '../../src/components/Navbar';
-import ModularPhoto from '../../src/components/ModularPhoto';
-import { userVoidImages } from '../../src/data/images.js';
+import Navbar from '../components/Navbar';
+import ModularPhoto from '../components/ModularPhoto';
+import { userVoidImages } from '../data/images.js';
 
 export default function UserVoid() {
   return (

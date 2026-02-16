@@ -78,6 +78,7 @@ $mobileMargin: 10px;
   font-size: 25px;
   height: 30px;
   padding-left: 25px;
+  padding-top: 3px;
 
   border-bottom: 1px solid $borderColor;
   font-family: 'Nimbus-Sans-BolIta';
@@ -110,7 +111,7 @@ $mobileMargin: 10px;
   position: relative;
   padding-left: 25px;
   border-bottom: 1px solid $borderColor;
-  padding-top: 1px; // accounts for 1px bottom border so text remains cenetred
+  padding-top: 3px; // accounts for 1px bottom border so text remains cenetred
   animation-name: offLink;
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
@@ -264,10 +265,11 @@ $navHeight: calc(100svh - 120px);
     border: none;
   }
   .sublink {
-    width: 70vw;
+    width: 80vw;
     height: calc($navHeight / 20);
     padding-left: $mobileMargin;
     margin-top: 0px;
+    padding-top: 1px;
     line-height: 32px;
     border-left: 1px solid $borderColor;
     color: white;
@@ -276,7 +278,7 @@ $navHeight: calc(100svh - 120px);
     animation: none;
   }
   .external-link-container {
-    height: calc($navHeight * (3 / 10));
+    height: calc($navHeight * (3 / 10.5));
     align-items: flex-end;
     padding-left: $mobileMargin;
   }

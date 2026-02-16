@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Navbar from '../../src/components/Navbar';
+import Navbar from '../components/Navbar';
 import MediaQuery from 'react-responsive';
 import Script from 'next/script';
 

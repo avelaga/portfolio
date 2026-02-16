@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import Navbar from '../src/components/Navbar';
+import Navbar from './components/Navbar';
 import MediaQuery from 'react-responsive';
 import Link from 'next/link';
 
@@ -61,7 +61,7 @@ export default function Home() {
       <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={true} /></MediaQuery>
       <div className='home-title'>hi, i&apos;m abhi - a musician, interdisciplinary creator, and <blue><a href="/images/Resume.pdf" target="_blank" className="home-resume">software developer</a></blue></div>
        <div className="line" />
-      <div className='title'>featured work</div>
+      <div className='title featured'>featured work</div>
       <div className='project-container'>
         {projects.map((project, idx) => project ? (
           <a href={project.link} key={idx}>

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import Navbar from '../../src/components/Navbar';
+import Navbar from '../components/Navbar';
 import MediaQuery from 'react-responsive';
 import axios from 'axios';
 

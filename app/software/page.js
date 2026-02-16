@@ -2,8 +2,7 @@
 
 import React from 'react';
 import MediaQuery from 'react-responsive';
-import Navbar from '../../src/components/Navbar';
-import YouTube from 'react-youtube';
+import Navbar from '../components/Navbar';
 
 const theWorldMissesYouInfo = `"the world misses you" is a led installation that responds to the changing
 weather and time via web APIs to automatically transition to matching animations,
@@ -26,6 +25,6 @@ export default function Software() {
       <img src="/images/software/dadalab/dadalab2.jpg" className='full software-mobile-photo' loading="lazy" />
       <img src="/images/software/dadalab/dadalab3.jpg" className='half-left software-mobile-photo' loading="lazy" />
       <img src="/images/software/dadalab/dadalab4.jpg" className='half-right software-mobile-photo' loading="lazy" />
-      <YouTube videoId="CcSitqAJFZk" className="software-youtube  software-mobile-photo"/>
+      <iframe className="software-youtube software-mobile-photo" src="https://www.youtube.com/embed/CcSitqAJFZk" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
   </div>;
 }

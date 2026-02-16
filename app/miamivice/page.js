@@ -2,9 +2,9 @@
 
 import React from 'react';
 import MediaQuery from 'react-responsive';
-import Navbar from '../../src/components/Navbar';
-import ModularPhoto from '../../src/components/ModularPhoto';
-import { miamiImages, miamiBookPicsCarousel } from '../../src/data/images.js';
+import Navbar from '../components/Navbar';
+import ModularPhoto from '../components/ModularPhoto';
+import { miamiImages, miamiBookPicsCarousel } from '../data/images.js';
 import ImageGallery from 'react-image-gallery';
 
 export default function Miami() {

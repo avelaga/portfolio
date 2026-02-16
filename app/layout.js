@@ -1,16 +1,27 @@
 'use client';
 
 import './globals.scss';
-import '../src/styles/App.scss';
-import '../src/styles/pages.scss';
-import '../src/styles/layout.scss';
-import { useEffect } from 'react';
+import './styles/App.scss';
+import './styles/pages.scss';
+import './styles/layout.scss';
+import { useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import Lenis from 'lenis';
 import Script from 'next/script';
 
 export default function RootLayout({ children }) {
+  const pathname = usePathname();
+  const lenisRef = useRef(null);
+
+  useEffect(() => {
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { immediate: true });
+    }
+  }, [pathname]);
+
   useEffect(() => {
     const lenis = new Lenis();
+    lenisRef.current = lenis;
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
