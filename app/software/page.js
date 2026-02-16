@@ -1,0 +1,33 @@
+'use client';
+
+import React from 'react';
+import MediaQuery from 'react-responsive';
+import Navbar from '../../src/components/Navbar';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/opacity.css';
+import YouTube from 'react-youtube';
+
+const theWorldMissesYouInfo = `"the world misses you" is a led installation that responds to the changing
+weather and time via web APIs to automatically transition to matching animations,
+such as rain drops when it's raining and a twinkling animation when it turns night,
+bringing the outside conditions inside and giving the indoors a life of its own`;
+
+export default function Software() {
+  return <div className="page">
+    <MediaQuery minDeviceWidth={500}><Navbar activeLink={"SOFTWARE"} mobile={false} /></MediaQuery>
+    <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"SOFTWARE"} mobile={true} /></MediaQuery>
+      <div className="title">the world misses you</div>
+      <div className="section-year">2021</div>
+      <div className='row'>
+        <div className="half-right dadalab-text-container">
+          <div className="software-info">{theWorldMissesYouInfo}</div>
+          <div className="software-caption">dadalab, austin, tx <br/>2022</div>
+        </div>
+        <img src="/images/software/dadalab/dadalab1.jpg" className="half-right software-mobile-photo" />
+      </div>
+      <img src="/images/software/dadalab/dadalab2.jpg" className='full software-mobile-photo' />
+      <img src="/images/software/dadalab/dadalab3.jpg" className='half-left software-mobile-photo' />
+      <img src="/images/software/dadalab/dadalab4.jpg" className='half-right software-mobile-photo' />
+      <YouTube videoId="CcSitqAJFZk" className="software-youtube  software-mobile-photo"/>
+  </div>;
+}

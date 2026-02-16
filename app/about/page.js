@@ -1,0 +1,70 @@
+'use client';
+
+import React from "react";
+import Navbar from '../../src/components/Navbar';
+import MediaQuery from 'react-responsive';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/opacity.css';
+
+const aboutBottomText = () => {
+  return <div className="about-bottom-text">
+    <a href="mailto:abhinav.velaga@utexas.edu">abhinav.velaga@utexas.edu</a>
+    <br />
+    <a href="https://www.instagram.com/abhi.velaga/" target='_blank'>@abhi.velaga</a>
+    <br />
+    <a href="https://www.instagram.com/abhi.film/" target='_blank'>@abhi.film</a>
+    <br />
+    <a href="/images/Resume.pdf" target='_blank'>[ resume ]</a>
+    <br />
+    <a href="youtube.com/@abhi.velaga" target='_blank'>youtube</a>
+    <br />
+    <a href="https://www.github.com/avelaga/" target='_blank'>github</a>
+    <br />
+    <a href="https://shop.abhi.work" target='_blank'>merch</a>
+    <br />
+  </div>
+};
+
+const bio = () => {
+  return <>I&apos;m a musician, interdisciplinary creator, and software developer based in Austin, TX, where I work as a senior software engineer at <processing>Visa</processing> and studied both Computer Science and Studio Art at <ut>The University of Texas at Austin</ut>. <br /><br />My career centers on building and shipping polished websites with a focus on tight UX, while my creative practice spans music, visual storytelling, and digital media. Most recently I&apos;ve been passionate about documenting and sharing my journey learning how to work on cars on my <a href="https://youtube.com/@abhi.velaga" target="_blank"><yt>youtube channel</yt></a>.</>;
+};
+
+export default function About() {
+  return <div className="page">
+
+    {/* desktop  */}
+    <MediaQuery minDeviceWidth={500}>
+      <div>
+        <Navbar activeLink={"ABOUT"} mobile={false} />
+        <div className="about-top">
+          <LazyLoadImage src="/images/music/indulgent/indulgentlive.jpg" className="about-top-img" effect="opacity" />
+          <div className="about-second-text">
+            {bio()}
+          </div>
+          <LazyLoadImage src="/images/home/medrums.jpg" className="about-right-img" effect="opacity" />
+        </div>
+        <div className="about-bottom">
+          <LazyLoadImage src="/images/home/mecrop.jpg" className="about-bottom-img" effect="opacity" />
+          {aboutBottomText()}
+        </div>
+      </div>
+    </MediaQuery>
+
+    {/* mobile  */}
+    <MediaQuery maxDeviceWidth={500}>
+      <div>
+        <Navbar activeLink={"ABOUT"} mobile={true} />
+        <div className="appear">
+          <LazyLoadImage effect="opacity" src="/images/home/mecrop.jpg" className="about-top-img" />
+          <div className="about-first-text">
+            {bio()}
+          </div>
+
+          <LazyLoadImage effect="opacity" src="/images/home/medrums.jpg" className="about-bottom-img" />
+          {aboutBottomText()}
+          <LazyLoadImage src="/images/music/indulgent/indulgentlive.jpg" className="about-right-img" effect="opacity" />
+        </div>
+      </div>
+    </MediaQuery>
+  </div>;
+}
