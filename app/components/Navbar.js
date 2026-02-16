@@ -31,7 +31,7 @@ export default function Navbar({ activeLink, mobile }) {
 
   return <div>
     <div className={collapsed ? "unblur" : "blur"} />
-    <div className="navbar">
+    <div className="navbar" style={mobile && collapsed ? { mixBlendMode: 'difference' } : {}}>
       <div className="nav-header">
         <div className="nav-title-container">
           <Link href="/">
