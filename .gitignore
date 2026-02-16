@@ -12,6 +12,8 @@
 /dist/*.jpg
 /build
 /.next
+/out
+
 
 # misc
 .DS_Store
