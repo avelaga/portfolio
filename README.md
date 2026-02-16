@@ -1,6 +1,7 @@
 # Portfolio
 
 my portfolio website that showcases my photography, music, and creative software work.
+designed and developed myself.
 
 https://abhi.work
 
