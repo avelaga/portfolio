@@ -7,7 +7,6 @@ import './styles/layout.scss';
 import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Lenis from 'lenis';
-import p5 from 'p5';
 import Script from 'next/script';
 
 export default function RootLayout({ children }) {
@@ -32,36 +31,39 @@ export default function RootLayout({ children }) {
   }, []);
 
   useEffect(() => {
-    const spacing = 30;
-    const margin = 30;
-    let t = 0;
+    let sketch;
+    import('p5').then(({ default: p5 }) => {
+      const spacing = 30;
+      const margin = 30;
+      let t = 0;
 
-    const sketch = new p5((p) => {
-      p.setup = () => {
-        p.createCanvas(p.windowWidth, p.windowHeight);
-        p.noStroke();
-      };
+      sketch = new p5((p) => {
+        p.setup = () => {
+          p.createCanvas(p.windowWidth, p.windowHeight);
+          p.noStroke();
+        };
 
-      p.draw = () => {
-        p.background(255);
-        p.fill(0);
-        for (let y = margin; y <= p.height - margin; y += spacing) {
-          for (let x = margin; x <= p.width - margin; x += spacing) {
-            let n = p.noise(x * 0.01, y * 0.01, t);
-            let dotSize = p.map(n, 0, 1, -1, 30);
-            p.fill(0, 0, 0, 50);
-            p.circle(x, y + dotSize, dotSize / 5);
+        p.draw = () => {
+          p.background(255);
+          p.fill(0);
+          for (let y = margin; y <= p.height - margin; y += spacing) {
+            for (let x = margin; x <= p.width - margin; x += spacing) {
+              let n = p.noise(x * 0.01, y * 0.01, t);
+              let dotSize = p.map(n, 0, 1, -1, 30);
+              p.fill(0, 0, 0, 50);
+              p.circle(x, y + dotSize, dotSize / 5);
+            }
           }
-        }
-        t += 0.005;
-      };
+          t += 0.005;
+        };
 
-      p.windowResized = () => {
-        p.resizeCanvas(p.windowWidth, p.windowHeight);
-      };
+        p.windowResized = () => {
+          p.resizeCanvas(p.windowWidth, p.windowHeight);
+        };
+      });
     });
 
-    return () => sketch.remove();
+    return () => { if (sketch) sketch.remove(); };
   }, []);
 
   return (
