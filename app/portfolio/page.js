@@ -2,7 +2,6 @@
 
 import React from 'react';
 import MediaQuery from 'react-responsive';
-import 'react-image-lightbox/style.css';
 import Navbar from '../components/Navbar';
 import ModularPhoto from '../components/ModularPhoto';
 import { portfolioImages } from '../data/images.js';
