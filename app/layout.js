@@ -12,6 +12,7 @@ import Script from 'next/script';
 export default function RootLayout({ children }) {
   const pathname = usePathname();
   const lenisRef = useRef(null);
+  const sketchRef = useRef(null);
 
   useEffect(() => {
     if (lenisRef.current) {
@@ -31,8 +32,13 @@ export default function RootLayout({ children }) {
   }, []);
 
   useEffect(() => {
+    if (!sketchRef.current) return;
     let sketch;
+    let cancelled = false;
+
     import('p5').then(({ default: p5 }) => {
+      if (cancelled || !sketchRef.current) return;
+
       const spacing = 30;
       const margin = 30;
       let t = 0;
@@ -60,10 +66,13 @@ export default function RootLayout({ children }) {
         p.windowResized = () => {
           p.resizeCanvas(p.windowWidth, p.windowHeight);
         };
-      });
+      }, sketchRef.current);
     });
 
-    return () => { if (sketch) sketch.remove(); };
+    return () => {
+      cancelled = true;
+      if (sketch) sketch.remove();
+    };
   }, []);
 
   return (
@@ -101,6 +110,7 @@ export default function RootLayout({ children }) {
         </Script>
       </head>
       <body>
+        <div ref={sketchRef} style={{ position: 'fixed', top: 0, left: 0, zIndex: -1 }} />
         {children}
       </body>
     </html>
