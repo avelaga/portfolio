@@ -21,11 +21,7 @@ export default function Navbar({ activeLink, mobile }) {
 
   function calcTextColor() {
     if (mobile) {
-      if (!collapsed) {
-        return whiteText;
-      } else {
-        return defaultText;
-      }
+      return whiteText;
     } else {
       return defaultText;
     }

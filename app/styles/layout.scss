@@ -55,7 +55,7 @@ $mobileMargin: 10px;
   height: 15px;
   width: 225px;
   position: relative;
-  letter-spacing:2px;
+  letter-spacing: 2px;
   font-size: 10px;
   animation-name: offExternalLink;
   animation-duration: 0.7s;
@@ -160,6 +160,7 @@ $navHeight: calc(100svh - 120px);
     font-style: italic;
     font-size: 30px;
   }
+
   .subtitle {
     font-size: 12px;
     line-height: 17px;
@@ -169,15 +170,18 @@ $navHeight: calc(100svh - 120px);
     margin-top: -20px;
     text-align: center;
   }
+
   .navbar {
     background-color: none;
     width: 100vw;
     margin: 0;
     position: fixed;
     top: 0;
-    align-content: flex-start; 
+    align-content: flex-start;
     height: fit-content;
+    mix-blend-mode: difference;
   }
+
   .blur {
     position: fixed;
     left: 0;
@@ -191,6 +195,7 @@ $navHeight: calc(100svh - 120px);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
   }
+
   .unblur {
     position: fixed;
     left: 0;
@@ -204,6 +209,7 @@ $navHeight: calc(100svh - 120px);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
   }
+
   .nav-header {
     width: 100vw;
     display: flex;
@@ -211,6 +217,7 @@ $navHeight: calc(100svh - 120px);
     justify-content: space-between;
     height: 120px;
   }
+
   .nav-title-container {
     height: 120px;
     display: flex;
@@ -219,6 +226,7 @@ $navHeight: calc(100svh - 120px);
     justify-content: center;
     width: 60vw;
   }
+
   .menu-button {
     font-size: 30px;
     color: black;
@@ -229,16 +237,18 @@ $navHeight: calc(100svh - 120px);
     justify-content: center;
     align-items: center;
   }
+
   .link-container {
     width: 100vw;
     text-align: center;
     border: none;
 
 
-  animation-name: appear;
-  animation-duration: 1.5s;
-  animation-fill-mode: forwards;
+    animation-name: appear;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
   }
+
   .link {
     display: flex;
     align-items: center;
@@ -252,9 +262,11 @@ $navHeight: calc(100svh - 120px);
 
     animation: none;
   }
+
   .last-link {
     border-bottom: 1px solid $borderColor;
   }
+
   .sublink-container {
     margin-left: 0;
     width: 100vw;
@@ -264,6 +276,7 @@ $navHeight: calc(100svh - 120px);
     justify-content: flex-end;
     border: none;
   }
+
   .sublink {
     width: 80vw;
     height: calc($navHeight / 20);
@@ -277,11 +290,13 @@ $navHeight: calc(100svh - 120px);
 
     animation: none;
   }
+
   .external-link-container {
     height: calc($navHeight * (3 / 10.5));
     align-items: flex-end;
     padding-left: $mobileMargin;
   }
+
   .external-link {
     width: 100vw;
     height: auto;
@@ -297,6 +312,7 @@ $navHeight: calc(100svh - 120px);
     background-color: rgba(0, 0, 0, 0);
     height: 120px;
   }
+
   to {
     background-color: rgba(0, 0, 0, 0.5);
     height: 100vh;
@@ -308,6 +324,7 @@ $navHeight: calc(100svh - 120px);
     background-color: rgba(0, 0, 0, 0.5);
     height: 100vh;
   }
+
   to {
     background-color: rgba(0, 0, 0, 0);
     height: 120px;
@@ -318,6 +335,7 @@ $navHeight: calc(100svh - 120px);
   from {
     color: $linkColor
   }
+
   to {
     color: black
   }
@@ -327,6 +345,7 @@ $navHeight: calc(100svh - 120px);
   from {
     color: black
   }
+
   to {
     color: $linkColor
   }
@@ -336,15 +355,17 @@ $navHeight: calc(100svh - 120px);
   from {
     color: rgb(180, 180, 180)
   }
+
   to {
     color: black
   }
-} 
+}
 
 @keyframes offExternalLink {
   from {
     color: black
   }
+
   to {
     color: rgb(180, 180, 180)
   }
