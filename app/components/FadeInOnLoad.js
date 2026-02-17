@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-export default function FadeInOnLoad({ src, alt, cls = "", style={} }) {
+export default function FadeInOnLoad({ src, alt, cls = "", style={}, width, height }) {
     useEffect(() => {
         // handle cached images on mount
         document.querySelectorAll("img.fade-media").forEach((img) => {
@@ -24,6 +24,8 @@ export default function FadeInOnLoad({ src, alt, cls = "", style={} }) {
             className={`${cls} fade-media`}
             onLoad={handleLoad}
             style={style}
+            width={width}
+            height={height}
         />
     );
 }

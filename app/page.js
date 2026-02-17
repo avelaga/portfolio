@@ -8,6 +8,7 @@ import FadeInOnLoad from './components/FadeInOnLoad';
 const projects = [
     {
     cover: "/images/rebuildthumbsq.webp",
+    width: 2000, height: 1125,
     title: "totaled car rebuild",
     medium: "youtube series",
     year: "2025",
@@ -16,6 +17,7 @@ const projects = [
   },,
   {
     cover: "/images/software/dadalab/dadalab4.webp",
+    width: 1080, height: 1080,
     title: "the world misses you",
     medium: "led installation",
     year: "2021",
@@ -24,6 +26,7 @@ const projects = [
   },
   {
     cover: "/images/photos/miami/miami1.webp",
+    width: 2000, height: 1565,
     title: "miami vice cocaine dream",
     medium: "photo series",
     year: "2018 - 2019",
@@ -32,6 +35,7 @@ const projects = [
   },
   {
     cover: "/images/music/indulgent/rebound.webp",
+    width: 1000, height: 1000,
     title: "rebound - single",
     medium: "music",
     year: "2022",
@@ -40,6 +44,7 @@ const projects = [
   },
   {
     cover: "/images/music/indulgent/noOneKnows1.webp",
+    width: 1000, height: 1000,
     title: "no one knows - single",
     medium: "music",
     year: "2022",
@@ -48,6 +53,7 @@ const projects = [
   },
   {
     cover: "/images/photos/uservoid/uservoid1.webp",
+    width: 1545, height: 2000,
     title: "user void",
     medium: "photo series",
     year: "2019",
@@ -71,7 +77,7 @@ export default function Home() {
         {projects.map((project, idx) => project ? (
           <a href={project.link} key={idx}>
             <div className='home-project'>
-              <FadeInOnLoad src={project.cover} alt={project.alt} cls='project-img'/>
+              <FadeInOnLoad src={project.cover} alt={project.alt} cls='project-img' width={project.width} height={project.height} />
               <div className='project-title'>{project.title}</div>
               <div className='project-medium'>{project.medium}</div>
               <div className='project-year'>{project.year}</div>

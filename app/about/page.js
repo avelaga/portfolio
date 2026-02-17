@@ -33,27 +33,27 @@ export default function About() {
     {/* desktop  */}
     <div className="about-desktop">
       <div className="about-top">
-        <FadeInOnLoad src="/images/music/indulgent/indulgentlive.webp" alt="indulgent performing live" cls="about-top-img" />
+        <FadeInOnLoad src="/images/music/indulgent/indulgentlive.webp" alt="indulgent performing live" cls="about-top-img" width={2000} height={1125} />
         <div className="about-second-text">
           {bio()}
         </div>
-        <FadeInOnLoad src="/images/home/medrums.webp" alt="me drumming" cls="about-right-img" />
+        <FadeInOnLoad src="/images/home/medrums.webp" alt="me drumming" cls="about-right-img" width={2000} height={1493} />
       </div>
       <div className="about-bottom">
-        <FadeInOnLoad src="/images/home/mecrop.webp" alt="portait of me" cls="about-bottom-img" />
+        <FadeInOnLoad src="/images/home/mecrop.webp" alt="portait of me" cls="about-bottom-img" width={2000} height={1493} />
         {aboutBottomText()}
       </div>
     </div>
 
     {/* mobile  */}
     <div className="about-mobile appear">
-      <FadeInOnLoad src="/images/home/mecrop.webp" alt="portait of me" cls="about-top-img" />
+      <FadeInOnLoad src="/images/home/mecrop.webp" alt="portait of me" cls="about-top-img" width={2000} height={1493} />
       <div className="about-first-text">
         {bio()}
       </div>
-      <FadeInOnLoad src="/images/home/medrums.webp" alt="me drumming" cls="about-bottom-img" />
+      <FadeInOnLoad src="/images/home/medrums.webp" alt="me drumming" cls="about-bottom-img" width={2000} height={1493} />
       {aboutBottomText()}
-      <FadeInOnLoad src="/images/music/indulgent/indulgentlive.webp" alt="indulgent performing live" cls="about-right-img" />
+      <FadeInOnLoad src="/images/music/indulgent/indulgentlive.webp" alt="indulgent performing live" cls="about-right-img" width={2000} height={1125} />
     </div>
   </div>;
 }

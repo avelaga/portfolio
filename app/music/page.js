@@ -10,15 +10,15 @@ export default function Music() {
         <h1 className="title">INDULGENT</h1>
         <div className="section-subtitle">guitar, vocals, drums, bass</div>
         <div className="section-year">2015 - present</div>
-        <FadeInOnLoad src="/images/music/indulgent/indulgentlive.webp" alt="indulgent performing on stage" cls="music-full" />
+        <FadeInOnLoad src="/images/music/indulgent/indulgentlive.webp" alt="indulgent performing on stage" cls="music-full" width={2000} height={1125} />
         <div className="music-description">I perform all vocals, drums, guitars, and bass myself for my solo project, Indulgent, and released my recent album, <a href="https://open.spotify.com/album/2d7c0N7uNdi3jfdsTWeZNV?si=K98wvkQmQd6uMvHFrQt2ng">No Drive Will Take Me Home</a>, in 2018 and my debut album, <a href="https://open.spotify.com/album/67RH1N86fW4hIA10m3DhFl?si=Hl4dag6_QhSyX3f4Zv0mhg">Toxic</a>, in 2015.</div>
-        <FadeInOnLoad src="/images/music/indulgent/guitar1.webp" alt="recording guitar in studio" cls="half-left" />
-        <FadeInOnLoad src="/images/music/indulgent/guitar2.webp" alt="recording guitar in studio 2" cls="half-right" />
+        <FadeInOnLoad src="/images/music/indulgent/guitar1.webp" alt="recording guitar in studio" cls="half-left" width={1334} height={2000} />
+        <FadeInOnLoad src="/images/music/indulgent/guitar2.webp" alt="recording guitar in studio 2" cls="half-right" width={1334} height={2000} />
         <div className="music-releases">
             {indulgentReleases.map((releaseObj, idx) =>
                 <div className="music-release" key={idx}>
                     <a href={releaseObj.link} target="blank">
-                        <FadeInOnLoad src={releaseObj.cover} alt={releaseObj.alt} cls="music-cover" />
+                        <FadeInOnLoad src={releaseObj.cover} alt={releaseObj.alt} cls="music-cover" width={releaseObj.width} height={releaseObj.height} />
                         {releaseObj.title}
                         <br />
                         {releaseObj.year}
@@ -31,7 +31,7 @@ export default function Music() {
         <div className="title">CALADAN</div>
         <div className="section-subtitle">drums</div>
         <div className="section-year">2022 - 2023</div>
-        <FadeInOnLoad src="/images/music/caladan/caladan.webp" alt="caladan performing live" cls="music-full" />
+        <FadeInOnLoad src="/images/music/caladan/caladan.webp" alt="caladan performing live" cls="music-full" width={2000} height={1500} />
         <div className="music-video">
             <iframe loading="lazy" className="youtube-half-left" src="https://www.youtube.com/embed/VQsZdVG8A8I" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
             hole in the wall <br />
@@ -41,15 +41,15 @@ export default function Music() {
             <iframe loading="lazy" className="youtube-half-right" src="https://www.youtube.com/embed/hQgL_IebL_s" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
             woodshed <br /> 12.17.22
         </div>
-        <FadeInOnLoad src="/images/music/caladan/group.webp" alt="caladan portrait" cls="music-full" />
+        <FadeInOnLoad src="/images/music/caladan/group.webp" alt="caladan portrait" cls="music-full" width={2000} height={1125} />
 
         <div className="line" />
 
         <div className="title">SHIVERING DEMONS</div>
         <div className="section-subtitle">drums</div>
         <div className="section-year">2022 - 2023</div>
-        <FadeInOnLoad src="/images/music/sd/sd1.webp" alt="shivering demons performing live" cls="music-full" />
-        <FadeInOnLoad src="/images/music/sd/fallingKid.webp" alt="shivering demons performing at house party" cls="music-half" />
+        <FadeInOnLoad src="/images/music/sd/sd1.webp" alt="shivering demons performing live" cls="music-full" width={2000} height={1334} />
+        <FadeInOnLoad src="/images/music/sd/fallingKid.webp" alt="shivering demons performing at house party" cls="music-half" width={2000} height={1477} />
         <div className="music-video">
             <iframe loading="lazy" className="youtube-half-right" src="https://www.youtube.com/embed/1ap9ObDNqAU" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
             far out lounge <br />  1.13.23
@@ -68,11 +68,11 @@ export default function Music() {
         <div className="title">MERRY JANE &amp; THE FONDAS</div>
         <div className="section-subtitle">drums</div>
         <div className="section-year">2018 - 2019</div>
-        <FadeInOnLoad src="/images/music/mjf/mjf.webp" alt="merry jane & the fondas portrait" cls="music-full" />
+        <FadeInOnLoad src="/images/music/mjf/mjf.webp" alt="merry jane & the fondas portrait" cls="music-full" width={2000} height={1334} />
         <div className="music-description">
             As the drummer for Merry Jane &amp; The Fondas from 2018 to 2019, I recorded a <a href="https://open.spotify.com/album/097Hlqmh6mqEv6GJbxf61L?si=NO5UrK5mTlymBRe4vKErNw">studio EP</a> with renowned guitarist and songwriter, Jackie Venson, and also played an <a href="https://schedule.sxsw.com/2019/artists/2008465">official SXSW showcase</a>.
         </div>
-        <FadeInOnLoad src="/images/music/mjf/studio.webp" alt="merry jane & the fondas recording with jackie venson" cls="music-full" />
+        <FadeInOnLoad src="/images/music/mjf/studio.webp" alt="merry jane & the fondas recording with jackie venson" cls="music-full" width={2000} height={1315} />
         <div className="music-video-full">
             <iframe loading="lazy" className="youtube-full" src="https://www.youtube.com/embed/XXMGt_N6Mc0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
             porchfire fest SXSW <br />  3.10.19
@@ -80,7 +80,7 @@ export default function Music() {
         <div className="music-releases">
             <div className="music-release">
                 <a href="https://open.spotify.com/album/097Hlqmh6mqEv6GJbxf61L?si=NO5UrK5mTlymBRe4vKErNw" target="blank">
-                    <FadeInOnLoad src="/images/music/mjf/cover.webp" cls="music-cover" alt="pulls you under album cover" />
+                    <FadeInOnLoad src="/images/music/mjf/cover.webp" cls="music-cover" alt="pulls you under album cover" width={2000} height={2000} />
                     Pulls You Under
                     <br />
                     2019

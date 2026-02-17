@@ -8,6 +8,9 @@ const smallPadding = "1rem";
 const navbarWidth = 275;
 
 export default function ModularPhoto({ img, alt, width, padding, align, numColumns }) {
+    const imgSrc = typeof img === 'object' ? img.src : img;
+    const naturalWidth = typeof img === 'object' ? img.width : undefined;
+    const naturalHeight = typeof img === 'object' ? img.height : undefined;
     const [usableWidth, setUsableWidth] = useState(null);
 
     useEffect(() => {
@@ -22,7 +25,7 @@ export default function ModularPhoto({ img, alt, width, padding, align, numColum
     // Don't render until we know the window width (prevents hydration mismatch)
     if (usableWidth === null) {
         return <div className="modular-photo">
-            <FadeInOnLoad src={img} alt={alt} style={{ width: "100vw", marginBottom: "1px" }} />
+            <FadeInOnLoad src={imgSrc} alt={alt} style={{ width: "100vw", marginBottom: "1px" }} width={naturalWidth} height={naturalHeight} />
         </div>;
     }
 
@@ -67,6 +70,6 @@ export default function ModularPhoto({ img, alt, width, padding, align, numColum
     }
 
     return <div className="modular-photo" style={containerStyle}>
-        <FadeInOnLoad src={img} alt={alt} style={photoStyle} />
+        <FadeInOnLoad src={imgSrc} alt={alt} style={photoStyle} width={naturalWidth} height={naturalHeight} />
     </div>;
 }
