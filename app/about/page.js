@@ -35,14 +35,14 @@ export default function About() {
       <div>
         <Navbar activeLink={"ABOUT"} mobile={false} />
         <div className="about-top">
-          <img src="/images/music/indulgent/indulgentlive.jpg" alt="indulgent performing live" className="about-top-img" loading="lazy" />
+          <img src="/images/music/indulgent/indulgentlive.webp" alt="indulgent performing live" className="about-top-img" loading="lazy" />
           <div className="about-second-text">
             {bio()}
           </div>
-          <img src="/images/home/medrums.jpg" alt="me drumming" className="about-right-img" loading="lazy" />
+          <img src="/images/home/medrums.webp" alt="me drumming" className="about-right-img" loading="lazy" />
         </div>
         <div className="about-bottom">
-          <img src="/images/home/mecrop.jpg" alt="portait of me" className="about-bottom-img" loading="lazy" />
+          <img src="/images/home/mecrop.webp" alt="portait of me" className="about-bottom-img" loading="lazy" />
           {aboutBottomText()}
         </div>
       </div>
@@ -53,14 +53,14 @@ export default function About() {
       <div>
         <Navbar activeLink={"ABOUT"} mobile={true} />
         <div className="appear">
-          <img src="/images/home/mecrop.jpg" alt="portait of me" className="about-top-img" loading="lazy" />
+          <img src="/images/home/mecrop.webp" alt="portait of me" className="about-top-img" loading="lazy" />
           <div className="about-first-text">
             {bio()}
           </div>
 
-          <img src="/images/home/medrums.jpg" alt="me drumming" className="about-bottom-img" loading="lazy" />
+          <img src="/images/home/medrums.webp" alt="me drumming" className="about-bottom-img" loading="lazy" />
           {aboutBottomText()}
-          <img src="/images/music/indulgent/indulgentlive.jpg" alt="indulgent performing live" className="about-right-img" loading="lazy" />
+          <img src="/images/music/indulgent/indulgentlive.webp" alt="indulgent performing live" className="about-right-img" loading="lazy" />
         </div>
       </div>
     </MediaQuery>

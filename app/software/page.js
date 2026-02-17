@@ -20,11 +20,11 @@ export default function Software() {
           <div className="software-info">{theWorldMissesYouInfo}</div>
           <div className="software-caption">dadalab, austin, tx <br/>2022</div>
         </div>
-        <img src="/images/software/dadalab/dadalab1.jpg" alt="rain animation at dadalab exhibition" className="half-right software-mobile-photo" loading="lazy" />
+        <img src="/images/software/dadalab/dadalab1.webp" alt="rain animation at dadalab exhibition" className="half-right software-mobile-photo" loading="lazy" />
       </div>
-      <img src="/images/software/dadalab/dadalab2.jpg" alt="sunny animation at dadalab exhibition" className='full software-mobile-photo' loading="lazy" />
-      <img src="/images/software/dadalab/dadalab3.jpg" alt="starry night animation at dadalab exhibition" className='half-left software-mobile-photo' loading="lazy" />
-      <img src="/images/software/dadalab/dadalab4.jpg" alt="viewing the exhibition" className='half-right software-mobile-photo' loading="lazy" />
+      <img src="/images/software/dadalab/dadalab2.webp" alt="sunny animation at dadalab exhibition" className='full software-mobile-photo' loading="lazy" />
+      <img src="/images/software/dadalab/dadalab3.webp" alt="starry night animation at dadalab exhibition" className='half-left software-mobile-photo' loading="lazy" />
+      <img src="/images/software/dadalab/dadalab4.webp" alt="viewing the exhibition" className='half-right software-mobile-photo' loading="lazy" />
       <iframe className="software-youtube software-mobile-photo" src="https://www.youtube.com/embed/CcSitqAJFZk" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
   </div>;
 }

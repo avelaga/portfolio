@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 const projects = [
     {
-    cover: "/images/rebuildthumbsq.jpg",
+    cover: "/images/rebuildthumbsq.webp",
     title: "totaled car rebuild",
     medium: "youtube series",
     year: "2025",
@@ -15,7 +15,7 @@ const projects = [
     alt: "totaled car rebuild thumbnail"
   },,
   {
-    cover: "/images/software/dadalab/dadalab4.jpg",
+    cover: "/images/software/dadalab/dadalab4.webp",
     title: "the world misses you",
     medium: "led installation",
     year: "2021",
@@ -23,7 +23,7 @@ const projects = [
     alt: "the world misses you installation"
   },
   {
-    cover: "/images/photos/miami/miami1.jpg",
+    cover: "/images/photos/miami/miami1.webp",
     title: "miami vice cocaine dream",
     medium: "photo series",
     year: "2018 - 2019",
@@ -31,7 +31,7 @@ const projects = [
     alt: "miami vice cocaine dream photo collection"
   },
   {
-    cover: "/images/music/indulgent/rebound.jpg",
+    cover: "/images/music/indulgent/rebound.webp",
     title: "rebound - single",
     medium: "music",
     year: "2022",
@@ -39,7 +39,7 @@ const projects = [
     alt: "rebound by indulgent album cover"
   },
   {
-    cover: "/images/music/indulgent/noOneKnows1.jpg",
+    cover: "/images/music/indulgent/noOneKnows1.webp",
     title: "no one knows - single",
     medium: "music",
     year: "2022",
@@ -47,7 +47,7 @@ const projects = [
     alt: "no one knows by indulgent album cover"
   },
   {
-    cover: "/images/photos/uservoid/uservoid1.jpg",
+    cover: "/images/photos/uservoid/uservoid1.webp",
     title: "user void",
     medium: "photo series",
     year: "2019",
