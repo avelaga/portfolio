@@ -13,18 +13,18 @@ export default function Software() {
   return <div className="page">
     <MediaQuery minDeviceWidth={500}><Navbar activeLink={"SOFTWARE"} mobile={false} /></MediaQuery>
     <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"SOFTWARE"} mobile={true} /></MediaQuery>
-      <div className="title">the world misses you</div>
+      <h1 className="title">the world misses you</h1>
       <div className="section-year">2021</div>
       <div className='row'>
         <div className="half-right dadalab-text-container">
           <div className="software-info">{theWorldMissesYouInfo}</div>
           <div className="software-caption">dadalab, austin, tx <br/>2022</div>
         </div>
-        <img src="/images/software/dadalab/dadalab1.jpg" className="half-right software-mobile-photo" loading="lazy" />
+        <img src="/images/software/dadalab/dadalab1.jpg" alt="rain animation at dadalab exhibition" className="half-right software-mobile-photo" loading="lazy" />
       </div>
-      <img src="/images/software/dadalab/dadalab2.jpg" className='full software-mobile-photo' loading="lazy" />
-      <img src="/images/software/dadalab/dadalab3.jpg" className='half-left software-mobile-photo' loading="lazy" />
-      <img src="/images/software/dadalab/dadalab4.jpg" className='half-right software-mobile-photo' loading="lazy" />
+      <img src="/images/software/dadalab/dadalab2.jpg" alt="sunny animation at dadalab exhibition" className='full software-mobile-photo' loading="lazy" />
+      <img src="/images/software/dadalab/dadalab3.jpg" alt="starry night animation at dadalab exhibition" className='half-left software-mobile-photo' loading="lazy" />
+      <img src="/images/software/dadalab/dadalab4.jpg" alt="viewing the exhibition" className='half-right software-mobile-photo' loading="lazy" />
       <iframe className="software-youtube software-mobile-photo" src="https://www.youtube.com/embed/CcSitqAJFZk" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
   </div>;
 }
