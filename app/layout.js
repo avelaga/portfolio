@@ -97,7 +97,7 @@ export default function RootLayout({ children }) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image:alt" content="Software Developer, Musician, Artist" />
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=UA-165347174-1"
+          src="https://www.googletagmanager.com/gtag/js?id=G-XGMDCDEFQ3"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -105,7 +105,7 @@ export default function RootLayout({ children }) {
             window.dataLayer = window.dataLayer || [];
             function gtag() { dataLayer.push(arguments); }
             gtag('js', new Date());
-            gtag('config', 'UA-165347174-1');
+            gtag('config', 'G-XGMDCDEFQ3');
           `}
         </Script>
       </head>
