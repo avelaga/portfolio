@@ -230,8 +230,8 @@ $navHeight: calc(100svh - 120px);
     animation-name: unblur;
     animation-duration: 1s;
     animation-fill-mode: forwards;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(.01px);
+    backdrop-filter: blur(.01px);
   }
 
   .nav-header {
@@ -323,7 +323,7 @@ $navHeight: calc(100svh - 120px);
 @keyframes blur {
   from {
     background-color: rgba(0, 0, 0, 0);
-    height: 120px;
+    height: 0px;
   }
 
   to {
@@ -340,7 +340,7 @@ $navHeight: calc(100svh - 120px);
 
   to {
     background-color: rgba(0, 0, 0, 0);
-    height: 120px;
+    height: 0px;
   }
 }
 
