@@ -230,8 +230,8 @@ $navHeight: calc(100svh - 120px);
     animation-name: unblur;
     animation-duration: 1s;
     animation-fill-mode: forwards;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(0.5px);
+    backdrop-filter: blur(0.5px);
   }
 
   .nav-header {
