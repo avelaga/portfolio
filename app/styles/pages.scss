@@ -497,6 +497,15 @@ yt:hover {
   margin-bottom: 5px;
 }
 
+.fade-media {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.fade-media.loaded {
+  opacity: 1;
+}
+
 @media (max-width: 500px) {
   .page {
     margin-top: 120px;
