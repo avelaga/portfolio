@@ -1,7 +1,7 @@
 'use client';
 
-import React from "react";
 import Navbar from '../components/Navbar';
+import FadeInOnLoad from '../components/FadeInOnLoad';
 
 const aboutBottomText = () => {
   return <div className="about-bottom-text">
@@ -33,27 +33,27 @@ export default function About() {
     {/* desktop  */}
     <div className="about-desktop">
       <div className="about-top">
-        <img src="/images/music/indulgent/indulgentlive.webp" alt="indulgent performing live" className="about-top-img" loading="lazy" />
+        <FadeInOnLoad src="/images/music/indulgent/indulgentlive.webp" alt="indulgent performing live" cls="about-top-img" />
         <div className="about-second-text">
           {bio()}
         </div>
-        <img src="/images/home/medrums.webp" alt="me drumming" className="about-right-img" loading="lazy" />
+        <FadeInOnLoad src="/images/home/medrums.webp" alt="me drumming" cls="about-right-img" />
       </div>
       <div className="about-bottom">
-        <img src="/images/home/mecrop.webp" alt="portait of me" className="about-bottom-img" loading="lazy" />
+        <FadeInOnLoad src="/images/home/mecrop.webp" alt="portait of me" cls="about-bottom-img" />
         {aboutBottomText()}
       </div>
     </div>
 
     {/* mobile  */}
     <div className="about-mobile appear">
-      <img src="/images/home/mecrop.webp" alt="portait of me" className="about-top-img" loading="lazy" />
+      <FadeInOnLoad src="/images/home/mecrop.webp" alt="portait of me" cls="about-top-img" />
       <div className="about-first-text">
         {bio()}
       </div>
-      <img src="/images/home/medrums.webp" alt="me drumming" className="about-bottom-img" loading="lazy" />
+      <FadeInOnLoad src="/images/home/medrums.webp" alt="me drumming" cls="about-bottom-img" />
       {aboutBottomText()}
-      <img src="/images/music/indulgent/indulgentlive.webp" alt="indulgent performing live" className="about-right-img" loading="lazy" />
+      <FadeInOnLoad src="/images/music/indulgent/indulgentlive.webp" alt="indulgent performing live" cls="about-right-img" />
     </div>
   </div>;
 }

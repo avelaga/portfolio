@@ -45,7 +45,7 @@ export default function Hi() {
             {!status && <div className="appear msg-success"></div>}
             {status && <div className="appear msg-success">{status}</div>}
           </div>
-          <video playsInline autoPlay muted loop className="hi-gif">
+          <video playsInline autoPlay muted loop className="hi-gif" loading="lazy">
             <source src="/videos/hi.mp4" type="video/mp4" />
           </video>
         </div>

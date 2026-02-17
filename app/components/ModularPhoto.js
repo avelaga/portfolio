@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import FadeInOnLoad from './FadeInOnLoad';
 
 const bigPadding = "5rem";
 const smallPadding = "1rem";
@@ -21,7 +22,7 @@ export default function ModularPhoto({ img, alt, width, padding, align, numColum
     // Don't render until we know the window width (prevents hydration mismatch)
     if (usableWidth === null) {
         return <div className="modular-photo">
-            <img src={img} alt={alt} style={{ width: "100vw", marginBottom: "1px" }} loading="lazy" />
+            <FadeInOnLoad src={img} alt={alt} style={{ width: "100vw", marginBottom: "1px" }} />
         </div>;
     }
 
@@ -66,6 +67,6 @@ export default function ModularPhoto({ img, alt, width, padding, align, numColum
     }
 
     return <div className="modular-photo" style={containerStyle}>
-        <img src={img} alt={alt} style={photoStyle} loading="lazy" />
+        <FadeInOnLoad src={img} alt={alt} style={photoStyle} />
     </div>;
 }

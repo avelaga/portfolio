@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
 import Navbar from '../components/Navbar';
+import FadeInOnLoad from '../components/FadeInOnLoad';
 
 const theWorldMissesYouInfo = `"the world misses you" is a led installation that responds to the changing
 weather and time via web APIs to automatically transition to matching animations,
@@ -18,11 +18,11 @@ export default function Software() {
           <div className="software-info">{theWorldMissesYouInfo}</div>
           <div className="software-caption">dadalab, austin, tx <br/>2022</div>
         </div>
-        <img src="/images/software/dadalab/dadalab1.webp" alt="rain animation at dadalab exhibition" className="half-right software-mobile-photo" loading="lazy" />
+        <FadeInOnLoad src="/images/software/dadalab/dadalab1.webp" alt="rain animation at dadalab exhibition" cls="half-right software-mobile-photo" />
       </div>
-      <img src="/images/software/dadalab/dadalab2.webp" alt="sunny animation at dadalab exhibition" className='full software-mobile-photo' loading="lazy" />
-      <img src="/images/software/dadalab/dadalab3.webp" alt="starry night animation at dadalab exhibition" className='half-left software-mobile-photo' loading="lazy" />
-      <img src="/images/software/dadalab/dadalab4.webp" alt="viewing the exhibition" className='half-right software-mobile-photo' loading="lazy" />
-      <iframe loading="lazy" className="software-youtube software-mobile-photo" src="https://www.youtube.com/embed/CcSitqAJFZk" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+      <FadeInOnLoad src="/images/software/dadalab/dadalab2.webp" alt="sunny animation at dadalab exhibition" cls='full software-mobile-photo' />
+      <FadeInOnLoad src="/images/software/dadalab/dadalab3.webp" alt="starry night animation at dadalab exhibition" cls='half-left software-mobile-photo' />
+      <FadeInOnLoad src="/images/software/dadalab/dadalab4.webp" alt="viewing the exhibition" cls='half-right software-mobile-photo' />
+      <iframe className="software-youtube software-mobile-photo" src="https://www.youtube.com/embed/CcSitqAJFZk" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
   </div>;
 }

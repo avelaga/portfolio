@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Link from 'next/link';
+import FadeInOnLoad from './components/FadeInOnLoad';
 
 const projects = [
     {
@@ -70,7 +71,7 @@ export default function Home() {
         {projects.map((project, idx) => project ? (
           <a href={project.link} key={idx}>
             <div className='home-project'>
-              <img src={project.cover} alt={project.alt} className='project-img' loading="lazy" />
+              <FadeInOnLoad src={project.cover} alt={project.alt} cls='project-img'/>
               <div className='project-title'>{project.title}</div>
               <div className='project-medium'>{project.medium}</div>
               <div className='project-year'>{project.year}</div>
