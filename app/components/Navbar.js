@@ -1,31 +1,27 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-export default function Navbar({ activeLink, mobile }) {
-  const [collapsed, setCollapsed] = useState(mobile);
+export default function Navbar({ activeLink }) {
+  const [mobile, setMobile] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 500px)');
+    setMobile(mq.matches);
+    setCollapsed(mq.matches);
+    const handler = (e) => {
+      setMobile(e.matches);
+      setCollapsed(e.matches);
+    };
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   const activeStyle = {
     backgroundColor: 'black'
   };
-
-  const whiteText = {
-    color: 'white',
-    transition: 'color 1s'
-  };
-
-  const defaultText = {
-    transition: 'color 1s'
-  };
-
-  function calcTextColor() {
-    if (mobile) {
-      return whiteText;
-    } else {
-      return defaultText;
-    }
-  }
 
   const isPhotoPage = (activeLink === "PORTFOLIO" || activeLink === "MIAMI" || activeLink === "USERVOID" || activeLink === "EDITORIAL");
 
@@ -36,19 +32,19 @@ export default function Navbar({ activeLink, mobile }) {
         <div className="nav-title-container">
           <Link href="/">
             <div className='nav-title'>
-              <div style={calcTextColor()}>
+              <div className="nav-title-text">
                 ABHI VELAGA
               </div>
             </div>
           </Link>
-          {!mobile && <div className='subtitle'>creator and developer</div>}
+          <div className='subtitle'>creator and developer</div>
         </div>
 
-        {mobile && <div className="menu-button" onClick={() => setCollapsed(!collapsed)}>
-          <div style={calcTextColor()}>
+        <div className="menu-button" onClick={() => setCollapsed(!collapsed)}>
+          <div className="nav-title-text">
             MENU
           </div>
-        </div>}
+        </div>
       </div>
 
       {!collapsed &&
@@ -68,7 +64,7 @@ export default function Navbar({ activeLink, mobile }) {
           </div>
 
           <div className='external-link-container'>
-            {!mobile && <div className='external-link' />}
+            <div className='external-link external-link-divider' />
             <a className="external-link" href="https://www.youtube.com/@abhi.velaga/" target="_blank">
               YOUTUBE
             </a>

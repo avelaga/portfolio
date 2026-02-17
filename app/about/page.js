@@ -2,7 +2,6 @@
 
 import React from "react";
 import Navbar from '../components/Navbar';
-import MediaQuery from 'react-responsive';
 
 const aboutBottomText = () => {
   return <div className="about-bottom-text">
@@ -29,40 +28,32 @@ const bio = () => {
 
 export default function About() {
   return <div className="page">
+    <Navbar activeLink={"ABOUT"} />
 
     {/* desktop  */}
-    <MediaQuery minDeviceWidth={500}>
-      <div>
-        <Navbar activeLink={"ABOUT"} mobile={false} />
-        <div className="about-top">
-          <img src="/images/music/indulgent/indulgentlive.webp" alt="indulgent performing live" className="about-top-img" loading="lazy" />
-          <div className="about-second-text">
-            {bio()}
-          </div>
-          <img src="/images/home/medrums.webp" alt="me drumming" className="about-right-img" loading="lazy" />
+    <div className="about-desktop">
+      <div className="about-top">
+        <img src="/images/music/indulgent/indulgentlive.webp" alt="indulgent performing live" className="about-top-img" loading="lazy" />
+        <div className="about-second-text">
+          {bio()}
         </div>
-        <div className="about-bottom">
-          <img src="/images/home/mecrop.webp" alt="portait of me" className="about-bottom-img" loading="lazy" />
-          {aboutBottomText()}
-        </div>
+        <img src="/images/home/medrums.webp" alt="me drumming" className="about-right-img" loading="lazy" />
       </div>
-    </MediaQuery>
+      <div className="about-bottom">
+        <img src="/images/home/mecrop.webp" alt="portait of me" className="about-bottom-img" loading="lazy" />
+        {aboutBottomText()}
+      </div>
+    </div>
 
     {/* mobile  */}
-    <MediaQuery maxDeviceWidth={500}>
-      <div>
-        <Navbar activeLink={"ABOUT"} mobile={true} />
-        <div className="appear">
-          <img src="/images/home/mecrop.webp" alt="portait of me" className="about-top-img" loading="lazy" />
-          <div className="about-first-text">
-            {bio()}
-          </div>
-
-          <img src="/images/home/medrums.webp" alt="me drumming" className="about-bottom-img" loading="lazy" />
-          {aboutBottomText()}
-          <img src="/images/music/indulgent/indulgentlive.webp" alt="indulgent performing live" className="about-right-img" loading="lazy" />
-        </div>
+    <div className="about-mobile appear">
+      <img src="/images/home/mecrop.webp" alt="portait of me" className="about-top-img" loading="lazy" />
+      <div className="about-first-text">
+        {bio()}
       </div>
-    </MediaQuery>
+      <img src="/images/home/medrums.webp" alt="me drumming" className="about-bottom-img" loading="lazy" />
+      {aboutBottomText()}
+      <img src="/images/music/indulgent/indulgentlive.webp" alt="indulgent performing live" className="about-right-img" loading="lazy" />
+    </div>
   </div>;
 }

@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import MediaQuery from 'react-responsive';
 import Navbar from '../components/Navbar';
 import ModularPhoto from '../components/ModularPhoto';
 import { portfolioImages } from '../data/images.js';
@@ -9,8 +8,7 @@ import { portfolioImages } from '../data/images.js';
 export default function Portfolio() {
   return (
     <div className="page">
-      <MediaQuery minDeviceWidth={500}><Navbar activeLink={"PORTFOLIO"} mobile={false} /></MediaQuery>
-      <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"PORTFOLIO"} mobile={true} /></MediaQuery>
+      <Navbar activeLink={"PORTFOLIO"} />
       <h1 className="title">Photography Portfolio</h1>
       <div className="section-subtitle">selected works</div>
       <div className="section-year">2018 - 2020</div>

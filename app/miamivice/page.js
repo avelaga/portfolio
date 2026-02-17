@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import MediaQuery from 'react-responsive';
 import Navbar from '../components/Navbar';
 import ModularPhoto from '../components/ModularPhoto';
 import { miamiImages, miamiBookPicsCarousel } from '../data/images.js';
@@ -10,8 +9,7 @@ import ImageGallery from 'react-image-gallery';
 export default function Miami() {
   return (
     <div className="page">
-      <MediaQuery minDeviceWidth={500}><Navbar activeLink={"MIAMI"} mobile={false} /></MediaQuery>
-      <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"MIAMI"} mobile={true} /></MediaQuery>
+      <Navbar activeLink={"MIAMI"} />
       <h1 className="title">Miami Vice Cocaine Dream</h1>
       <div className="section-year">2018 - 2019</div>
       <div className="artist-statement">

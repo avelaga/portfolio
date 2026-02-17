@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import MediaQuery from 'react-responsive';
 import Navbar from '../components/Navbar';
 
 const theWorldMissesYouInfo = `"the world misses you" is a led installation that responds to the changing
@@ -11,8 +10,7 @@ bringing the outside conditions inside and giving the indoors a life of its own`
 
 export default function Software() {
   return <div className="page">
-    <MediaQuery minDeviceWidth={500}><Navbar activeLink={"SOFTWARE"} mobile={false} /></MediaQuery>
-    <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"SOFTWARE"} mobile={true} /></MediaQuery>
+    <Navbar activeLink={"SOFTWARE"} />
       <h1 className="title">the world misses you</h1>
       <div className="section-year">2021</div>
       <div className='row'>

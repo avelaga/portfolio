@@ -2,7 +2,6 @@
 
 import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
-import MediaQuery from 'react-responsive';
 import Link from 'next/link';
 
 const projects = [
@@ -63,8 +62,7 @@ export default function Home() {
 
   return (
     <div className="page">
-      <MediaQuery minDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={false} /></MediaQuery>
-      <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"HOME"} mobile={true} /></MediaQuery>
+      <Navbar activeLink={"HOME"} />
       <div className='home-title'>hi, i'm abhi - a musician, interdisciplinary creator, and <blue><a href="/images/Resume.pdf" target="_blank" className="home-resume">software developer</a></blue></div>
        <div className="line" />
       <h1 className='title featured'>featured work</h1>

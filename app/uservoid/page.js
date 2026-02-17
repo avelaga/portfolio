@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import MediaQuery from 'react-responsive';
 import Navbar from '../components/Navbar';
 import ModularPhoto from '../components/ModularPhoto';
 import { userVoidImages } from '../data/images.js';
@@ -9,8 +8,7 @@ import { userVoidImages } from '../data/images.js';
 export default function UserVoid() {
   return (
     <div className="page">
-      <MediaQuery minDeviceWidth={500}><Navbar activeLink={"USERVOID"} mobile={false} /></MediaQuery>
-      <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"USERVOID"} mobile={true} /></MediaQuery>
+      <Navbar activeLink={"USERVOID"} />
       <h1 className="title">User Void</h1>
       <div className="section-year">2019</div>
       <div className="artist-statement">

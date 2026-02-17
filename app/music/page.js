@@ -2,13 +2,11 @@
 
 import React from "react";
 import Navbar from '../components/Navbar';
-import MediaQuery from 'react-responsive';
 import { indulgentReleases } from '../data/musicImports.js';
 
 export default function Music() {
     return <div className="page">
-        <MediaQuery minDeviceWidth={500}><Navbar activeLink={"MUSIC"} mobile={false} /></MediaQuery>
-        <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"MUSIC"} mobile={true} /></MediaQuery>
+        <Navbar activeLink={"MUSIC"} />
         <h1 className="title">INDULGENT</h1>
         <div className="section-subtitle">guitar, vocals, drums, bass</div>
         <div className="section-year">2015 - present</div>

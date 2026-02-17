@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import MediaQuery from 'react-responsive';
 import Navbar from '../components/Navbar';
 import ModularPhoto from '../components/ModularPhoto';
 import { sparkImages, sparkMagPicsCarousel } from '../data/images.js';
@@ -10,8 +9,7 @@ import ImageGallery from 'react-image-gallery';
 export default function Editorial() {
   return (
     <div className="page">
-      <MediaQuery minDeviceWidth={500}><Navbar activeLink={"EDITORIAL"} mobile={false} /></MediaQuery>
-      <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"EDITORIAL"} mobile={true} /></MediaQuery>
+      <Navbar activeLink={"EDITORIAL"} />
       <h1 className="title">Editorial Work</h1>
       <div className="section-subtitle">work produced for Spark Magazine</div>
       <div className="section-year">2019</div>

@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
-import MediaQuery from 'react-responsive';
 
 export default function Hi() {
   const [loading, setLoading] = useState(false);
@@ -27,8 +26,7 @@ export default function Hi() {
 
   return (
     <div className="page">
-      <MediaQuery minDeviceWidth={500}><Navbar activeLink={"HI"} mobile={false} /></MediaQuery>
-      <MediaQuery maxDeviceWidth={500}><Navbar activeLink={"HI"} mobile={true} /></MediaQuery>
+      <Navbar activeLink={"HI"} />
       <div>
         <div className="hi-titles-container">
           <div className="title">say hi to me in realtime</div>
