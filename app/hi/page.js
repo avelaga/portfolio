@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import MediaQuery from 'react-responsive';
-import axios from 'axios';
 
 export default function Hi() {
   const [loading, setLoading] = useState(false);
@@ -13,9 +12,9 @@ export default function Hi() {
     setLoading(true);
     setStatus(null);
     const url = "https://p3g4inxilgsfwwjcgjdyf4nqzy0bcoia.lambda-url.us-east-1.on.aws/";
-    axios
-      .get(url)
+    fetch(url)
       .then(res => {
+        if (!res.ok) throw new Error(res.status);
         setLoading(false);
         setStatus("message recieved :)");
       })
