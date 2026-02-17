@@ -32,46 +32,86 @@ export default function RootLayout({ children }) {
   }, []);
 
   useEffect(() => {
-    if (!sketchRef.current) return;
-    let sketch;
-    let cancelled = false;
+    const container = sketchRef.current;
+    if (!container) return;
 
-    import('p5').then(({ default: p5 }) => {
-      if (cancelled || !sketchRef.current) return;
+    const canvas = document.createElement('canvas');
+    container.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
 
-      const spacing = 30;
-      const margin = 30;
-      let t = 0;
+    // Perlin noise implementation
+    const perm = new Uint8Array(512);
+    const grad3 = [
+      [1,1,0],[-1,1,0],[1,-1,0],[-1,-1,0],
+      [1,0,1],[-1,0,1],[1,0,-1],[-1,0,-1],
+      [0,1,1],[0,-1,1],[0,1,-1],[0,-1,-1],
+    ];
+    for (let i = 0; i < 256; i++) perm[i] = i;
+    for (let i = 255; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [perm[i], perm[j]] = [perm[j], perm[i]];
+    }
+    for (let i = 0; i < 256; i++) perm[i + 256] = perm[i];
 
-      sketch = new p5((p) => {
-        p.setup = () => {
-          p.createCanvas(p.windowWidth, p.windowHeight);
-          p.noStroke();
-        };
+    function fade(t) { return t * t * t * (t * (t * 6 - 15) + 10); }
+    function lerp(a, b, t) { return a + t * (b - a); }
+    function dot3(g, x, y, z) { return g[0] * x + g[1] * y + g[2] * z; }
 
-        p.draw = () => {
-          p.background(255);
-          p.fill(0);
-          for (let y = margin; y <= p.height - margin; y += spacing) {
-            for (let x = margin; x <= p.width - margin; x += spacing) {
-              let n = p.noise(x * 0.01, y * 0.01, t);
-              let dotSize = p.map(n, 0, 1, -1, 30);
-              p.fill(0, 0, 0, 50);
-              p.circle(x, y + dotSize, dotSize / 5);
-            }
+    function noise3d(x, y, z) {
+      const X = Math.floor(x) & 255, Y = Math.floor(y) & 255, Z = Math.floor(z) & 255;
+      x -= Math.floor(x); y -= Math.floor(y); z -= Math.floor(z);
+      const u = fade(x), v = fade(y), w = fade(z);
+      const A = perm[X] + Y, AA = perm[A] + Z, AB = perm[A + 1] + Z;
+      const B = perm[X + 1] + Y, BA = perm[B] + Z, BB = perm[B + 1] + Z;
+      return (lerp(
+        lerp(lerp(dot3(grad3[perm[AA] % 12], x, y, z), dot3(grad3[perm[BA] % 12], x - 1, y, z), u),
+             lerp(dot3(grad3[perm[AB] % 12], x, y - 1, z), dot3(grad3[perm[BB] % 12], x - 1, y - 1, z), u), v),
+        lerp(lerp(dot3(grad3[perm[AA + 1] % 12], x, y, z - 1), dot3(grad3[perm[BA + 1] % 12], x - 1, y, z - 1), u),
+             lerp(dot3(grad3[perm[AB + 1] % 12], x, y - 1, z - 1), dot3(grad3[perm[BB + 1] % 12], x - 1, y - 1, z - 1), u), v), w)
+        + 1) / 2;
+    }
+
+    const spacing = 30;
+    const margin = 30;
+    let t = 0;
+    let animId;
+    let lastTime = 0;
+    const interval = 1000 / 30;
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function draw(now) {
+      animId = requestAnimationFrame(draw);
+      if (document.hidden || now - lastTime < interval) return;
+      lastTime = now;
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.196)';
+      for (let y = margin; y <= canvas.height - margin; y += spacing) {
+        for (let x = margin; x <= canvas.width - margin; x += spacing) {
+          const n = noise3d(x * 0.01, y * 0.01, t);
+          const dotSize = n * 31 - 1;
+          const r = dotSize / 10;
+          if (r > 0) {
+            ctx.beginPath();
+            ctx.arc(x, y + dotSize, r, 0, Math.PI * 2);
+            ctx.fill();
           }
-          t += 0.005;
-        };
-
-        p.windowResized = () => {
-          p.resizeCanvas(p.windowWidth, p.windowHeight);
-        };
-      }, sketchRef.current);
-    });
+        }
+      }
+      t += 0.01;
+    }
+    animId = requestAnimationFrame(draw);
 
     return () => {
-      cancelled = true;
-      if (sketch) sketch.remove();
+      cancelAnimationFrame(animId);
+      window.removeEventListener('resize', resize);
+      canvas.remove();
     };
   }, []);
 
@@ -110,7 +150,7 @@ export default function RootLayout({ children }) {
         </Script>
       </head>
       <body>
-        <div ref={sketchRef} style={{ position: 'fixed', top: 0, left: 0, zIndex: -1 }} />
+        <div ref={sketchRef} style={{ position: 'fixed', top: 0, left: 0, zIndex: -1, animation: 'appear 2.5s forwards' }} />
         {children}
       </body>
     </html>
