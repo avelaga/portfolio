@@ -4,7 +4,8 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import ModularPhoto from '../components/ModularPhoto';
 import { miamiImages, miamiBookPicsCarousel } from '../data/images.js';
-import ImageGallery from 'react-image-gallery';
+import dynamic from 'next/dynamic';
+const ImageGallery = dynamic(() => import('react-image-gallery'), { ssr: false });
 
 export default function Miami() {
   return (
