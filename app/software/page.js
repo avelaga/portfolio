@@ -25,6 +25,6 @@ export default function Software() {
       <img src="/images/software/dadalab/dadalab2.webp" alt="sunny animation at dadalab exhibition" className='full software-mobile-photo' loading="lazy" />
       <img src="/images/software/dadalab/dadalab3.webp" alt="starry night animation at dadalab exhibition" className='half-left software-mobile-photo' loading="lazy" />
       <img src="/images/software/dadalab/dadalab4.webp" alt="viewing the exhibition" className='half-right software-mobile-photo' loading="lazy" />
-      <iframe className="software-youtube software-mobile-photo" src="https://www.youtube.com/embed/CcSitqAJFZk" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+      <iframe loading="lazy" className="software-youtube software-mobile-photo" src="https://www.youtube.com/embed/CcSitqAJFZk" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
   </div>;
 }

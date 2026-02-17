@@ -35,12 +35,12 @@ export default function Music() {
         <div className="section-year">2022 - 2023</div>
         <img src="/images/music/caladan/caladan.webp" alt="caladan performing live" className="music-full" loading="lazy" />
         <div className="music-video">
-            <iframe className="youtube-half-left" src="https://www.youtube.com/embed/VQsZdVG8A8I" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+            <iframe loading="lazy" className="youtube-half-left" src="https://www.youtube.com/embed/VQsZdVG8A8I" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
             hole in the wall <br />
             1.7.23
         </div>
         <div className="music-video">
-            <iframe className="youtube-half-right" src="https://www.youtube.com/embed/hQgL_IebL_s" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+            <iframe loading="lazy" className="youtube-half-right" src="https://www.youtube.com/embed/hQgL_IebL_s" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
             woodshed <br /> 12.17.22
         </div>
         <img src="/images/music/caladan/group.webp" alt="caladan portrait" className="music-full" loading="lazy" />
@@ -53,15 +53,15 @@ export default function Music() {
         <img src="/images/music/sd/sd1.webp" alt="shivering demons performing live" className="music-full" loading="lazy" />
         <img src="/images/music/sd/fallingKid.webp" alt="shivering demons performing at house party" className="music-half" loading="lazy" />
         <div className="music-video">
-            <iframe className="youtube-half-right" src="https://www.youtube.com/embed/1ap9ObDNqAU" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+            <iframe loading="lazy" className="youtube-half-right" src="https://www.youtube.com/embed/1ap9ObDNqAU" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
             far out lounge <br />  1.13.23
         </div>
         <div className="music-video">
-            <iframe className="youtube-half-left" src="https://www.youtube.com/embed/08FnNPD-Eng" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+            <iframe loading="lazy" className="youtube-half-left" src="https://www.youtube.com/embed/08FnNPD-Eng" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
             11.11.22 <br /> rio market
         </div>
         <div className="music-video">
-            <iframe className="youtube-half-right" src="https://www.youtube.com/embed/6mEqHssj27Y" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+            <iframe loading="lazy" className="youtube-half-right" src="https://www.youtube.com/embed/6mEqHssj27Y" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
             pearl st. co-op <br /> 10.28.22
         </div>
 
@@ -76,7 +76,7 @@ export default function Music() {
         </div>
         <img src="/images/music/mjf/studio.webp" alt="merry jane & the fondas recording with jackie venson" className="music-full" loading="lazy" />
         <div className="music-video-full">
-            <iframe className="youtube-full" src="https://www.youtube.com/embed/XXMGt_N6Mc0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+            <iframe loading="lazy" className="youtube-full" src="https://www.youtube.com/embed/XXMGt_N6Mc0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
             porchfire fest SXSW <br />  3.10.19
         </div>
         <div className="music-releases">
