@@ -255,8 +255,6 @@ $navHeight: calc(100svh - 120px);
     width: 100vw;
     text-align: center;
     border: none;
-
-
     animation-name: appear;
     animation-duration: 1.5s;
     animation-fill-mode: forwards;
@@ -300,7 +298,6 @@ $navHeight: calc(100svh - 120px);
     border-left: 1px solid $borderColor;
     color: white;
     text-align: left;
-
     animation: none;
   }
 
@@ -308,6 +305,9 @@ $navHeight: calc(100svh - 120px);
     height: calc($navHeight * (3 / 10.5));
     align-items: flex-end;
     padding-left: $mobileMargin;
+    animation-name: appear;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
   }
 
   .external-link {
