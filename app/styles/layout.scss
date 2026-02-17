@@ -324,11 +324,15 @@ $navHeight: calc(100svh - 120px);
   from {
     background-color: rgba(0, 0, 0, 0);
     height: 120px;
+    -webkit-backdrop-filter: blur(0.1px);
+    backdrop-filter: blur(0.1px);
   }
 
   to {
     background-color: rgba(0, 0, 0, 0.5);
     height: 100vh;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
   }
 }
 
@@ -336,11 +340,15 @@ $navHeight: calc(100svh - 120px);
   from {
     background-color: rgba(0, 0, 0, 0.5);
     height: 100vh;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
   }
 
   to {
     background-color: rgba(0, 0, 0, 0);
     height: 120px;
+    -webkit-backdrop-filter: blur(0.1px);
+    backdrop-filter: blur(0.1px);
   }
 }
 
