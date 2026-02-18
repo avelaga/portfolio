@@ -6,15 +6,16 @@ import Link from 'next/link';
 import FadeInOnLoad from './components/FadeInOnLoad';
 
 const projects = [
-    {
+  {
     cover: "/images/rebuildthumbsq.webp",
     width: 2000, height: 1125,
     title: "totaled car rebuild",
     medium: "youtube series",
     year: "2025",
     link: "https://youtu.be/_lGyHqbhK-A?si=eCnqV4fGK9G9aiFj",
-    alt: "totaled car rebuild thumbnail"
-  },,
+    alt: "totaled car rebuild thumbnail",
+    description: "totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild"
+  },
   {
     cover: "/images/software/dadalab/dadalab4.webp",
     width: 1080, height: 1080,
@@ -22,7 +23,8 @@ const projects = [
     medium: "led installation",
     year: "2021",
     link: "/software",
-    alt: "the world misses you installation"
+    alt: "the world misses you installation",
+    description: "totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild"
   },
   {
     cover: "/images/photos/miami/miami1.webp",
@@ -31,7 +33,8 @@ const projects = [
     medium: "photo series",
     year: "2018 - 2019",
     link: "/miamivice",
-    alt: "miami vice cocaine dream photo collection"
+    alt: "miami vice cocaine dream photo collection",
+    description: "totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild"
   },
   {
     cover: "/images/music/indulgent/rebound.webp",
@@ -40,7 +43,8 @@ const projects = [
     medium: "music",
     year: "2022",
     link: "https://open.spotify.com/track/6JTaf4T4GYIWPRbBioJnWu?si=47ae2a1a35b9475e",
-    alt: "rebound by indulgent album cover"
+    alt: "rebound by indulgent album cover",
+    description: "totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild"
   },
   {
     cover: "/images/music/indulgent/noOneKnows1.webp",
@@ -49,7 +53,8 @@ const projects = [
     medium: "music",
     year: "2022",
     link: "https://open.spotify.com/track/584ATM5plnkdi60rd6Ns42?si=fdb42d68f3fe4564",
-    alt: "no one knows by indulgent album cover"
+    alt: "no one knows by indulgent album cover",
+    description: "totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild"
   },
   {
     cover: "/images/photos/uservoid/uservoid1.webp",
@@ -58,7 +63,8 @@ const projects = [
     medium: "photo series",
     year: "2019",
     link: "/uservoid",
-    alt: "user void photo collection"
+    alt: "user void photo collection",
+    description: "totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild totaled car rebuild"
   },
 ];
 
@@ -71,18 +77,22 @@ export default function Home() {
     <div className="page">
       <Navbar activeLink={"HOME"} />
       <div className='home-title'>hi, i'm abhi - a musician, interdisciplinary creator, and <blue><a href="/images/Resume.pdf" target="_blank" className="home-resume">software developer</a></blue></div>
-       <div className="line" />
+      <div className="line" />
       <h1 className='title featured'>featured work</h1>
       <div className='project-container'>
         {projects.map((project, idx) => project ? (
-          <a href={project.link} key={idx}>
-            <div className='home-project'>
-              <FadeInOnLoad src={project.cover} alt={project.alt} cls='project-img' width={project.width} height={project.height} />
-              <div className='project-title'>{project.title}</div>
-              <div className='project-medium'>{project.medium}</div>
-              <div className='project-year'>{project.year}</div>
+          // <a href={project.link} key={idx}>
+          <a href={project.link} key={idx} className='home-project'>
+            <FadeInOnLoad src={project.cover} alt={project.alt} cls='project-img' width={project.width} height={project.height} />
+            <div className="featured-right">
+            <div className='project-title'>{project.title}</div>
+            <div className='project-medium'>{project.medium}</div>
+            <div className='project-year'>{project.year}</div>
+            <div className="project-description">{project.description}</div>
             </div>
+            <div className="line" />
           </a>
+          // </a>
         ) : null)}
       </div>
     </div>
