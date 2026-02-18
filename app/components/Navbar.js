@@ -60,6 +60,7 @@ export default function Navbar({ activeLink }) {
             </div>
             <Link href="/music"><div className='resume-link' style={activeLink === "MUSIC" ? activeStyle : {}}>MUSIC</div></Link>
             <Link href="/software"><div className='link' style={activeLink === "SOFTWARE" ? activeStyle : {}}>SOFTWARE</div></Link>
+            <Link href="/blog"><div className='link' style={activeLink === "BLOG" ? activeStyle : {}}>BLOG</div></Link>
             <Link href="/hi"><div className='last-link' style={activeLink === "HI" ? activeStyle : {}}>SAY HI</div></Link>
           </div>
 
