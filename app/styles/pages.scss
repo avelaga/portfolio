@@ -507,6 +507,20 @@ yt:hover {
   opacity: 1;
 }
 
+.post-content {
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: $margin auto;
+    padding-right: $margin;
+  }
+}
+
+.back-link {
+  padding-top: $margin;
+}
+
 .blog-preview {
   margin-top: $margin;
   // margin-bottom: $margin;

@@ -1,72 +1,24 @@
-'use client';
-
 import Navbar from '../components/Navbar';
 import FadeInOnLoad from '../components/FadeInOnLoad';
+import BlogPostList from '../components/BlogPostList';
+import Link from "next/link";
 
-const posts = [
-  {
-    title: "my first blog post",
-    date: "17 february 2026",
-    category: "software",
-    img: "/images/music/indulgent/indulgentlive.webp",
-    url: "/this-is-my-very-first",
-    previewHtml: "this is my very <b>first</b> blog post how does it look wha do you think this is my very <b>first</b> blog post",
-    bodyHtml: "this is my very <b>first</b> blog post how does it look wha do you think this is my very <b>first</b> blog post how does it look wha do you think this is my very <b>first</b> blog post how does it look wha do you think this is my very <b>first</b> blog post how does it look wha do you think"
-  },
-  {
-    title: "my first blog post",
-    date: "17 february 2026",
-    category: "software",
-    img: "/images/music/indulgent/indulgentlive.webp",
-    url: "/this-is-my-very-first",
-    previewHtml: "this is my very <b>first</b> blog post how does it look wha do you think this is my very <b>first</b> blog post",
-    bodyHtml: "this is my very <b>first</b> blog post how does it look wha do you think this is my very <b>first</b> blog post how does it look wha do you think this is my very <b>first</b> blog post how does it look wha do you think this is my very <b>first</b> blog post how does it look wha do you think"
-  },
-  {
-    title: "my first blog post",
-    date: "17 february 2026",
-    category: "software",
-    img: "/images/music/indulgent/indulgentlive.webp",
-    url: "/this-is-my-very-first",
-    previewHtml: "this is my very <b>first</b> blog post how does it look wha do you think this is my very <b>first</b> blog post",
-    bodyHtml: "this is my very <b>first</b> blog post how does it look wha do you think this is my very <b>first</b> blog post how does it look wha do you think this is my very <b>first</b> blog post how does it look wha do you think this is my very <b>first</b> blog post how does it look wha do you think"
-  },
-  {
-    title: "my first blog post",
-    date: "17 february 2026",
-    category: "software",
-    img: "/images/music/indulgent/indulgentlive.webp",
-    url: "/this-is-my-very-first",
-    previewHtml: "this is my very <b>first</b> blog post how does it look wha do you think this is my very <b>first</b> blog post",
-    bodyHtml: "this is my very <b>first</b> blog post how does it look wha do you think this is my very <b>first</b> blog post how does it look wha do you think this is my very <b>first</b> blog post how does it look wha do you think this is my very <b>first</b> blog post how does it look wha do you think"
-  },
-  {
-    title: "my first blog post",
-    date: "17 february 2026",
-    category: "software",
-    img: "/images/music/indulgent/indulgentlive.webp",
-    url: "/this-is-my-very-first",
-    previewHtml: "this is my very <b>first</b> blog post how does it look wha do you think this is my very <b>first</b> blog post",
-    bodyHtml: "this is my very <b>first</b> blog post how does it look wha do you think this is my very <b>first</b> blog post how does it look wha do you think this is my very <b>first</b> blog post how does it look wha do you think this is my very <b>first</b> blog post how does it look wha do you think"
-  }
-]
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
-export default function Blog() {
+async function getPosts() {
+  const res = await fetch(`${API_URL}/api/posts`, { cache: "no-store" });
+  if (!res.ok) throw new Error("Failed to fetch posts");
+  return res.json();
+}
+
+export default async function Blog() {
+
+  const { posts, pagination } = await getPosts();
   return (
     <div className="page">
       <Navbar activeLink={"BLOG"} />
       <h1 className="title">Blog</h1>
-      {posts.map(post => (
-        <a className="blog-post" href={post.url}>
-          <FadeInOnLoad src={post.img} cls="blog-preview-img"/>
-          <div className="blog-right">
-            <h1>{post.title}</h1>
-            <div>{post.date}</div>
-            <div>{post.category}</div>
-            <div dangerouslySetInnerHTML={{ __html: post.previewHtml }} className="blog-preview" />
-          </div>
-        </a>
-      ))}
+      <BlogPostList posts={posts}/>
     </div>
   );
 }
