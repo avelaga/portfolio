@@ -5,7 +5,7 @@ import BlogPostList from "../../../components/BlogPostList";
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
 async function getPostsByTag(tag) {
-    const res = await fetch(`${API_URL}/api/posts/by-tag/${encodeURIComponent(tag)}`, { cache: "no-store" });
+    const res = await fetch(`${API_URL}/api/posts/by-tag/${encodeURIComponent(tag)}`);
     if (!res.ok) throw new Error("Failed to fetch posts");
     return res.json();
 }

@@ -6,7 +6,7 @@ import Link from "next/link";
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
 async function getPosts() {
-  const res = await fetch(`${API_URL}/api/posts`, { cache: "no-store" });
+  const res = await fetch(`${API_URL}/api/posts`);
   if (!res.ok) throw new Error("Failed to fetch posts");
   return res.json();
 }

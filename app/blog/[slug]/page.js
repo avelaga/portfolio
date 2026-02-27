@@ -5,7 +5,7 @@ import BackLink from "../../components/BackLink";
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
 async function getPost(slug) {
-    const res = await fetch(`${API_URL}/api/posts/by-slug/${slug}`, { cache: "no-store" });
+    const res = await fetch(`${API_URL}/api/posts/by-slug/${slug}`);
     if (!res.ok) throw new Error("Post not found");
     return res.json();
 }
