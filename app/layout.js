@@ -128,17 +128,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
         <link rel="preload" href="/fonts/Berthold-Akzidenz-Grotesk-BE-Li.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/NimbusSanL-Bol.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <title>Abhi Velaga</title>
-        <meta property="og:title" content="Abhi Velaga" />
-        <meta property="og:image" content="images/home/mecrop.jpg" />
-        <meta property="og:site_name" content="Software Developer, Musician, Artist" />
-        <meta property="og:description" content="Software Developer, Musician, Artist" />
-        <meta property="og:url" content="https://abhi.work" />
-        <meta name="description" content="Software Developer, Musician, Artist" />
-        <meta name="keywords" content="Abhinav Velaga, UT Austin, Indulgent, Raspberry Pi, Rock Music, Film Photography, Electronics, Arduino, Art, Kodak, Portra, Nikon, Bronica, KVRX, Computer Science, Developer, Shivering Demons, Caladan, SXSW" />
-        <meta name="author" content="Abhi Velaga" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image:alt" content="Software Developer, Musician, Artist" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-XGMDCDEFQ3"
           strategy="afterInteractive"
