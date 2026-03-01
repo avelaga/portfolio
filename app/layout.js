@@ -18,6 +18,9 @@ export default function RootLayout({ children }) {
     if (lenisRef.current) {
       lenisRef.current.scrollTo(0, { immediate: true });
     }
+    if (typeof window.gtag !== 'undefined') {
+      window.gtag('config', 'G-XGMDCDEFQ3', { page_path: pathname });
+    }
   }, [pathname]);
 
   useEffect(() => {
