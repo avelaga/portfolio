@@ -15,7 +15,7 @@ export default async function Blog() {
 
   const { posts, pagination } = await getPosts();
   return (
-    <div className="page">
+    <div className="page blog">
       <Navbar activeLink={"BLOG"} />
       <h1 className="title">Blog</h1>
       <BlogPostList posts={posts}/>

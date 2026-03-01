@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import BackLink from "../../components/BackLink";
+import FadeInOnLoad from "../../components/FadeInOnLoad";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
@@ -40,12 +41,12 @@ export default async function PostPage({ params }) {
     const post = await getPost(slug);
 
     return (
-        <main className="page">
+        <main className="page blog">
             <Navbar activeLink={"BLOG"} />
             <BackLink />
             {/* <article className="blog-post"> */}
             <h1 className="title">{post.title}</h1>
-            <div className="section-subtitle">
+            <div className="section-subtitle blog">
                 <time>
                     {new Date(post.created_at).toLocaleDateString("en-US", {
                         year: "numeric",
@@ -61,6 +62,7 @@ export default async function PostPage({ params }) {
                     </div>
                 )}
             </div>
+            <FadeInOnLoad src={post.og_image} cls="blog-img" />
             <div
                 className="post-content"
                 dangerouslySetInnerHTML={{ __html: post.content }}

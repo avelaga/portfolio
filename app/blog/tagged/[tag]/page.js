@@ -28,7 +28,7 @@ export default async function TagPage({ params }) {
     const { posts } = await getPostsByTag(tag);
 
     return (
-        <main className="page">
+        <main className="page blog">
             <Navbar activeLink={"BLOG"} />
             <BackLink />
             <h1 className="title">Posts tagged &ldquo;{decodeURIComponent(tag)}&rdquo;</h1>

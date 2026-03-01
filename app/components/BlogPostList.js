@@ -5,7 +5,7 @@ export default function BlogPostList({ posts, from }) {
     return <>
         {posts.map(post => (
             <Link href={`/blog/${post.slug}${from ? `?from=${encodeURIComponent(from)}` : ""}`} className="blog-post">
-                <FadeInOnLoad src={post.img} cls="blog-preview-img" />
+                {/* <FadeInOnLoad src={post.img} cls="blog-preview-img" /> */}
                 <div className="blog-right">
                     <h1>{post.title}</h1>
                     <time>{new Date(post.created_at).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</time>
@@ -16,7 +16,8 @@ export default function BlogPostList({ posts, from }) {
                             ))}
                         </div>
                     )}
-                    {/* <div dangerouslySetInnerHTML={{ __html: post.previewHtml }} className="blog-preview" /> */}
+                    <FadeInOnLoad src={post.og_image} cls="blog-preview-img"/>
+                    <div dangerouslySetInnerHTML={{ __html: post.content_preview }} className="blog-preview" />
                 </div>
             </Link>
         ))}
