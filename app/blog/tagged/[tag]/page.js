@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
     const { tag } = await params;
-    return { title: `Posts tagged "${tag}"` };
+    return { title: `Abhi Velaga - Posts tagged "${decodeURIComponent(tag)}"` };
 }
 
 export default async function TagPage({ params }) {

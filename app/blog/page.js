@@ -1,7 +1,5 @@
 import Navbar from '../components/Navbar';
-import FadeInOnLoad from '../components/FadeInOnLoad';
 import BlogPostList from '../components/BlogPostList';
-import Link from "next/link";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
@@ -11,9 +9,16 @@ async function getPosts() {
   return res.json();
 }
 
+export const metadata = {
+  title: 'Abhi Velaga - Blog',
+  openGraph: {
+    title: 'Abhi Velaga - Blog',
+  },
+};
+
 export default async function Blog() {
 
-  const { posts, pagination } = await getPosts();
+  const { posts } = await getPosts();
   return (
     <div className="page blog">
       <Navbar activeLink={"BLOG"} />

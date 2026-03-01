@@ -23,10 +23,10 @@ export async function generateMetadata({ params }) {
         const { slug } = await params;
         const post = await getPost(slug);
         return {
-            title: post.title,
+            title: `Abhi Velaga - ${post.title}`,
             description: post.meta_description || undefined,
             openGraph: {
-                title: post.title,
+                title: `Abhi Velaga - ${post.title}`,
                 description: post.meta_description || undefined,
                 images: post.og_image ? [post.og_image] : undefined,
             },
