@@ -10,7 +10,7 @@ export default function Hi() {
   const buttonClicked = () => {
     setLoading(true);
     setStatus(null);
-    const url = "https://p3g4inxilgsfwwjcgjdyf4nqzy0bcoia.lambda-url.us-east-1.on.aws/";
+    const url = "https://hi-led-worker.abvelaga.workers.dev";
     fetch(url)
       .then(res => {
         if (!res.ok) throw new Error(res.status);
