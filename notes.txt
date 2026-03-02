@@ -1,3 +1,0 @@
-- babelrc converts the javascript to javascript 5 to ensure backwarfs compatability 
-- webpack builds the files into the final structure - only needed to host statically with index.html such as s3. not needed when using npm start which runs it liek a server
-- cannot get / fixed by making /dist/index.html and populating with data from other project
