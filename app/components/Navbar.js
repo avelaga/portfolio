@@ -1,11 +1,12 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function Navbar({ activeLink }) {
   const [mobile, setMobile] = useState(false);
   const [collapsed, setCollapsed] = useState(true);
+  const [hasInteracted, setHasInteracted] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 500px)');
@@ -40,7 +41,7 @@ export default function Navbar({ activeLink }) {
           <div className='subtitle'>creator and developer</div>
         </div>
 
-        <div className="menu-button" onClick={() => setCollapsed(!collapsed)}>
+        <div className="menu-button" onClick={() => { setHasInteracted(true); setCollapsed(!collapsed); }}>
           <div className="nav-title-text">
             MENU
           </div>
