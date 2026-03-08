@@ -175,7 +175,8 @@ $navHeight: calc(100svh - 120px);
 
   .nav-title-text {
     color: white;
-    transition: color 1s;
+    transition: color 0.5s;
+    animation: stayBlack 2.5s;
   }
 
   .subtitle {
@@ -390,4 +391,9 @@ $navHeight: calc(100svh - 120px);
   to {
     color: rgb(180, 180, 180)
   }
+}
+
+@keyframes stayBlack {
+  from { color: black; }
+  to { color: black; }
 }

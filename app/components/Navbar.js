@@ -6,6 +6,12 @@ import Link from 'next/link';
 export default function Navbar({ activeLink }) {
   const [mobile, setMobile] = useState(false);
   const [collapsed, setCollapsed] = useState(true);
+  const [bgLoaded, setBgLoaded] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setBgLoaded(true), 2400);
+    return () => clearTimeout(t);
+  }, []);
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 500px)');
@@ -27,7 +33,7 @@ export default function Navbar({ activeLink }) {
 
   return <div>
     <div className={collapsed ? "unblur" : "blur"} />
-    <div className="navbar" style={mobile && collapsed ? { mixBlendMode: 'difference' } : {}}>
+    <div className="navbar" style={mobile && collapsed && bgLoaded ? { mixBlendMode: 'difference' } : {}}>
       <div className="nav-header">
         <div className="nav-title-container">
           <Link href="/">
