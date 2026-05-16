@@ -35,6 +35,7 @@ export default async function Image() {
           justifyContent: 'center',
           padding: '80px 100px',
           fontFamily: 'Inter, sans-serif',
+          position: 'relative',
         }}
       >
         <div style={{ fontSize: 54, color: '#3a3a3a', lineHeight: 1.4, marginBottom: 56, maxWidth: 980 }}>
@@ -45,6 +46,10 @@ export default async function Image() {
           {['Biorce (Series A)', 'Visa', 'Schlumberger'].map((company) => (
             <div key={company} style={{ fontSize: 34, fontWeight: 600, color: '#9a9a9a' }}>{company}</div>
           ))}
+        </div>
+
+        <div style={{ position: 'absolute', bottom: 80, right: 100, fontSize: 28, color: '#c0c0c0' }}>
+          Austin, TX
         </div>
       </div>
     ),
