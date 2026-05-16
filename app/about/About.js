@@ -11,7 +11,7 @@ const aboutBottomText = () => {
     <br />
     <a href="https://www.instagram.com/abhi.film/" target='_blank'>@abhi.film</a>
     <br />
-    <a href="/images/Resume.pdf" target='_blank'>[ resume ]</a>
+    <a href="/resume">[ resume ]</a>
     <br />
     <a href="youtube.com/@abhi.velaga" target='_blank'>youtube</a>
     <br />

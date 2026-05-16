@@ -1,0 +1,349 @@
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 48px 52px;
+  background: #ffffff;
+  font-size: 14px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  color: #0a0a0a;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --text: #0a0a0a;
+  --muted: #5a5a5a;
+  --subtle: #9a9a9a;
+  --border: #e8e8e8;
+  --faint: #d0d0d0;
+}
+
+/* ── Print button ── */
+
+.printBtn {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  padding: 8px 18px;
+  font-size: 11px;
+  font-weight: 500;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #0a0a0a;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+  transition: background 0.15s;
+}
+
+.printBtn:hover {
+  background: #333333;
+}
+
+/* ── Header ── */
+
+.content header {
+  margin-bottom: 20px;
+}
+
+.name {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.contact {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+}
+
+.contactItem + .contactItem::before {
+  content: '·';
+  margin: 0 10px;
+  color: var(--border);
+  font-weight: 300;
+}
+
+.contact a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.contact a:hover {
+  color: var(--text);
+}
+
+/* ── Section ── */
+
+.content section {
+  margin-bottom: 16px;
+}
+
+.sectionLabel {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  padding-bottom: 5px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Skills ── */
+
+.skillsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.skillRow {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 12px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.skillCategory {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.skillValues {
+  color: var(--muted);
+}
+
+/* ── Experience ── */
+
+.experienceList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.jobCompanyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.company {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.location {
+  font-size: 12px;
+  color: var(--subtle);
+}
+
+.roles {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.roleHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.roleTitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.dates {
+  font-size: 12px;
+  color: var(--subtle);
+  white-space: nowrap;
+}
+
+.bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0;
+  margin: 0;
+}
+
+.bullets li {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.55;
+  padding-left: 16px;
+  position: relative;
+}
+
+.bullets li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--faint);
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.bullets strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ── Projects ── */
+
+.projectsList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.projectHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.projectName {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.projectName a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.projectMeta {
+  font-size: 12px;
+  color: var(--subtle);
+}
+
+.projectMeta a {
+  color: var(--subtle);
+  text-decoration: none;
+}
+
+.projectMeta a:hover {
+  color: var(--muted);
+}
+
+/* ── Education ── */
+
+.eduRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.eduDegree {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.eduSchool {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.eduDate {
+  font-size: 12px;
+  color: var(--subtle);
+  white-space: nowrap;
+}
+
+/* ── Print ── */
+
+@media (max-width: 500px) {
+  .printBtn {
+    display: none;
+  }
+
+  .content {
+    padding: 24px 20px 40px;
+  }
+
+  .contact {
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .contactItem + .contactItem::before {
+    display: none;
+  }
+
+  .skillRow {
+    grid-template-columns: 76px 1fr;
+  }
+}
+
+@media print {
+  @page {
+    size: letter;
+    margin: 0.5in 0.75in;
+  }
+
+  :global(.navbar) {
+    display: none !important;
+  }
+
+  :global(canvas) {
+    display: none !important;
+  }
+
+  :global(.page) {
+    margin-left: 0 !important;
+    animation: none !important;
+  }
+
+  .printBtn {
+    display: none !important;
+  }
+
+  .content {
+    padding: 0;
+    max-width: 100%;
+    font-size: 12.5px;
+    margin: 0;
+  }
+
+
+  .roleBlock {
+    break-inside: avoid;
+  }
+
+  .project {
+    break-inside: avoid;
+  }
+
+  .contact a,
+  .projectMeta a,
+  .projectName a {
+    color: inherit;
+  }
+}

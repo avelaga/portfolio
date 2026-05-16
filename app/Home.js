@@ -70,7 +70,7 @@ export default function Home() {
   return (
     <div className="page">
       <Navbar activeLink={"HOME"} />
-      <div className='home-title'>hi, i'm abhi - a musician, interdisciplinary creator, and <blue><a href="/images/Resume.pdf" target="_blank" className="home-resume">software developer</a></blue></div>
+      <div className='home-title'>hi, i'm abhi - a musician, interdisciplinary creator, and <blue><a href="/resume" className="home-resume">software developer</a></blue></div>
        <div className="line" />
       <h1 className='title featured'>featured work</h1>
       <div className='project-container'>
