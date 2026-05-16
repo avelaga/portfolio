@@ -32,24 +32,18 @@ export default async function Image() {
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
+          justifyContent: 'center',
           padding: '80px 100px',
           fontFamily: 'Inter, sans-serif',
         }}
       >
-        <div style={{ fontSize: 80, fontWeight: 600, letterSpacing: '-2px', lineHeight: 1, marginBottom: 32, color: '#0a0a0a' }}>
-          Abhi Velaga
-        </div>
-
-        <div style={{ fontSize: 44, color: '#3a3a3a', lineHeight: 1.4, marginBottom: 64, maxWidth: 940 }}>
-          Frontend engineer specializing in design systems and component architecture - with experience spanning founding-stage startups and enterprise product surfaces at scale.
+        <div style={{ fontSize: 54, color: '#3a3a3a', lineHeight: 1.4, marginBottom: 56, maxWidth: 980 }}>
+          Frontend engineer specializing in design systems and component architecture — with experience spanning founding-stage startups and enterprise product surfaces at scale.
         </div>
 
         <div style={{ display: 'flex', gap: 48 }}>
-          {[['Biorce (Series A)'], ['Visa', ''], ['Schlumberger', '']].map(([company, tag]) => (
-            <div key={company} style={{ display: 'flex', alignItems: 'baseline', gap: 10 }}>
-              <div style={{ fontSize: 28, fontWeight: 600, color: '#9a9a9a' }}>{company}</div>
-              {tag && <div style={{ fontSize: 20, fontWeight: 400, color: '#c0c0c0' }}>{tag}</div>}
-            </div>
+          {['Biorce (Series A)', 'Visa', 'Schlumberger'].map((company) => (
+            <div key={company} style={{ fontSize: 34, fontWeight: 600, color: '#9a9a9a' }}>{company}</div>
           ))}
         </div>
       </div>
