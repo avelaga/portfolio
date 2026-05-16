@@ -23,8 +23,16 @@ const aboutBottomText = () => {
 };
 
 const bio = () => {
-  return <>I&apos;m a musician, interdisciplinary creator, and software developer based in Austin, TX, where I work as a senior software engineer at <processing>Visa</processing> and studied both Computer Science and Studio Art at <ut>The University of Texas at Austin</ut>. <br /><br />My career centers on building and shipping polished websites with a focus on tight UX, while my creative practice spans music, visual storytelling, and digital media. Most recently I&apos;ve been passionate about documenting and sharing my journey learning how to work on cars on my <a href="https://youtube.com/@abhi.velaga" target="_blank"><yt>youtube channel</yt></a>.</>;
+  return <>I'm a creator and design engineer based in Austin, TX who's obsessed with using the web as a storytelling medium.
+    <br /><br />
+    I've been purusing a variety of creative endeavors since I was 15 - from self produced music albums and fine art photography collections, to interactive LED exhibitions - and most recently started producing videos on my <a href="https://youtube.com/@abhi.velaga" target="_blank"><yt>youtube channel</yt></a> where I'm documenting my car build.
+    <br /><br />
+    In my professional career, I'm a senior frontend engineer at Biorce, where I'm building our design system from the ground up, and previously worked at Visa where I built and maintained our design system and shipped interfaces for our global merchant network.
+    <br /><br />
+    I studied both Computer Science and Studio Art at UT Austin.
+  </>;
 };
+
 
 export default function About() {
   return <div className="page">
