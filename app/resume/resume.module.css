@@ -158,6 +158,12 @@
   letter-spacing: -0.3px;
 }
 
+.companyTag {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--subtle);
+}
+
 .location {
   font-size: 12px;
   color: var(--subtle);

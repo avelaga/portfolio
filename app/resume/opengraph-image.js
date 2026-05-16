@@ -1,6 +1,5 @@
 import { ImageResponse } from 'next/og';
 
-export const dynamic = 'force-static';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -37,32 +36,19 @@ export default async function Image() {
           fontFamily: 'Inter, sans-serif',
         }}
       >
-        <div style={{ fontSize: 64, fontWeight: 600, letterSpacing: '-1.5px', lineHeight: 1, marginBottom: 14, color: '#0a0a0a' }}>
+        <div style={{ fontSize: 80, fontWeight: 600, letterSpacing: '-2px', lineHeight: 1, marginBottom: 32, color: '#0a0a0a' }}>
           Abhi Velaga
         </div>
 
-        <div style={{ fontSize: 18, color: '#5a5a5a', marginBottom: 52, display: 'flex' }}>
-          abhinav.velaga@gmail.com · abhi.work · github.com/avelaga · linkedin.com/in/abhivelaga
-        </div>
-
-        <div style={{ fontSize: 28, color: '#0a0a0a', lineHeight: 1.45, marginBottom: 52, maxWidth: 860 }}>
+        <div style={{ fontSize: 44, color: '#3a3a3a', lineHeight: 1.4, marginBottom: 64, maxWidth: 940 }}>
           Frontend engineer specializing in design systems and component architecture - with experience spanning founding-stage startups and enterprise product surfaces at scale.
         </div>
 
-        <div style={{ fontSize: 13, fontWeight: 500, letterSpacing: '3px', textTransform: 'uppercase', color: '#9a9a9a', paddingBottom: 12, borderBottom: '1px solid #e8e8e8', marginBottom: 24 }}>
-          Experience
-        </div>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          {[
-            ['Biorce',       'Senior Frontend Developer',  'April 2026 – Present'],
-            ['Visa',         'Senior Software Engineer',   'March 2023 – April 2026'],
-            ['Schlumberger', 'Software Engineer Intern',   'Summer 2019'],
-          ].map(([company, role, dates]) => (
-            <div key={company} style={{ display: 'flex', gap: 16, fontSize: 20, alignItems: 'baseline' }}>
-              <div style={{ fontWeight: 600, color: '#0a0a0a', width: 180 }}>{company}</div>
-              <div style={{ color: '#5a5a5a', flex: 1 }}>{role}</div>
-              <div style={{ color: '#9a9a9a', fontSize: 16 }}>{dates}</div>
+        <div style={{ display: 'flex', gap: 48 }}>
+          {[['Biorce (Series A)'], ['Visa', ''], ['Schlumberger', '']].map(([company, tag]) => (
+            <div key={company} style={{ display: 'flex', alignItems: 'baseline', gap: 10 }}>
+              <div style={{ fontSize: 28, fontWeight: 600, color: '#9a9a9a' }}>{company}</div>
+              {tag && <div style={{ fontSize: 20, fontWeight: 400, color: '#c0c0c0' }}>{tag}</div>}
             </div>
           ))}
         </div>

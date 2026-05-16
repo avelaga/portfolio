@@ -71,7 +71,10 @@ export default function Resume() {
 
             <article className={styles.job}>
               <div className={styles.jobCompanyHeader}>
-                <span className={styles.company}>Biorce</span>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: 10 }}>
+                  <span className={styles.company}>Biorce</span>
+                  <span className={styles.companyTag}>Series A MedTech AI Startup</span>
+                </div>
                 <span className={styles.location}>Austin, TX</span>
               </div>
               <div className={styles.roles}>
