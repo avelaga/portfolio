@@ -43,6 +43,10 @@ export default function Resume() {
           </div>
         </header>
 
+        <p className={styles.bio}>
+          Senior frontend engineer specializing in design systems and component architecture - with experience spanning founding-stage startups and enterprise product surfaces at scale.
+        </p>
+
         <section aria-label="Skills">
           <div className={styles.sectionLabel}>Skills</div>
           <div className={styles.skillsGrid}>

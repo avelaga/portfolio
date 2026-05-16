@@ -85,6 +85,16 @@
   color: var(--text);
 }
 
+/* ── Bio ── */
+
+.bio {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
 /* ── Section ── */
 
 .content section {

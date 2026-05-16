@@ -5,7 +5,6 @@ export const metadata = {
   description: 'Resume — Abhi Velaga, Senior Frontend Engineer',
   openGraph: {
     title: 'Abhi Velaga - Resume',
-    images: ['https://abhi.work/images/home/mecrop.webp'],
   },
 };
 
