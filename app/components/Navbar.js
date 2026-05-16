@@ -80,8 +80,8 @@ export default function Navbar({ activeLink }) {
             <a className="external-link" href="https://open.spotify.com/artist/7JCVu8JTFAFrHqnYnGVPhi?si=wAs1clwUTiqOqS8e8RUJqg" target="_blank">
               SPOTIFY
             </a>
-            <a className="external-link" href="https://www.instagram.com/abhi.film/" target="_blank">
-              PHOTO INSTAGRAM
+            <a className="external-link" href="https://shop.abhi.work" target="_blank">
+              MERCH
             </a>
             <a className="external-link" href="mailto:abhinav.velaga@utexas.edu">
               CONTACT
