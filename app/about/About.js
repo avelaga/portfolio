@@ -7,17 +7,17 @@ const aboutBottomText = () => {
   return <div className="about-bottom-text">
     <a href="mailto:abhinav.velaga@utexas.edu">abhinav.velaga@utexas.edu</a>
     <br />
-    <a href="https://www.instagram.com/abhi.velaga/" target='_blank'>@abhi.velaga</a>
+    <a href="https://www.instagram.com/abhi.velaga/" target='_blank' rel="noopener noreferrer">@abhi.velaga</a>
     <br />
-    <a href="https://www.instagram.com/abhi.film/" target='_blank'>@abhi.film</a>
+    <a href="https://www.instagram.com/abhi.film/" target='_blank' rel="noopener noreferrer">@abhi.film</a>
     <br />
     <a href="/resume">[ resume ]</a>
     <br />
-    <a href="youtube.com/@abhi.velaga" target='_blank'>youtube</a>
+    <a href="https://youtube.com/@abhi.velaga" target='_blank' rel="noopener noreferrer">youtube</a>
     <br />
-    <a href="https://www.github.com/avelaga/" target='_blank'>github</a>
+    <a href="https://www.github.com/avelaga/" target='_blank' rel="noopener noreferrer">github</a>
     <br />
-    <a href="https://shop.abhi.work" target='_blank'>merch</a>
+    <a href="https://shop.abhi.work" target='_blank' rel="noopener noreferrer">merch</a>
     <br />
   </div>
 };
@@ -25,7 +25,7 @@ const aboutBottomText = () => {
 const bio = () => {
   return <>I'm a creator and design engineer based in Austin, TX who's obsessed with using the web as a storytelling medium.
     <br /><br />
-    I've been purusing a variety of creative endeavors since I was 15 - from self produced music albums and fine art photography collections, to interactive LED exhibitions - and most recently started producing videos on my <a href="https://youtube.com/@abhi.velaga" target="_blank"><yt>youtube channel</yt></a> where I'm documenting my car build.
+    I've been pursuing a variety of creative endeavors since I was 15 - from self produced music albums and fine art photography collections, to interactive LED exhibitions - and most recently started producing videos on my <a href="https://youtube.com/@abhi.velaga" target="_blank" rel="noopener noreferrer"><yt>youtube channel</yt></a> where I'm documenting my car build.
     <br /><br />
     In my professional career, I'm a senior frontend engineer at Biorce, where I'm building our design system from the ground up, and previously worked at Visa where I built and maintained our design system and shipped interfaces for our global merchant network.
     <br /><br />

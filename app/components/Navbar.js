@@ -71,16 +71,16 @@ export default function Navbar({ activeLink }) {
 
           <div className='external-link-container'>
             <div className='external-link external-link-divider' />
-            <a className="external-link" href="https://www.youtube.com/@abhi.velaga/" target="_blank">
+            <a className="external-link" href="https://www.youtube.com/@abhi.velaga/" target="_blank" rel="noopener noreferrer">
               YOUTUBE
             </a>
-            <a className="external-link" href="https://www.instagram.com/abhi.velaga/" target="_blank">
+            <a className="external-link" href="https://www.instagram.com/abhi.velaga/" target="_blank" rel="noopener noreferrer">
               INSTAGRAM
             </a>
-            <a className="external-link" href="https://open.spotify.com/artist/7JCVu8JTFAFrHqnYnGVPhi?si=wAs1clwUTiqOqS8e8RUJqg" target="_blank">
+            <a className="external-link" href="https://open.spotify.com/artist/7JCVu8JTFAFrHqnYnGVPhi?si=wAs1clwUTiqOqS8e8RUJqg" target="_blank" rel="noopener noreferrer">
               SPOTIFY
             </a>
-            <a className="external-link" href="https://shop.abhi.work" target="_blank">
+            <a className="external-link" href="https://shop.abhi.work" target="_blank" rel="noopener noreferrer">
               MERCH
             </a>
             <a className="external-link" href="mailto:abhinav.velaga@utexas.edu">

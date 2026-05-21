@@ -1,15 +1,15 @@
 'use client';
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function FadeInOnLoad({ src, alt, cls = "", style={}, width, height }) {
+    const imgRef = useRef(null);
+
     useEffect(() => {
-        // handle cached images on mount
-        document.querySelectorAll("img.fade-media").forEach((img) => {
-            if (img.complete && img.naturalWidth !== 0) {
-                img.classList.add("loaded");
-            }
-        });
+        const img = imgRef.current;
+        if (img && img.complete && img.naturalWidth !== 0) {
+            img.classList.add("loaded");
+        }
     }, []);
 
     const handleLoad = (e) => {
@@ -18,6 +18,7 @@ export default function FadeInOnLoad({ src, alt, cls = "", style={}, width, heig
 
     return (
         <img
+            ref={imgRef}
             src={src}
             alt={alt}
             loading="lazy"
