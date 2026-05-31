@@ -22,6 +22,30 @@ export const userVoidImages = [
   { src: "/images/photos/uservoid/uservoid21.webp", width: 1608, height: 2000 },
 ];
 
+export const portraitImages = [
+  { src: "/images/photos/portraits/0.webp",  width: 1448, height: 1920 },
+  { src: "/images/photos/portraits/1.webp",  width: 1448, height: 1920 },
+  { src: "/images/photos/portraits/2.webp",  width: 1448, height: 1920 },
+  { src: "/images/photos/portraits/3.webp",  width: 1516, height: 1920 },
+  { src: "/images/photos/portraits/4.webp",  width: 1448, height: 1920 },
+  { src: "/images/photos/portraits/5.webp",  width: 1442, height: 1920 },
+  { src: "/images/photos/portraits/6.webp",  width: 1185, height: 1920 },
+  { src: "/images/photos/portraits/7.webp",  width: 1273, height: 1920 },
+  { src: "/images/photos/portraits/8.webp",  width: 1448, height: 1920 },
+  { src: "/images/photos/portraits/9.webp",  width: 1448, height: 1920 },
+  { src: "/images/photos/portraits/10.webp", width: 1881, height: 1920 },
+  { src: "/images/photos/portraits/11.webp", width: 1449, height: 1920 },
+  { src: "/images/photos/portraits/12.webp", width: 1448, height: 1920 },
+  { src: "/images/photos/portraits/13.webp", width: 1436, height: 1920 },
+  { src: "/images/photos/portraits/14.webp", width: 1906, height: 1920 },
+  { src: "/images/photos/portraits/15.webp", width: 1448, height: 1920 },
+  { src: "/images/photos/portraits/16.webp", width: 1448, height: 1920 },
+  { src: "/images/photos/portraits/17.webp", width: 1920, height: 1151 },
+  { src: "/images/photos/portraits/18.webp", width: 1273, height: 1920 },
+  { src: "/images/photos/portraits/19.webp", width: 1273, height: 1920 },
+  { src: "/images/photos/portraits/20.webp", width: 1448, height: 1920 },
+];
+
 export const portfolioImages = [
   { src: "/images/photos/portfolio/p1.webp",  width: 2000, height: 1570 },
   { src: "/images/photos/portfolio/p2.webp",  width: 1532, height: 2000 },

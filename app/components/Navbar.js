@@ -29,7 +29,7 @@ export default function Navbar({ activeLink }) {
     backgroundColor: 'black'
   };
 
-  const isPhotoPage = (activeLink === "PORTFOLIO" || activeLink === "MIAMI" || activeLink === "USERVOID" || activeLink === "EDITORIAL");
+  const isPhotoPage = (activeLink === "PORTFOLIO" || activeLink === "PORTRAITS" || activeLink === "MIAMI" || activeLink === "USERVOID" || activeLink === "EDITORIAL");
 
   return <div>
     <div className={collapsed ? "unblur" : "blur"} />
@@ -60,6 +60,7 @@ export default function Navbar({ activeLink }) {
             <Link href="/portfolio"><div className='link' style={isPhotoPage ? activeStyle : {}}>PHOTO</div></Link>
             <div className='sublink-container'>
               <Link href="/portfolio"><div className='sublink' style={activeLink === "PORTFOLIO" ? activeStyle : {}}>portfolio</div></Link>
+              <Link href="/portraits"><div className='sublink' style={activeLink === "PORTRAITS" ? activeStyle : {}}>portrait work</div></Link>
               <Link href="/miamivice"><div className='sublink' style={activeLink === "MIAMI" ? activeStyle : {}}>miami vice cocaine dream</div></Link>
               <Link href="/uservoid"><div className='sublink' style={activeLink === "USERVOID" ? activeStyle : {}}>user void</div></Link>
               <Link href="/editorial"><div className='last-sublink' style={activeLink === "EDITORIAL" ? activeStyle : {}}>editorial work</div></Link>
