@@ -3,26 +3,24 @@
 import styles from './resume.module.css';
 import Navbar from '../components/Navbar';
 
-async function exportPDF() {
-  const html2pdf = (await import('html2pdf.js')).default;
-  const element = document.getElementById('resume-content');
-  html2pdf().set({
-    margin: [0.4, 0],
-    filename: 'abhi-velaga-resume.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2, useCORS: true },
-    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
-    pagebreak: { avoid: ['article', 'li'] },
-  }).from(element).save();
-}
+const RESUME_PDF = '/Abhi%20Velaga%20Resume.pdf';
 
 export default function Resume() {
   return (
     <div className="page">
       <Navbar />
-      {/* <button className={styles.printBtn} onClick={exportPDF}>
-        Export PDF
-      </button> */}
+      <a
+        className={styles.downloadBtn}
+        href={RESUME_PDF}
+        download="Abhi Velaga Resume.pdf"
+      >
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
+        Download PDF
+      </a>
 
       <div id="resume-content" className={styles.content}>
         <header>
@@ -44,19 +42,23 @@ export default function Resume() {
         </header>
 
         <p className={styles.bio}>
-          Senior frontend engineer specializing in design systems and component architecture - with experience spanning founding-stage startups and enterprise product surfaces at scale.
+          Senior frontend engineer specializing in design systems and component architecture - with experience spanning both founding-stage startups and global enterprise products.
         </p>
 
         <section aria-label="Skills">
           <div className={styles.sectionLabel}>Skills</div>
           <div className={styles.skillsGrid}>
             <div className={styles.skillRow}>
-              <span className={styles.skillCategory}>Stack</span>
-              <span className={styles.skillValues}>React, Next.js, Astro.js, Node.js, Angular, Jest, AWS, Cloudflare, Vercel, Robot</span>
+              <span className={styles.skillCategory}>Frontend</span>
+              <span className={styles.skillValues}>React, Next.js, Astro.js, Node.js, Angular, Jest</span>
             </div>
             <div className={styles.skillRow}>
-              <span className={styles.skillCategory}>Tools</span>
-              <span className={styles.skillValues}>WCAG 2.1, CI/CD, Docker, UI/UX Design, Figma, Jenkins</span>
+              <span className={styles.skillCategory}>Design &amp; Tooling</span>
+              <span className={styles.skillValues}>Figma, Design Systems, Design Tokens, Storybook, Radix UI, Playwright, WCAG 2.1</span>
+            </div>
+            <div className={styles.skillRow}>
+              <span className={styles.skillCategory}>Infrastructure</span>
+              <span className={styles.skillValues}>AWS, Cloudflare, Vercel, Docker, CI/CD, Jenkins</span>
             </div>
             <div className={styles.skillRow}>
               <span className={styles.skillCategory}>Languages</span>
@@ -84,8 +86,10 @@ export default function Resume() {
                     <span className={styles.dates}>April 2026 – Present</span>
                   </div>
                   <ul className={styles.bullets}>
-                    <li><strong>Founding US frontend engineer</strong> at a European MedTech AI startup, reporting directly to the CTO and architecting the company's design system from the ground up.</li>
-                    <li><strong>Established the full technical architecture</strong> for the design system - stack selection, repo setup, and component infrastructure - collaborating directly with the design team to align on requirements from day one.</li>
+                    <li>Founding US frontend engineer at a European MedTech AI startup architecting the company's design system from scratch - stack selection, repo and CI/CD setup, and versioned npm package distribution.</li>
+                    <li>Designed and shipped 15+ accessible, localized components from the ground up - including a feature-rich data table (sticky columns, inline editing, bulk actions, filtering, 10+ cell types), select/multi-select, search, and our SaaS application shell - built on Radix UI primitives with TypeScript and CSS Modules, documented in Storybook.</li>
+                    <li>Built a three-tier design token architecture (primitives → semantic roles → component tokens) in native CSS custom properties, enforced by a custom Stylelint rule and Playwright visual-regression snapshots - and partnered with designers to audit Figma for token and spec inconsistencies, keeping implementation pixel-aligned at the source.</li>
+                    <li>Architected the system's full engineering foundation - CI/CD pipeline, scoped package, ESLint/Prettier/Stylelint tooling, AI-readable docs (CLAUDE.md, llms.txt), and release process.</li>
                   </ul>
                 </div>
               </div>
@@ -99,34 +103,14 @@ export default function Resume() {
               <div className={styles.roles}>
                 <div className={styles.roleBlock}>
                   <div className={styles.roleHeader}>
-                    <span className={styles.roleTitle}>Senior Software Engineer</span>
+                    <span className={styles.roleTitle}>UI/UX Software Engineer → Senior Software Engineer</span>
                     <span className={styles.dates}>March 2023 – April 2026</span>
                   </div>
                   <ul className={styles.bullets}>
-                    <li><strong>Owned frontend architecture and cross-functional delivery</strong> for merchant-facing payment features serving ~5,000 businesses and processing ~$83M/month, acting as technical lead across engineering, product, and design.</li>
-                    <li><strong>Drove full WCAG 2.1 compliance</strong> across a high-traffic React application - screen readers, 400% zoom reflow, semantic HTML, keyboard navigation - eliminating legal risk and meeting enterprise accessibility standards.</li>
-                    <li><strong>Shipped mobile-responsive payment flows</strong> used by global merchants across Visa's acquiring network, improving usability and consistency across devices.</li>
-                    <li><strong>Owned monthly production releases and incident response,</strong> executing hotfixes with zero customer impact.</li>
-                  </ul>
-                </div>
-                <div className={styles.roleBlock}>
-                  <div className={styles.roleHeader}>
-                    <span className={styles.roleTitle}>UI/UX Software Engineer</span>
-                    <span className={styles.dates}>June 2021 – February 2023</span>
-                  </div>
-                  <ul className={styles.bullets}>
-                    <li><strong>Built and maintained Visa's company-wide React component library,</strong> shipped to millions of users across Visa's global product surface, including full WCAG 2.1 accessibility features - mobile reflow, screen reader support, focus management, and high-contrast themes.</li>
-                    <li><strong>Led a white-label UI infrastructure overhaul</strong> enabling fully ADA-compliant brand customization, adopted by major U.S. banks including Wells Fargo and Bank of America.</li>
-                    <li><strong>Built end-to-end UI and database test automation</strong> using Robot Framework and Selenium, eliminating production rollbacks and achieving 100% transaction settlement accuracy across payment networks.</li>
-                  </ul>
-                </div>
-                <div className={styles.roleBlock}>
-                  <div className={styles.roleHeader}>
-                    <span className={styles.roleTitle}>Software Engineer Intern</span>
-                    <span className={styles.dates}>Summer 2020</span>
-                  </div>
-                  <ul className={styles.bullets}>
-                    <li><strong>Designed and built a proof-of-concept platform</strong> to help small merchants drive sales during COVID-19 - React frontend consuming a Django REST API (25+ endpoints) with Visa payment integration, shipped to AWS via CI/CD.</li>
+                    <li>Built and maintained Visa's company-wide React component library, shipped to millions of users across Visa's global products.</li>
+                    <li>Led a white-label UI infrastructure overhaul enabling fully ADA-compliant brand customization, adopted by major U.S. banks including Wells Fargo and Bank of America.</li>
+                    <li>Owned frontend architecture and cross-functional delivery for merchant-facing payment features serving ~5,000 businesses and processing ~$83M/month - acting as technical lead across engineering, product, and design.</li>
+                    <li>Drove full WCAG 2.1 compliance across a high-traffic React application - screen readers, 400% zoom reflow, semantic HTML, keyboard navigation - eliminating legal risk and meeting enterprise accessibility standards.</li>
                   </ul>
                 </div>
               </div>
@@ -144,7 +128,7 @@ export default function Resume() {
                     <span className={styles.dates}>Summer 2019</span>
                   </div>
                   <ul className={styles.bullets}>
-                    <li><strong>Developed a modular micro-frontend packaging solution</strong> in Angular reducing go-to-market time, internal engineering overhead, and accelerating product delivery for new internal tools.</li>
+                    <li>Developed a modular micro-frontend packaging solution in Angular, reducing go-to-market time and engineering overhead while accelerating product delivery for internal tools.</li>
                   </ul>
                 </div>
               </div>
@@ -168,8 +152,8 @@ export default function Resume() {
                 </span>
               </div>
               <ul className={styles.bullets}>
-                <li>Designed and built a <strong>responsive Next.js site</strong> with SSG, performance optimizations, and CI/CD deployment to AWS S3 + CloudFront.</li>
-                <li>Improved load performance by <strong>300%</strong> and iterated on UX based on analytics from 47k+ pageviews.</li>
+                <li>Designed and built a responsive Next.js site with SSG, performance optimizations, and CI/CD deployment to AWS S3 + CloudFront.</li>
+                <li>Improved load performance by 300% and iterated on UX based on analytics from 47k+ pageviews.</li>
               </ul>
             </article>
 
@@ -182,7 +166,7 @@ export default function Resume() {
                 </span>
               </div>
               <ul className={styles.bullets}>
-                <li>Architected a <strong>Cloudflare-native headless CMS</strong> (Workers, D1, R2) with versioned REST API and JWT Auth.</li>
+                <li>Architected a Cloudflare-native headless CMS (Workers, D1, R2) with versioned REST API and JWT auth.</li>
                 <li>Built a dedicated Next.js editor and automated deployment tooling for rapid self-hosted setup.</li>
               </ul>
             </article>
@@ -195,7 +179,7 @@ export default function Resume() {
                 <span className={styles.projectMeta}>Private Wealth Management Firm Site</span>
               </div>
               <ul className={styles.bullets}>
-                <li>Designed and developed a <strong>mobile-optimized Next.js site</strong> on AWS with automated serverless lead capture.</li>
+                <li>Designed and built a mobile-optimized Next.js site with serverless lead capture (with blacklist filtering), and TinaCMS-powered self-editing - plus a self-hosted blog running on pebble, my open-source CMS, with its own editing UI and automatic rebuilds.</li>
               </ul>
             </article>
 
@@ -206,8 +190,8 @@ export default function Resume() {
           <div className={styles.sectionLabel}>Education</div>
           <div className={styles.eduRow}>
             <div>
-              <div className={styles.eduDegree}>Bachelor's in Computer Science - University of Texas at Austin</div>
-              <div className={styles.eduSchool}>Minor in Studio Art</div>
+              <div className={styles.eduDegree}>University of Texas at Austin</div>
+              <div className={styles.eduSchool}>Bachelor's in Computer Science · Minor in Studio Art</div>
             </div>
             <div className={styles.eduDate}>May 2021</div>
           </div>

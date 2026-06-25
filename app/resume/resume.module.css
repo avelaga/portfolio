@@ -18,13 +18,16 @@
   --faint: #d0d0d0;
 }
 
-/* ── Print button ── */
+/* ── Download button ── */
 
-.printBtn {
+.downloadBtn {
   position: fixed;
   top: 24px;
   right: 24px;
-  padding: 8px 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
   font-size: 11px;
   font-weight: 500;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -32,14 +35,19 @@
   text-transform: uppercase;
   background: #0a0a0a;
   color: #ffffff;
+  text-decoration: none;
   border: none;
   cursor: pointer;
   z-index: 100;
   transition: background 0.15s;
 }
 
-.printBtn:hover {
+.downloadBtn:hover {
   background: #333333;
+}
+
+.downloadBtn svg {
+  display: block;
 }
 
 /* ── Header ── */
@@ -115,14 +123,15 @@
 /* ── Skills ── */
 
 .skillsGrid {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+  row-gap: 6px;
 }
 
 .skillRow {
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 110px 1fr;
   gap: 12px;
   font-size: 12px;
   line-height: 1.5;
@@ -296,8 +305,10 @@
 /* ── Print ── */
 
 @media (max-width: 500px) {
-  .printBtn {
-    display: none;
+  .downloadBtn {
+    top: auto;
+    bottom: 20px;
+    right: 20px;
   }
 
   .content {
@@ -313,8 +324,12 @@
     display: none;
   }
 
+  .skillsGrid {
+    grid-template-columns: 1fr;
+  }
+
   .skillRow {
-    grid-template-columns: 76px 1fr;
+    grid-template-columns: 100px 1fr;
   }
 }
 
@@ -337,7 +352,7 @@
     animation: none !important;
   }
 
-  .printBtn {
+  .downloadBtn {
     display: none !important;
   }
 
