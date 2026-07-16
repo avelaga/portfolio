@@ -42,7 +42,7 @@ export default function Resume() {
         </header>
 
         <p className={styles.bio}>
-          Senior frontend engineer specializing in design systems and component architecture - with experience spanning both founding-stage startups and global enterprise products.
+          Senior frontend engineer specializing in design systems and UI architecture - with experience spanning both founding-stage startup and global enterprise products.
         </p>
 
         <section aria-label="Skills">
@@ -50,19 +50,19 @@ export default function Resume() {
           <div className={styles.skillsGrid}>
             <div className={styles.skillRow}>
               <span className={styles.skillCategory}>Frontend</span>
-              <span className={styles.skillValues}>React, Next.js, Astro.js, Node.js, Angular, Jest</span>
+              <span className={styles.skillValues}>React, Next.js, Astro.js, Node.js, Radix UI, WCAG 2.1</span>
             </div>
             <div className={styles.skillRow}>
               <span className={styles.skillCategory}>Design &amp; Tooling</span>
-              <span className={styles.skillValues}>Figma, Design Systems, Design Tokens, Storybook, Radix UI, Playwright, WCAG 2.1</span>
+              <span className={styles.skillValues}>Figma, Design Systems, Storybook, Playwright</span>
             </div>
             <div className={styles.skillRow}>
               <span className={styles.skillCategory}>Infrastructure</span>
-              <span className={styles.skillValues}>AWS, Cloudflare, Vercel, Docker, CI/CD, Jenkins</span>
+              <span className={styles.skillValues}>AWS, Cloudflare, Vercel, Docker, CI/CD</span>
             </div>
             <div className={styles.skillRow}>
               <span className={styles.skillCategory}>Languages</span>
-              <span className={styles.skillValues}>JavaScript, TypeScript, Python, Java, SQL</span>
+              <span className={styles.skillValues}>TypeScript, JavaScript, Python, Java, SQL</span>
             </div>
           </div>
         </section>
@@ -82,14 +82,15 @@ export default function Resume() {
               <div className={styles.roles}>
                 <div className={styles.roleBlock}>
                   <div className={styles.roleHeader}>
-                    <span className={styles.roleTitle}>Senior Frontend Developer</span>
-                    <span className={styles.dates}>April 2026 – Present</span>
+                    <span className={styles.roleTitle}>Senior Frontend Engineer</span>
+                    <span className={styles.dates}>April 2026 - Present</span>
                   </div>
                   <ul className={styles.bullets}>
-                    <li>Founding US frontend engineer at a European MedTech AI startup architecting the company's design system from scratch - stack selection, repo and CI/CD setup, and versioned npm package distribution.</li>
-                    <li>Designed and shipped 15+ accessible, localized components from the ground up - including a feature-rich data table (sticky columns, inline editing, bulk actions, filtering, 10+ cell types), select/multi-select, search, and our SaaS application shell - built on Radix UI primitives with TypeScript and CSS Modules, documented in Storybook.</li>
-                    <li>Built a three-tier design token architecture (primitives → semantic roles → component tokens) in native CSS custom properties, enforced by a custom Stylelint rule and Playwright visual-regression snapshots - and partnered with designers to audit Figma for token and spec inconsistencies, keeping implementation pixel-aligned at the source.</li>
-                    <li>Architected the system's full engineering foundation - CI/CD pipeline, scoped package, ESLint/Prettier/Stylelint tooling, AI-readable docs (CLAUDE.md, llms.txt), and release process.</li>
+                    <li>Founding US frontend engineer; architected the company's design system (<em>Biorce UI</em>) from scratch - stack, CI/CD setup, linting toolchain, scoped npm distribution, and AI-readable docs (CLAUDE.md, llms.txt) for agent-assisted development.</li>
+                    <li>Established the company's first engineering interview process and lead all engineering hiring strategy - rubrics, assessments, and evaluation frameworks - while personally driving hiring for the founding US frontend team.</li>
+                    <li>Shipped 20+ accessible, localized components (Radix UI, TypeScript, CSS Modules, Storybook) on a three-tier design token architecture, adopted by all 6 engineering teams.</li>
+                    <li>Built a feature-rich data table - sticky columns, inline editing, bulk actions, 10+ cell types - and enforced system consistency via custom Stylelint rules and Playwright visual regression testing.</li>
+                    <li>Drove org-wide adoption through stakeholder presentations, developer onboarding, and recurring office hours, making Biorce UI the default foundation for all new products.</li>
                   </ul>
                 </div>
               </div>
@@ -104,7 +105,7 @@ export default function Resume() {
                 <div className={styles.roleBlock}>
                   <div className={styles.roleHeader}>
                     <span className={styles.roleTitle}>UI/UX Software Engineer → Senior Software Engineer</span>
-                    <span className={styles.dates}>March 2023 – April 2026</span>
+                    <span className={styles.dates}>June 2021 - April 2026 · Intern, Summer 2020</span>
                   </div>
                   <ul className={styles.bullets}>
                     <li>Built and maintained Visa's company-wide React component library, shipped to millions of users across Visa's global products.</li>
@@ -153,7 +154,7 @@ export default function Resume() {
               </div>
               <ul className={styles.bullets}>
                 <li>Designed and built a responsive Next.js site with SSG, performance optimizations, and CI/CD deployment to AWS S3 + CloudFront.</li>
-                <li>Improved load performance by 300% and iterated on UX based on analytics from 47k+ pageviews.</li>
+                <li>Reduced load time by 75% and iterated on UX based on analytics from 47k+ pageviews.</li>
               </ul>
             </article>
 
@@ -189,9 +190,9 @@ export default function Resume() {
         <section aria-label="Education">
           <div className={styles.sectionLabel}>Education</div>
           <div className={styles.eduRow}>
-            <div>
-              <div className={styles.eduDegree}>University of Texas at Austin</div>
-              <div className={styles.eduSchool}>Bachelor's in Computer Science · Minor in Studio Art</div>
+            <div className={styles.eduLine}>
+              <span className={styles.eduDegree}>University of Texas at Austin</span>
+              <span className={styles.eduSchool}>Bachelor's in Computer Science · Minor in Studio Art</span>
             </div>
             <div className={styles.eduDate}>May 2021</div>
           </div>
