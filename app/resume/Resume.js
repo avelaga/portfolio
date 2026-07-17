@@ -42,7 +42,7 @@ export default function Resume() {
         </header>
 
         <p className={styles.bio}>
-          Senior frontend engineer specializing in design systems and UI architecture - with experience spanning both founding-stage startup and global enterprise products.
+          Design-minded senior frontend engineer specializing in design systems and UI architecture - with experience building team-multiplying foundations at both founding-stage startups and global enterprises.
         </p>
 
         <section aria-label="Skills">
@@ -86,11 +86,11 @@ export default function Resume() {
                     <span className={styles.dates}>April 2026 - Present</span>
                   </div>
                   <ul className={styles.bullets}>
-                    <li>Founding US frontend engineer; architected the company's design system (<em>Biorce UI</em>) from scratch - stack, CI/CD setup, linting toolchain, scoped npm distribution, and AI-readable docs (CLAUDE.md, llms.txt) for agent-assisted development.</li>
+                    <li>Founding US frontend engineer; architected the company's design system (Biorce UI) from scratch - tooling stack, CI/CD, linting toolchain, and scoped npm package distribution - establishing the frontend foundation for all new products.</li>
                     <li>Established the company's first engineering interview process and lead all engineering hiring strategy - rubrics, assessments, and evaluation frameworks - while personally driving hiring for the founding US frontend team.</li>
-                    <li>Shipped 20+ accessible, localized components (Radix UI, TypeScript, CSS Modules, Storybook) on a three-tier design token architecture, adopted by all 6 engineering teams.</li>
-                    <li>Built a feature-rich data table - sticky columns, inline editing, bulk actions, 10+ cell types - and enforced system consistency via custom Stylelint rules and Playwright visual regression testing.</li>
-                    <li>Drove org-wide adoption through stakeholder presentations, developer onboarding, and recurring office hours, making Biorce UI the default foundation for all new products.</li>
+                    <li>Drove org-wide adoption across all 6 engineering teams through stakeholder presentations, developer onboarding, and recurring office hours, making Biorce UI the default foundation for new product development.</li>
+                    <li>Shipped 20+ accessible, localized components (Radix UI, TypeScript, CSS Modules, Storybook) on a three-tier design token architecture, with system consistency enforced via custom Stylelint rules and Playwright visual regression testing.</li>
+                    <li>Designed the system for agent-assisted development - AI-readable documentation (CLAUDE.md, llms.txt) enabling engineers to build with Claude Code against the design system's patterns and conventions.</li>
                   </ul>
                 </div>
               </div>
@@ -162,7 +162,7 @@ export default function Resume() {
               <div className={styles.projectHeader}>
                 <span className={styles.projectName}>pebble</span>
                 <span className={styles.projectMeta}>
-                  Open-Source Headless CMS
+                  Minimalist, Open-Source Headless CMS
                   {' · '}<a href="https://github.com/avelaga/pebble" target="_blank" rel="noopener">github.com/avelaga/pebble</a>
                 </span>
               </div>
@@ -190,9 +190,9 @@ export default function Resume() {
         <section aria-label="Education">
           <div className={styles.sectionLabel}>Education</div>
           <div className={styles.eduRow}>
-            <div className={styles.eduLine}>
-              <span className={styles.eduDegree}>University of Texas at Austin</span>
-              <span className={styles.eduSchool}>Bachelor's in Computer Science · Minor in Studio Art</span>
+            <div>
+              <div className={styles.eduDegree}>University of Texas at Austin</div>
+              <div className={styles.eduSchool}>Bachelor's in Computer Science · Minor in Studio Art</div>
             </div>
             <div className={styles.eduDate}>May 2021</div>
           </div>

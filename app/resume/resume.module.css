@@ -295,13 +295,6 @@
   align-items: flex-start;
 }
 
-.eduLine {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
 .eduDegree {
   font-size: 17px;
   font-weight: 600;
