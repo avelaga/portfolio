@@ -38,8 +38,8 @@ export default async function Image() {
           position: 'relative',
         }}
       >
-        <div style={{ fontSize: 54, color: '#3a3a3a', lineHeight: 1.4, marginBottom: 56, maxWidth: 980 }}>
-          Design-minded senior frontend engineer specializing in design systems and UI architecture - with experience spanning enterprise and founding-stage startup products.
+        <div style={{ fontSize: 46, color: '#3a3a3a', lineHeight: 1.4, marginBottom: 48, maxWidth: 1000 }}>
+          Design-minded frontend engineer and technical lead specializing in design systems, UI architecture, and agentic development - building team-multiplying foundations, processes, and teams at founding-stage startups and global enterprises.
         </div>
 
         <div style={{ display: 'flex', gap: 48 }}>

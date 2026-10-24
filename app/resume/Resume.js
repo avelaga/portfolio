@@ -27,9 +27,6 @@ export default function Resume() {
           <h1 className={styles.name}>Abhi Velaga</h1>
           <div className={styles.contact}>
             <span className={styles.contactItem}>
-              <a href="mailto:abhinav.velaga@gmail.com">abhinav.velaga@gmail.com</a>
-            </span>
-            <span className={styles.contactItem}>
               <a href="https://abhi.work" target="_blank" rel="noopener">abhi.work</a>
             </span>
             <span className={styles.contactItem}>
@@ -38,11 +35,14 @@ export default function Resume() {
             <span className={styles.contactItem}>
               <a href="https://linkedin.com/in/abhivelaga" target="_blank" rel="noopener">linkedin.com/in/abhivelaga</a>
             </span>
+            <span className={styles.contactItem}>
+              <a href="mailto:abhinav.velaga@gmail.com">abhinav.velaga@gmail.com</a>
+            </span>
           </div>
         </header>
 
         <p className={styles.bio}>
-          Design-minded senior frontend engineer specializing in design systems and UI architecture - with experience building team-multiplying foundations at both founding-stage startups and global enterprises.
+          Design-minded frontend engineer and technical lead specializing in design systems, UI architecture, and agentic development - building team-multiplying foundations, processes, and teams at founding-stage startups and global enterprises.
         </p>
 
         <section aria-label="Skills">
@@ -54,7 +54,7 @@ export default function Resume() {
             </div>
             <div className={styles.skillRow}>
               <span className={styles.skillCategory}>Design &amp; Tooling</span>
-              <span className={styles.skillValues}>Figma, Design Systems, Storybook, Playwright</span>
+              <span className={styles.skillValues}>Figma, Storybook, Playwright, Claude Code</span>
             </div>
             <div className={styles.skillRow}>
               <span className={styles.skillCategory}>Infrastructure</span>
@@ -75,7 +75,7 @@ export default function Resume() {
               <div className={styles.jobCompanyHeader}>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: 10 }}>
                   <span className={styles.company}>Biorce</span>
-                  <span className={styles.companyTag}>Series A MedTech AI Startup</span>
+                  <span className={styles.companyTag}>Series A AI Startup</span>
                 </div>
                 <span className={styles.location}>Austin, TX</span>
               </div>
@@ -86,11 +86,11 @@ export default function Resume() {
                     <span className={styles.dates}>April 2026 - Present</span>
                   </div>
                   <ul className={styles.bullets}>
-                    <li>Founding US frontend engineer; architected the company's design system (Biorce UI) from scratch - tooling stack, CI/CD, linting toolchain, and scoped npm package distribution - establishing the frontend foundation for all new products.</li>
-                    <li>Established the company's first engineering interview process and lead all engineering hiring strategy - rubrics, assessments, and evaluation frameworks - while personally driving hiring for the founding US frontend team.</li>
-                    <li>Drove org-wide adoption across all 6 engineering teams through stakeholder presentations, developer onboarding, and recurring office hours, making Biorce UI the default foundation for new product development.</li>
-                    <li>Shipped 20+ accessible, localized components (Radix UI, TypeScript, CSS Modules, Storybook) on a three-tier design token architecture, with system consistency enforced via custom Stylelint rules and Playwright visual regression testing.</li>
-                    <li>Designed the system for agent-assisted development - AI-readable documentation (CLAUDE.md, llms.txt) enabling engineers to build with Claude Code against the design system's patterns and conventions.</li>
+                    <li><strong>Founding US frontend engineer; architected the company's design system and frontend foundation from scratch</strong> - growing it from zero to 70+ components in 6 months and making it the default for all new product development.</li>
+                    <li><strong>Acting as technical lead</strong> for US engineering projects - overseeing delivery across 3 projects, coaching and unblocking engineers, and redesigning refinement and design-to-development handoff processes.</li>
+                    <li><strong>Designed the frontend for agentic development</strong> with AI-readable documentation (CLAUDE.md, llms.txt), agent rules, PR guardrails, automated release processes, and Figma-to-code audits - enabling engineers and agents to rapidly ship consistent UI.</li>
+                    <li><strong>Established the company's first engineering interview process</strong> - rubrics, assessments, and evaluation frameworks - and conducted 15 interviews, hiring 3 engineers, and onboarded them alongside the incoming engineering manager.</li>
+                    <li><strong>Unblocked engineering teams</strong> by building a long-needed CI/CD pipeline tailored to the team's release workflow, and surfaced core product risks around concurrent-user scenarios.</li>
                   </ul>
                 </div>
               </div>
@@ -108,10 +108,10 @@ export default function Resume() {
                     <span className={styles.dates}>June 2021 - April 2026 · Intern, Summer 2020</span>
                   </div>
                   <ul className={styles.bullets}>
-                    <li>Built and maintained Visa's company-wide React component library, shipped to millions of users across Visa's global products.</li>
-                    <li>Led a white-label UI infrastructure overhaul enabling fully ADA-compliant brand customization, adopted by major U.S. banks including Wells Fargo and Bank of America.</li>
-                    <li>Owned frontend architecture and cross-functional delivery for merchant-facing payment features serving ~5,000 businesses and processing ~$83M/month - acting as technical lead across engineering, product, and design.</li>
-                    <li>Drove full WCAG 2.1 compliance across a high-traffic React application - screen readers, 400% zoom reflow, semantic HTML, keyboard navigation - eliminating legal risk and meeting enterprise accessibility standards.</li>
+                    <li><strong>Built and maintained Visa's company-wide React component library</strong>, shipped to millions of users across Visa's global products.</li>
+                    <li><strong>Led a white-label UI infrastructure overhaul</strong> enabling fully ADA-compliant brand customization, adopted by major U.S. banks including Wells Fargo and Bank of America.</li>
+                    <li><strong>Owned frontend architecture</strong> and cross-functional delivery for merchant-facing payment features serving ~5,000 businesses and processing ~$83M/month - acting as technical lead across engineering, product, and design.</li>
+                    <li><strong>Drove full WCAG 2.1 compliance</strong> across a high-traffic React application - screen readers, 400% zoom reflow, semantic HTML, keyboard navigation - eliminating legal risk and meeting enterprise accessibility standards.</li>
                   </ul>
                 </div>
               </div>
@@ -129,7 +129,7 @@ export default function Resume() {
                     <span className={styles.dates}>Summer 2019</span>
                   </div>
                   <ul className={styles.bullets}>
-                    <li>Developed a modular micro-frontend packaging solution in Angular, reducing go-to-market time and engineering overhead while accelerating product delivery for internal tools.</li>
+                    <li><strong>Developed a modular micro-frontend packaging solution</strong> in Angular, reducing go-to-market time and engineering overhead while accelerating product delivery for internal tools.</li>
                   </ul>
                 </div>
               </div>
@@ -153,7 +153,7 @@ export default function Resume() {
                 </span>
               </div>
               <ul className={styles.bullets}>
-                <li>Designed and built a responsive Next.js site with SSG, performance optimizations, and CI/CD deployment to AWS S3 + CloudFront.</li>
+                <li>Designed and built a responsive Next.js site with SSG, performance optimizations, and CI/CD deployment to CloudFront.</li>
                 <li>Reduced load time by 75% and iterated on UX based on analytics from 47k+ pageviews.</li>
               </ul>
             </article>
@@ -180,7 +180,7 @@ export default function Resume() {
                 <span className={styles.projectMeta}>Private Wealth Management Firm Site</span>
               </div>
               <ul className={styles.bullets}>
-                <li>Designed and built a mobile-optimized Next.js site with serverless lead capture (with blacklist filtering), and TinaCMS-powered self-editing - plus a self-hosted blog running on pebble, my open-source CMS, with its own editing UI and automatic rebuilds.</li>
+                <li>Designed and built a mobile-optimized Next.js site with serverless lead capture, CMS self-editing, and a blog running on pebble.</li>
               </ul>
             </article>
 
