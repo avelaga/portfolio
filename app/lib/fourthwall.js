@@ -9,6 +9,15 @@ export const CURRENCY = 'USD';
 // Fourthwall (Settings → Domain). Set FOURTHWALL_CHECKOUT_DOMAIN to checkout.abhi.work
 // once that's connected; until then it's still shop.abhi.work.
 const CHECKOUT_DOMAIN = process.env.FOURTHWALL_CHECKOUT_DOMAIN || 'shop.abhi.work';
+// Fourthwall hosts the legal pages and support form (it's the Merchant of Record),
+// on the same domain as checkout. We link to them rather than copy them.
+export const policyLinks = () => [
+  { label: 'Shipping & returns', href: `https://${CHECKOUT_DOMAIN}/pages/returns-faq` },
+  { label: 'Terms', href: `https://${CHECKOUT_DOMAIN}/pages/terms-of-service` },
+  { label: 'Privacy', href: `https://${CHECKOUT_DOMAIN}/pages/privacy-policy` },
+  { label: 'Contact support', href: `https://${CHECKOUT_DOMAIN}/contact` },
+];
+
 export const checkoutUrl = (cartId) =>
   `https://${CHECKOUT_DOMAIN}/cart/checkout?${new URLSearchParams({ cartId, currency: CURRENCY })}`;
 

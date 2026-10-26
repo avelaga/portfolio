@@ -10,7 +10,8 @@ import { CartButton, formatPrice, useCart } from '../../components/v3/merch/Cart
 const inStock = (v) => v.stock?.type === 'UNLIMITED' || (v.stock?.inStock ?? 0) > 0;
 
 export default function ProductPage({ product }) {
-  const { add, busy } = useCart();
+  const { add, busy, policyLinks } = useCart();
+  const returnsLink = policyLinks.find((l) => l.label === 'Shipping & returns');
   const variants = product.variants;
   const hasSizes = variants.some((v) => v.attributes?.size?.name);
   const [variantId, setVariantId] = useState(hasSizes ? null : variants[0]?.id);
@@ -73,18 +74,22 @@ export default function ProductPage({ product }) {
           </Button>
           {error && <p className="v3-product-error" role="alert">{error}</p>}
 
-          {/* Product copy and details come from Fourthwall as HTML */}
+          {/* Product copy and details come from Fourthwall as HTML, including each
+              product's own returns terms (GUARANTEE_AND_RETURNS) */}
           <div className="v3-product-description" dangerouslySetInnerHTML={{ __html: product.description }} />
           {product.additionalInformation?.map((info) => (
             <details key={info.title} className="v3-product-details">
               <summary className="v3-label">{info.title}</summary>
               <div dangerouslySetInnerHTML={{ __html: info.bodyHtml }} />
+              {info.type === 'GUARANTEE_AND_RETURNS' && returnsLink && (
+                <p><a href={returnsLink.href} target="_blank" rel="noopener noreferrer">Full returns policy and FAQ</a></p>
+              )}
             </details>
           ))}
         </div>
       </section>
 
-      <Footer />
+      <Footer extraLinks={policyLinks} />
     </div>
   );
 }

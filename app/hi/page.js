@@ -1,11 +1,11 @@
 import Hi from './Hi';
+import { pageMeta } from '../lib/meta';
 
-export const metadata = {
-  title: 'Abhi Velaga - Say Hi',
-  openGraph: {
-    title: 'Abhi Velaga - Say Hi',
-    images: ['https://abhi.work/images/home/mecrop.webp'],
-  },
-};
+export const metadata = pageMeta({
+  title: 'Say hi',
+  description: 'Press a button and an LED lights up on my real desk in Austin.',
+  image: '/og/hi.jpg',
+  path: '/hi',
+});
 
 export default Hi;

@@ -1,11 +1,11 @@
 import LiveDrumming from './LiveDrumming';
+import { pageMeta } from '../../lib/meta';
 
-export const metadata = {
-  title: 'Abhi Velaga - Live Drumming',
-  openGraph: {
-    title: 'Abhi Velaga - Live Drumming',
-    images: ['https://abhi.work/images/music/caladan/caladan.webp'],
-  },
-};
+export const metadata = pageMeta({
+  title: 'Live Drumming',
+  description: 'Drums for Caladan and Shivering Demons, filmed from multiple cameras at every show. 2022–23.',
+  image: '/og/live-drumming.jpg',
+  path: '/music/live-drumming',
+});
 
 export default LiveDrumming;

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import ProjectPage from '../components/v3/ProjectPage';
 import FadeInOnLoad from '../components/FadeInOnLoad';
-import { CartButton, formatPrice } from '../components/v3/merch/Cart';
+import { CartButton, formatPrice, useCart } from '../components/v3/merch/Cart';
 
 const fromPrice = (product) => {
   const prices = product.variants.map((v) => v.unitPrice.value);
@@ -11,6 +11,7 @@ const fromPrice = (product) => {
 };
 
 export default function MerchIndex({ products }) {
+  const { policyLinks } = useCart();
   return (
     <ProjectPage
       title="Merch"
@@ -19,6 +20,7 @@ export default function MerchIndex({ products }) {
       tag="Shop"
       subtitle="Personal, hand-designed merch. Free shipping on 2+ items."
       headerExtra={<CartButton />}
+      footerLinks={policyLinks}
     >
       {products.length === 0 && (
         <p className="v3-merch-empty">The shop is restocking. Check back soon.</p>

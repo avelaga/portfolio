@@ -558,6 +558,23 @@ body:has(.v3) {
   color: $faint;
 }
 
+.v3-footer-extra {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  font-family: $font-wide;
+  letter-spacing: 0.06em;
+
+  a {
+    color: $faint;
+    transition: color 0.7s ease;
+
+    &:hover {
+      color: $text;
+    }
+  }
+}
+
 .v3-footer-links {
   display: flex;
   flex-wrap: wrap;
@@ -1071,6 +1088,11 @@ body:has(.v3--gallery) {
   padding: 0 $gutter 96px;
 }
 
+.v3-cart-note a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .v3-merch-empty {
   padding: 0 $gutter 96px;
   color: $muted;
@@ -1259,6 +1281,12 @@ body:has(.v3--gallery) {
 
 .v3-product-details {
   width: 100%;
+
+  a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
   padding-top: 16px;
   border-top: 1px dotted rgba(255, 255, 255, 0.55);
 

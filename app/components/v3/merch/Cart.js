@@ -13,7 +13,7 @@ const storeId = (id) => { try { id ? localStorage.setItem(STORAGE_KEY, id) : loc
 
 // Cart state for the merch pages. The cart itself lives in Fourthwall; we keep its
 // id in localStorage so it survives reloads, and talk to it through /api/cart.
-export function CartProvider({ children }) {
+export function CartProvider({ policyLinks = [], children }) {
   const [cart, setCart] = useState(null);
   const [open, setOpen] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -52,7 +52,7 @@ export function CartProvider({ children }) {
   const count = cart?.items?.reduce((n, i) => n + i.quantity, 0) ?? 0;
 
   return (
-    <CartContext.Provider value={{ cart, count, busy, open, setOpen, add, setQuantity, remove }}>
+    <CartContext.Provider value={{ cart, count, busy, open, setOpen, add, setQuantity, remove, policyLinks }}>
       {children}
       <CartDrawer />
     </CartContext.Provider>
@@ -71,7 +71,8 @@ export function CartButton() {
 }
 
 function CartDrawer() {
-  const { cart, count, busy, open, setOpen, setQuantity, remove } = useCart();
+  const { cart, count, busy, open, setOpen, setQuantity, remove, policyLinks } = useCart();
+  const returnsLink = policyLinks.find((l) => l.label === 'Shipping & returns');
   const items = cart?.items ?? [];
   const subtotal = items.reduce((sum, i) => sum + i.variant.unitPrice.value * i.quantity, 0);
   const currency = items[0]?.variant.unitPrice.currency ?? 'USD';
@@ -120,7 +121,10 @@ function CartDrawer() {
             <span className="v3-label">Subtotal</span>
             <span>{formatPrice({ value: subtotal, currency })}</span>
           </div>
-          <p className="v3-cart-note">Shipping and taxes at checkout. Free shipping on 2+ items.</p>
+          <p className="v3-cart-note">
+            Made to order, so no returns or exchanges; quality issues are covered. Shipping and taxes at checkout; free shipping on 2+ items.
+            {returnsLink && <> <a href={returnsLink.href} target="_blank" rel="noopener noreferrer">Returns policy</a></>}
+          </p>
           {items.length > 0 && (
             // Hands off to Fourthwall's hosted checkout (same tab, like any checkout)
             <a href={cart.checkoutUrl} className="v3-button v3-button--primary v3-button--large v3-cart-checkout">Checkout</a>

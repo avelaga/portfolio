@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 // Shared V3 shell for every project page: header, an intro (back link, title,
 // type · year line, optional subtitle and statement), the page's own content, footer.
-export default function ProjectPage({ title, projectId, backLabel = 'Featured work', navActive, tag, year, subtitle, statement, headerExtra, className = '', children }) {
+export default function ProjectPage({ title, projectId, backLabel = 'Featured work', navActive, tag, year, subtitle, statement, headerExtra, footerLinks, className = '', children }) {
   return (
     <div className={`v3 ${className}`}>
       <Header active={navActive} extra={headerExtra} />
@@ -27,7 +27,7 @@ export default function ProjectPage({ title, projectId, backLabel = 'Featured wo
 
       {children}
 
-      <Footer />
+      <Footer extraLinks={footerLinks} />
     </div>
   );
 }

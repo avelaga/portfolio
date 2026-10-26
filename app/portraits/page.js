@@ -1,11 +1,11 @@
 import Portraits from './Portraits';
+import { pageMeta } from '../lib/meta';
 
-export const metadata = {
-  title: 'Abhi Velaga - Portrait Work',
-  openGraph: {
-    title: 'Abhi Velaga - Portrait Work',
-    images: ['https://abhi.work/images/photos/portraits/portrait1.webp'],
-  },
-};
+export const metadata = pageMeta({
+  title: 'Portrait Work',
+  description: 'A selection of commissioned and personal portrait work.',
+  image: '/og/portraits.jpg',
+  path: '/portraits',
+});
 
 export default Portraits;

@@ -86,6 +86,7 @@ Tried and dropped: Akzidenz Light (regular width) for card titles, in mixed case
 - **On the site, not a separate shop.** `/merch` uses Fourthwall's Storefront API for products and the cart, styled with V3's own pieces: dotted lines, the invert on the selected size, the wide-caps meta line and the dotted button. Only payment leaves for Fourthwall's hosted checkout, which lives on shop.abhi.work.
 - **In the top nav.** Merch is the one place a visitor can act beyond reading, so it earns a top-level link: About, Merch, Say hi. It has no "← Featured work" link.
 - **Cutouts float.** The first photo of each product is a transparent PNG, shown on the page itself with no frame or backing. On hover the grid swaps to the worn or lifestyle photo.
+- **Policies come from Fourthwall, not our copy.** Each product's returns terms come through the API (they differ: the sticker pack ships from me), and Terms, Privacy, Returns & FAQ and Support link to Fourthwall's pages as the Merchant of Record. Those links sit on the right of the one footer bar, not in a second footer. The cart repeats the one line people must see before paying: made to order, no returns or exchanges.
 - **The token stays server-side.** Every catalog and cart call goes through the site's own `/api/cart`.
 
 ### About
@@ -109,6 +110,8 @@ Tried and dropped: Akzidenz Light (regular width) for card titles, in mixed case
 - Hero assets aren't final; the supercharger-running clip is still missing.
 
 ## Change log
+- **2026-10-25:** Merch policies. Fourthwall's Shipping & returns, Terms, Privacy and Support links sit in the merch footer bar; each product shows its own returns terms from the API, with a link to the full policy; the cart notes no returns. Old shop.abhi.work policy links redirect to the checkout domain.
+- **2026-10-25:** Link previews redone. Every page has a title, a description and a 1200×630 JPG preview (`public/og/`), set through one helper (`app/lib/meta.js`). Home is now titled "A creative who builds", and Portraits' broken preview image is fixed. Merch's preview is the two shirt cutouts on the site's dark background.
 - **2026-10-25:** The footer line and About's section lines now stop at the content column instead of running the full screen width.
 - **2026-10-25:** Site-wide max content width of 1360px, centered, for big and ultra-wide screens. The hero video stays full-bleed.
 - **2026-10-25:** About bio readability: 12px → 14px, line height 1.2 → 1.45, hyphenation on, still justified.

@@ -1,15 +1,11 @@
 import Home from './Home';
+import { pageMeta } from './lib/meta';
 
-export const metadata = {
-  title: 'Abhi Velaga',
-  description: 'Software Developer, Musician, Artist',
-  openGraph: {
-    title: 'Abhi Velaga',
-    description: 'Software Developer, Musician, Artist',
-    url: 'https://abhi.work',
-    siteName: 'Abhi Velaga',
-    images: ['https://abhi.work/images/home/mecrop.webp'],
-  },
-};
+export const metadata = pageMeta({
+  title: null,
+  description: "I'm Abhi, based in Austin. I've released albums, shot for magazines, exhibited installations, and engineered design systems used by millions.",
+  image: '/og/home.jpg',
+  path: '',
+});
 
 export default Home;
