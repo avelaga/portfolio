@@ -4,6 +4,7 @@ import './globals.scss';
 import './styles/App.scss';
 import './styles/pages.scss';
 import './styles/layout.scss';
+import './styles/v3.scss';
 import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Lenis from 'lenis';
@@ -13,6 +14,7 @@ export default function RootLayout({ children }) {
   const pathname = usePathname();
   const lenisRef = useRef(null);
   const sketchRef = useRef(null);
+  const dotColorRef = useRef('rgba(0, 0, 0, 0.196)');
 
   useEffect(() => {
     if (lenisRef.current) {
@@ -21,17 +23,28 @@ export default function RootLayout({ children }) {
     if (typeof window.gtag !== 'undefined') {
       window.gtag('config', 'G-XGMDCDEFQ3', { page_path: pathname });
     }
+    // Dot color is themed per page (--grid-dot): black on V2's white pages, light on V3's dark ones
+    const frame = requestAnimationFrame(() => {
+      const color = getComputedStyle(document.body).getPropertyValue('--grid-dot').trim();
+      if (color) dotColorRef.current = color;
+    });
+    return () => cancelAnimationFrame(frame);
   }, [pathname]);
 
   useEffect(() => {
     const lenis = new Lenis();
     lenisRef.current = lenis;
+    // Exposed so pages can run eased scrolls through the same smooth scroller
+    window.lenis = lenis;
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
-    return () => lenis.destroy();
+    return () => {
+      lenis.destroy();
+      window.lenis = undefined;
+    };
   }, []);
 
   useEffect(() => {
@@ -92,9 +105,9 @@ export default function RootLayout({ children }) {
       animId = requestAnimationFrame(draw);
       if (document.hidden || now - lastTime < interval) return;
       lastTime = now;
-      ctx.fillStyle = '#fff';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.196)';
+      // Transparent, so each page's own background shows through
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = dotColorRef.current;
       for (let y = margin; y <= canvas.height - margin; y += spacing) {
         for (let x = margin; x <= canvas.width - margin; x += spacing) {
           const n = noise3d(x * 0.01, y * 0.01, t);

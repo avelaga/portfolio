@@ -18,36 +18,31 @@
   --faint: #d0d0d0;
 }
 
-/* ── Download button ── */
+/* ── V3 page around the sheet ── */
 
-.downloadBtn {
-  position: fixed;
-  top: 24px;
-  right: 24px;
-  display: inline-flex;
+.page {
+  padding-bottom: 0;
+}
+
+.toolbar {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 120px 0 20px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 8px;
-  padding: 9px 16px;
-  font-size: 11px;
-  font-weight: 500;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: #0a0a0a;
-  color: #ffffff;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  z-index: 100;
-  transition: background 0.15s;
 }
 
-.downloadBtn:hover {
-  background: #333333;
-}
-
-.downloadBtn svg {
+.toolbar svg {
   display: block;
+}
+
+.downloadLabel {
+  margin-left: 8px;
+}
+
+.content {
+  margin-bottom: 96px;
 }
 
 /* ── Header ── */
@@ -314,11 +309,15 @@
 
 /* ── Print ── */
 
+@media (max-width: 940px) {
+  .toolbar {
+    padding: 110px 16px 16px;
+  }
+}
+
 @media (max-width: 500px) {
-  .downloadBtn {
-    top: auto;
-    bottom: 20px;
-    right: 20px;
+  .content {
+    margin-bottom: 64px;
   }
 
   .content {
@@ -352,28 +351,28 @@
     margin: 0.5in 0.75in;
   }
 
-  :global(.navbar) {
+  :global(.v3-header),
+  :global(.v3-footer),
+  .toolbar {
     display: none !important;
+  }
+
+  :global(body),
+  :global(.v3) {
+    background: #fff !important;
+    animation: none !important;
   }
 
   :global(canvas) {
     display: none !important;
   }
 
-  :global(.page) {
-    margin-left: 0 !important;
-    animation: none !important;
-  }
-
-  .downloadBtn {
-    display: none !important;
-  }
 
   .content {
     padding: 0;
     max-width: 100%;
     font-size: 12.5px;
-    margin: 0;
+    margin: 0 !important;
   }
 
 

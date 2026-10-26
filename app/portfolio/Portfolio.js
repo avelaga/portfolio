@@ -1,18 +1,18 @@
 'use client';
 
 import React from 'react';
-import Navbar from '../components/Navbar';
+import GalleryPage from '../components/v3/GalleryPage';
 import ModularPhoto from '../components/ModularPhoto';
 import { portfolioImages } from '../data/images.js';
 
 export default function Portfolio() {
   return (
-    <div className="page">
-      <Navbar activeLink={"PORTFOLIO"} />
-      <h1 className="title">Photography Portfolio</h1>
-      <div className="section-subtitle">selected works</div>
-      <div className="section-year">2018 - 2020</div>
-      <div className="photo-mobile-spacer" />
+    <GalleryPage
+      title="Photography Portfolio"
+      projectId="portfolio"
+      year="2018–20"
+      subtitle="Selected works"
+    >
       <ModularPhoto img={portfolioImages[11]} alt="miami vice cocaine dream 2" width={2000} padding={false} align={"center"} numColumns={1} />
       <ModularPhoto img={portfolioImages[17]} alt="portrait of grandfather" width={1000} padding={true} align={"right"} numColumns={1} />
       <ModularPhoto img={portfolioImages[0]} alt="lord's boxing gym" width={1400} padding={false} align={"center"} numColumns={1} />
@@ -32,6 +32,6 @@ export default function Portfolio() {
       <ModularPhoto img={portfolioImages[15]} alt="spark magazine shoot 3" width={600} padding={true} align={"left"} numColumns={2} />
       <ModularPhoto img={portfolioImages[16]} alt="miata vice cocaine dream 3" width={500} padding={true} align={"left"} numColumns={2} />
       <ModularPhoto img={portfolioImages[19]} alt="portrait 4" width={600} padding={true} align={"left"} numColumns={2} />
-    </div>
+    </GalleryPage>
   );
 }

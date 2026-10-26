@@ -5,6 +5,8 @@
 body {
   margin: 0;
   background-color: white;
+  // Dot color for the animated grid canvas in layout.js
+  --grid-dot: rgba(0, 0, 0, 0.196);
   font-family: 'Berthold-Akzidenz-Grotesk-Light-Extended';
   font-weight: 700;
   -webkit-font-smoothing: antialiased;

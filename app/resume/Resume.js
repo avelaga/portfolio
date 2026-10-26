@@ -1,26 +1,32 @@
 'use client';
 
 import styles from './resume.module.css';
-import Navbar from '../components/Navbar';
+import Header from '../components/v3/Header';
+import Footer from '../components/v3/Footer';
 
 const RESUME_PDF = '/Abhi%20Velaga%20Resume.pdf';
 
 export default function Resume() {
   return (
-    <div className="page">
-      <Navbar />
-      <a
-        className={styles.downloadBtn}
-        href={RESUME_PDF}
-        download="Abhi Velaga Resume.pdf"
-      >
+    // V3 page around V2's resume sheet: the sheet stays white so it reads (and
+    // prints) like the PDF, sitting on the dark base like a document on a desk
+    <div className={`v3 ${styles.page}`}>
+      <Header />
+      <div className={styles.toolbar}>
+        <div className="v3-label">Resume</div>
+        <a
+          className="v3-button v3-button--primary"
+          href={RESUME_PDF}
+          download="Abhi Velaga Resume.pdf"
+        >
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
           <polyline points="7 10 12 15 17 10" />
           <line x1="12" y1="15" x2="12" y2="3" />
         </svg>
-        Download PDF
-      </a>
+          <span className={styles.downloadLabel}>Download PDF</span>
+        </a>
+      </div>
 
       <div id="resume-content" className={styles.content}>
         <header>
@@ -199,6 +205,7 @@ export default function Resume() {
         </section>
 
       </div>
+      <Footer />
     </div>
   );
 }

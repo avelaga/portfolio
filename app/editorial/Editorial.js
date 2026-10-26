@@ -1,28 +1,19 @@
 'use client';
 
 import React from 'react';
-import Navbar from '../components/Navbar';
+import GalleryPage from '../components/v3/GalleryPage';
 import ModularPhoto from '../components/ModularPhoto';
 import { sparkImages, sparkMagPicsCarousel } from '../data/images.js';
-import dynamic from 'next/dynamic';
-const ImageGallery = dynamic(() => import('react-image-gallery'), { ssr: false });
 
 export default function Editorial() {
   return (
-    <div className="page">
-      <Navbar activeLink={"EDITORIAL"} />
-      <h1 className="title">Editorial Work</h1>
-      <div className="section-subtitle">work produced for Spark Magazine</div>
-      <div className="section-year">2019</div>
-      <div className="photo-mobile-spacer" />
-      <ImageGallery
-        items={sparkMagPicsCarousel}
-        showThumbnails={false}
-        showFullscreenButton={false}
-        useBrowserFullscreen={false}
-        showPlayButton={false}
-      />
-      <div className="photo-mobile-spacer" />
+    <GalleryPage
+      title="Editorial Work"
+      projectId="editorial"
+      year="2019"
+      subtitle="Work produced for Spark Magazine"
+      carousel={sparkMagPicsCarousel}
+    >
       <ModularPhoto alt="photo of girl sitting at couch" img={sparkImages[0]} width={2000} padding={true} align={"center"} numColumns={1} />
       <ModularPhoto alt="girl posing with colorful backdrop" img={sparkImages[1]} width={1000} padding={true} align={"center"} numColumns={2} />
       <ModularPhoto alt="girl squatting and posing" img={sparkImages[2]} width={1000} padding={false} align={"center"} numColumns={2} />
@@ -46,6 +37,6 @@ export default function Editorial() {
       <ModularPhoto alt="2 models posing in yellow light in abandoned warehouse garage" img={sparkImages[20]} width={2000} padding={true} align={"center"} numColumns={1} />
       <ModularPhoto alt="2 models posing in red light in abandoned garage" img={sparkImages[21]} width={1000} padding={true} align={"center"} numColumns={2} />
       <ModularPhoto alt="portrait of model through curtain" img={sparkImages[22]} width={1000} padding={true} align={"center"} numColumns={2} />
-    </div>
+    </GalleryPage>
   );
 }

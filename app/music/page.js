@@ -1,11 +1,6 @@
-import Music from './Music';
+import { redirect } from 'next/navigation';
 
-export const metadata = {
-  title: 'Abhi Velaga - Music',
-  openGraph: {
-    title: 'Abhi Velaga - Music',
-    images: ['https://abhi.work/images/music/indulgent/indulgentlive.webp'],
-  },
-};
-
-export default Music;
+// V2's single music page is split into one page per featured project; old links land on Indulgent
+export default function Music() {
+  redirect('/music/indulgent');
+}

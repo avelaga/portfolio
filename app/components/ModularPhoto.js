@@ -1,26 +1,32 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext, useContext } from 'react';
 import FadeInOnLoad from './FadeInOnLoad';
 
 const bigPadding = "5rem";
 const smallPadding = "1rem";
 const navbarWidth = 275;
 
+// V3 pages have no left sidebar; GalleryPage sets fullWidth so photos use the whole page
+export const GalleryContext = createContext({ fullWidth: false });
+
 export default function ModularPhoto({ img, alt, width, padding, align, numColumns }) {
     const imgSrc = typeof img === 'object' ? img.src : img;
     const naturalWidth = typeof img === 'object' ? img.width : undefined;
     const naturalHeight = typeof img === 'object' ? img.height : undefined;
+    const { fullWidth } = useContext(GalleryContext);
+    const sidebarWidth = fullWidth ? 0 : navbarWidth;
     const [usableWidth, setUsableWidth] = useState(null);
 
     useEffect(() => {
         const handleResize = () => {
-            setUsableWidth(window.innerWidth - navbarWidth);
+            // clientWidth excludes the scrollbar, so full-width rows never overflow
+            setUsableWidth(fullWidth ? document.documentElement.clientWidth : window.innerWidth - navbarWidth);
         };
         handleResize();
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
-    }, []);
+    }, [fullWidth]);
 
     // Don't render until we know the window width (prevents hydration mismatch)
     if (usableWidth === null) {
@@ -32,7 +38,7 @@ export default function ModularPhoto({ img, alt, width, padding, align, numColum
     let photoStyle = {};
     let containerStyle = {};
 
-    if(usableWidth + navbarWidth > 500){
+    if(usableWidth + sidebarWidth > 500){
         // desktop
         let colWidth = usableWidth / numColumns;
         if (width) {
