@@ -1,9 +1,7 @@
 'use client';
 
 import './globals.scss';
-import './styles/App.scss';
-import './styles/pages.scss';
-import './styles/layout.scss';
+import './styles/photos.scss';
 import './styles/v3.scss';
 import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';

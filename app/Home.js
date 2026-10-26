@@ -8,48 +8,33 @@ import ProjectRow from './components/v3/ProjectRow';
 import Button from './components/v3/Button';
 import { heroSlides, projects } from './data/v3';
 
-// Each sticky card lets go when the section's end reaches its stuck bottom edge.
-// Cards stuck lower in the stack would let go first and slide up over the others,
-// so pad every card out (bottom margin, cancelled by the next card's top margin)
-// until they all let go together and the stack scrolls away as one.
-function useStackRelease(sectionRef) {
-  useEffect(() => {
-    const section = sectionRef.current;
-    const rows = [...section.querySelectorAll('.v3-row')];
+const easeInOutQuint = (t) => (t < 0.5 ? 16 * t ** 5 : 1 - Math.pow(-2 * t + 2, 5) / 2);
 
-    const update = () => {
-      const headerHeight = parseFloat(getComputedStyle(section).getPropertyValue('--row-header'));
-      const bottoms = rows.map((row, i) => i * headerHeight + row.offsetHeight);
-      const release = Math.max(...bottoms);
-      rows.forEach((row, i) => {
-        const pad = release - bottoms[i];
-        row.style.marginBottom = `${pad}px`;
-        if (rows[i + 1]) rows[i + 1].style.marginTop = `${-pad}px`;
-      });
-    };
-
-    update();
-    const observer = new ResizeObserver(update);
-    rows.forEach((row) => observer.observe(row));
-    return () => observer.disconnect();
-  }, [sectionRef]);
-}
-
-// Cards are transparent so the dot grid shows through, so a card can't hide the one
-// it slides over. Instead, trim each card's bottom wherever the next card covers it.
-// Sides are left open so the hover invert can still bleed into the margin.
+// Title bars are transparent (the dot grid shows through), so the stack does its
+// own masking on scroll: each card's content is trimmed where it passes under a
+// stuck bar above it, and a bar is trimmed where a later bar slides over it in
+// the shared last slot. Sides stay open for the hover invert's bleed.
 function useStackClip(sectionRef) {
   useEffect(() => {
-    const rows = [...sectionRef.current.querySelectorAll('.v3-row')];
+    const section = sectionRef.current;
+    const headers = [...section.querySelectorAll('.v3-row-header')];
+    const bodies = [...section.querySelectorAll('.v3-row-body')];
     let frame = 0;
 
     const update = () => {
       frame = 0;
-      const rects = rows.map((row) => row.getBoundingClientRect());
-      rows.forEach((row, i) => {
-        const next = rects[i + 1];
-        const covered = next ? Math.max(0, rects[i].bottom - next.top) : 0;
-        row.style.clipPath = covered ? `inset(0 -100px ${covered}px -100px)` : '';
+      const h = headers.map((el) => el.getBoundingClientRect());
+      let coverBottom = -Infinity;
+      headers.forEach((el, i) => {
+        // Bars below in the stack only ever overlap this one from beneath
+        const nextTop = Math.min(...h.slice(i + 1).map((r) => r.top), Infinity);
+        const hidden = Math.max(0, Math.min(h[i].height, h[i].bottom - nextTop));
+        el.style.clipPath = hidden ? `inset(0 -100px ${hidden}px -100px)` : '';
+
+        coverBottom = Math.max(coverBottom, h[i].bottom - hidden);
+        const bodyTop = bodies[i].getBoundingClientRect().top;
+        const covered = Math.max(0, coverBottom - bodyTop);
+        bodies[i].style.clipPath = covered ? `inset(${covered}px -100px 0 -100px)` : '';
       });
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
@@ -65,20 +50,15 @@ function useStackClip(sectionRef) {
   }, [sectionRef]);
 }
 
-// Scroll so card i sits in its stacked spot with its body showing. Sticky cards
-// report their stuck position, so work out where card i sits in normal flow:
-// the first card's spot plus the heights of every card before it (the release
-// margins cancel out between cards).
-// Steep in-out so the slow start and soft landing are clearly felt
-const easeInOutQuint = (t) => (t < 0.5 ? 16 * t ** 5 : 1 - Math.pow(-2 * t + 2, 5) / 2);
-
+// Scroll so card i's content sits just under its title bar, in slot min(i, slots)
 function scrollToRow(section, index, immediate = false) {
-  const rows = [...section.querySelectorAll('.v3-row')];
-  const headerHeight = parseFloat(getComputedStyle(section).getPropertyValue('--row-header'));
-  const sectionHeader = section.querySelector('.v3-section-header');
-  const firstRowTop = section.getBoundingClientRect().top + window.scrollY + sectionHeader.offsetHeight;
-  const rowTop = rows.slice(0, index).reduce((top, row) => top + row.offsetHeight, firstRowTop);
-  const target = rowTop - index * headerHeight;
+  // The bar height adapts to the window (see .v3-featured), so measure it
+  const headerHeight = section.querySelector('.v3-row-header').offsetHeight;
+  const body = section.querySelectorAll('.v3-row-body')[index];
+  scrollToY(body.getBoundingClientRect().top + window.scrollY - (index + 1) * headerHeight, immediate);
+}
+
+function scrollToY(target, immediate) {
   if (window.lenis) {
     // Lenis caches the page height; after navigating from a shorter page its
     // scroll limit is stale and would clamp the jump short
@@ -91,7 +71,6 @@ function scrollToRow(section, index, immediate = false) {
 
 export default function Home() {
   const featuredRef = useRef(null);
-  useStackRelease(featuredRef);
   useStackClip(featuredRef);
 
   // Coming back from a project page ("← Featured work" links to /#project-id):
@@ -125,7 +104,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section ref={featuredRef} className="v3-section v3-featured">
+      <section ref={featuredRef} className="v3-section v3-featured" style={{ '--rows': projects.length }}>
         <div className="v3-section-header">
           <div className="v3-label">Featured work</div>
         </div>

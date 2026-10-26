@@ -64,6 +64,11 @@ Tried and dropped: Akzidenz Light (regular width) for card titles, in mixed case
 - **Card hover:** an invert sweeps left to right across the title bar and eases back on leave (V1's menu sweep, made brutalist: square, black/white difference). It runs on V1's own curve (`ease`), 1.1s in and 0.7s out, unhurried so it glides rather than snaps. It's driven by JavaScript, not a CSS transition: browsers cut an interrupted transition's reverse short, so a quick hover's bar used to vanish instead of easing out. Now every move starts from wherever the bar is, and leaving always gets its full ease-out.
 - **Card click:** scrolls to that card with a clearly eased in-out curve (1.6s), through the site's existing smooth scroller.
 - **Entrances (from V2):** every page fades in over 2.5s, and photos fade in over 1s as each one loads, so nothing pops in half-drawn.
+- **Only the title bars stack.** Cards are taller than many screens, so sticking whole cards hid their content (first seen on phones, then on normal laptop windows). Now only the title bars stick and stack, and each card's content scrolls beneath so it can be read in full. Every title stays in the stack; the bars get thinner on short windows so the whole stack never takes more than about half the screen. (A 5-bar cap was tried first, but cards sharing the last slot read as missing.) On wider screens the description holds beside the photos until they pass.
+- **The header comes back on scroll up.** Scrolling down hides it; scrolling up slides back a frosted copy (dark, Gaussian blur), so MENU and the nav are always one flick away without taking space while reading.
+- **Clear title bars.** The stack's bars have no background, so the dot grid runs through them. A small scroll script trims card content as it passes under the stack, and trims a bar when a later one takes its slot, so nothing shows through.
+- **Phone menu: V2's, not a hamburger.** A plain "MENU" word opens big stacked italic links between hairlines, with the current page inverted (white bar, black text) and the social links small beneath. The name in the header gets bigger since the links are gone.
+- **No side margin for photos on phones.** Cards, photos and videos run edge to edge (V2's mobile layout); text keeps a 16px inset. The home intro shrinks so the montage stays the main event.
 - **Reduced motion:** sweeps become instant; the slideshow holds a still frame.
 
 ### Project pages: photo collections
@@ -91,7 +96,17 @@ Tried and dropped: Akzidenz Light (regular width) for card titles, in mixed case
 
 ### About
 - **V2's offset grid, carried over.** About is the one page about him rather than the work, so it shows him from several sides at once: on stage, at the drums and in a portrait. The bio sits on a 12-column grid. On row 1 the photo, justified bio and tall photo all align at the bottom, so their tops stagger. On row 2 the portrait is pushed in one column. The unevenness is the point: it reads as composed, not templated. The bio keeps V2's justified block but at 14px with looser line spacing and hyphenation. V2's 12px faux-bold wide type was too hard to read on dark, and the bio is the page's most important text. On phones everything stacks in one column, as in V2.
-- **Links only where they add something.** The list beside the portrait holds only what the nav and footer don't already cover: email, the photo Instagram (@abhi.film), GitHub and LinkedIn. The main Instagram, YouTube, Resume and Merch were dropped as duplicates. GitHub and LinkedIn sit next to the bio for hiring managers.
+- **No disciplines list, no credits list.** Listing five disciplines reads like an eight-things Instagram bio: saying you're everything dilutes all of it, and it splits him into categories when the thesis is one person. The site shows the range (montage, card stack, bio) instead of listing it. Credits stripped of context read as name-dropping to a mixed audience of YouTube viewers, recruiters and small businesses, so each lives on its own project page, where it means something (SXSW and Jackie Venson on Merry Jane, the Spark cover on Editorial, Dadageek on The World Misses You). The one focused claim left on About is the offer itself, in the contact section.
+- **Influences: bare words, in the grid.** Names listed one per line in the About grid beside the portrait, where the links used to be, set exactly like those links (body font, 12px, muted). No links, images, explanations or ties to projects; the mix itself says where he comes from. The list is a first brainstorm, to be refined down.
+
+### Say hi
+- **V2's words, untouched.** The page copy is his, verbatim and lowercase: "say hi to me in realtime", the welcome line, the HELLO button and the status messages (only V2's "recieved" typo was fixed). V3 changes only the frame (type, colors, dotted button). Don't rewrite or add copy here.
+- **The desk clip is always square.**
+
+### Contact
+- **One open line, not a pitch.** The contact section asks "Interested in working together?" and nothing more. It reads equally well to a recruiter, a small business or a collaborator, and it stays vague about job versus freelance. The earlier "Brand, web and digital direction for small and boutique businesses" read as a services tagline, which the brief rules out. The hero's capability line already does the quiet signalling.
+
+- **The form actually sends.** It posts to the site's own `/api/contact`, which emails Abhi through Resend with the sender as reply-to, so a reply goes straight back. Visitors never leave the page or need a mail app. A hidden honeypot field and a per-sender limit keep spam out; Cloudflare Turnstile is the next step if needed. If sending fails, the visitor sees why and still has the email address.
 
 ### Utility pages
 - **Resume:** V2's resume stays a white sheet, on purpose. It mirrors the downloadable PDF and prints cleanly. In V3 it sits on the dark base like a document on a desk, under the V3 header, with a dotted "Download PDF" button. Printing hides everything but the sheet.
@@ -110,6 +125,19 @@ Tried and dropped: Akzidenz Light (regular width) for card titles, in mixed case
 - Hero assets aren't final; the supercharger-running clip is still missing.
 
 ## Change log
+- **2026-10-26:** The contact form sends for real: `/api/contact` emails through Resend, with a honeypot and rate limit, plus sending, sent and error states. It replaces the `mailto:` handoff.
+- **2026-10-26:** Contact copy reduced to one line, "Interested in working together?", replacing the services-style headline and the client-intake helper text.
+- **2026-10-26:** About bio split across the grid. The personal half (who he is, what he's made, the storytelling throughline) sits in row 1 between the photos; the career half (Biorce, Visa, UT Austin) sits in row 2 beside the portrait, where the links were. Both halves use identical type.
+- **2026-10-26:** All 9 titles stack again. The 5-bar cap hid cards under the last slot. Bar height now adapts to the window (60px down to 34px; 46px down to 30px on phones) so the stack stays within about half the screen.
+- **2026-10-26:** Influences hidden (commented out in `About.js`) while the idea is reconsidered. The list stays in `app/data/v3.js`.
+- **2026-10-26:** Influences moved into the About offset grid, replacing the four links (email, @abhi.film, GitHub, LinkedIn). Email remains in the contact section.
+- **2026-10-26:** Influences section added to About, between the bio and contact. It holds seven placeholder band names until the real list is in.
+- **2026-10-26:** Say hi uses V2's copy word for word: title, subtitle, HELLO button, and the status and error messages. Rewritten copy and the invented "how it works" line removed. The desk video is always a perfect square.
+- **2026-10-26:** Removed the About page's Disciplines and Selected credits section. About now goes straight from the photo grid and bio to contact.
+- **2026-10-26:** V2 leftovers removed: the old sidebar navbar and about 1,250 lines of unused V2 CSS. What V3 still reuses from V2 now lives in `app/styles/photos.scss`: the photo layout, the image fade-in, the book carousels and the page fade-in.
+- **2026-10-26:** Title bars are transparent again (scroll-based masking), and the revealed header is frosted with a Gaussian blur.
+- **2026-10-26:** The title-bar-only stack now applies at every size, since whole-card stacking also cut off content on normal laptop windows. The header reveals on scroll up.
+- **2026-10-26:** Phone fixes. Phone styles were wrongly limited to screens of 400px or less, so 402–430px iPhones got desktop margins and type. Also: photos edge to edge on phones, a compact home intro, a V2-style MENU overlay, and a phone version of the card stack where only the title bars stack, so every card can be read in full.
 - **2026-10-25:** Merch policies. Fourthwall's Shipping & returns, Terms, Privacy and Support links sit in the merch footer bar; each product shows its own returns terms from the API, with a link to the full policy; the cart notes no returns. Old shop.abhi.work policy links redirect to the checkout domain.
 - **2026-10-25:** Link previews redone. Every page has a title, a description and a 1200×630 JPG preview (`public/og/`), set through one helper (`app/lib/meta.js`). Home is now titled "A creative who builds", and Portraits' broken preview image is fixed. Merch's preview is the two shirt cutouts on the site's dark background.
 - **2026-10-25:** The footer line and About's section lines now stop at the content column instead of running the full screen width.

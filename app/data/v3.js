@@ -2,6 +2,19 @@
 
 export const EMAIL = 'abhinav.velaga@gmail.com';
 
+// About page influences: bare words, no links or explanations.
+// Brainstorm list, to be refined down later.
+export const influences = [
+  'John Frusciante',
+  'Deftones',
+  'Bring Me the Horizon',
+  'Steve Jobs',
+  'Jony Ive',
+  'Joel Meyerowitz',
+  'NIGHTRIDE',
+  'Todd Hido',
+];
+
 export const elsewhereLinks = [
   { label: 'YouTube', href: 'https://www.youtube.com/@abhi.velaga/' },
   { label: 'Instagram', href: 'https://www.instagram.com/abhi.velaga/' },
@@ -125,20 +138,4 @@ export const projects = [
     lead: '/images/photos/portfolio/p12.webp',
     images: ['/images/photos/portfolio/p1.webp', '/images/photos/portfolio/p6.webp', '/images/photos/portfolio/p11.webp'],
   },
-];
-
-export const disciplines = [
-  'Brand and digital direction',
-  'Web design and development',
-  'Photography and video',
-  'Music',
-  'Interactive installations',
-];
-
-export const credits = [
-  { label: 'Official SXSW showcase, Merry Jane and the Fondas', year: '2019' },
-  { label: 'Studio EP with Jackie Venson', year: '2019' },
-  { label: 'Exhibited at Dadageek, Austin', year: '2022' },
-  { label: 'Spark Magazine cover', year: '' },
-  { label: 'Design systems at Visa and Biorce', year: 'Now' },
 ];

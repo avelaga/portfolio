@@ -17,12 +17,12 @@ export default function Hi() {
       .then(res => {
         if (!res.ok) throw new Error(res.status);
         setLoading(false);
-        setStatus("Message received :)");
+        setStatus("message received :)");
       })
       .catch(err => {
         console.log("god dang it who broke it now");
         setLoading(false);
-        setStatus("I got an error, it looks like someone broke it :( maybe try again tomorrow");
+        setStatus("i got an error, it looks like someone broke it :( maybe try again tomorrow");
       });
   };
 
@@ -31,8 +31,9 @@ export default function Hi() {
       <section className="v3-hero v3-hero--photo v3-hero--center">
         <Header active="hi" />
         <div className="v3-hi">
-          <h1 className="v3-display">Say hi</h1>
-          <p className="v3-lede">Press the button and an LED lights up on my real desk in Austin.</p>
+          {/* Copy is V2's, word for word */}
+          <h1 className="v3-display v3-hi-title">say hi to me in realtime</h1>
+          <p className="v3-lede">hi, welcome to my site. clicking this button runs an animation on the led strip at my desk</p>
           <video playsInline autoPlay muted loop className="v3-hi-video">
             <source src="/videos/hi.mp4" type="video/mp4" />
           </video>
@@ -43,10 +44,10 @@ export default function Hi() {
             disabled={loading}
             onClick={buttonClicked}
           >
-            {loading ? "Sending..." : "Light up my desk"}
+            {loading ? "sending..." : "HELLO"}
           </Button>
           <p className="v3-hi-status" aria-live="polite">
-            {status || "The button calls a Cloudflare Worker that triggers an animation on the LED strip at my desk."}
+            {status}
           </p>
         </div>
       </section>

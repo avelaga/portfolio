@@ -1,49 +1,74 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import Header from '../components/v3/Header';
 import Footer from '../components/v3/Footer';
 import Button from '../components/v3/Button';
 import FadeInOnLoad from '../components/FadeInOnLoad';
-import { EMAIL, credits, disciplines } from '../data/v3';
+import { EMAIL } from '../data/v3';
+// import { influences } from '../data/v3';  // with the hidden Influences block below
 
-// Only the ways to find me that the nav and footer don't already cover
-const aboutLinks = [
-  { label: EMAIL, href: `mailto:${EMAIL}` },
-  { label: '@abhi.film', href: 'https://www.instagram.com/abhi.film/' },
-  { label: 'GitHub', href: 'https://www.github.com/avelaga/' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/abhivelaga' },
-];
-
-// No form backend yet: the draft opens a prefilled email instead.
+// Sends through /api/contact (emailed via Resend). If sending fails, the visitor
+// sees why and can still email directly.
 function ContactForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [website, setWebsite] = useState(''); // honeypot, hidden from people
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
+  const [error, setError] = useState('');
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Hello from ${name || 'abhi.work'}`);
-    const body = encodeURIComponent(`${message}\n\n${name}\n${email}`);
-    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+    setStatus('sending');
+    setError('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message, website }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || 'Something went wrong sending that.');
+      setStatus('sent');
+    } catch (err) {
+      setError(err.message);
+      setStatus('error');
+    }
   };
 
+  if (status === 'sent') {
+    return (
+      <div className="v3-form v3-form--sent" role="status">
+        <p className="v3-form-sent">Message sent. Thanks, {name.split(' ')[0]}.</p>
+        <p className="v3-form-note">I'll reply to {email}.</p>
+      </div>
+    );
+  }
+
+  const sending = status === 'sending';
   return (
     <form className="v3-form" onSubmit={onSubmit}>
       <label className="v3-field">
         <span>Name</span>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Jordan Lee" required />
+        <input type="text" name="name" autoComplete="name" maxLength={120} value={name} onChange={(e) => setName(e.target.value)} placeholder="Jordan Lee" required />
       </label>
       <label className="v3-field">
         <span>Email</span>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="jordan@studio.com" required />
+        <input type="email" name="email" autoComplete="email" maxLength={200} value={email} onChange={(e) => setEmail(e.target.value)} placeholder="jordan@studio.com" required />
       </label>
       <label className="v3-field">
         <span>What are you working on?</span>
-        <textarea rows={5} value={message} onChange={(e) => setMessage(e.target.value)} placeholder="A rebrand and new site for our shop" required />
+        <textarea name="message" rows={5} maxLength={5000} value={message} onChange={(e) => setMessage(e.target.value)} placeholder="A rebrand and new site for our shop" required />
       </label>
-      <Button type="submit" variant="primary" size="large">Send message</Button>
+      <label className="v3-honeypot" aria-hidden="true">
+        Website
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" value={website} onChange={(e) => setWebsite(e.target.value)} />
+      </label>
+      <Button type="submit" variant="primary" size="large" disabled={sending}>
+        {sending ? 'Sending…' : 'Send message'}
+      </Button>
+      {status === 'error' && <p className="v3-form-error" role="alert">{error}</p>}
       <p className="v3-form-note">Or email <a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
     </form>
   );
@@ -59,46 +84,33 @@ export default function About() {
         <div className="v3-about-grid">
           <FadeInOnLoad cls="v3-about-live" src="/images/music/indulgent/indulgentlive.webp" alt="Indulgent performing live" />
           <div className="v3-about-bio">
-            <p>I'm a creative and engineer based in Austin. Since I was 15 I've been making things across every medium I can get my hands on: self-produced albums, film photography, interactive LED installations, and most recently a <a href="https://youtube.com/@abhi.velaga" target="_blank" rel="noopener noreferrer">YouTube channel</a> documenting my car build.</p>
-            <p>The medium changes, but the throughline doesn't. Whether it's a record, a photo series or a website, I'm telling a story and trying to make someone feel something.</p>
-            <p>By day I'm a senior frontend engineer at Biorce, building our design system from the ground up. Before that I built and maintained the design system and payment apps at Visa. I studied Computer Science and Studio Art at UT Austin.</p>
+            <p>I'm a creative and software engineer based in Austin, TX.</p>
+            <p>I've been pursuing a variety of creative endeavors since I was 15 — from self-produced music albums and fine art photography collections, to interactive LED installations — and most recently my <a href="https://youtube.com/@abhi.velaga" target="_blank" rel="noopener noreferrer">YouTube channel</a> where I'm documenting my car build.</p>
+            <p>Regardless of the medium, what I care about most is telling stories and making people feel something.</p>
           </div>
           <FadeInOnLoad cls="v3-about-drums" src="/images/home/medrums.webp" alt="Abhi drumming" />
           <FadeInOnLoad cls="v3-about-portrait" src="/images/home/mecrop.webp" alt="Portrait of Abhi" />
-          <ul className="v3-about-links">
-            {aboutLinks.map((l) => (
-              <li key={l.label}>
-                {l.internal
-                  ? <Link href={l.href}>{l.label}</Link>
-                  : <a href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a>}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="v3-section v3-two-col">
-        <div>
-          <div className="v3-label">Disciplines</div>
-          <ul className="v3-disciplines">
-            {disciplines.map((d) => <li key={d}>{d}</li>)}
-          </ul>
-        </div>
-        <div>
-          <div className="v3-label">Selected credits</div>
-          <ul className="v3-credits">
-            {credits.map((c) => (
-              <li key={c.label}><span>{c.label}</span><span className="v3-credit-year">{c.year}</span></li>
-            ))}
-          </ul>
+          {/* Career half of the bio, in row 2 beside the portrait */}
+          <div className="v3-about-bio v3-about-bio--career">
+            <p>Professionally, I'm a senior frontend engineer at Biorce, building our design system from the ground up. Before that, I built and maintained the design system and payment apps at Visa.</p>
+            <p>I studied both Computer Science and Studio Art at UT Austin.</p>
+          </div>
+          {/* Influences: hidden for now while deciding whether to keep the idea
+          <div className="v3-about-influences">
+            <div className="v3-label">Influences</div>
+            <ul className="v3-influence-list">
+              {influences.map((name) => <li key={name}>{name}</li>)}
+            </ul>
+          </div>
+          */}
         </div>
       </section>
 
       <section id="contact" className="v3-section v3-two-col v3-contact">
         <div className="v3-contact-copy">
           <div className="v3-label">Contact</div>
-          <p className="v3-contact-line">Brand, web and digital direction for small and boutique businesses.</p>
-          <p className="v3-muted">Tell me a little about your project, your timeline, and where you are now.</p>
+          {/* Open to anyone (a role, a project, a collaboration); not a services pitch */}
+          <p className="v3-contact-line">Interested in working together?</p>
         </div>
         <ContactForm />
       </section>

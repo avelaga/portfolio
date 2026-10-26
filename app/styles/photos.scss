@@ -1,0 +1,58 @@
+// What's left of V2's styles: the photo collection layout (components/ModularPhoto.js),
+// the fade-in for loaded images (components/FadeInOnLoad.js), the book carousels
+// (react-image-gallery) and the page `appear` animation.
+
+$linkColor: #949494;
+
+@import "react-image-gallery/styles/scss/image-gallery.scss";
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.modular-photo {
+  display: flex;
+}
+
+.fade-media {
+  opacity: 0;
+  transition: opacity 1s ease;
+  height: auto;
+}
+
+.fade-media.loaded {
+  opacity: 1;
+}
+
+.image-gallery-icon {
+  filter: none;
+  transition: none;
+  color: $linkColor;
+}
+
+.image-gallery-icon:hover {
+  color: $linkColor;
+  transition: none;
+}
+
+.image-gallery {
+  width: 700px;
+  margin: auto;
+}
+
+@media (max-width: 760px) {
+  .image-gallery {
+    width: 100%;
+    padding: 0 25px;
+  }
+
+  .image-gallery-icon {
+    padding: 0;
+  }
+}

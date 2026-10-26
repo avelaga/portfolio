@@ -31,7 +31,7 @@ body:has(.v3) {
   position: relative;
   z-index: 0;
   min-height: 100vh;
-  // V2's page entrance: every page fades in over 2.5s (keyframes in pages.scss)
+  // V2's page entrance: every page fades in over 2.5s (keyframes in photos.scss)
   animation: appear 2.5s forwards;
   // Transparent so V2's animated dot grid (layout.js) shows through; the page
   // color comes from body
@@ -165,7 +165,7 @@ body:has(.v3) {
   padding: 24px $gutter;
 }
 
-.v3 .v3-logo {
+:is(.v3, .v3-floating) .v3-logo {
   font-size: 15px;
   font-family: $font-wide;
   font-weight: normal;
@@ -184,7 +184,7 @@ body:has(.v3) {
 }
 
 // Same slow fade as V2's nav links, gray to white instead of gray to black
-.v3 .v3-nav a {
+:is(.v3, .v3-floating) .v3-nav a {
   color: $muted;
   transition: color 0.7s ease;
   text-underline-offset: 6px;
@@ -196,6 +196,203 @@ body:has(.v3) {
 
   &.is-active {
     text-decoration: underline;
+  }
+}
+
+// Reveal-on-scroll-up header (components/v3/Header.js): a solid copy of the
+// header that slides down when scrolling up and away when scrolling down.
+// Portaled to <body> so it sits above the card stack.
+.v3-floating {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  color: $text;
+  // Frosted: the page blurs through it
+  background: rgba(14, 14, 14, 0.6);
+  backdrop-filter: blur(24px) saturate(1.2);
+  border-bottom: 1px solid $line;
+  transform: translateY(-101%);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &.is-shown {
+    transform: none;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .v3-header {
+    position: static;
+  }
+}
+
+// Older Safari only knows the prefixed property. Kept in its own block: in the
+// same rule, the CSS optimizer merges both into the prefixed one and Chrome
+// loses the blur.
+@supports (-webkit-backdrop-filter: none) and (not (backdrop-filter: none)) {
+  .v3-floating {
+    -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  }
+
+  .v3-menu {
+    -webkit-backdrop-filter: blur(14px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v3-floating {
+    transition: none;
+  }
+}
+
+// Mobile menu (components/v3/Header.js). The menu panel is portaled to <body>,
+// outside the .v3 wrapper, so it sets its own fonts and colors.
+
+.v3-header-mobile,
+.v3-menu {
+  display: none;
+}
+
+.v3-menu-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: $text;
+  font-family: $font-wide;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+html.v3-menu-open,
+html.v3-menu-open body {
+  overflow: hidden;
+}
+
+@media (max-width: 700px) {
+  .v3-nav {
+    display: none;
+  }
+
+  .v3-header-mobile {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-family: $font-wide;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  // A bigger name on phones, in place of the nav
+  :is(.v3, .v3-floating) .v3-logo,
+  .v3-menu .v3-logo {
+    font-size: 17px;
+    white-space: nowrap;
+  }
+
+  .v3-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background: rgba(14, 14, 14, 0.96);
+    backdrop-filter: blur(14px);
+    color: $text;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+
+    &.is-open {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.4s ease;
+    }
+
+    .v3-logo {
+      font-family: $font-wide;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: $text;
+    }
+  }
+}
+
+.v3-menu-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px $gutter-mobile;
+}
+
+.v3-menu-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+
+  a {
+    padding: 14px $gutter-mobile 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    font-family: $font-display;
+    font-size: 44px;
+    line-height: 1;
+    text-transform: uppercase;
+    color: $text;
+    opacity: 0;
+    transform: translateX(-24px);
+    transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.4s, color 0.4s;
+
+    &:hover {
+      color: $text;
+    }
+
+    // Current page inverts, like the card hover (V2 used a black bar)
+    &.is-active,
+    &:active {
+      background: $text;
+      color: $bg;
+    }
+  }
+
+  .is-open & a {
+    opacity: 1;
+    transform: none;
+  }
+
+  .is-open & a:nth-child(2) { transition-delay: 0.05s; }
+  .is-open & a:nth-child(3) { transition-delay: 0.1s; }
+}
+
+.v3-menu-elsewhere {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 32px $gutter-mobile;
+
+  a {
+    font-family: $font-display;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $muted;
+
+    &:hover {
+      color: $text;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v3-menu-links a {
+    transform: none;
+    transition: none;
   }
 }
 
@@ -335,34 +532,43 @@ body:has(.v3) {
 
 // Project rows
 
-// Stacking accordion: every card is sticky, offset by one header height per card,
-// so each new card slides up over the last and leaves its title bar showing.
+// Every title stacks (--rows is set from Home.js). The bar height adapts so the
+// full stack never takes more than about half the window: 60px bars on tall
+// windows, thinner bars (and titles) on short ones, never below 34px.
 .v3-featured {
-  --row-header: 60px;
-  // Keeps the last card's release margin inside the section, so it has room to stick
+  --row-header: clamp(34px, calc(52svh / var(--rows, 9)), 60px);
+  --stack-slots: calc(var(--rows, 9) - 1);
   display: flow-root;
 }
 
 .v3-row {
-  position: sticky;
-  top: calc(var(--i, 0) * var(--row-header));
-  // Same dotted 1px line as the button outlines
-  border-top: 1px dotted rgba(255, 255, 255, 0.55);
-  // No background, so the dot grid shows through. Home.js trims each card where the
-  // next one covers it, so stacked cards still hide what's underneath.
+  // The card itself doesn't stick: its title bar does (below). Lets children
+  // inherit --i while taking part in the section's layout directly.
+  display: contents;
   // How far the hover invert reaches past the column into the page margin
   --row-bleed: 20px;
-  scroll-margin-top: calc(var(--i, 0) * var(--row-header));
 }
 
+// Stacking accordion. Cards are often taller than the screen, so only the title
+// bars stick and stack; each card's content scrolls under them and can be read in
+// full. Every title stays in the stack (see .v3-featured for the sizing).
+// Each bar's bottom margin (cancelled by its body's negative top margin) lines all
+// the bars up to release together at the end of the section.
 // Title left, type and year right, on one fixed-height line so the stack lines up
 .v3-row-header {
+  --slot: min(var(--i), var(--stack-slots));
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 24px;
   height: var(--row-header);
-  position: relative;
+  position: sticky;
+  top: calc(var(--slot) * var(--row-header));
+  z-index: 2;
+  margin-bottom: calc((var(--stack-slots) - var(--slot)) * var(--row-header));
+  border-top: 1px dotted rgba(255, 255, 255, 0.55);
+  // Transparent: Home.js trims whatever scrolls underneath
+  scroll-margin-top: calc(var(--slot) * var(--row-header));
   cursor: pointer;
 
   &:focus-visible {
@@ -395,6 +601,9 @@ body:has(.v3) {
 }
 
 .v3-row-body {
+  position: relative;
+  z-index: 1;
+  margin-top: calc((var(--stack-slots) - min(var(--i), var(--stack-slots))) * var(--row-header) * -1);
   display: grid;
   grid-template-columns: minmax(0, 13fr) minmax(0, 11fr);
   gap: 40px;
@@ -449,6 +658,11 @@ body:has(.v3) {
 }
 
 .v3-row-text {
+  // Holds just under the stack beside the photos, so the description stays in
+  // view until the card's photos have passed (side-by-side layout only)
+  position: sticky;
+  top: calc((min(var(--i), var(--stack-slots)) + 1) * var(--row-header) + 16px);
+  align-self: start;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -496,7 +710,8 @@ body:has(.v3) {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: clamp(20px, 2.4vw, 30px);
+  // Shrinks with the bar on short windows
+  font-size: min(clamp(20px, 2.4vw, 30px), calc(var(--row-header) * 0.5));
   font-family: $font-display;
   font-weight: normal;
   line-height: 1.05;
@@ -659,6 +874,12 @@ body:has(.v3) {
   }
 }
 
+// Same type as the bio above; sits in row 2 under it, same column
+.v3-about-bio--career {
+  grid-area: 2 / 7 / 3 / 10;
+  align-self: start;
+}
+
 .v3-about-drums {
   grid-area: 1 / 10 / 2 / 13;
   align-self: end;
@@ -670,22 +891,11 @@ body:has(.v3) {
   aspect-ratio: 4 / 3;
 }
 
-.v3-about-links {
+.v3-about-influences {
   grid-area: 2 / 7 / 3 / 13;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  font-size: 12px;
-  line-height: 1.2;
-
-  a {
-    color: $muted;
-    transition: color 0.7s ease;
-
-    &:hover {
-      color: $text;
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .v3-two-col {
@@ -701,31 +911,15 @@ body:has(.v3) {
   border-top: 1px solid $line;
 }
 
-.v3-disciplines,
-.v3-credits {
-  list-style: none;
-  margin: 18px 0 0;
+// About: influences in the grid, set exactly like the link list they replaced
+// (body font, 12px, tight, muted, one per line)
+.v3-influence-list {
+  margin: 0;
   padding: 0;
-}
-
-.v3-disciplines li {
-  font-size: 24px;
-  font-family: $font-bold;
-  font-weight: normal;
-  line-height: 1.75;
-}
-
-.v3-credits li {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 12px 0;
-  border-bottom: 1px solid $line;
-}
-
-.v3-credit-year {
+  list-style: none;
+  font-size: 12px;
+  line-height: 1.2;
   color: $muted;
-  white-space: nowrap;
 }
 
 .v3-contact {
@@ -752,6 +946,25 @@ body:has(.v3) {
   flex-direction: column;
   align-items: flex-start;
   gap: 18px;
+}
+
+// Off-screen rather than display:none, which some bots skip
+.v3-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.v3-form-error {
+  color: $text;
+  font-size: 13px;
+}
+
+.v3-form-sent {
+  font-family: $font-display;
+  font-size: clamp(22px, 2.4vw, 30px);
 }
 
 .v3-field {
@@ -817,15 +1030,23 @@ body:has(.v3) {
   }
 }
 
+.v3-hi-title {
+  // V2's title is lowercase and long; sized to sit on one or two lines
+  font-size: clamp(36px, 6vw, 72px);
+  text-align: center;
+}
+
+// Always a perfect square (the clip is 1080×1146)
 .v3-hi-video {
-  width: min(560px, 100%);
-  aspect-ratio: 16 / 10;
+  width: min(480px, 100%);
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border: 1px solid $line;
   background: #000;
 }
 
 .v3-hi-status {
+  min-height: 1.5em;
   max-width: 420px;
   font-size: 13px;
   color: $muted;
@@ -1065,7 +1286,7 @@ body:has(.v3--gallery) {
 // in V3's design. Checkout itself is Fourthwall's hosted page on shop.abhi.work.
 
 // Sits in the nav and behaves like the other nav links
-.v3 .v3-cart-button {
+:is(.v3, .v3-floating) .v3-cart-button {
   padding: 0;
   border: 0;
   background: none;
@@ -1446,6 +1667,10 @@ body:has(.v3--gallery) {
 // Mobile
 
 @media (max-width: 900px) {
+  .v3-row-text {
+    position: static;
+  }
+
   .v3-row-body,
   .v3-row--image-right .v3-row-body {
     grid-template-columns: 1fr;
@@ -1489,31 +1714,15 @@ body:has(.v3--gallery) {
   }
 }
 
-@media (max-width: 600px) {
-  // Four nav items have to fit beside the logo on one line
-  .v3 .v3-logo {
-    font-size: 12px;
-    white-space: nowrap;
-  }
-
-  .v3-nav {
-    gap: 12px;
-    font-size: 11px;
-    white-space: nowrap;
-  }
-}
-
-// Narrowest phones: the cart shows just its count
+// Narrowest phones: the cart in the header shows just its count
 @media (max-width: 400px) {
   .v3-cart-label {
     display: none;
   }
+}
 
-  .v3-nav {
-    gap: 10px;
-    letter-spacing: 0.03em;
-  }
-
+// Phones
+@media (max-width: 600px) {
   .v3-block-section {
     gap: 24px;
     padding: 0 $gutter-mobile 64px;
@@ -1549,11 +1758,74 @@ body:has(.v3--gallery) {
   }
 
   .v3-featured {
-    --row-header: 46px;
+    --row-header: clamp(30px, calc(50svh / var(--rows, 9)), 46px);
   }
 
-  .v3-row {
-    --row-bleed: 12px;
+  // No side margin for photos on phones: cards, media and dividers run edge to
+  // edge (text keeps a small inset), like V2's mobile layout
+  // Bars run edge to edge on phones
+  .v3-row-header {
+    margin-left: -$gutter-mobile;
+    margin-right: -$gutter-mobile;
+    padding: 0 $gutter-mobile;
+  }
+
+  .v3-row-sweep {
+    inset: 0;
+  }
+
+  .v3-row-media,
+  .v3-block-pair,
+  .v3-loops,
+  .v3-videos {
+    margin-left: -$gutter-mobile;
+    margin-right: -$gutter-mobile;
+  }
+
+  .v3-block-wide,
+  .v3-product-main,
+  .v3-about-live,
+  .v3-about-drums,
+  .v3-about-portrait {
+    width: calc(100% + #{2 * $gutter-mobile});
+    max-width: none;
+    margin-left: -$gutter-mobile;
+  }
+
+  .v3-video figcaption,
+  .v3-loop figcaption {
+    padding: 0 $gutter-mobile;
+  }
+
+  .v3-gallery-carousel {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  // Home hero: compact type so the montage stays the main event
+  .v3-hero--home .v3-intro {
+    gap: 12px;
+    padding-top: 0;
+    padding-bottom: 72px;
+  }
+
+  .v3-hero--home .v3-display {
+    font-size: 34px;
+  }
+
+  .v3-hero--home .v3-lede {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .v3-hero--home .v3-actions {
+    margin-top: 4px;
+    gap: 8px;
+  }
+
+  .v3-hero--home .v3-button {
+    padding: 9px 14px;
+    font-size: 13px;
   }
 
   .v3-row-header {
@@ -1587,11 +1859,6 @@ body:has(.v3--gallery) {
     padding-right: 0;
   }
 
-  .v3-intro {
-    padding-top: 120px;
-    padding-bottom: 96px;
-  }
-
   .v3-slideshow-controls {
     right: $gutter-mobile;
     bottom: 20px;
@@ -1609,7 +1876,4 @@ body:has(.v3--gallery) {
     gap: 8px;
   }
 
-  .v3-disciplines li {
-    font-size: 20px;
-  }
 }
