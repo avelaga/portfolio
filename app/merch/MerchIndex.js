@@ -20,6 +20,9 @@ export default function MerchIndex({ products }) {
       subtitle="Personal, hand-designed merch. Free shipping on 2+ items."
       headerExtra={<CartButton />}
     >
+      {products.length === 0 && (
+        <p className="v3-merch-empty">The shop is restocking. Check back soon.</p>
+      )}
       <section className="v3-merch-grid">
         {products.map((p) => (
           <Link key={p.id} href={`/merch/${p.slug}`} className="v3-merch-card">

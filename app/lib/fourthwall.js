@@ -27,9 +27,16 @@ async function request(path, { method = 'GET', body, revalidate } = {}) {
   return res.json();
 }
 
+// Catalog reads never throw: a missing token or Fourthwall outage shows an empty
+// shop instead of failing the whole site's build
 export async function getProducts() {
-  const { results } = await request('/collections/all/products', { revalidate: 300 });
-  return results.filter((p) => p.state?.type === 'AVAILABLE' && p.access?.type === 'PUBLIC');
+  try {
+    const { results } = await request('/collections/all/products', { revalidate: 300 });
+    return results.filter((p) => p.state?.type === 'AVAILABLE' && p.access?.type === 'PUBLIC');
+  } catch (e) {
+    console.error(`[merch] ${e.message}`);
+    return [];
+  }
 }
 
 export async function getProduct(slug) {

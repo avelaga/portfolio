@@ -21,7 +21,8 @@ export default function ModularPhoto({ img, alt, width, padding, align, numColum
     useEffect(() => {
         const handleResize = () => {
             // clientWidth excludes the scrollbar, so full-width rows never overflow
-            setUsableWidth(fullWidth ? document.documentElement.clientWidth : window.innerWidth - navbarWidth);
+            // V3 caps the gallery at the site's 1440px page width
+            setUsableWidth(fullWidth ? Math.min(document.documentElement.clientWidth, 1440) : window.innerWidth - navbarWidth);
         };
         handleResize();
         window.addEventListener("resize", handleResize);

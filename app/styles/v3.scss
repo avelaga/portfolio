@@ -6,7 +6,12 @@ $line: rgba(255, 255, 255, 0.12);
 $text: #f2f2f2;
 $muted: rgba(242, 242, 242, 0.62);
 $faint: rgba(242, 242, 242, 0.4);
-$gutter: 40px;
+// Page content is capped at 1360px (1440px with its margins) and centered. Every
+// section pads its sides by $gutter, which grows on wide screens to keep content in
+// that column, while backgrounds, the hero video and divider lines still run edge
+// to edge.
+$content-max: 1360px;
+$gutter: max(40px, calc((100vw - #{$content-max}) / 2));
 $gutter-mobile: 16px;
 
 // V2's typefaces
@@ -241,8 +246,13 @@ body:has(.v3) {
   display: flex;
   flex-direction: column;
   gap: 22px;
+  width: 100%;
   padding: 160px $gutter 120px;
-  max-width: 860px;
+
+  // The intro's own line length, now that its side padding grows on wide screens
+  & > * {
+    max-width: 780px;
+  }
 }
 
 .v3-actions {
@@ -539,7 +549,9 @@ body:has(.v3) {
   align-items: center;
   flex-wrap: wrap;
   gap: 16px;
-  padding: 28px $gutter 36px;
+  // Gutter as margin, not padding, so the top line stays inside the content column
+  margin: 0 $gutter;
+  padding: 28px 0 36px;
   border-top: 1px solid $line;
   font-family: $font-wide;
   font-size: 12px;
@@ -610,16 +622,18 @@ body:has(.v3) {
   aspect-ratio: 16 / 9;
 }
 
-// V2's bio: small, justified, tightly set
+// V2's justified bio block, set a little larger and looser than V2's 12px so it
+// reads comfortably on dark; hyphenation keeps the justified spacing even
 .v3-about-bio {
   grid-area: 1 / 7 / 2 / 10;
   align-self: end;
   display: flex;
   flex-direction: column;
-  gap: 1.2em;
-  font-size: 12px;
-  line-height: 1.2;
+  gap: 1em;
+  font-size: 14px;
+  line-height: 1.45;
   text-align: justify;
+  hyphens: auto;
 
   a {
     text-decoration: underline;
@@ -658,6 +672,10 @@ body:has(.v3) {
 }
 
 .v3-two-col {
+  // Same as the footer: margin keeps the section's top line inside the column
+  margin: 0 $gutter;
+  padding-left: 0;
+  padding-right: 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 48px;
@@ -863,6 +881,9 @@ body:has(.v3--gallery) {
 .v3-gallery {
   display: flex;
   flex-wrap: wrap;
+  // Same cap as the rest of the site (ModularPhoto lays out to this width too)
+  max-width: $content-max + 80px;
+  margin: 0 auto;
 }
 
 // Project page blocks (components/v3/ProjectBlocks.js): V2's music and software
@@ -1048,6 +1069,11 @@ body:has(.v3--gallery) {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 56px 24px;
   padding: 0 $gutter 96px;
+}
+
+.v3-merch-empty {
+  padding: 0 $gutter 96px;
+  color: $muted;
 }
 
 .v3 .v3-merch-card {
@@ -1519,10 +1545,18 @@ body:has(.v3--gallery) {
   .v3-gallery-carousel,
   .v3-intro,
   .v3-about,
-  .v3-hi,
-  .v3-footer {
+  .v3-hi {
     padding-left: $gutter-mobile;
     padding-right: $gutter-mobile;
+  }
+
+  // Lines that must stay inside the column use margin for the gutter
+  .v3-footer,
+  .v3-two-col {
+    margin-left: $gutter-mobile;
+    margin-right: $gutter-mobile;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .v3-intro {

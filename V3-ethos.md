@@ -47,6 +47,7 @@ The site keeps the typefaces it already has, so V3 feels like an evolution of hi
 Tried and dropped: Akzidenz Light (regular width) for card titles, in mixed case and then in capitals. It read as too faint against the work.
 
 ### Lines and edges
+- **One content width, 1360px, except the hero.** On a big or ultra-wide monitor everything readable stays in a centered 1360px column (1440px with margins): text, cards, grids, galleries. Backgrounds, divider lines and the dot grid still run edge to edge, so the page never looks boxed in. The home hero montage stays fully full-bleed because it's cinematic; only its text and controls line up with the column. Divider lines are the exception to edge-to-edge: they belong to the content, so they stop at the column's edges too. Where a line sits on a section, that section's gutter is a margin, not padding.
 - **One line style: 1px dotted**, from V2's Say hi button. Used on button outlines and the card dividers.
 - **Square everything.** No border radius.
 - **Alignment is sacred.** Text lines up on one left edge across the page: intro, "Featured work" label, card titles. When an effect needed breathing room (the hover bar), we let the effect bleed into the page margin rather than indent the text. Indenting the cards looked "all offset."
@@ -88,7 +89,7 @@ Tried and dropped: Akzidenz Light (regular width) for card titles, in mixed case
 - **The token stays server-side.** Every catalog and cart call goes through the site's own `/api/cart`.
 
 ### About
-- **V2's offset grid, carried over.** About is the one page about him rather than the work, so it shows him from several sides at once: on stage, at the drums and in a portrait. The bio sits on a 12-column grid. On row 1 the photo, justified bio and tall photo all align at the bottom, so their tops stagger. On row 2 the portrait is pushed in one column. The unevenness is the point: it reads as composed, not templated. On phones everything stacks in one column, as in V2.
+- **V2's offset grid, carried over.** About is the one page about him rather than the work, so it shows him from several sides at once: on stage, at the drums and in a portrait. The bio sits on a 12-column grid. On row 1 the photo, justified bio and tall photo all align at the bottom, so their tops stagger. On row 2 the portrait is pushed in one column. The unevenness is the point: it reads as composed, not templated. The bio keeps V2's justified block but at 14px with looser line spacing and hyphenation. V2's 12px faux-bold wide type was too hard to read on dark, and the bio is the page's most important text. On phones everything stacks in one column, as in V2.
 - **Links only where they add something.** The list beside the portrait holds only what the nav and footer don't already cover: email, the photo Instagram (@abhi.film), GitHub and LinkedIn. The main Instagram, YouTube, Resume and Merch were dropped as duplicates. GitHub and LinkedIn sit next to the bio for hiring managers.
 
 ### Utility pages
@@ -108,6 +109,9 @@ Tried and dropped: Akzidenz Light (regular width) for card titles, in mixed case
 - Hero assets aren't final; the supercharger-running clip is still missing.
 
 ## Change log
+- **2026-10-25:** The footer line and About's section lines now stop at the content column instead of running the full screen width.
+- **2026-10-25:** Site-wide max content width of 1360px, centered, for big and ultra-wide screens. The hero video stays full-bleed.
+- **2026-10-25:** About bio readability: 12px → 14px, line height 1.2 → 1.45, hyphenation on, still justified.
 - **2026-10-25:** About links cut to email, @abhi.film, GitHub and LinkedIn, dropping footer duplicates. The site email is now abhinav.velaga@gmail.com everywhere, replacing the old UT address.
 - **2026-10-25:** About page uses V2's offset grid again: the live photo, justified bio and tall drum photo staggered on one row, then the portrait offset one column with V2's link list beside it. This replaces the single-portrait layout.
 - **2026-10-25:** Domain plan for merch. Fourthwall gets `checkout.abhi.work`, for checkout only. `shop.abhi.work` points at this site, which redirects it in `next.config.js`, with old product links going to the matching `/merch/` page. The checkout domain is set by `FOURTHWALL_CHECKOUT_DOMAIN`.
