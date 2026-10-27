@@ -15,8 +15,8 @@ export default function LiveDrumming() {
       <Section title="Caladan" role="Drums" years="2022–23">
         <WidePhoto src="/images/music/caladan/caladan.webp" alt="Caladan performing live" />
         <Videos videos={[
-          { id: 'VQsZdVG8A8I', venue: 'Hole in the Wall', date: '1.7.23' },
-          { id: 'hQgL_IebL_s', venue: 'Woodshed', date: '12.17.22' },
+          { id: 'VQsZdVG8A8I', title: 'Caladan, Hole in the Wall, 1.7.23' },
+          { id: 'hQgL_IebL_s', title: 'Caladan, Woodshed, 12.17.22' },
         ]} />
         <WidePhoto src="/images/music/caladan/group.webp" alt="Caladan portrait" />
       </Section>
@@ -28,9 +28,9 @@ export default function LiveDrumming() {
           { src: '/images/music/sd/sd2.webp', alt: 'Shivering Demons performing live 2' },
         ]} />
         <Videos videos={[
-          { id: '1ap9ObDNqAU', venue: 'Far Out Lounge', date: '1.13.23' },
-          { id: '08FnNPD-Eng', venue: 'Rio Market', date: '11.11.22' },
-          { id: '6mEqHssj27Y', venue: 'Pearl St. Co-op', date: '10.28.22' },
+          { id: '1ap9ObDNqAU', title: 'Shivering Demons, Far Out Lounge, 1.13.23' },
+          { id: '08FnNPD-Eng', title: 'Shivering Demons, Rio Market, 11.11.22' },
+          { id: '6mEqHssj27Y', title: 'Shivering Demons, Pearl St. Co-op, 10.28.22' },
         ]} />
       </Section>
     </ProjectPage>

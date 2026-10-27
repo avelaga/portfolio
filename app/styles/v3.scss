@@ -794,15 +794,23 @@ html.v3-menu-open {
 // down and to the right, so the photo pops off the page (a hard offset, not a
 // soft shadow). Mouse only; the slideshow also plays while hovered.
 // Drawn as a hard shadow on the photo itself, so it always matches its size.
+// The music pages' release covers pop the same way when their link is hovered.
 @media (hover: hover) and (pointer: fine) {
-  .v3-card-slides {
+  .v3-card-slides,
+  .v3-release-cover {
     box-shadow: 0 0 0 $text;
     // Slow and symmetric, like michaelkolesidis.com's project images
     transition: box-shadow 0.5s ease-in-out;
+  }
 
-    &:hover {
-      box-shadow: 10px 10px 0 $text;
-    }
+  // Covers also fade in on load (.fade-media), so keep that transition too
+  .v3-release-cover {
+    transition: box-shadow 0.5s ease-in-out, opacity 1s ease;
+  }
+
+  .v3-card-slides:hover,
+  .v3-release:hover .v3-release-cover {
+    box-shadow: 10px 10px 0 $text;
   }
 }
 
@@ -1195,7 +1203,7 @@ html.v3-menu-open {
   flex-direction: column;
   align-items: center;
   gap: 28px;
-  padding: 140px $gutter 0;
+  padding: 100px $gutter 0;
   text-align: center;
 
   .v3-lede {
@@ -1238,11 +1246,53 @@ body:has(.v3--gallery) {
   flex-direction: column;
   align-items: flex-start;
   gap: 18px;
-  padding: 140px $gutter 72px;
+  // 40px to the content: clearly more than the 18px inside the header, so it
+  // reads as the page's heading, but not so much that it floats free of it
+  padding: 100px $gutter 40px;
+}
+
+// Project pages: the back link starts where it always was, above the title,
+// scrolls up with the page and then sticks just under the name in the fixed
+// header, as part of it. Same inverting blend as the header, so it reads over
+// photos. The bar itself lets clicks through; only the link takes them.
+.v3-back-bar {
+  position: sticky;
+  top: 60px;
+  // Flex, so the bar is exactly the link's height (no extra line box above it)
+  display: flex;
+  z-index: 5;
+  margin-top: 100px;
+  padding: 0 $gutter;
+  mix-blend-mode: difference;
+  pointer-events: none;
+
+  .v3-back-link {
+    pointer-events: auto;
+  }
+
+  // Phones: the header is shorter (75px), so the page starts closer under it
+  @media (max-width: 600px) {
+    top: 56px;
+    margin-top: 96px;
+    padding: 0 $gutter-mobile;
+  }
+}
+
+// With the back link above it, the intro starts 30px under it (as before)
+.v3-gallery-intro.v3-gallery-intro--after-back {
+  padding-top: 30px;
+}
+
+// Phones, pages without a back link (merch, Say hi): same shorter start under
+// the header
+@media (max-width: 600px) {
+  .v3-gallery-intro:not(.v3-gallery-intro--after-back),
+  .v3-hero--center .v3-hi {
+    padding-top: 96px;
+  }
 }
 
 .v3 .v3-back-link {
-  margin-bottom: 12px;
   font-family: $font-wide;
   font-weight: normal;
   font-size: 12px;
@@ -1406,30 +1456,6 @@ body:has(.v3--gallery) {
   grid-template-columns: 1fr;
 }
 
-.v3-loops {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-}
-
-.v3-loops--1 { grid-template-columns: 1fr; }
-.v3-loops--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-.v3-loop {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 0;
-
-  video {
-    display: block;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    background: $surface;
-  }
-}
-
 .v3-video {
   display: flex;
   flex-direction: column;
@@ -1585,7 +1611,7 @@ body:has(.v3--gallery) {
   grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
   gap: 56px;
   align-items: start;
-  padding: 130px $gutter 96px;
+  padding: 100px $gutter 96px;
 }
 
 .v3-product-gallery {
@@ -1927,7 +1953,6 @@ body:has(.v3--gallery) {
   .v3-product {
     grid-template-columns: 1fr;
     gap: 36px;
-    padding-top: 110px;
   }
 
   .v3-product-info {
@@ -1971,12 +1996,12 @@ body:has(.v3--gallery) {
   }
 
   .v3-product {
+    padding-top: 96px;
     padding-left: $gutter-mobile;
     padding-right: $gutter-mobile;
   }
 
   .v3-block-pair,
-  .v3-loops,
   .v3-videos {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -2013,7 +2038,6 @@ body:has(.v3--gallery) {
 
   .v3-row-media,
   .v3-block-pair,
-  .v3-loops,
   .v3-videos {
     margin-left: -$gutter-mobile;
     margin-right: -$gutter-mobile;
@@ -2035,10 +2059,6 @@ body:has(.v3--gallery) {
     margin-left: -$gutter-mobile;
   }
 
-  .v3-video figcaption,
-  .v3-loop figcaption {
-    padding: 0 $gutter-mobile;
-  }
 
   .v3-gallery-carousel {
     padding-left: 0;
@@ -2103,6 +2123,12 @@ body:has(.v3--gallery) {
   // Galleries end flush on their last photo on phones; give the footer room
   .v3-gallery {
     padding-bottom: 36px;
+  }
+
+  // The book carousel (Miami Vice, Editorial) and the first photo after it would
+  // otherwise touch on phones, where the photos stack with no gaps
+  .v3-gallery-carousel ~ .v3-gallery {
+    padding-top: 40px;
   }
 
   .v3-footer-links {

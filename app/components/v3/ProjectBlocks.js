@@ -4,8 +4,9 @@ import { useEffect, useState } from 'react';
 import FadeInOnLoad from '../FadeInOnLoad';
 
 // Building blocks for V3 project pages, carrying over V2's music and software
-// layouts: titled sections, a wide 16:9 photo, a pair of photos side by side,
-// release covers, YouTube videos with venue and date, and short looping clips.
+// layouts: sections (optionally titled), a wide 16:9 photo or looping clip, a
+// pair of photos side by side, release covers, and YouTube videos (no captions:
+// the player shows the video's own title; `title` is for screen readers).
 
 export function Section({ title, role, years, children }) {
   return (
@@ -31,6 +32,29 @@ export function WidePhoto({ src, alt }) {
   return <FadeInOnLoad src={src} alt={alt} cls="v3-block-wide" />;
 }
 
+// A short looping clip set exactly like a wide photo: same crop, no caption, no
+// controls, so it reads as one more image in the sequence (a still frame for
+// reduced motion)
+export function WideVideo({ src, poster, label }) {
+  const [still, setStill] = useState(false);
+  useEffect(() => {
+    setStill(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  }, []);
+  return (
+    <video
+      className="v3-block-wide"
+      src={src}
+      poster={poster}
+      aria-label={label}
+      muted
+      loop
+      playsInline
+      autoPlay={!still}
+      preload="metadata"
+    />
+  );
+}
+
 export function PhotoPair({ photos }) {
   return (
     <div className="v3-block-pair">
@@ -49,7 +73,8 @@ export function Releases({ releases }) {
       {releases.map((r) => (
         <a key={r.title} className="v3-release" href={r.link} target="_blank" rel="noopener noreferrer">
           <FadeInOnLoad src={r.cover} alt={r.alt} cls="v3-release-cover" />
-          <span className="v3-release-title">{r.title}</span>
+          {/* ↗: opens Spotify or Bandcamp in a new tab */}
+          <span className="v3-release-title">{r.title} <span aria-hidden="true">↗</span></span>
           <span className="v3-release-year">{r.year}</span>
         </a>
       ))}
@@ -65,35 +90,10 @@ export function Videos({ videos }) {
           <iframe
             loading="lazy"
             src={`https://www.youtube.com/embed/${v.id}`}
-            title={`${v.venue}, ${v.date}`}
+            title={v.title}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
-          <figcaption className="v3-row-meta">
-            <span>{v.venue}</span>
-            <span className="v3-row-meta-divider" aria-hidden="true">·</span>
-            <span>{v.date}</span>
-          </figcaption>
-        </figure>
-      ))}
-    </div>
-  );
-}
-
-// Short muted clips that loop in place, like the home hero. Reduced-motion
-// visitors get the poster frame instead of playback.
-export function Loops({ clips }) {
-  const [still, setStill] = useState(false);
-  useEffect(() => {
-    setStill(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-  }, []);
-
-  return (
-    <div className={`v3-loops v3-loops--${clips.length}`}>
-      {clips.map((c) => (
-        <figure key={c.src} className="v3-loop">
-          <video src={c.src} poster={c.poster} muted loop playsInline autoPlay={!still} preload="metadata" />
-          <figcaption className="v3-row-meta"><span>{c.caption}</span></figcaption>
         </figure>
       ))}
     </div>

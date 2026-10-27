@@ -232,7 +232,7 @@ export default function Home() {
       <section className="v3-section v3-home-intro">
         <h1 className="v3-visually-hidden">Abhi Velaga</h1>
         <p className="v3-intro-line v3-intro-links">
-          I make <Link href="/music/indulgent">records</Link>, <Link href="/portfolio">photographs</Link>, <Link href="/the-world-misses-you">light installations</Link> and <Link href="/resume">software</Link> in Austin. Lately, I'm <a href="https://www.youtube.com/@abhi.velaga/" target="_blank" rel="noopener noreferrer">rebuilding a car</a>.
+          I make <Link href="/music/indulgent">records</Link>, <Link href="/portfolio">photographs</Link>, <Link href="/the-world-misses-you">light installations</Link> and <Link href="/resume">software</Link> in Austin, TX. Lately, I'm <a href="https://www.youtube.com/@abhi.velaga/" target="_blank" rel="noopener noreferrer">rebuilding a car</a>.
         </p>
       </section>
 

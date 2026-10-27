@@ -50,15 +50,15 @@ function ContactForm() {
     <form className="v3-form" onSubmit={onSubmit}>
       <label className="v3-field">
         <span>Name</span>
-        <input type="text" name="name" autoComplete="name" maxLength={120} value={name} onChange={(e) => setName(e.target.value)} placeholder="Jordan Lee" required />
+        <input type="text" name="name" autoComplete="name" maxLength={120} value={name} onChange={(e) => setName(e.target.value)} placeholder="name" required />
       </label>
       <label className="v3-field">
         <span>Email</span>
-        <input type="email" name="email" autoComplete="email" maxLength={200} value={email} onChange={(e) => setEmail(e.target.value)} placeholder="jordan@email.com" required />
+        <input type="email" name="email" autoComplete="email" maxLength={200} value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email" required />
       </label>
       <label className="v3-field">
         <span>Message</span>
-        <textarea name="message" rows={4} maxLength={5000} value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Say hello, ask about something you saw here, or tell me what you're working on" required />
+        <textarea name="message" rows={4} maxLength={5000} value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Message" required />
       </label>
       <label className="v3-honeypot" aria-hidden="true">
         Website
