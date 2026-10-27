@@ -9,9 +9,9 @@ Open items before launch. Items marked **(Claude)** are build tasks; the rest ne
 
 ## 2. Content review
 - [x] Hero headline and intro (`app/Home.js`): done, option A
-- [ ] The 9 card descriptions, years and link labels (`app/data/v3.js`); add years to the Editorial and Photo portfolio cards
-- [ ] Contact form wording: "What are you working on?" and its placeholders still lean client-intake
-- [ ] Hero slideshow captions: rewrite them (`heroSlides` in `app/data/v3.js`); they're also hidden on phones, keep it that way?
+- [ ] The 9 card descriptions and years (`app/data/v3.js`); add years to the Editorial and Photo portfolio cards (link labels done: "View" / "YouTube")
+- [x] Contact form wording: now just "Message"
+- [ ] Hero slideshow captions: rewrite once the slides are final (`heroSlides` in `app/data/v3.js`); they're also hidden on phones, keep it that way?
 - [ ] Merch subtitle
 - [ ] The 13 link-preview descriptions (each page's `page.js`)
 - [ ] The World Misses You: are the rain and twinkle loop captions swapped?
@@ -28,7 +28,7 @@ Open items before launch. Items marked **(Claude)** are build tasks; the rest ne
 
 ## 4. Phone check (on the real phone, after deploying)
 - [ ] Card stack on the phone: three-bar deck pushes up smoothly mid-flick (needs iOS 26; older iOS shows one title at a time)
-- [ ] Stacked titles still cut off on phones ("MIAMI VICE COC…"): move the type and year out of the phone header?
+- [x] Stacked titles cut off on phones: type and year moved out of the phone title bar, into the card
 - [ ] Inverting header reads well over photos in Safari (fixed bar, `mix-blend-mode: difference`)
 - [ ] MENU overlay
 - [ ] Walk every page: hero, About, contact form (real send), Say hi, galleries, music, The World Misses You, Resume, merch → checkout
@@ -48,10 +48,10 @@ Open items before launch. Items marked **(Claude)** are build tasks; the rest ne
 
 ## 6. Still to build
 - [ ] YouTube and merch project page (needs Abhi's 3 favorite videos)
-- [ ] Contact form: real send test on the preview; add Cloudflare Turnstile only if spam gets through
-- [x] **(Claude)** Bring Figma up to date: done 2026-10-26 as a "current build" row of captures (desktop and phone, every page plus the stack, reveal-header and menu states); the old hand-built dark frames are marked superseded
+- [x] Contact form: real send tested and working (add Cloudflare Turnstile only if spam gets through)
+- [ ] **(Claude)** Recapture Figma: the 2026-10-26 "current build" row predates the montage-only hero, Basteleur name, fixed inverting header, phone deck, clickable cards and centered footer
 
 ## 7. Housekeeping
 - [x] Hero-name typeface: Basteleur Moonlight (self-hosted), also on the nav-bar name; trial picker removed
-- [ ] **Commit and push**: nothing since `b1691b4` is committed
-- [ ] Small decisions: About bio vs drum photo height on 1280px laptops; ultra-wide hero text position; LED experiments footage; reshoot the Say hi desk video (still shows V2)
+- [ ] **Commit and push** the latest batch (8 files uncommitted since `eb183e0`)
+- [ ] Small decisions: About bio vs drum photo height on 1280px laptops; LED experiments footage; reshoot the Say hi desk video (still shows V2)

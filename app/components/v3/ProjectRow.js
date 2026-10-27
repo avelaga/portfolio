@@ -42,6 +42,20 @@ function Img({ src, alt, className }) {
   return <FadeInOnLoad src={src} alt={alt} cls={className} />;
 }
 
+// Type and year. In the title bar on wider screens; on phones it moves into the card
+// above the description, so the bar holds the full title (v3.scss)
+function Meta({ tag, year, className = '' }) {
+  return (
+    <div className={`v3-row-meta${className}`}>
+      <span className={tag === 'Client' ? 'v3-tag--client' : undefined}>{tag}</span>
+      {year && <>
+        <span className="v3-row-meta-divider" aria-hidden="true">·</span>
+        <span>{year}</span>
+      </>}
+    </div>
+  );
+}
+
 function ProjectLink({ link, title }) {
   if (!link) return null;
   // Every card's link says the same word, so screen readers also get the card's title
@@ -98,13 +112,7 @@ export default function ProjectRow({ project, index, imageSide, onSelect }) {
         onBlur={sweep.hide}
       >
         <h3 className="v3-row-title">{title}</h3>
-        <div className="v3-row-meta">
-          <span className={tag === 'Client' ? 'v3-tag--client' : undefined}>{tag}</span>
-          {year && <>
-            <span className="v3-row-meta-divider" aria-hidden="true">·</span>
-            <span>{year}</span>
-          </>}
-        </div>
+        <Meta tag={tag} year={year} />
         {/* Last child, so the invert blends over the text */}
         <span ref={sweep.ref} className="v3-row-sweep" aria-hidden="true" />
       </header>
@@ -116,6 +124,7 @@ export default function ProjectRow({ project, index, imageSide, onSelect }) {
           </div>
         </div>
         <div className="v3-row-text">
+          <Meta tag={tag} year={year} className=" v3-row-meta--body" />
           <p className="v3-row-description">{description}</p>
           <ProjectLink link={link} title={title} />
         </div>

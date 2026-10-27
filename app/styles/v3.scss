@@ -825,6 +825,10 @@ html.v3-menu-open {
   color: $muted;
 }
 
+.v3-row-meta--body {
+  display: none;
+}
+
 .v3-row-meta-divider {
   color: $faint;
 }
@@ -1845,6 +1849,21 @@ body:has(.v3--gallery) {
   .v3-row-text {
     position: static;
   }
+}
+
+// Phones: the title bar holds just the title (so long ones don't cut off); type
+// and year move into the card, above the description
+@media (max-width: 600px) {
+  .v3-row-header .v3-row-meta {
+    display: none;
+  }
+
+  .v3-row-meta--body {
+    display: flex;
+  }
+}
+
+@media (max-width: 900px) {
 
   .v3-row-body,
   .v3-row--image-right .v3-row-body {

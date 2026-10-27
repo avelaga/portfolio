@@ -101,7 +101,7 @@ export const projects = [
     id: 'merry-jane',
     tag: 'Music',
     year: '2018–19',
-    title: 'Merry Jane and the Fondas',
+    title: 'Merry Jane & The Fondas',
     description: 'Drums. We recorded a studio EP with guitarist and songwriter Jackie Venson and played an official SXSW showcase.',
     link: { label: 'View', href: '/music/merry-jane' },
     lead: '/images/music/mjf/mjf.webp',

@@ -62,7 +62,7 @@ export default function MerchIndex({ products }) {
           />
         </a>
         <a className="v3-row-link" href={`https://www.youtube.com/watch?v=${VIDEO_ID}`} target="_blank" rel="noopener noreferrer">
-          Watch on YouTube <span aria-hidden="true">→</span>
+          Watch on YouTube <span aria-hidden="true">↗</span>
         </a>
       </section>
 
