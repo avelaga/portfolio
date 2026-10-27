@@ -8,7 +8,7 @@ import Header from './components/v3/Header';
 import Footer from './components/v3/Footer';
 import HeroSlideshow from './components/v3/HeroSlideshow';
 import ProjectRow from './components/v3/ProjectRow';
-import { heroSlides, projects } from './data/v3';
+import { heroSlides, heroSlidesMobile, projects } from './data/v3';
 
 // Title bars are transparent (the dot grid shows through), so the stack does its
 // own masking on scroll: each card's content is trimmed where it passes under a
@@ -222,7 +222,7 @@ export default function Home() {
   return (
     <div className="v3">
       <section className="v3-hero v3-hero--home">
-        <HeroSlideshow slides={heroSlides} />
+        <HeroSlideshow slides={heroSlides} phoneSlides={heroSlidesMobile} />
         <div className="v3-scrim" />
         <Header />
       </section>

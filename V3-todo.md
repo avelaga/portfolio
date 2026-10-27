@@ -6,10 +6,10 @@ The main jobs: **content**, **the Fourthwall domain move**, and **launching** (m
 
 ## 1. Content
 
-**Hero montage**
-- [ ] Pick the final 7–10 slides; note in/out times in `v3-assets/hero/notes.md`
-- [ ] Pull the supercharger-running clip
-- [ ] **(Claude)** Cut and compress clips (~5s, 1–3 MB, poster frames, 720p phone versions, phone crop centers)
+**Hero montage** (25 slides from `picks`, compressed into `public/hero/`; 13 clips trimmed to 4s, ~30 MB folder)
+- [ ] Review the order and trims; say which clips should start later than their first 4 seconds
+- [ ] Trim the set down? 25 slides is a 1 min 40 s loop; most visitors see the first 3–5
+- [ ] Vertical (9:16) phone versions: export any you want framed by hand into `v3-assets/hero/picks/mobile/`, named like the slide (e.g. `indulgent-1.mp4`, `house-at-night.webp`), then **(Claude)** runs `scripts/build-hero-mobile.py`. Phones already get an automatic centre crop of every slide (720×1280; clips total 8.6 MB vs 20 MB landscape)
 - [ ] Hero slideshow captions, once the slides are final (`heroSlides` in `app/data/v3.js`); keep them hidden on phones?
 
 **Project cards** (`app/data/v3.js`)

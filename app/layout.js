@@ -99,6 +99,15 @@ export default function RootLayout({ children }) {
     resize();
     window.addEventListener('resize', resize);
 
+    // Where the grid can be seen from: below the home montage, which covers the
+    // top of the screen (it's opaque). Rows above that are skipped. The open
+    // phone menu lifts the grid over everything, so then it's drawn in full.
+    function visibleFrom() {
+      if (document.documentElement.classList.contains('v3-menu-grid')) return 0;
+      const hero = document.querySelector('.v3-hero--home');
+      return hero ? Math.max(0, hero.getBoundingClientRect().bottom) : 0;
+    }
+
     function draw(now) {
       animId = requestAnimationFrame(draw);
       if (document.hidden || now - lastTime < interval) return;
@@ -106,7 +115,10 @@ export default function RootLayout({ children }) {
       // Transparent, so each page's own background shows through
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = dotColorRef.current;
+      // Dots hang up to ~30px below their row, so start one row early
+      const fromY = visibleFrom() - spacing;
       for (let y = margin; y <= canvas.height - margin; y += spacing) {
+        if (y < fromY) continue;
         for (let x = margin; x <= canvas.width - margin; x += spacing) {
           const n = noise3d(x * 0.01, y * 0.01, t);
           const dotSize = n * 31 - 1;
@@ -137,11 +149,10 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+        {/* The name in the nav is the first text on every page */}
+        <link rel="preload" href="/fonts/Basteleur-Moonlight.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/Berthold-Akzidenz-Grotesk-BE-Li.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/NimbusSanL-Bol.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         <meta name="twitter:card" content="summary_large_image" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-XGMDCDEFQ3"

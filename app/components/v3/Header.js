@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { elsewhereLinks, heroSlides } from '../../data/v3';
+import { elsewhereLinks, heroSlidesMobile } from '../../data/v3';
 import { scrollToY } from '../../lib/scroll';
 
 const NAV = [
@@ -102,8 +102,9 @@ export default function Header({ active, extra }) {
   );
 }
 
-// Behind the menu: a still from the hero montage (a photo, or a clip's poster frame)
-const MENU_STILLS = heroSlides.map((slide) => slide.poster || slide.src);
+// Behind the menu: a still from the hero montage (a photo, or a clip's poster
+// frame), from the phone set, since the menu only appears on phones
+const MENU_STILLS = heroSlidesMobile.map((slide) => slide.poster || slide.src);
 
 // V2's mobile menu, rebuilt for V3: big stacked italic links between lines, the
 // current page inverted, the elsewhere links small underneath

@@ -6,11 +6,13 @@ import Footer from '../components/v3/Footer';
 
 const RESUME_PDF = '/Abhi%20Velaga%20Resume.pdf';
 
-export default function Resume() {
+// fontClass: the resume sheet's Inter, set up in page.js (a server file, where
+// Next's font loader runs)
+export default function Resume({ fontClass = '' }) {
   return (
     // V3 page around V2's resume sheet: the sheet stays white so it reads (and
     // prints) like the PDF, sitting on the dark base like a document on a desk
-    <div className={`v3 ${styles.page}`}>
+    <div className={`v3 ${styles.page} ${fontClass}`}>
       <Header />
       <div className={styles.toolbar}>
         <div className="v3-label">Resume</div>

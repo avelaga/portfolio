@@ -573,6 +573,11 @@ html.v3-menu-open {
     object-fit: cover;
     display: block;
   }
+
+  // The first-moment still (HeroSlideshow.js) sits in a <picture>
+  picture {
+    display: contents;
+  }
 }
 
 .v3-slideshow-controls {

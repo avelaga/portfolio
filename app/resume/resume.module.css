@@ -4,7 +4,7 @@
   padding: 40px 48px 52px;
   background: #ffffff;
   font-size: 14px;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   font-weight: 400;
   color: #0a0a0a;
   line-height: 1.6;

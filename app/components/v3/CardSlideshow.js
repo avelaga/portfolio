@@ -13,6 +13,22 @@ export default function CardSlideshow({ photos, title }) {
   const [active, setActive] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [canHover, setCanHover] = useState(true);
+  // The first photo loads like any image; the rest only once the card is near
+  // the screen, so cards further down don't download their slideshows upfront
+  const [near, setNear] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setNear(true);
+        observer.disconnect();
+      },
+      { rootMargin: '300px 0px' },
+    );
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -46,7 +62,7 @@ export default function CardSlideshow({ photos, title }) {
 
   return (
     <div ref={ref} className="v3-card-slides" {...hoverProps}>
-      {photos.map((src, i) => (
+      {photos.map((src, i) => (i > 0 && !near) ? null : (
         <img
           key={src}
           src={src}

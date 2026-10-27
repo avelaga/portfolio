@@ -1,5 +1,10 @@
+import { Inter } from 'next/font/google';
 import Resume from './Resume';
 import { pageMeta } from '../lib/meta';
+
+// Only the resume sheet uses Inter, so it loads here (self-hosted by Next) rather
+// than on every page
+const inter = Inter({ subsets: ['latin'], weight: ['300', '400', '500', '600'], variable: '--font-inter' });
 
 export const metadata = pageMeta({
   title: 'Resume',
@@ -9,4 +14,6 @@ export const metadata = pageMeta({
   path: '/resume',
 });
 
-export default Resume;
+export default function ResumePage() {
+  return <Resume fontClass={inter.variable} />;
+}

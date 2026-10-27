@@ -22,18 +22,53 @@ export const elsewhereLinks = [
   { label: 'Resume', href: '/resume', internal: true },
 ];
 
-// Draft order from the handoff: car → film photo → music → LED, car clips spread out.
-// `focus` is the object-position used when the viewport crops the slide.
+// Abhi's picks (v3-assets/hero/picks, not shipped), compressed into public/hero/:
+// clips trimmed to their first 4s (the slide length, SLIDE_MS) with a poster
+// frame each, photos copied as they are. The site only reads this list, not the
+// folder, so changes to the picks need a re-compress and an update here.
+// Ordered to alternate car → film photo → music → LED, so no two of a kind run
+// together. Captions are drafts for Abhi's review. `project` is the card each
+// caption links to; `focus` is the object-position used when the slide is cropped.
 export const heroSlides = [
-  { type: 'video', src: '/videos/hero/metalwork-sparks.mp4', poster: '/videos/hero/metalwork-sparks.jpg', caption: 'Metalwork, car rebuild', project: 'youtube', focus: '40% 50%' },
-  { type: 'image', src: '/images/photos/portfolio/p15.webp', caption: 'House at night, film', project: 'portfolio', focus: '70% 50%' },
-  { type: 'video', src: '/videos/hero/indulgent-live.mp4', poster: '/videos/hero/indulgent-live.jpg', caption: 'Indulgent, live at Kick Butt Coffee', project: 'indulgent', focus: '60% 50%' },
-  { type: 'video', src: '/videos/hero/led-installation.mp4', poster: '/videos/hero/led-installation.jpg', caption: 'The World Misses You, Dadalab', project: 'the-world-misses-you', focus: '55% 50%' },
-  { type: 'image', src: '/images/photos/portfolio/p1.webp', caption: "Lord's boxing gym, film", project: 'portfolio', focus: '50% 50%' },
-  { type: 'video', src: '/videos/hero/drums-slowmo.mp4', poster: '/videos/hero/drums-slowmo.jpg', caption: 'Shivering Demons, drums', project: 'live-drumming', focus: '70% 50%' },
-  { type: 'video', src: '/videos/hero/carport-sparks.mp4', poster: '/videos/hero/carport-sparks.jpg', caption: 'Welding under the carport', project: 'youtube', focus: '55% 50%' },
-  { type: 'image', src: '/images/photos/portfolio/p9.webp', caption: 'Miami Vice Cocaine Dream', project: 'miami-vice', focus: '60% 50%' },
+  { type: 'video', src: '/hero/cutting-under-carport.mp4', poster: '/hero/cutting-under-carport.jpg', caption: 'Cutting under the carport', project: 'youtube', focus: '50% 50%' },
+  { type: 'image', src: '/hero/house-at-night.webp', caption: 'House at night, film', project: 'portfolio', focus: '70% 50%' },
+  { type: 'video', src: '/hero/indulgent-1.mp4', poster: '/hero/indulgent-1.jpg', caption: 'Indulgent, live', project: 'indulgent', focus: '50% 50%' },
+  { type: 'video', src: '/hero/led-twinkle-walk.mp4', poster: '/hero/led-twinkle-walk.jpg', caption: 'The World Misses You, twinkle', project: 'the-world-misses-you', focus: '50% 50%' },
+  { type: 'image', src: '/hero/miami3.webp', caption: 'Miami Vice Cocaine Dream', project: 'miami-vice', focus: '50% 50%' },
+  { type: 'video', src: '/hero/engine-on-stand.mp4', poster: '/hero/engine-on-stand.jpg', caption: 'Engine on the stand', project: 'youtube', focus: '50% 50%' },
+  { type: 'image', src: '/hero/lords-boxing-gym.webp', caption: 'Lord\'s boxing gym, film', project: 'portfolio', focus: '50% 50%' },
+  { type: 'video', src: '/hero/shivering-demons-1.mp4', poster: '/hero/shivering-demons-1.jpg', caption: 'Shivering Demons, drums', project: 'live-drumming', focus: '50% 50%' },
+  { type: 'image', src: '/hero/p17.webp', caption: 'Film portfolio', project: 'portfolio', focus: '50% 50%' },
+  { type: 'video', src: '/hero/welding-under-carport.mp4', poster: '/hero/welding-under-carport.jpg', caption: 'Welding under the carport', project: 'youtube', focus: '50% 50%' },
+  { type: 'image', src: '/hero/red-room-guitar.webp', caption: 'Red room, film', project: 'portfolio', focus: '50% 50%' },
+  { type: 'video', src: '/hero/led-rain-walk.mp4', poster: '/hero/led-rain-walk.jpg', caption: 'The World Misses You, rain', project: 'the-world-misses-you', focus: '50% 50%' },
+  { type: 'image', src: '/hero/editorial-3.webp', caption: 'Editorial', project: 'editorial', focus: '50% 40%' },
+  { type: 'video', src: '/hero/indulgent-2.mp4', poster: '/hero/indulgent-2.jpg', caption: 'Indulgent, live', project: 'indulgent', focus: '50% 50%' },
+  { type: 'image', src: '/hero/uservoid2.webp', caption: 'User Void', project: 'user-void', focus: '50% 50%' },
+  { type: 'video', src: '/hero/engine-work.mp4', poster: '/hero/engine-work.jpg', caption: 'Engine work', project: 'youtube', focus: '50% 50%' },
+  { type: 'image', src: '/hero/blue-pink-room-led.webp', caption: 'Blue and pink room, film', project: 'portfolio', focus: '50% 50%' },
+  { type: 'video', src: '/hero/shivering-demons-2.mp4', poster: '/hero/shivering-demons-2.jpg', caption: 'Shivering Demons, drums', project: 'live-drumming', focus: '50% 50%' },
+  { type: 'image', src: '/hero/miami4.webp', caption: 'Miami Vice Cocaine Dream', project: 'miami-vice', focus: '50% 50%' },
+  { type: 'video', src: '/hero/miata-slo-mo.mp4', poster: '/hero/miata-slo-mo.jpg', caption: 'The Miata', project: 'youtube', focus: '50% 50%' },
+  { type: 'image', src: '/hero/miami-vice-kitchen.webp', caption: 'Miami Vice Cocaine Dream', project: 'miami-vice', focus: '50% 50%' },
+  { type: 'video', src: '/hero/led-fog-silhouette.mp4', poster: '/hero/led-fog-silhouette.jpg', caption: 'The World Misses You', project: 'the-world-misses-you', focus: '50% 50%' },
+  { type: 'image', src: '/hero/red-bedroom-led-strand.webp', caption: 'Red bedroom, film', project: 'portfolio', focus: '50% 50%' },
+  { type: 'video', src: '/hero/engine-pull-night.mp4', poster: '/hero/engine-pull-night.jpg', caption: 'Pulling the engine', project: 'youtube', focus: '50% 50%' },
+  { type: 'image', src: '/hero/p6.webp', caption: 'Film portfolio', project: 'portfolio', focus: '50% 50%' },
 ];
+
+// Phones held upright get vertical (9:16) versions of the same slides, built by
+// scripts/build-hero-mobile.py into public/hero/mobile/: hand-made vertical
+// exports from v3-assets/hero/picks/mobile/ where they exist (same base name),
+// otherwise an automatic crop of the landscape file around its `focus`.
+// For a completely different phone set, replace this with its own list.
+export const heroSlidesMobile = heroSlides.map((slide) => {
+  const name = slide.src.split('/').pop();
+  const base = name.replace(/\.[^.]+$/, '');
+  return slide.type === 'video'
+    ? { ...slide, src: `/hero/mobile/${base}.mp4`, poster: `/hero/mobile/${base}.jpg`, focus: '50% 50%' }
+    : { ...slide, src: `/hero/mobile/${base}.webp`, focus: '50% 50%' };
+});
 
 export const projects = [
   {
@@ -65,7 +100,7 @@ export const projects = [
     description: "A channel documenting a totaled Miata's second life, from cutting the car open and pulling the engine to a supercharger build. Shot and edited myself, with a merch line to match.",
     link: { label: 'YouTube', href: 'https://www.youtube.com/@abhi.velaga/', external: true },
     lead: '/images/rebuildthumbsq.webp',
-    images: ['/images/wrecked.webp', '/images/engine.webp', '/videos/hero/engine-pull.jpg'],
+    images: ['/images/wrecked.webp', '/images/engine.webp', '/images/engine-pull.jpg'],
   },
   {
     id: 'indulgent',
