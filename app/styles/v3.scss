@@ -696,6 +696,16 @@ html.v3-menu-open {
 }
 
 @supports (animation-timeline: scroll()) {
+  // Wider screens: bars sized to the window (Home.js fits the slot count), and each
+  // card's photo capped so all of it fits below a full deck
+  .v3-featured {
+    --row-header: clamp(40px, 6.5svh, 58px);
+  }
+
+  .v3-featured .v3-card-slides {
+    max-height: calc(100svh - var(--stack-top, 0px) - (var(--stack-slots) + 1) * var(--row-header) - 48px);
+  }
+
   @media (max-width: 600px) {
     // (doubled class: beats the general phone sizing further down)
     .v3-featured.v3-featured {
@@ -767,56 +777,59 @@ html.v3-menu-open {
   z-index: 1;
   margin-top: calc((var(--stack-slots) - min(var(--i), var(--stack-slots))) * var(--row-header) * -1);
   display: grid;
-  grid-template-columns: minmax(0, 13fr) minmax(0, 11fr);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   gap: 40px;
   padding: 4px 0 40px;
 }
 
 .v3-row--image-right .v3-row-body {
-  grid-template-columns: minmax(0, 11fr) minmax(0, 13fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
 
   .v3-row-media {
     order: 2;
   }
 }
 
-.v3-row-media {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+// Desktop hover: a solid white block, hidden right behind the photo, slides out
+// down and to the right, so the photo pops off the page (a hard offset, not a
+// soft shadow). Mouse only; the slideshow also plays while hovered.
+// Drawn as a hard shadow on the photo itself, so it always matches its size.
+@media (hover: hover) and (pointer: fine) {
+  .v3-card-slides {
+    box-shadow: 0 0 0 $text;
+    // Slow and symmetric, like michaelkolesidis.com's project images
+    transition: box-shadow 0.5s ease-in-out;
+
+    &:hover {
+      box-shadow: 10px 10px 0 $text;
+    }
+  }
 }
 
-.v3-row-lead,
-.v3-row-thumb {
-  display: block;
+// One large photo per card (CardSlideshow.js): two thirds of the card, the text
+// in the remaining third; the photos crossfade into each other
+.v3-card-slides {
+  position: relative;
+  overflow: hidden;
+  // Full column width even when its height is capped (the photos crop instead)
   width: 100%;
-  object-fit: cover;
-  background: $surface;
-}
-
-.v3-row-lead {
   aspect-ratio: 3 / 2;
-}
+  max-height: 78svh;
+  background: $surface;
 
-.v3-row-thumbs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.6s ease;
 
-.v3-row-thumb {
-  aspect-ratio: 1;
-}
-
-.v3-img-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px dashed $line;
-  color: $faint;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+    &.is-active {
+      opacity: 1;
+    }
+  }
 }
 
 .v3-row-text {
@@ -917,6 +930,16 @@ html.v3-menu-open {
 
 // Footer
 
+// One rhythm above the footer: whatever section ends a page keeps at most 40px
+// of space below it, so the gap to the footer is about 60px on every page (the
+// centered Say hi and 404 layouts, and the card stack and galleries, which end
+// on their own spacing, are left alone)
+.v3 > :has(+ .v3-footer):not(.v3-hero--center, .v3-not-found, .v3-featured, .v3-gallery),
+.v3 > :has(+ .v3-merch-backdrop + .v3-footer) {
+  padding-bottom: 40px;
+  margin-bottom: 0;
+}
+
 // No dividing line: spacing alone separates it from the page, and the links sit
 // centered as the page's closing mark (the merch policy links centered beneath)
 .v3-footer {
@@ -925,9 +948,9 @@ html.v3-menu-open {
   align-items: center;
   gap: 14px;
   margin: 0 $gutter;
-  // The font's line box adds 4px above the capitals and 6px below, so this lands
-  // 36px of space from the capitals to the page edge
-  padding: 32px 0 30px;
+  // The font's line box adds 4px above the capitals and 6px below, so the bottom
+  // lands 36px of space from the capitals to the page edge
+  padding: 20px 0 30px;
   font-family: $font-wide;
   font-size: 12px;
   color: $faint;
@@ -1036,12 +1059,6 @@ html.v3-menu-open {
   }
 }
 
-// Same type as the bio above; sits in row 2 under it, same column
-.v3-about-bio--career {
-  grid-area: 2 / 7 / 3 / 10;
-  align-self: start;
-}
-
 .v3-about-drums {
   grid-area: 1 / 10 / 2 / 13;
   align-self: end;
@@ -1060,19 +1077,6 @@ html.v3-menu-open {
   gap: 8px;
 }
 
-.v3-two-col {
-  // Same as the footer: margin keeps the section's top line inside the column
-  margin: 0 $gutter;
-  padding-left: 0;
-  padding-right: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 48px;
-  padding-top: 56px;
-  padding-bottom: 72px;
-  border-top: 1px solid $line;
-}
-
 // About: influences in the grid, set exactly like the link list they replaced
 // (body font, 12px, tight, muted, one per line)
 .v3-influence-list {
@@ -1084,30 +1088,23 @@ html.v3-menu-open {
   color: $muted;
 }
 
-.v3-contact {
-  scroll-margin-top: 24px;
-  align-items: center;
-}
-
-.v3-contact-copy {
+.v3-about-contact {
+  // Row 2, beside the portrait and under the bio, in the bio's column
+  grid-area: 2 / 7 / 3 / 10;
+  align-self: start;
+  scroll-margin-top: 96px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-
-.v3-contact-line {
-  font-size: clamp(28px, 3.2vw, 40px);
-  font-family: $font-display;
-  font-weight: normal;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
+  gap: 14px;
+  font-size: 14px;
+  line-height: 1.45;
 }
 
 .v3-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 18px;
+  gap: 12px;
 }
 
 // Off-screen rather than display:none, which some bots skip
@@ -1125,28 +1122,27 @@ html.v3-menu-open {
 }
 
 .v3-form-sent {
-  font-family: $font-display;
-  font-size: clamp(22px, 2.4vw, 30px);
+  color: $text;
 }
 
 .v3-field {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   width: 100%;
-  font-size: 13px;
+  font-size: 12px;
   color: $muted;
 
   input,
   textarea {
     width: 100%;
-    padding: 12px 14px;
+    padding: 8px 10px;
     border: 1px solid $line;
     border-radius: 0;
     background: $surface;
     color: $text;
     font: inherit;
-    font-size: 16px;
+    font-size: 14px;
     resize: vertical;
 
     &::placeholder {
@@ -1160,8 +1156,16 @@ html.v3-menu-open {
   }
 }
 
+// iOS zooms the page into any field under 16px when it's tapped
+@media (hover: none) and (pointer: coarse) {
+  .v3-field input,
+  .v3-field textarea {
+    font-size: 16px;
+  }
+}
+
 .v3-form-note {
-  font-size: 13px;
+  font-size: 12px;
   color: $muted;
 
   a {
@@ -1179,12 +1183,19 @@ html.v3-menu-open {
   justify-content: center;
 }
 
+// Say hi has plenty of content, so it takes its natural height instead of a full
+// centered screen, and ends with the same ~60px rhythm above the footer as the
+// other pages (the status line under the button holds part of it)
+.v3-hero--center:has(.v3-hi) {
+  min-height: 0;
+}
+
 .v3-hi {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 28px;
-  padding: 140px $gutter 100px;
+  padding: 140px $gutter 0;
   text-align: center;
 
   .v3-lede {
@@ -1909,10 +1920,6 @@ body:has(.v3--gallery) {
     text-align: left;
   }
 
-  .v3-two-col {
-    grid-template-columns: 1fr;
-  }
-
   .v3-merch-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2012,6 +2019,12 @@ body:has(.v3--gallery) {
     margin-right: -$gutter-mobile;
   }
 
+  // Phones: the card's photo runs full width and a little taller, text below
+  .v3-card-slides {
+    aspect-ratio: 4 / 5;
+    max-height: none;
+  }
+
   .v3-block-wide,
   .v3-product-main,
   .v3-about-live,
@@ -2078,8 +2091,7 @@ body:has(.v3--gallery) {
   }
 
   // Lines that must stay inside the column use margin for the gutter
-  .v3-footer,
-  .v3-two-col {
+  .v3-footer {
     margin-left: $gutter-mobile;
     margin-right: $gutter-mobile;
     padding-left: 0;
@@ -2088,6 +2100,11 @@ body:has(.v3--gallery) {
 
   // Footer links spread across the full width with even gaps, edge to edge, on
   // one line (the merch policy links are too long for one, so they just wrap)
+  // Galleries end flush on their last photo on phones; give the footer room
+  .v3-gallery {
+    padding-bottom: 36px;
+  }
+
   .v3-footer-links {
     width: 100%;
     flex-wrap: nowrap;
@@ -2108,9 +2125,5 @@ body:has(.v3--gallery) {
     font-size: 16px;
   }
 
-  .v3-row-thumbs {
-    gap: 8px;
-  }
 
 }
-

@@ -9,8 +9,9 @@ Open items before launch. Items marked **(Claude)** are build tasks; the rest ne
 
 ## 2. Content review
 - [x] Hero headline and intro (`app/Home.js`): done, option A
+- [ ] Choose each card's slideshow photos (`lead` + `images` in `app/data/v3.js`): pick for the card's shape (3:2 on desktop, 4:5 on phones, so landscape shots that survive a taller crop; square album covers lose their edges) and for how well they feature the project; any number of photos works
 - [ ] The 9 card descriptions and years (`app/data/v3.js`); add years to the Editorial and Photo portfolio cards (link labels done: "View" / "YouTube")
-- [x] Contact form wording: now just "Message"
+- [x] Contact form wording: label "Message"; placeholder "Say hello, ask about something you saw here, or tell me what you're working on" (email placeholder no longer a studio address)
 - [ ] Hero slideshow captions: rewrite once the slides are final (`heroSlides` in `app/data/v3.js`); they're also hidden on phones, keep it that way?
 - [ ] Merch subtitle
 - [ ] The 13 link-preview descriptions (each page's `page.js`)
@@ -22,7 +23,7 @@ Open items before launch. Items marked **(Claude)** are build tasks; the rest ne
 - [ ] Gmail → Settings → Accounts → "Send mail as" → add `hello@abhi.work`
       SMTP `smtp.resend.com`, port 465 (SSL), user `resend`, password: a dedicated Resend API key
 - [ ] Confirm the verification code (arrives through the forward)
-- [ ] **(Claude)** Swap the site's visible email to `hello@abhi.work` (`EMAIL` in `app/data/v3.js`, resume page)
+- [ ] **(Claude)** Swap the site's visible email to `hello@abhi.work` (`EMAIL` in `app/data/v3.js`; now only shown on the resume page)
 - [ ] Update the resume PDF and re-export
 - [ ] Keep login emails (financial, YouTube) off anything public; 2FA (authenticator app) on financial and YouTube accounts
 
@@ -49,10 +50,12 @@ Open items before launch. Items marked **(Claude)** are build tasks; the rest ne
 ## 6. Still to build
 - [ ] YouTube and merch project page (needs Abhi's 3 favorite videos)
 - [x] Contact form: real send tested and working (add Cloudflare Turnstile only if spam gets through)
-- [ ] **(Claude)** Recapture Figma: the 2026-10-26 "current build" row predates the montage-only hero, Basteleur name, fixed inverting header, phone deck, clickable cards and centered footer
+- [ ] **(Claude)** Recapture Figma: the 2026-10-26 "current build" row predates the montage-only hero, Basteleur name, fixed inverting header, the deck (phone and desktop), the photo-beside-text cards with hover pop, the fluid-color menu, the centered footer, and the About page with the form in the grid
 
 ## 7. Housekeeping
+- [x] Accent color: decided against; the interface stays grayscale on dark (trial removed)
+- [x] Project cards: one large photo beside the text, hover slideshow (always cycling on phones); trial switch and the other styles removed
 - [x] Phone menu: fluid color (menu2); switch and the other two styles removed
 - [x] Hero-name typeface: Basteleur Moonlight (self-hosted), also on the nav-bar name; trial picker removed
-- [ ] **Commit and push** the latest batch (8 files uncommitted since `eb183e0`)
-- [ ] Small decisions: About bio vs drum photo height on 1280px laptops; LED experiments footage; reshoot the Say hi desk video (still shows V2)
+- [ ] **Commit and push** the latest batch (7 files uncommitted since `c4b02a0`)
+- [ ] Small decisions: LED experiments footage; reshoot the Say hi desk video (still shows V2)

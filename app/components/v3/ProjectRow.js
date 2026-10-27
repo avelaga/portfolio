@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import Link from 'next/link';
-import FadeInOnLoad from '../FadeInOnLoad';
+import CardSlideshow from './CardSlideshow';
 
 // V1's menu curve (CSS 'ease'): a gentle start, a glide through the middle, a soft stop
 const SWEEP_EASE = 'ease';
@@ -34,12 +34,6 @@ function useSweep() {
   };
 
   return { ref, show: () => to(1), hide: () => to(0) };
-}
-
-function Img({ src, alt, className }) {
-  if (!src) return <div className={`${className} v3-img-placeholder`}><span>In progress</span></div>;
-  // V2's per-image fade-in once each photo loads
-  return <FadeInOnLoad src={src} alt={alt} cls={className} />;
 }
 
 // Type and year. In the title bar on wider screens; on phones it moves into the card
@@ -118,10 +112,8 @@ export default function ProjectRow({ project, index, imageSide, onSelect }) {
       </header>
       <div className={`v3-row-body${link ? ' v3-row-body--link' : ''}`} onClick={link ? openCardLink : undefined}>
         <div className="v3-row-media">
-          <Img src={lead} alt={title} className="v3-row-lead" />
-          <div className="v3-row-thumbs">
-            {images.map((src, i) => <Img key={i} src={src} alt={`${title} ${i + 2}`} className="v3-row-thumb" />)}
-          </div>
+          {/* One large photo that steps through the project's photos */}
+          <CardSlideshow photos={[lead, ...images].filter(Boolean)} title={title} />
         </div>
         <div className="v3-row-text">
           <Meta tag={tag} year={year} className=" v3-row-meta--body" />

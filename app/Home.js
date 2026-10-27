@@ -71,12 +71,15 @@ function useStackFocus(sectionRef) {
   }, [sectionRef]);
 }
 
-// Phones: the stack holds three bars. Each new card's bar slides into the bottom
+// The stack is a deck with a few slots: three on phones, and on wider screens as
+// many as fit in about 30% of the window, so the card being read always has room
+// below it. Once the deck is full, each new card's bar slides into the bottom
 // slot and pushes the deck up one; the top bar slides under the strip behind the
 // header while its title shrinks and fades (the bar itself stays solid, so the
 // card beneath never shows through). Built as scroll-driven CSS animations (keyframes measured here from the
 // layout), so the deck moves with the scroll itself, even mid-flick on iOS.
-// Without scroll-driven animation support, phones keep the full stack.
+// Without scroll-driven animation support it stays a full stack of every card
+// (phones: one title at a time, v3.scss).
 function useStackDeck(sectionRef) {
   useEffect(() => {
     if (!CSS.supports('animation-timeline: scroll()')) return;
@@ -87,13 +90,19 @@ function useStackDeck(sectionRef) {
 
     const build = () => {
       frame = 0;
-      if (!phone.matches) {
-        sheet.textContent = '';
-        return;
+      const headers = [...section.querySelectorAll('.v3-row-header')];
+      // Slots: set in v3.scss for phones; on wider screens fitted to the window
+      if (phone.matches) {
+        section.style.removeProperty('--stack-slots');
+      } else {
+        const fit = Math.max(2, Math.floor((window.innerHeight * 0.3) / headers[0].offsetHeight));
+        const slots = String(Math.min(fit, headers.length) - 1);
+        if (section.style.getPropertyValue('--stack-slots') !== slots) {
+          section.style.setProperty('--stack-slots', slots);
+        }
       }
       // Measure the bars where they sit in the page, not stuck or animated
       section.classList.add('is-measuring');
-      const headers = [...section.querySelectorAll('.v3-row-header')];
       const css = getComputedStyle(section);
       const stackTop = parseFloat(css.getPropertyValue('--stack-top')) || 0;
       const slots = parseInt(css.getPropertyValue('--stack-slots'), 10);
@@ -124,7 +133,8 @@ function useStackDeck(sectionRef) {
         const at = (p) => `${(((p.at - start) / (end - start)) * 100).toFixed(3)}%`;
         const bar = `#${CSS.escape(el.parentElement.id)} > .v3-row-header`;
         const timing = `linear both; animation-timeline: scroll(root); animation-range: ${start}px ${end}px`;
-        rules.push(`@keyframes v3-deck-${i} { ${points.map((p) => `${at(p)} { transform: translateY(${p.y}px); }`).join(' ')} }`);
+        // The bar's own dotted line fades with its title, or it'd linger at the top
+        rules.push(`@keyframes v3-deck-${i} { ${points.map((p) => `${at(p)} { transform: translateY(${p.y}px); border-top-color: ${p.o ? 'rgba(255, 255, 255, 0.55)' : 'transparent'}; }`).join(' ')} }`);
         rules.push(`@keyframes v3-deck-${i}-text { ${points.map((p) => `${at(p)} { transform: scale(${p.s}); opacity: ${p.o}; }`).join(' ')} }`);
         rules.push(`${bar} { animation: v3-deck-${i} ${timing}; }`);
         // (not the hover sweep, which has its own transform)
@@ -143,11 +153,14 @@ function useStackDeck(sectionRef) {
     // Card heights change as photos load, which moves every arrival point
     const observer = new ResizeObserver(schedule);
     observer.observe(section);
+    // A taller or shorter window changes how many slots fit
+    window.addEventListener('resize', schedule);
     phone.addEventListener('change', schedule);
     schedule();
     return () => {
       cancelAnimationFrame(frame);
       observer.disconnect();
+      window.removeEventListener('resize', schedule);
       phone.removeEventListener('change', schedule);
       sheet.remove();
     };
