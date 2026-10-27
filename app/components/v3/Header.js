@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { elsewhereLinks } from '../../data/v3';
+import { elsewhereLinks, heroSlides } from '../../data/v3';
 import { scrollToY } from '../../lib/scroll';
 
 const NAV = [
@@ -21,23 +21,31 @@ export default function Header({ active, extra }) {
   useEffect(() => setMounted(true), []);
   useEffect(() => setOpen(false), [pathname]);
 
-  // While the menu is open: no page scrolling, Escape closes it, and the page's dot
-  // grid is lifted above the menu's backdrop (v3.scss)
-  const gridTimer = useRef(0);
+  // While the menu is open: no page scrolling, Escape closes it
   useEffect(() => {
     if (!open) return;
     const root = document.documentElement;
     window.lenis?.stop();
-    clearTimeout(gridTimer.current);
-    root.classList.add('v3-menu-open', 'v3-menu-grid');
+    root.classList.add('v3-menu-open');
     const onKey = (e) => e.key === 'Escape' && setOpen(false);
     window.addEventListener('keydown', onKey);
     return () => {
       window.lenis?.start();
       root.classList.remove('v3-menu-open');
       window.removeEventListener('keydown', onKey);
-      // The dots stay lifted until the backdrop has faded out (0.4s), or they'd dim
-      // under it on the way out and then pop back
+    };
+  }, [open]);
+
+  // The page's dot grid is lifted above the menu's backdrop while it's open (v3.scss).
+  // It stays lifted until the backdrop has faded out (0.4s), or the dots would dim
+  // under it on the way out and then pop back.
+  const gridTimer = useRef(0);
+  useEffect(() => {
+    if (!open) return;
+    const root = document.documentElement;
+    clearTimeout(gridTimer.current);
+    root.classList.add('v3-menu-grid');
+    return () => {
       gridTimer.current = setTimeout(() => root.classList.remove('v3-menu-grid'), 400);
     };
   }, [open]);
@@ -81,7 +89,12 @@ export default function Header({ active, extra }) {
               inverts against whatever passes beneath it. Portaled to <body> so the
               blend sees the whole page */}
           <div className="v3-fixed">{bar()}</div>
-          <MobileMenu active={active} open={open} close={() => setOpen(false)} toTop={toTop} />
+          <MobileMenu
+            active={active}
+            open={open}
+            close={() => setOpen(false)}
+            toTop={toTop}
+          />
         </>,
         document.body,
       )}
@@ -89,14 +102,38 @@ export default function Header({ active, extra }) {
   );
 }
 
+// Behind the menu: a still from the hero montage (a photo, or a clip's poster frame)
+const MENU_STILLS = heroSlides.map((slide) => slide.poster || slide.src);
+
 // V2's mobile menu, rebuilt for V3: big stacked italic links between lines, the
 // current page inverted, the elsewhere links small underneath
 function MobileMenu({ active, open, close, toTop }) {
+  // A different still behind the menu each time it opens
+  const [still, setStill] = useState(null);
+  const [stillLoaded, setStillLoaded] = useState(false);
+  useEffect(() => {
+    if (!open) return;
+    setStillLoaded(false);
+    setStill((prev) => {
+      const others = MENU_STILLS.filter((s) => s !== prev);
+      return others[Math.floor(Math.random() * others.length)];
+    });
+  }, [open]);
+
   return (
     <>
-      {/* Blurred backdrop on its own layer, so the page's dot grid can be lifted
-          between it and the links while the menu is open (v3.scss) */}
-      <div className={`v3-menu-backdrop${open ? ' is-open' : ''}`} aria-hidden="true" />
+      {/* Backdrop on its own layer under the links (and the lifted dot grid) */}
+      <div className={`v3-menu-backdrop${open ? ' is-open' : ''}`} aria-hidden="true">
+        {still && (
+          <img
+            key={still}
+            src={still}
+            alt=""
+            className={`v3-menu-still${stillLoaded ? ' is-loaded' : ''}`}
+            onLoad={() => setStillLoaded(true)}
+          />
+        )}
+      </div>
       <div className={`v3-menu${open ? ' is-open' : ''}`} aria-hidden={!open} inert={!open}>
         <div className="v3-menu-bar">
           <Link href="/" className="v3-logo" onClick={(e) => { close(); toTop(e); }}>Abhi Velaga</Link>

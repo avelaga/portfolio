@@ -52,6 +52,7 @@ Open items before launch. Items marked **(Claude)** are build tasks; the rest ne
 - [ ] **(Claude)** Recapture Figma: the 2026-10-26 "current build" row predates the montage-only hero, Basteleur name, fixed inverting header, phone deck, clickable cards and centered footer
 
 ## 7. Housekeeping
+- [x] Phone menu: fluid color (menu2); switch and the other two styles removed
 - [x] Hero-name typeface: Basteleur Moonlight (self-hosted), also on the nav-bar name; trial picker removed
 - [ ] **Commit and push** the latest batch (8 files uncommitted since `eb183e0`)
 - [ ] Small decisions: About bio vs drum photo height on 1280px laptops; LED experiments footage; reshoot the Say hi desk video (still shows V2)
