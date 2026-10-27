@@ -339,7 +339,7 @@ html.v3-menu-open {
     backdrop-filter: blur(14px);
   }
 
-  html.v3-menu-open .v3-grid {
+  html.v3-menu-grid .v3-grid {
     z-index: 60 !important;
   }
 
@@ -443,7 +443,10 @@ html.v3-menu-open {
 }
 
 .v3-hero--home {
-  min-height: max(100svh, 640px);
+  // Slightly shorter than the screen, so the intro sentence peeks in at the
+  // bottom and says there's more below (no scroll arrow)
+  --peek: 104px;
+  min-height: max(calc(100svh - var(--peek)), 560px);
   display: flex;
   align-items: flex-end;
   background: #000;
@@ -506,7 +509,8 @@ html.v3-menu-open {
 
 // Beneath the montage, before the work (.v3-section sets only the side padding)
 .v3-section.v3-home-intro {
-  padding-top: 88px;
+  // Close enough to the montage that its first line shows in the peek
+  padding-top: 44px;
   padding-bottom: 72px;
 
   .v3-intro-line {
@@ -870,24 +874,36 @@ html.v3-menu-open {
   text-decoration: underline;
   text-decoration-color: rgba(255, 255, 255, 0.35);
   text-underline-offset: 5px;
+  transition: text-decoration-color 0.7s ease;
 
   &:hover {
     text-decoration-color: $text;
   }
 }
 
+// The whole card body is clickable (ProjectRow.js); hovering anywhere on it
+// brightens the card's link, so it's clear where a click goes
+.v3-row-body--link {
+  cursor: pointer;
+
+  &:hover .v3-row-link {
+    text-decoration-color: $text;
+  }
+}
+
 // Footer
 
+// No dividing line: spacing alone separates it from the page, and the links sit
+// centered as the page's closing mark (the merch policy links centered beneath)
 .v3-footer {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  // Gutter as margin, not padding, so the top line stays inside the content column
+  gap: 14px;
   margin: 0 $gutter;
-  padding: 28px 0 36px;
-  border-top: 1px solid $line;
+  // The font's line box adds 4px above the capitals and 6px below, so this lands
+  // 36px of space from the capitals to the page edge
+  padding: 32px 0 30px;
   font-family: $font-wide;
   font-size: 12px;
   color: $faint;
@@ -896,6 +912,7 @@ html.v3-menu-open {
 .v3-footer-extra {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 8px 20px;
   font-family: $font-wide;
   letter-spacing: 0.06em;
@@ -913,7 +930,8 @@ html.v3-menu-open {
 .v3-footer-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 24px;
+  justify-content: center;
+  gap: 8px 32px;
 
   a {
     font-family: $font-display;
@@ -1975,8 +1993,12 @@ body:has(.v3--gallery) {
     padding-right: 0;
   }
 
+  .v3-hero--home {
+    --peek: 84px;
+  }
+
   .v3-section.v3-home-intro {
-    padding-top: 48px;
+    padding-top: 30px;
     padding-bottom: 40px;
 
     .v3-intro-line {

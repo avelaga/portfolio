@@ -58,7 +58,7 @@ function ContactForm() {
         <input type="email" name="email" autoComplete="email" maxLength={200} value={email} onChange={(e) => setEmail(e.target.value)} placeholder="jordan@studio.com" required />
       </label>
       <label className="v3-field">
-        <span>What are you working on?</span>
+        <span>Message</span>
         <textarea name="message" rows={5} maxLength={5000} value={message} onChange={(e) => setMessage(e.target.value)} placeholder="A rebrand and new site for our shop" required />
       </label>
       <label className="v3-honeypot" aria-hidden="true">

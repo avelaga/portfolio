@@ -42,12 +42,33 @@ function Img({ src, alt, className }) {
   return <FadeInOnLoad src={src} alt={alt} cls={className} />;
 }
 
-function ProjectLink({ link }) {
+function ProjectLink({ link, title }) {
   if (!link) return null;
-  const label = <>{link.label} <span aria-hidden="true">→</span></>;
+  // Every card's link says the same word, so screen readers also get the card's title
+  const ariaLabel = link.external ? `${link.label}: ${title}` : `${link.label} ${title}`;
+  // → stays on the site; ↗ leaves it (opens in a new tab)
+  const label = <>{link.label} <span aria-hidden="true">{link.external ? '↗' : '→'}</span></>;
   return link.external
-    ? <a className="v3-row-link" href={link.href} target="_blank" rel="noopener noreferrer">{label}</a>
-    : <Link className="v3-row-link" href={link.href}>{label}</Link>;
+    ? <a className="v3-row-link" href={link.href} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel}>{label}</a>
+    : <Link className="v3-row-link" href={link.href} aria-label={ariaLabel}>{label}</Link>;
+}
+
+// The whole card body opens the project: a click on the photos, the description or
+// the space between them is handed to the card's one real link, so screen readers
+// and keyboards still see a single link, and cmd/ctrl-click still opens a new tab
+function openCardLink(e) {
+  if (e.target.closest('a, button')) return;
+  // Selecting text in the description isn't a click
+  if (window.getSelection()?.toString()) return;
+  const link = e.currentTarget.querySelector('.v3-row-link');
+  link?.dispatchEvent(new MouseEvent('click', {
+    bubbles: true,
+    cancelable: true,
+    metaKey: e.metaKey,
+    ctrlKey: e.ctrlKey,
+    shiftKey: e.shiftKey,
+    altKey: e.altKey,
+  }));
 }
 
 export default function ProjectRow({ project, index, imageSide, onSelect }) {
@@ -87,7 +108,7 @@ export default function ProjectRow({ project, index, imageSide, onSelect }) {
         {/* Last child, so the invert blends over the text */}
         <span ref={sweep.ref} className="v3-row-sweep" aria-hidden="true" />
       </header>
-      <div className="v3-row-body">
+      <div className={`v3-row-body${link ? ' v3-row-body--link' : ''}`} onClick={link ? openCardLink : undefined}>
         <div className="v3-row-media">
           <Img src={lead} alt={title} className="v3-row-lead" />
           <div className="v3-row-thumbs">
@@ -96,7 +117,7 @@ export default function ProjectRow({ project, index, imageSide, onSelect }) {
         </div>
         <div className="v3-row-text">
           <p className="v3-row-description">{description}</p>
-          <ProjectLink link={link} />
+          <ProjectLink link={link} title={title} />
         </div>
       </div>
     </article>

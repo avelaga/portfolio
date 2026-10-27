@@ -3,13 +3,12 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { saveHomeSpot, takeReturnSpot } from './lib/homeReturn';
+import { scrollToY } from './lib/scroll';
 import Header from './components/v3/Header';
 import Footer from './components/v3/Footer';
 import HeroSlideshow from './components/v3/HeroSlideshow';
 import ProjectRow from './components/v3/ProjectRow';
 import { heroSlides, projects } from './data/v3';
-
-const easeInOutQuint = (t) => (t < 0.5 ? 16 * t ** 5 : 1 - Math.pow(-2 * t + 2, 5) / 2);
 
 // Title bars are transparent (the dot grid shows through), so the stack does its
 // own masking on scroll: each card's content is trimmed where it passes under a
@@ -167,17 +166,6 @@ function scrollToRow(section, index, immediate = false) {
   const slot = Number.isNaN(slots) ? index : Math.min(index, slots);
   const body = section.querySelectorAll('.v3-row-body')[index];
   scrollToY(body.getBoundingClientRect().top + window.scrollY - stackTop - (slot + 1) * headerHeight, immediate);
-}
-
-function scrollToY(target, immediate) {
-  if (window.lenis) {
-    // Lenis caches the page height; after navigating from a shorter page its
-    // scroll limit is stale and would clamp the jump short
-    window.lenis.resize();
-    window.lenis.scrollTo(target, immediate ? { immediate: true } : { duration: 1.6, easing: easeInOutQuint });
-  } else {
-    window.scrollTo({ top: target, behavior: immediate ? 'auto' : 'smooth' });
-  }
 }
 
 export default function Home() {
