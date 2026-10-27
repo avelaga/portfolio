@@ -3,7 +3,7 @@ import { pageMeta } from './lib/meta';
 
 export const metadata = pageMeta({
   title: null,
-  description: "I'm Abhi, based in Austin. I've released albums, shot for magazines, exhibited installations, and engineered design systems used by millions.",
+  description: "I make records, photographs, light installations and software in Austin. Lately, I'm rebuilding a car.",
   image: '/og/home.jpg',
   path: '',
 });

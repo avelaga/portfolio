@@ -6,10 +6,10 @@ const SLIDE_MS = 5000;
 
 export default function HeroSlideshow({ slides }) {
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const videoRefs = useRef([]);
-  const stopped = paused || reducedMotion;
+  // Reduced-motion visitors get a still frame; otherwise it always plays
+  const stopped = reducedMotion;
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -69,11 +69,6 @@ export default function HeroSlideshow({ slides }) {
 
       <div className="v3-slideshow-controls">
         <a className="v3-slide-caption" href={`#${current.project}`}>{current.caption}</a>
-        {!reducedMotion && (
-          <button type="button" className="v3-slide-pause" onClick={() => setPaused(!paused)}>
-            {paused ? 'Play' : 'Pause'}
-          </button>
-        )}
       </div>
     </div>
   );

@@ -20,6 +20,8 @@ $font-bold: 'Nimbus-Sans-Bol', 'Helvetica Neue', Arial, sans-serif;
 $font-body: 'Berthold-Akzidenz-Grotesk-Light-Extended', 'Helvetica Neue', Arial, sans-serif;
 $font-wide: 'Berthold-Akzidenz-Grotesk-Light-Extended', 'Helvetica Neue', Arial, sans-serif;
 $font-light: 'Berthold-Akzidenz-Grotesk-Light', 'Helvetica Neue', Arial, sans-serif;
+// Only for the name: the home hero and the nav-bar logo
+$font-name: 'Basteleur-Moonlight', Georgia, serif;
 
 body:has(.v3) {
   background: $bg;
@@ -165,12 +167,11 @@ body:has(.v3) {
   padding: 24px $gutter;
 }
 
-:is(.v3, .v3-floating) .v3-logo {
-  font-size: 15px;
-  font-family: $font-wide;
+:is(.v3, .v3-fixed) .v3-logo {
+  font-size: 22px;
+  font-family: $font-name;
   font-weight: normal;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0;
 }
 
 .v3-nav {
@@ -184,7 +185,7 @@ body:has(.v3) {
 }
 
 // Same slow fade as V2's nav links, gray to white instead of gray to black
-:is(.v3, .v3-floating) .v3-nav a {
+:is(.v3, .v3-fixed) .v3-nav a {
   color: $muted;
   transition: color 0.7s ease;
   text-underline-offset: 6px;
@@ -199,52 +200,55 @@ body:has(.v3) {
   }
 }
 
-// Reveal-on-scroll-up header (components/v3/Header.js): a solid copy of the
-// header that slides down when scrolling up and away when scrolling down.
-// Portaled to <body> so it sits above the card stack.
-.v3-floating {
+// Header (components/v3/Header.js), from V2's phone header: fixed for the whole
+// page, no background, white type set to "difference" so it reads light over dark
+// and dark over light
+.v3-fixed {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 40;
-  color: $text;
-  // Frosted: the page blurs through it
-  background: rgba(14, 14, 14, 0.6);
-  backdrop-filter: blur(24px) saturate(1.2);
-  border-bottom: 1px solid $line;
-  transform: translateY(-101%);
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-
-  &.is-shown {
-    transform: none;
-  }
-
-  a {
-    color: inherit;
-  }
+  color: #fff;
+  mix-blend-mode: difference;
+  pointer-events: none;
 
   .v3-header {
     position: static;
   }
+
+  a,
+  button {
+    pointer-events: auto;
+  }
+
+  // Outside .v3, so the site-wide gray link color would otherwise apply
+  .v3-logo,
+  .v3-logo:hover {
+    color: #fff;
+  }
+}
+
+// The card stack starts below the fixed header instead of under it
+.v3-featured {
+  --stack-top: 78px;
+
+  @media (max-width: 600px) {
+    --stack-top: 75px;
+  }
+}
+
+// The server-rendered copy steps aside once the fixed one takes over
+.v3-header--handed-off {
+  visibility: hidden;
 }
 
 // Older Safari only knows the prefixed property. Kept in its own block: in the
 // same rule, the CSS optimizer merges both into the prefixed one and Chrome
 // loses the blur.
 @supports (-webkit-backdrop-filter: none) and (not (backdrop-filter: none)) {
-  .v3-floating {
-    -webkit-backdrop-filter: blur(24px) saturate(1.2);
-  }
-
-  .v3-menu {
+  .v3-menu-backdrop {
     -webkit-backdrop-filter: blur(14px);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .v3-floating {
-    transition: none;
   }
 }
 
@@ -252,7 +256,8 @@ body:has(.v3) {
 // outside the .v3 wrapper, so it sets its own fonts and colors.
 
 .v3-header-mobile,
-.v3-menu {
+.v3-menu,
+.v3-menu-backdrop {
   display: none;
 }
 
@@ -268,8 +273,10 @@ body:has(.v3) {
   cursor: pointer;
 }
 
-html.v3-menu-open,
-html.v3-menu-open body {
+// Menu open: the page underneath can't scroll. Only on <html>: hiding <body>'s
+// overflow too turns the body into its own scroll box, and the sticky card bars
+// re-anchor to it and jump while the menu is open.
+html.v3-menu-open {
   overflow: hidden;
 }
 
@@ -283,28 +290,37 @@ html.v3-menu-open body {
     align-items: center;
     gap: 18px;
     font-family: $font-wide;
-    font-size: 13px;
+    font-size: 15px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+
+    // Finger-sized tap areas (about 44px, Apple's minimum) without moving the type:
+    // padding grows the target, the matching negative margin keeps the layout
+    // (specific enough to beat the cart button's own padding reset)
+    :is(.v3, .v3-fixed) .v3-header & > * {
+      padding: 15px 10px;
+      margin: -15px -10px;
+    }
+  }
+
+  // MENU and CLOSE match the cart link beside them
+  .v3-menu-button {
+    font-size: 15px;
   }
 
   // A bigger name on phones, in place of the nav
-  :is(.v3, .v3-floating) .v3-logo,
+  :is(.v3, .v3-fixed) .v3-logo,
   .v3-menu .v3-logo {
-    font-size: 17px;
+    font-size: 20px;
     white-space: nowrap;
   }
 
+  // Three layers while open: the blurred backdrop, the page's dot grid lifted
+  // above it, then the menu itself
+  .v3-menu-backdrop,
   .v3-menu {
     position: fixed;
     inset: 0;
-    z-index: 60;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    background: rgba(14, 14, 14, 0.96);
-    backdrop-filter: blur(14px);
-    color: $text;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.4s ease, visibility 0s linear 0.4s;
@@ -314,11 +330,31 @@ html.v3-menu-open body {
       visibility: visible;
       transition: opacity 0.4s ease;
     }
+  }
+
+  .v3-menu-backdrop {
+    display: block;
+    z-index: 59;
+    background: rgba(14, 14, 14, 0.96);
+    backdrop-filter: blur(14px);
+  }
+
+  html.v3-menu-open .v3-grid {
+    z-index: 60 !important;
+  }
+
+  .v3-menu {
+    z-index: 61;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    color: $text;
 
     .v3-logo {
-      font-family: $font-wide;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      font-family: $font-name;
+      // The menu sits outside .v3 and would inherit the body's faux bold
+      font-weight: normal;
+      letter-spacing: 0;
       color: $text;
     }
   }
@@ -338,7 +374,9 @@ html.v3-menu-open body {
   border-top: 1px solid rgba(255, 255, 255, 0.3);
 
   a {
-    padding: 14px $gutter-mobile 12px;
+    // Capitals only, so the line's descender space sits empty below the letters;
+    // the extra top padding offsets it to centre the word in its box
+    padding: 19px $gutter-mobile 7px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     font-family: $font-display;
     font-size: 44px;
@@ -431,24 +469,48 @@ html.v3-menu-open body {
     linear-gradient(to top, $bg 0, rgba(14, 14, 14, 0) 220px);
 }
 
+// Home: nothing over the montage but the nav and caption, so only a light shade
+// behind each
+.v3-hero--home .v3-scrim {
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 0, rgba(0, 0, 0, 0) 140px),
+    linear-gradient(to top, rgba(14, 14, 14, 0.6) 0, rgba(14, 14, 14, 0) 160px);
+}
+
 .v3-hero--photo .v3-scrim {
   background:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
     linear-gradient(to top, $bg 0, rgba(14, 14, 14, 0) 200px);
 }
 
-.v3-intro {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  width: 100%;
-  padding: 160px $gutter 120px;
+// Each thing he makes links to it, quietly: a faint underline that brightens
+.v3-intro-links a {
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.7s ease;
 
-  // The intro's own line length, now that its side padding grows on wide screens
-  & > * {
-    max-width: 780px;
+  &:hover {
+    text-decoration-color: $text;
+  }
+}
+
+// Home hero: one plain sentence over the work, no big name headline
+.v3-intro-line {
+  margin: 0;
+  font-family: $font-wide;
+  font-size: clamp(20px, 1.9vw, 25px);
+  line-height: 1.4;
+}
+
+// Beneath the montage, before the work (.v3-section sets only the side padding)
+.v3-section.v3-home-intro {
+  padding-top: 88px;
+  padding-bottom: 72px;
+
+  .v3-intro-line {
+    max-width: 860px;
   }
 }
 
@@ -510,15 +572,6 @@ html.v3-menu-open body {
   }
 }
 
-.v3-slide-pause {
-  padding: 6px 10px;
-  border: 1px solid $line;
-  background: rgba(0, 0, 0, 0.35);
-  color: $text;
-  font: inherit;
-  cursor: pointer;
-}
-
 // Sections
 
 .v3-section {
@@ -527,7 +580,11 @@ html.v3-menu-open body {
 
 .v3-section-header {
   padding: 18px 0;
-  border-top: 1px solid $line;
+
+  // The "Portfolio" label is a real heading (for screen readers); no heading margins
+  h2 {
+    margin: 0;
+  }
 }
 
 // Project rows
@@ -563,18 +620,99 @@ html.v3-menu-open body {
   gap: 24px;
   height: var(--row-header);
   position: sticky;
-  top: calc(var(--slot) * var(--row-header));
+  top: calc(var(--stack-top, 0px) + var(--slot) * var(--row-header));
   z-index: 2;
   margin-bottom: calc((var(--stack-slots) - var(--slot)) * var(--row-header));
   border-top: 1px dotted rgba(255, 255, 255, 0.55);
   // Transparent: Home.js trims whatever scrolls underneath
-  scroll-margin-top: calc(var(--slot) * var(--row-header));
+  scroll-margin-top: calc(var(--stack-top, 0px) + var(--slot) * var(--row-header));
   cursor: pointer;
 
   &:focus-visible {
     outline: 1px dotted rgba(255, 255, 255, 0.55);
     outline-offset: -1px;
   }
+}
+
+// Stacked bars above the card being read dim, so only the current title stands
+// out (Home.js toggles .is-stacked). Color only, never opacity: on iOS an opacity
+// fade moves the text onto its own layer, which glitches when toggled quickly.
+.v3-row-header .v3-row-title,
+.v3-row-header .v3-row-meta,
+.v3-row-header .v3-row-meta * {
+  transition: color 0.7s ease;
+}
+
+.v3-row-header.is-stacked {
+  .v3-row-title {
+    color: rgba(242, 242, 242, 0.38);
+  }
+
+  // Covers the type, divider, year and the Client tag (whose dot uses currentColor)
+  .v3-row-meta,
+  .v3-row-meta * {
+    color: rgba(242, 242, 242, 0.32);
+  }
+}
+
+// Touch devices: solid bars. Momentum scrolling outruns the masking script in
+// Home.js, so content would flash through clear bars on a fast flick.
+@media (hover: none) and (pointer: coarse) {
+  .v3-row-header {
+    background: $bg;
+  }
+
+}
+
+// Phone deck (useStackDeck in Home.js): three slots; later bars push the deck up
+// and the top one shrinks and fades out. Only with scroll-driven animations,
+// which move it on the compositor; otherwise phones keep the full stack.
+.v3-stack-band {
+  display: none;
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (max-width: 600px) {
+    // (doubled class: beats the general phone sizing further down)
+    .v3-featured.v3-featured {
+      --row-header: 44px;
+      --stack-slots: 2;
+    }
+
+    // Fills the strip between the fixed header and the deck (faded in by Home.js)
+    .v3-stack-band {
+      display: block;
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      height: var(--stack-top);
+      margin: 0 calc(-1 * #{$gutter-mobile}) calc(-1 * var(--stack-top));
+      background: $bg;
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}
+
+// Phones without scroll-driven animations (older iOS): no stack at all. Each card's
+// bar sticks only while that card is on screen and the next one pushes it up and
+// away, like section headers in iOS lists. Plain sticky, so it holds mid-flick.
+@supports not (animation-timeline: scroll()) {
+  @media (max-width: 600px) {
+    .v3-featured.v3-featured {
+      --stack-slots: 0;
+    }
+
+    .v3-row {
+      display: block;
+    }
+  }
+}
+
+// Home.js measures the bars where they sit in the page
+.v3-featured.is-measuring .v3-row-header {
+  position: static;
+  animation: none !important;
 }
 
 // While a bar is sweeping, page-colored fill under the bleed so the invert has the
@@ -661,7 +799,7 @@ html.v3-menu-open body {
   // Holds just under the stack beside the photos, so the description stays in
   // view until the card's photos have passed (side-by-side layout only)
   position: sticky;
-  top: calc((min(var(--i), var(--stack-slots)) + 1) * var(--row-header) + 16px);
+  top: calc(var(--stack-top, 0px) + (min(var(--i), var(--stack-slots)) + 1) * var(--row-header) + 16px);
   align-self: start;
   display: flex;
   flex-direction: column;
@@ -736,24 +874,6 @@ html.v3-menu-open body {
   &:hover {
     text-decoration-color: $text;
   }
-}
-
-// Call to action
-
-.v3-cta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-  padding-top: 72px;
-  padding-bottom: 72px;
-}
-
-.v3-cta-line {
-  font-size: clamp(22px, 2.4vw, 30px);
-  font-family: $font-display;
-  font-weight: normal;
 }
 
 // Footer
@@ -1286,7 +1406,7 @@ body:has(.v3--gallery) {
 // in V3's design. Checkout itself is Fourthwall's hosted page on shop.abhi.work.
 
 // Sits in the nav and behaves like the other nav links
-:is(.v3, .v3-floating) .v3-cart-button {
+:is(.v3, .v3-fixed) .v3-cart-button {
   padding: 0;
   border: 0;
   background: none;
@@ -1312,6 +1432,43 @@ body:has(.v3--gallery) {
 .v3-cart-note a {
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+// Merch backdrop: the old shop's blurred Miata at sunset, fixed while the page
+// scrolls (a fixed element, since iOS ignores background-attachment: fixed),
+// darkened toward the bottom so prices and text stay readable
+.v3-merch-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(to bottom, rgba(14, 14, 14, 0.35), rgba(14, 14, 14, 0.75) 70%, $bg),
+    url('/images/merch/miata-sunset-blur.jpg') center / cover no-repeat;
+  pointer-events: none;
+}
+
+.v3-merch-video {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 0 $gutter 96px;
+}
+
+.v3 .v3-merch-video-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+
+  video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .v3-merch-empty {
@@ -1714,8 +1871,16 @@ body:has(.v3--gallery) {
   }
 }
 
-// Narrowest phones: the cart in the header shows just its count
-@media (max-width: 400px) {
+// Only the narrowest phones (under 350px, e.g. iPhone SE 1st gen): the cart in
+// the header shows just its count
+@media (max-width: 349px) {
+  // and the footer links wrap instead of squeezing onto one line
+  .v3-footer .v3-footer-links {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 8px 20px;
+  }
+
   .v3-cart-label {
     display: none;
   }
@@ -1731,6 +1896,14 @@ body:has(.v3--gallery) {
   .v3-merch-grid {
     gap: 40px 16px;
     padding: 0 $gutter-mobile 64px;
+  }
+
+  .v3-merch-video {
+    padding: 0 0 64px;
+
+    .v3-row-link {
+      margin-left: $gutter-mobile;
+    }
   }
 
   .v3-product {
@@ -1802,20 +1975,13 @@ body:has(.v3--gallery) {
     padding-right: 0;
   }
 
-  // Home hero: compact type so the montage stays the main event
-  .v3-hero--home .v3-intro {
-    gap: 12px;
-    padding-top: 0;
-    padding-bottom: 72px;
-  }
+  .v3-section.v3-home-intro {
+    padding-top: 48px;
+    padding-bottom: 40px;
 
-  .v3-hero--home .v3-display {
-    font-size: 34px;
-  }
-
-  .v3-hero--home .v3-lede {
-    font-size: 13px;
-    line-height: 1.45;
+    .v3-intro-line {
+      font-size: 17px;
+    }
   }
 
   .v3-hero--home .v3-actions {
@@ -1859,6 +2025,15 @@ body:has(.v3--gallery) {
     padding-right: 0;
   }
 
+  // Footer links spread across the full width with even gaps, edge to edge, on
+  // one line (the merch policy links are too long for one, so they just wrap)
+  .v3-footer-links {
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
   .v3-slideshow-controls {
     right: $gutter-mobile;
     bottom: 20px;
@@ -1877,3 +2052,4 @@ body:has(.v3--gallery) {
   }
 
 }
+

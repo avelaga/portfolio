@@ -8,6 +8,11 @@ const nextConfig = {
     // Fourthwall's policy pages and support form move with checkout
     const checkout = `https://${process.env.FOURTHWALL_CHECKOUT_DOMAIN || 'checkout.abhi.work'}`;
     return [
+      // V2 URLs that moved in V3: keep old links working, permanently
+      { source: '/music', destination: '/music/indulgent', permanent: true },
+      { source: '/software', destination: '/the-world-misses-you', permanent: true },
+      { source: '/photo', destination: '/portfolio', permanent: true },
+      { source: '/published', destination: '/editorial', permanent: true },
       { source: '/pages/:slug', has: shop, destination: `${checkout}/pages/:slug`, permanent: true },
       { source: '/contact', has: shop, destination: `${checkout}/contact`, permanent: true },
       { source: '/products/:slug', has: shop, destination: 'https://abhi.work/merch/:slug', permanent: true },

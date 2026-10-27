@@ -19,7 +19,6 @@ export const elsewhereLinks = [
   { label: 'YouTube', href: 'https://www.youtube.com/@abhi.velaga/' },
   { label: 'Instagram', href: 'https://www.instagram.com/abhi.velaga/' },
   { label: 'Spotify', href: 'https://open.spotify.com/artist/7JCVu8JTFAFrHqnYnGVPhi?si=wAs1clwUTiqOqS8e8RUJqg' },
-  { label: 'Merch', href: '/merch', internal: true },
   { label: 'Resume', href: '/resume', internal: true },
 ];
 

@@ -1,9 +1,12 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import ProjectPage from '../components/v3/ProjectPage';
 import FadeInOnLoad from '../components/FadeInOnLoad';
 import { CartButton, formatPrice, useCart } from '../components/v3/merch/Cart';
+
+const VIDEO_ID = '_lGyHqbhK-A';
 
 const fromPrice = (product) => {
   const prices = product.variants.map((v) => v.unitPrice.value);
@@ -11,16 +14,18 @@ const fromPrice = (product) => {
 };
 
 export default function MerchIndex({ products }) {
+  const [reducedMotion, setReducedMotion] = useState(false);
+  useEffect(() => setReducedMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches), []);
   const { policyLinks } = useCart();
   return (
     <ProjectPage
       title="Merch"
       backLabel={null}
       navActive="merch"
-      tag="Shop"
       subtitle="Personal, hand-designed merch. Free shipping on 2+ items."
       headerExtra={<CartButton />}
       footerLinks={policyLinks}
+      className="v3--merch"
     >
       {products.length === 0 && (
         <p className="v3-merch-empty">The shop is restocking. Check back soon.</p>
@@ -40,6 +45,29 @@ export default function MerchIndex({ products }) {
           </Link>
         ))}
       </section>
+
+      {/* The rebuild, as on the old Fourthwall shop: a muted loop cut from the
+          channel's footage (a YouTube embed forces captions and its paid-promotion
+          badge), and the whole banner opens the video on YouTube */}
+      <section className="v3-merch-video">
+        <a className="v3-merch-video-frame" href={`https://www.youtube.com/watch?v=${VIDEO_ID}`} target="_blank" rel="noopener noreferrer" aria-label="Watch the car rebuild on YouTube">
+          <video
+            src="/videos/merch/rebuild-loop.mp4"
+            poster="/videos/merch/rebuild-loop.jpg"
+            autoPlay={!reducedMotion}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
+        </a>
+        <a className="v3-row-link" href={`https://www.youtube.com/watch?v=${VIDEO_ID}`} target="_blank" rel="noopener noreferrer">
+          Watch on YouTube <span aria-hidden="true">→</span>
+        </a>
+      </section>
+
+      {/* Blurred Miata at sunset, fixed behind the page like the old shop */}
+      <div className="v3-merch-backdrop" aria-hidden="true" />
     </ProjectPage>
   );
 }

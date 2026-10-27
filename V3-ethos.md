@@ -10,6 +10,24 @@ Two jobs, in order:
 1. A portfolio and running archive of his best work, in every medium.
 2. A quiet signal, to small and boutique businesses, that he can bring a brand to life online. It states the capability plainly and points to contact. It never says "hire me", "clients" or "services".
 
+## Voice: a mature artist, written for everyone
+
+The site should read like a mature artist's: understated, specific and confident enough to let the work speak. He isn't a full-time artist, but that is the mindset and the look the site cultivates.
+
+**Who arrives, often without context:**
+- YouTube viewers clicking through from the car videos
+- Small businesses who heard about him and want to know if he can help with their brand or site
+- Recruiters, from LinkedIn and his resume
+- Reddit and the wider internet, from things he builds and shares (the Say hi LED, a design-feedback thread that sent thousands of visitors)
+
+**So the copy must not alienate any of them by leaning toward one:**
+- **Not commercial.** No agency or services language ("bring brands to life", "under one roof", "hire me"). Capability shows through the work.
+- **Not generic.** No taglines or LinkedIn-speak; nothing any other portfolio could say.
+- **Not showing off.** No stat-dropping ("used by millions"), no credential lists, no listing identities (the "bodybuilder, engineer, radio DJ" bio problem).
+- **Authentic.** Plain first person, in his own voice: say what he does and what he cares about, then get out of the way.
+
+**The home intro is the model:** no name headline and nothing over the montage, which speaks for itself; one plain sentence sits beneath it, before the work: "I make records, photographs, light installations and software in Austin. Lately, I'm rebuilding a car." It says what he is without reaching to prove anything. It replaced "A creative who builds." (a tagline), a credentials sentence ending in "used by millions" (showing off), and "I bring brands to life online… under one roof" (agency pitch). The hero has no buttons at all: the linked words in the intro are the way in, and About is in the nav. Nor is there a call to action at the bottom: the featured work simply ends, then the footer. The "Have something in mind? Let's make it." strip and its "About and contact" button were removed as a landing-page closer; this is a portfolio for people who want to learn more, not a funnel. Each thing he makes links to it (records → Indulgent, photographs → portfolio, light installations → The World Misses You, software → resume, rebuilding a car → YouTube), with only a faint underline. The name is only the small mark in the nav (see below).
+
 ## The aesthetic: brutalist, dark, and moving
 
 - **Brutalist.** Flat surfaces, hard edges, plain lines, square corners. The interface is a grid of type and rules, not a set of objects.
@@ -32,6 +50,8 @@ Two jobs, in order:
 
 **V3 = V1's atmosphere with V2's discipline.**
 
+**How Abhi sees it (2026-10-26):** V3 is V1's true successor. V1 was his first site: the instincts were right (full-bleed work, dark, motion, the menu sweep) but the execution was amateur, without consistency or thought behind the details. V2 was a side experiment in web design that led him to the brutalist language he still uses. V3 is everything coming together: V1's dark full-bleed atmosphere and its sweep hover, V2's brutalist lines and type, and the dot grid for depth. When a new idea comes up, the test is whether it fits that lineage, not whether it's new.
+
 ## Principles, and the decisions behind them
 
 ### Type: V2's own fonts, not new ones
@@ -41,7 +61,8 @@ The site keeps the typefaces it already has, so V3 feels like an evolution of hi
 |---|---|---|
 | Headlines, card titles, footer links | Nimbus Sans Bold Italic | V2's nav-link voice. Bold and slanted, it carries energy without decoration. Card titles are in capitals, matching V2's nav. |
 | Body text | Akzidenz-Grotesk Light Extended at faux bold (700) | V2's body exactly. Only the Light face exists, so the browser thickens it; that's part of V2's look and we kept it. |
-| Logo, nav, labels, type/year, captions | Akzidenz-Grotesk Light Extended (true light) | Quiet, wide spaced capitals for the interface layer. |
+| The name: nav-bar logo only | Basteleur Moonlight (Velvetyne, libre) | The one exception to "V2's fonts". A Helvetica-clone name looked like a template. A reworked medieval serif, artist-made and a little strange, kept small: the one odd detail, like Tom Sachs's handwritten logo. |
+| Nav, labels, type/year, captions | Akzidenz-Grotesk Light Extended (true light) | Quiet, wide spaced capitals for the interface layer. |
 | Buttons | Arial | V2's Say hi button never set a font, so it rendered in the browser's default. Kept for continuity. |
 
 Tried and dropped: Akzidenz Light (regular width) for card titles, in mixed case and then in capitals. It read as too faint against the work.
@@ -65,8 +86,9 @@ Tried and dropped: Akzidenz Light (regular width) for card titles, in mixed case
 - **Card click:** scrolls to that card with a clearly eased in-out curve (1.6s), through the site's existing smooth scroller.
 - **Entrances (from V2):** every page fades in over 2.5s, and photos fade in over 1s as each one loads, so nothing pops in half-drawn.
 - **Only the title bars stack.** Cards are taller than many screens, so sticking whole cards hid their content (first seen on phones, then on normal laptop windows). Now only the title bars stick and stack, and each card's content scrolls beneath so it can be read in full. Every title stays in the stack; the bars get thinner on short windows so the whole stack never takes more than about half the screen. (A 5-bar cap was tried first, but cards sharing the last slot read as missing.) On wider screens the description holds beside the photos until they pass.
-- **The header comes back on scroll up.** Scrolling down hides it; scrolling up slides back a frosted copy (dark, Gaussian blur), so MENU and the nav are always one flick away without taking space while reading.
-- **Clear title bars.** The stack's bars have no background, so the dot grid runs through them. A small scroll script trims card content as it passes under the stack, and trims a bar when a later one takes its slot, so nothing shows through.
+- **The header never moves.** From V2's phone header: the name, nav and MENU stay fixed at the top of every page with no background, inverting (`mix-blend-mode: difference`) against whatever passes beneath, light over dark, dark over light. No hide-on-scroll-down / reveal-on-scroll-up: it caused animation glitches and Abhi didn't like it. The home card stack starts just below the header.
+- **One bright title at a time.** With many bars stacked, the screen is mostly titles and it's hard to know where to look. The bar of the card being read stays white; every bar stacked above it fades to gray (0.7s), so the eye lands on the current card. Bars still below, not yet stacked, stay white.
+- **Clear title bars.** The stack's bars have no background, so the dot grid runs through them. A small scroll script trims card content as it passes under the stack, and trims a bar when a later one takes its slot, so nothing shows through. On touch devices the bars are solid instead: momentum scrolling outruns any script, and content flashed through on fast flicks.
 - **Phone menu: V2's, not a hamburger.** A plain "MENU" word opens big stacked italic links between hairlines, with the current page inverted (white bar, black text) and the social links small beneath. The name in the header gets bigger since the links are gone.
 - **No side margin for photos on phones.** Cards, photos and videos run edge to edge (V2's mobile layout); text keeps a 16px inset. The home intro shrinks so the montage stays the main event.
 - **Reduced motion:** sweeps become instant; the slideshow holds a still frame.
@@ -75,7 +97,7 @@ Tried and dropped: Akzidenz Light (regular width) for card titles, in mixed case
 - **They work as V2's do.** The photo pages (Miami Vice, User Void, Editorial, Photo portfolio, Portraits) keep V2's exact photo sequence and layout engine. Each photo gets a full-screen-tall slot with its own width cap and left, center or right alignment; some photos pair up across a row; each fades in as it loads; on phones they stack edge to edge. The sequencing was hand-composed, and it works, so V3 doesn't touch it.
 - **Pure black, not off-black.** The collections sit on `#000` instead of the site's `#0E0E0E`, so the photos glow with no gray cast around them. The off-black read as dull behind full-size prints.
 - **V3 only reskins them.** They get the dark page, V3 header and footer, and a left-aligned intro. The title uses the same voice as the card you clicked in from, Nimbus Bold Italic capitals, at page scale, with the same "PHOTO · YEAR" line. The artist statement is in the V2 body font, word for word from V2. The book carousels stay.
-- **Getting back is one click.** "← Featured work" returns to that project's card, already in its stacked spot on the home page. That's the 60–70%-loss-per-click lesson applied in reverse: don't make people re-find their place.
+- **Getting back is one click, to where you were.** Leaving the home page remembers the scroll position, and the project page's back link returns there exactly: to the top (labelled "← Home") if you came from the intro, or to the same spot in the stack ("← Featured work"). With nothing remembered (arrived from search or a shared link), it lands on that project's card. That's the 60–70%-loss-per-click lesson applied in reverse: don't make people re-find their place.
 
 ### Project pages: music
 - **One page per home card, not per band and not one combined page.** The pages are Indulgent, Merry Jane and the Fondas, and Live drumming. Live drumming covers Caladan and Shivering Demons, which are too thin on their own. A click lands on exactly what was clicked, instead of somewhere down a long page (the click-loss lesson again). V2's `/music` now redirects to Indulgent.
@@ -92,6 +114,7 @@ Tried and dropped: Akzidenz Light (regular width) for card titles, in mixed case
 - **In the top nav.** Merch is the one place a visitor can act beyond reading, so it earns a top-level link: About, Merch, Say hi. It has no "← Featured work" link.
 - **Cutouts float.** The first photo of each product is a transparent PNG, shown on the page itself with no frame or backing. On hover the grid swaps to the worn or lifestyle photo.
 - **Policies come from Fourthwall, not our copy.** Each product's returns terms come through the API (they differ: the sticker pack ships from me), and Terms, Privacy, Returns & FAQ and Support link to Fourthwall's pages as the Merchant of Record. Those links sit on the right of the one footer bar, not in a second footer. The cart repeats the one line people must see before paying: made to order, no returns or exchanges.
+- **The car is the backdrop.** Like the old Fourthwall shop, `/merch` sits on a fixed, blurred photo of the Miata at sunset (darkened toward the bottom for legibility), and ends with the rebuild: a muted 15s loop cut from the channel's footage that opens the video on YouTube. Self-hosted instead of a YouTube embed, which forces captions and a paid-promotion badge onto muted autoplay.
 - **The token stays server-side.** Every catalog and cart call goes through the site's own `/api/cart`.
 
 ### About
@@ -104,9 +127,12 @@ Tried and dropped: Akzidenz Light (regular width) for card titles, in mixed case
 - **The desk clip is always square.**
 
 ### Contact
-- **One open line, not a pitch.** The contact section asks "Interested in working together?" and nothing more. It reads equally well to a recruiter, a small business or a collaborator, and it stays vague about job versus freelance. The earlier "Brand, web and digital direction for small and boutique businesses" read as a services tagline, which the brief rules out. The hero's capability line already does the quiet signalling.
+- **One open line, not a pitch.** The contact section asks "Interested in working together?" and nothing more, with no "Contact" label. It reads equally well to a recruiter, a small business or a collaborator, and it stays vague about job versus freelance. The earlier "Brand, web and digital direction for small and boutique businesses" read as a services tagline, which the brief rules out. The hero's capability line already does the quiet signalling.
 
 - **The form actually sends.** It posts to the site's own `/api/contact`, which emails Abhi through Resend with the sender as reply-to, so a reply goes straight back. Visitors never leave the page or need a mail app. A hidden honeypot field and a per-sender limit keep spam out; Cloudflare Turnstile is the next step if needed. If sending fails, the visitor sees why and still has the email address.
+
+### Old links keep working
+- **Every V2 URL still resolves.** Pages that kept their place keep their URL: home, About, Say hi, Resume, Miami Vice, User Void, Editorial, Portfolio, Portraits. The ones that moved (V2's single `/music` page became three, `/software` became The World Misses You) get permanent redirects in `next.config.js`, so old links, bookmarks and search results land in the right place. V3's own URLs follow the new structure rather than V2's.
 
 ### Utility pages
 - **Resume:** V2's resume stays a white sheet, on purpose. It mirrors the downloadable PDF and prints cleanly. In V3 it sits on the dark base like a document on a desk, under the V3 header, with a dotted "Download PDF" button. Printing hides everything but the sheet.
@@ -125,6 +151,29 @@ Tried and dropped: Akzidenz Light (regular width) for card titles, in mixed case
 - Hero assets aren't final; the supercharger-running clip is still missing.
 
 ## Change log
+- **2026-10-26:** The phone menu shows the dot grid over its blur. The menu is now two layers (blurred backdrop, then the links), and while it's open the page's own animated grid canvas is lifted between them, so the menu carries the same texture as the page instead of going flat.
+- **2026-10-26:** Phone footer links spread edge to edge with even gaps on one line (wrapping only under 350px wide). Fixed the open menu flashing earlier cards: locking scroll with `overflow: hidden` on both `<html>` and `<body>` made the body its own scroll box, so the sticky bars re-anchored and jumped; now only `<html>` is locked.
+- **2026-10-26:** Phone header controls sized for thumbs: MENU, CLOSE and Cart go from 13px to 15px type, and each gets an invisible ~48px tap area (padding offset by negative margin, so the bar looks the same). They had been 15px-tall targets, well under Apple's 44pt minimum; V2's MENU went the other way (30px type in a 120px box). The full "Cart (0)" label now shows down to 350px wide.
+- **2026-10-26:** **Phones get a three-bar deck instead of the full stack.** On a phone the full stack didn't fit (eight bars plus the header covered over half the screen), and on a real iPhone the sticky bars didn't keep up with momentum scrolling: nothing seemed to stack on the way down, then everything was stacked on the way back up. Now the stack fills three slots; each new card's bar slides into the bottom slot and pushes the deck up one, and the top bar slides under the strip behind the header while its title shrinks and fades. It runs as scroll-driven CSS animations (keyframes measured from the layout in `useStackDeck`, Home.js), so it moves with the scroll itself rather than reacting after it. Phones without scroll-driven animations (before Safari 26) get plain push-up titles instead: one bar at a time, pushed away by the next, like iOS list headers. Desktop keeps the full stack.
+- **2026-10-26:** V2's phone header, on every screen size: the bar (name, nav, MENU) stays fixed for the whole page with no background and inverts (`mix-blend-mode: difference`) against whatever passes beneath it, so it reads light over dark and dark over light, and adds depth without a blur panel. Replaces the frosted reveal-on-scroll-up bar, which is now deleted entirely (it caused animation bugs, and Abhi didn't like the hide/reveal). The home card stack now starts below the bar (78px desktop, 75px phone) instead of at the very top, and on phones the top stuck bar fills the strip behind the header so cards don't show above the stack. Trade-offs to judge on a real phone: busy photos can make the inverted type noisy, and the stack has ~75px less reading room.
+- **2026-10-26:** Abhi noticed the montage-only landing is nearly V1's: full-bleed work, nothing competing with it, which is what he loved about V1 ("the work just showed itself off… it looks so nice, mature"). V3 keeps that and fixes V1's flaw: there you had to open a menu to go anywhere; here you simply scroll into the sentence and the work. Guard this: don't add headlines, buttons or overlays back onto the montage.
+- **2026-10-26:** Nothing overlaps the montage now except the small nav and the caption: the intro sentence moved out of the hero to just beneath it, so the footage speaks for itself and the words are found on the first scroll. The heavy left-side darkening behind the old text is gone; only light shades at the top and bottom remain.
+- **2026-10-26:** **No big name on the home hero.** The giant name over a full-bleed slideshow with a tagline is the portfolio-template layout, and it felt self-important ("almost like I'm a narcissist"). Research across ~25 artist sites (Meyerowitz, Tillmans, Kander, Harley Weir, Tyler Mitchell, Arsham, Eliasson, Turrell, Sugimoto…): fine artists and photographers set their name small (13–22px), plain, top-left, and let the work lead; only musicians make the name a big wordmark, as era-specific album art. So the hero is now the slideshow plus the one intro sentence at a larger size, the name lives only in the nav (Basteleur Moonlight, small, always visible), and the page h1 "Abhi Velaga" is visually hidden for search and screen readers.
+- **2026-10-26:** The name (home hero and nav-bar logo) is set in **Basteleur Moonlight** (Keussel, Velvetyne; libre, self-hosted). Nimbus Sans read as a Helvetica default, the Squarespace look. Trialled ~50 faces on the live hero: Abhi ruled out the popular display faces (Panchang, Clash, Syne), formal scripts and rough metal blackletters, and kept being drawn to reworked medieval / blackletter forms. Basteleur is that, made modern and quiet: unmistakably artist-made, still readable small. It's used only for the name; everything else stays Akzidenz and Nimbus, so the name is the one hand-made moment on the page. Nav logo is now mixed case, not tracked caps.
+- **2026-10-26:** Figma now mirrors the code through captures ("V3 — current build" row), not hand-redrawn frames. The code is the source of truth, so captures can't drift; the old dark wireframes are marked superseded.
+- **2026-10-26:** Home section label "Featured work" → "Portfolio": plain and clear without the template phrasing. Removing it entirely risked confusing people for the sake of minimalism. Back links read "← Portfolio". The divider line above it is gone.
+- **2026-10-26:** Stacked title bars above the current card dim to gray; only the card being read stays bright.
+- **2026-10-26:** Fast flicks on phones showed content through the clear title bars (the masking script lagged momentum scrolling). Touch devices now get solid bars with no script; desktop keeps clear bars, with the mask updated in the same frame as the scroll.
+- **2026-10-26:** Footer trimmed to YouTube, Instagram, Spotify and Resume: the "abhi.work" note (a wireframe leftover) and Merch (now a top-level nav link) are gone. Merch pages still show their policy links on the right.
+- **2026-10-26:** Old-link audit: every V2 URL works. `/music`, `/software`, `/photo` and `/published` are now permanent (308) redirects in `next.config.js`, replacing temporary redirect pages.
+- **2026-10-26:** Removed the hero's Pause button; the montage just plays, with its caption. Reduced-motion visitors still get a still frame.
+- **2026-10-26:** Removed the hero's "About" button too; the home page has no call-to-action buttons.
+- **2026-10-26:** Removed the home page's closing call to action ("Have something in mind? Let's make it." / "About and contact").
+- **2026-10-26:** Back links return to exactly where the visitor left the home page (hero or mid-stack), labelled "← Home" or "← Featured work" to match. Direct visits still land on the project's card.
+- **2026-10-26:** Home intro words link to their work; the header name is hidden over the home hero.
+- **2026-10-26:** Home intro rewritten (option A): name as headline, one plain line about what he makes, one "About" button. The tagline, credentials line, capability pitch and "Get in touch" button are gone; the home page title is now just "Abhi Velaga".
+- **2026-10-26:** Added the Voice section: write as a mature artist for a mixed audience (YouTube, small businesses, recruiters, Reddit), never commercial, generic or showy.
+- **2026-10-26:** Merch: removed the "Shop" tag line, added the old shop's blurred Miata backdrop, and added a rebuild video banner (self-hosted loop linking to YouTube) at the bottom.
 - **2026-10-26:** The contact form sends for real: `/api/contact` emails through Resend, with a honeypot and rate limit, plus sending, sent and error states. It replaces the `mailto:` handoff.
 - **2026-10-26:** Contact copy reduced to one line, "Interested in working together?", replacing the services-style headline and the client-intake helper text.
 - **2026-10-26:** About bio split across the grid. The personal half (who he is, what he's made, the storytelling throughline) sits in row 1 between the photos; the career half (Biorce, Visa, UT Austin) sits in row 2 beside the portrait, where the links were. Both halves use identical type.

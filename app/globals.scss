@@ -18,6 +18,15 @@ code {
     monospace;
 }
 
+// Abhi's name (hero and nav). Basteleur by Keussel, Velvetyne, SIL OFL (see /fonts/Basteleur-LICENSE.txt)
+@font-face {
+  font-family: 'Basteleur-Moonlight';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url(/fonts/Basteleur-Moonlight.woff2) format('woff2');
+}
+
 @font-face {
   font-family: 'Berthold-Akzidenz-Grotesk-Light-Extended';
   font-style: normal;

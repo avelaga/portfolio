@@ -108,7 +108,6 @@ export default function About() {
 
       <section id="contact" className="v3-section v3-two-col v3-contact">
         <div className="v3-contact-copy">
-          <div className="v3-label">Contact</div>
           {/* Open to anyone (a role, a project, a collaboration); not a services pitch */}
           <p className="v3-contact-line">Interested in working together?</p>
         </div>

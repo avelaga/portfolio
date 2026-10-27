@@ -157,7 +157,7 @@ export default function RootLayout({ children }) {
         </Script>
       </head>
       <body>
-        <div ref={sketchRef} style={{ position: 'fixed', top: 0, left: 0, zIndex: -1, animation: 'appear 2.5s forwards' }} />
+        <div ref={sketchRef} className="v3-grid" style={{ position: 'fixed', top: 0, left: 0, zIndex: -1, animation: 'appear 2.5s forwards' }} />
         {children}
       </body>
     </html>
