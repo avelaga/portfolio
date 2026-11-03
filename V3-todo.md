@@ -6,10 +6,7 @@ The main jobs: **content**, **the Fourthwall domain move**, and **launching** (m
 
 ## 1. Content
 
-**Hero montage** (25 slides from `picks`, compressed into `public/hero/`; 13 clips trimmed to 4s, ~30 MB folder)
-- [ ] Review the order and trims; say which clips should start later than their first 4 seconds
-- [ ] Trim the set down? 25 slides is a 1 min 40 s loop; most visitors see the first 3–5
-- [ ] Vertical (9:16) phone versions: export any you want framed by hand into `v3-assets/hero/picks/mobile/`, named like the slide (e.g. `indulgent-1.mp4`, `house-at-night.webp`), then **(Claude)** runs `scripts/build-hero-mobile.py`. Phones already get an automatic centre crop of every slide (720×1280; clips total 8.6 MB vs 20 MB landscape)
+**Hero montage** (final: 24 desktop slides, 21 phone slides, 3 s each; compressed into `public/hero/`, ~18 MB. To change them: reorder at http://localhost:3000/dev/hero, run `python3 scripts/build-hero.py`, commit `public/hero/`)
 - [ ] Hero slideshow captions, once the slides are final (`heroSlides` in `app/data/v3.js`); keep them hidden on phones?
 
 **Project cards** (`app/data/v3.js`)
@@ -56,7 +53,7 @@ Design and layout are final. Launching is its own step: everything lives on the 
 - [ ] Merge `v3` into `master` and deploy to production (abhi.work)
 - [ ] Right after: test the old V2 links still land somewhere (`/music`, `/software`, `/photo`, `/published` and a few V2 project URLs), and the 404 page
 - [ ] **(Claude)** Performance pass once the final hero clips are in: page weight on a phone connection, Lighthouse, image sizes
-- [ ] **(Claude)** Optional: recapture Figma (changed since: sticky back link, Merry Jane and The World Misses You as single sequences, header spacing)
+- [ ] **(Claude)** Optional: recapture Figma (changed since: sticky back link, Merry Jane and The World Misses You as single sequences, header spacing, phone hero, merch product pages)
 
 ## 4. Supporting
 
@@ -77,4 +74,4 @@ Design and layout are final. Launching is its own step: everything lives on the 
 - [ ] Text yourself link previews (add `?v=2` to beat iMessage's cache)
 
 **Housekeeping**
-- [ ] Small decisions: LED experiments footage; reshoot the Say hi desk video (still shows V2)
+- [ ] Small decisions: LED experiments footage; reshoot the Say hi desk video (still shows V2); darken the top of the merch backdrop? (the nav and "← Merch" are hard to read over the bright sunset)

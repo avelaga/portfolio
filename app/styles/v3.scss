@@ -391,13 +391,13 @@ html.v3-menu-open {
   display: flex;
   flex-direction: column;
   margin-top: 32px;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px dotted rgba(255, 255, 255, 0.55);
 
   a {
     // Capitals only, so the line's descender space sits empty below the letters;
     // the extra top padding offsets it to centre the word in its box
     padding: 19px $gutter-mobile 7px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.55);
     font-family: $font-display;
     font-size: 44px;
     line-height: 1;
@@ -558,7 +558,7 @@ html.v3-menu-open {
   inset: 0;
   z-index: -2;
   opacity: 0;
-  transition: opacity 1.2s ease;
+  transition: opacity 1s ease;
   // Keep each slide on its own layer so video doesn't shift when the fade ends
   will-change: opacity;
 
@@ -909,6 +909,15 @@ html.v3-menu-open {
   line-height: 1.05;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  // Optical centring: the bar centres the line box, which leaves room for
+  // descenders these all-caps titles don't have, so the letters sat high
+  position: relative;
+  top: 0.13em;
+
+  // Phones' 20px titles need slightly less
+  @media (max-width: 600px) {
+    top: 0.1em;
+  }
 }
 
 .v3-row-description {
@@ -1288,6 +1297,11 @@ body:has(.v3--gallery) {
   padding-top: 30px;
 }
 
+// Product pages: the product starts the same 30px under the back link
+.v3-product.v3-product--after-back {
+  padding-top: 30px;
+}
+
 // Phones, pages without a back link (merch, Say hi): same shorter start under
 // the header
 @media (max-width: 600px) {
@@ -1625,11 +1639,23 @@ body:has(.v3--gallery) {
   gap: 12px;
 }
 
+// ProductPhoto.js: the box takes the shape of the garment (transparent margins
+// cropped) or of the whole photo; it fades in once measured, so it doesn't jump
 .v3-product-main {
-  display: block;
+  position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: contain;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+
+  &.is-measured {
+    opacity: 1;
+  }
+
+  img {
+    display: block;
+    object-fit: contain;
+  }
 }
 
 .v3-product-thumbs {

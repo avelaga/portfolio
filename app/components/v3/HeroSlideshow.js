@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const SLIDE_MS = 4000;
+const SLIDE_MS = 3000;
 
 // Phones held upright get their own vertical (9:16) slides; tablets, phones on
 // their side and desktop get the landscape ones

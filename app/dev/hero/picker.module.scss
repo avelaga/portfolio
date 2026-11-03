@@ -1,0 +1,280 @@
+// Dev-only hero pick list. Same dark, flat look as the site, but a work tool:
+// dense grid, system-ish type, no motion.
+
+$bg: #0b0b0b;
+$line: rgba(255, 255, 255, 0.14);
+$text: #eee;
+$dim: rgba(255, 255, 255, 0.55);
+$font: 'Helvetica Neue', Arial, sans-serif;
+
+.page {
+  // Covers the site's dot grid behind it
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  background: $bg;
+  color: $text;
+  font: 13px/1.4 $font;
+}
+
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 14px 20px;
+  background: $bg;
+  border-bottom: 1px solid $line;
+}
+
+.title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tab,
+.tabActive {
+  padding: 6px 12px;
+  border: 1px solid $line;
+  background: none;
+  color: $dim;
+  font: inherit;
+  cursor: pointer;
+
+  & + & {
+    border-left: 0;
+  }
+}
+
+.tabActive {
+  background: $text;
+  color: $bg;
+}
+
+.count {
+  opacity: 0.6;
+  margin-left: 4px;
+}
+
+.status {
+  color: $dim;
+  margin-left: auto;
+}
+
+.link {
+  color: $text;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 20px;
+  padding: 20px;
+}
+
+.heading {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.summary {
+  color: $dim;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.poolSection {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid $line;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 12px;
+  min-height: 120px;
+  align-content: start;
+
+  .phone & {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  }
+}
+
+.slot {
+  position: relative;
+}
+
+// Where a dragged slide will land
+.marker {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -7px;
+  width: 2px;
+  background: $text;
+  z-index: 1;
+}
+
+.markerEnd {
+  left: auto;
+  right: -7px;
+}
+
+.thumb {
+  position: relative;
+  cursor: grab;
+  outline: 1px solid transparent;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &:hover .actions {
+    opacity: 1;
+  }
+}
+
+.selected {
+  outline: 2px solid $text;
+  outline-offset: 2px;
+}
+
+.media {
+  aspect-ratio: 16 / 9;
+  background: #000;
+
+  .phone & {
+    aspect-ratio: 9 / 16;
+  }
+
+  img,
+  video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+}
+
+.thumbMeta {
+  display: flex;
+  gap: 6px;
+  padding-top: 5px;
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.number {
+  font-weight: 700;
+}
+
+.kind {
+  color: $dim;
+}
+
+.name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.actions {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: flex;
+  opacity: 0;
+
+  button {
+    width: 26px;
+    height: 26px;
+    border: 0;
+    background: $bg;
+    color: $text;
+    font: 14px/1 $font;
+    cursor: pointer;
+
+    &:hover {
+      background: $text;
+      color: $bg;
+    }
+  }
+}
+
+.empty {
+  grid-column: 1 / -1;
+  color: $dim;
+}
+
+.preview {
+  position: sticky;
+  top: 72px;
+  align-self: start;
+}
+
+.frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000;
+
+  .phone & {
+    aspect-ratio: 9 / 16;
+    max-height: calc(100vh - 260px);
+    margin: 0 auto;
+  }
+
+  img,
+  video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// A 16:9 frame on a ~2.3:1 hero loses ~11.5% top and bottom
+.band {
+  position: absolute;
+  inset: 11.5% 0;
+  border-top: 1px dashed rgba(255, 255, 255, 0.8);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 4px 12px;
+  margin: 14px 0;
+
+  dt {
+    color: $dim;
+  }
+
+  dd {
+    margin: 0;
+  }
+}
+
+.note {
+  color: $dim;
+  margin: 0 0 8px;
+}

@@ -6,6 +6,7 @@ import Header from '../../components/v3/Header';
 import Footer from '../../components/v3/Footer';
 import Button from '../../components/v3/Button';
 import { CartButton, formatPrice, useCart } from '../../components/v3/merch/Cart';
+import ProductPhoto from '../../components/v3/merch/ProductPhoto';
 
 const inStock = (v) => v.stock?.type === 'UNLIMITED' || (v.stock?.inStock ?? 0) > 0;
 
@@ -30,9 +31,15 @@ export default function ProductPage({ product }) {
     <div className="v3">
       <Header active="merch" extra={<CartButton />} />
 
-      <section className="v3-product">
+      {/* Same back link as the project pages: top left, above the photos on
+          phones, and it sticks under the name as the page scrolls */}
+      <div className="v3-back-bar">
+        <Link href="/merch" className="v3-back-link">← Merch</Link>
+      </div>
+
+      <section className="v3-product v3-product--after-back">
         <div className="v3-product-gallery">
-          <img src={product.images[image]?.url} alt={product.name} className="v3-product-main" />
+          <ProductPhoto src={product.images[image]?.url} alt={product.name} />
           {product.images.length > 1 && (
             <div className="v3-product-thumbs">
               {product.images.map((img, i) => (
@@ -45,7 +52,6 @@ export default function ProductPage({ product }) {
         </div>
 
         <div className="v3-product-info">
-          <Link href="/merch" className="v3-back-link">← Merch</Link>
           <h1 className="v3-gallery-title v3-product-title">{product.name}</h1>
           <div className="v3-row-meta"><span>{formatPrice(price)}</span></div>
 
@@ -88,6 +94,9 @@ export default function ProductPage({ product }) {
           ))}
         </div>
       </section>
+
+      {/* Same blurred Miata as the merch page, fixed behind the page */}
+      <div className="v3-merch-backdrop" aria-hidden="true" />
 
       <Footer extraLinks={policyLinks} />
     </div>

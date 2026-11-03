@@ -1,5 +1,7 @@
 // Content for the V3 draft. Copy is pulled from V3_HANDOFF.md and the V2 pages.
 
+import heroPicks from './hero-picks.json';
+
 export const EMAIL = 'abhinav.velaga@gmail.com';
 
 // About page influences: bare words, no links or explanations.
@@ -22,53 +24,58 @@ export const elsewhereLinks = [
   { label: 'Resume', href: '/resume', internal: true },
 ];
 
-// Abhi's picks (v3-assets/hero/picks, not shipped), compressed into public/hero/:
-// clips trimmed to their first 4s (the slide length, SLIDE_MS) with a poster
-// frame each, photos copied as they are. The site only reads this list, not the
-// folder, so changes to the picks need a re-compress and an update here.
-// Ordered to alternate car → film photo → music → LED, so no two of a kind run
-// together. Captions are drafts for Abhi's review. `project` is the card each
-// caption links to; `focus` is the object-position used when the slide is cropped.
-export const heroSlides = [
-  { type: 'video', src: '/hero/cutting-under-carport.mp4', poster: '/hero/cutting-under-carport.jpg', caption: 'Cutting under the carport', project: 'youtube', focus: '50% 50%' },
-  { type: 'image', src: '/hero/house-at-night.webp', caption: 'House at night, film', project: 'portfolio', focus: '70% 50%' },
-  { type: 'video', src: '/hero/indulgent-1.mp4', poster: '/hero/indulgent-1.jpg', caption: 'Indulgent, live', project: 'indulgent', focus: '50% 50%' },
-  { type: 'video', src: '/hero/led-twinkle-walk.mp4', poster: '/hero/led-twinkle-walk.jpg', caption: 'The World Misses You, twinkle', project: 'the-world-misses-you', focus: '50% 50%' },
-  { type: 'image', src: '/hero/miami3.webp', caption: 'Miami Vice Cocaine Dream', project: 'miami-vice', focus: '50% 50%' },
-  { type: 'video', src: '/hero/engine-on-stand.mp4', poster: '/hero/engine-on-stand.jpg', caption: 'Engine on the stand', project: 'youtube', focus: '50% 50%' },
-  { type: 'image', src: '/hero/lords-boxing-gym.webp', caption: 'Lord\'s boxing gym, film', project: 'portfolio', focus: '50% 50%' },
-  { type: 'video', src: '/hero/shivering-demons-1.mp4', poster: '/hero/shivering-demons-1.jpg', caption: 'Shivering Demons, drums', project: 'live-drumming', focus: '50% 50%' },
-  { type: 'image', src: '/hero/p17.webp', caption: 'Film portfolio', project: 'portfolio', focus: '50% 50%' },
-  { type: 'video', src: '/hero/welding-under-carport.mp4', poster: '/hero/welding-under-carport.jpg', caption: 'Welding under the carport', project: 'youtube', focus: '50% 50%' },
-  { type: 'image', src: '/hero/red-room-guitar.webp', caption: 'Red room, film', project: 'portfolio', focus: '50% 50%' },
-  { type: 'video', src: '/hero/led-rain-walk.mp4', poster: '/hero/led-rain-walk.jpg', caption: 'The World Misses You, rain', project: 'the-world-misses-you', focus: '50% 50%' },
-  { type: 'image', src: '/hero/editorial-3.webp', caption: 'Editorial', project: 'editorial', focus: '50% 40%' },
-  { type: 'video', src: '/hero/indulgent-2.mp4', poster: '/hero/indulgent-2.jpg', caption: 'Indulgent, live', project: 'indulgent', focus: '50% 50%' },
-  { type: 'image', src: '/hero/uservoid2.webp', caption: 'User Void', project: 'user-void', focus: '50% 50%' },
-  { type: 'video', src: '/hero/engine-work.mp4', poster: '/hero/engine-work.jpg', caption: 'Engine work', project: 'youtube', focus: '50% 50%' },
-  { type: 'image', src: '/hero/blue-pink-room-led.webp', caption: 'Blue and pink room, film', project: 'portfolio', focus: '50% 50%' },
-  { type: 'video', src: '/hero/shivering-demons-2.mp4', poster: '/hero/shivering-demons-2.jpg', caption: 'Shivering Demons, drums', project: 'live-drumming', focus: '50% 50%' },
-  { type: 'image', src: '/hero/miami4.webp', caption: 'Miami Vice Cocaine Dream', project: 'miami-vice', focus: '50% 50%' },
-  { type: 'video', src: '/hero/miata-slo-mo.mp4', poster: '/hero/miata-slo-mo.jpg', caption: 'The Miata', project: 'youtube', focus: '50% 50%' },
-  { type: 'image', src: '/hero/miami-vice-kitchen.webp', caption: 'Miami Vice Cocaine Dream', project: 'miami-vice', focus: '50% 50%' },
-  { type: 'video', src: '/hero/led-fog-silhouette.mp4', poster: '/hero/led-fog-silhouette.jpg', caption: 'The World Misses You', project: 'the-world-misses-you', focus: '50% 50%' },
-  { type: 'image', src: '/hero/red-bedroom-led-strand.webp', caption: 'Red bedroom, film', project: 'portfolio', focus: '50% 50%' },
-  { type: 'video', src: '/hero/engine-pull-night.mp4', poster: '/hero/engine-pull-night.jpg', caption: 'Pulling the engine', project: 'youtube', focus: '50% 50%' },
-  { type: 'image', src: '/hero/p6.webp', caption: 'Film portfolio', project: 'portfolio', focus: '50% 50%' },
-];
+// Hero slides. Abhi's final picks (v3-assets/hero/picks, not shipped) are copied
+// uncompressed into public/hero-preview/ (gitignored), chosen and ordered at
+// /dev/hero (dev server only, saves to hero-picks.json), then compressed by
+// scripts/build-hero.py into public/hero/, which is what the site serves.
+// Desktop (16:9, 2560×1440 photos) and phone (9:16) are separate sets: some shots
+// only work in one shape. Captions are drafts; `project` is the card each caption
+// links to; `focus` is the object-position used when the slide is cropped.
+export const PREVIEW = '/hero-preview';
+const HERO = '/hero';
+// Phone copies are named after the same shot on desktop, where there is one
+export const heroCaptions = {
+  'cutting-miata': ['Cutting under the carport', 'youtube'],
+  'welding-under-carport': ['Welding under the carport', 'youtube'],
+  'engine-on-stand': ['Engine on the stand', 'youtube'],
+  'b-roll-engine-crane': ['Engine work', 'youtube'],
+  'engine-pull': ['Pulling the engine', 'youtube'],
+  'pushing-miata': ['Engine work', 'youtube'],
+  'miata-slo-mo': ['The Miata', 'youtube'],
+  indulgent: ['Indulgent, live', 'indulgent'],
+  'indulgent-2': ['Indulgent, live', 'indulgent'],
+  'shivering-demons': ['Shivering Demons, drums', 'live-drumming'],
+  'dadalab-1': ['The World Misses You', 'the-world-misses-you'],
+  dadalab2: ['The World Misses You', 'the-world-misses-you'],
+  'dadalab-3': ['The World Misses You', 'the-world-misses-you'],
+  'laguna-house': ['Miami Vice Cocaine Dream', 'miami-vice'],
+  'living-room': ['Miami Vice Cocaine Dream', 'miami-vice'],
+  'user-void-1': ['User Void', 'user-void'],
+  'user-void-2': ['User Void', 'user-void'],
+  'spark-cover': ['Spark Magazine cover', 'editorial'],
+  spark1: ['Spark Magazine', 'editorial'],
+  spark2: ['Spark Magazine', 'editorial'],
+  spark3: ['Spark Magazine', 'editorial'],
+  ania: ['Red bedroom, film', 'portfolio'],
+  me: ['Red room, film', 'portfolio'],
+  room: ['Blue and pink room, film', 'portfolio'],
+  'house-night': ['House at night, film', 'portfolio'],
+  'boxing-gym': ['Boxing gym, film', 'portfolio'],
+};
+// Each entry is a picked file name; the compressed versions are the clip with a
+// poster frame beside it, or the photo as .webp
+const slide = (dir) => (file) => {
+  const name = file.replace(/\.[^.]+$/, '');
+  const [text, project] = heroCaptions[name] ?? ['Film portfolio', 'portfolio'];
+  return file.endsWith('.mp4')
+    ? { type: 'video', src: `${dir}/${name}.mp4`, poster: `${dir}/${name}.jpg`, caption: text, project, focus: '50% 50%' }
+    : { type: 'image', src: `${dir}/${name}.webp`, caption: text, project, focus: '50% 50%' };
+};
 
-// Phones held upright get vertical (9:16) versions of the same slides, built by
-// scripts/build-hero-mobile.py into public/hero/mobile/: hand-made vertical
-// exports from v3-assets/hero/picks/mobile/ where they exist (same base name),
-// otherwise an automatic crop of the landscape file around its `focus`.
-// For a completely different phone set, replace this with its own list.
-export const heroSlidesMobile = heroSlides.map((slide) => {
-  const name = slide.src.split('/').pop();
-  const base = name.replace(/\.[^.]+$/, '');
-  return slide.type === 'video'
-    ? { ...slide, src: `/hero/mobile/${base}.mp4`, poster: `/hero/mobile/${base}.jpg`, focus: '50% 50%' }
-    : { ...slide, src: `/hero/mobile/${base}.webp`, focus: '50% 50%' };
-});
+export const heroSlides = heroPicks.desktop.map(slide(HERO));
+
+// Phones held upright get their own vertical (9:16) set
+export const heroSlidesMobile = heroPicks.mobile.map(slide(`${HERO}/mobile`));
 
 export const projects = [
   {
