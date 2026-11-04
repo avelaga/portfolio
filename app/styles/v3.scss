@@ -529,9 +529,10 @@ html.v3-menu-open {
 
 // Beneath the montage, before the work (.v3-section sets only the side padding)
 .v3-section.v3-home-intro {
-  // Close enough to the montage that its first line shows in the peek
+  // Close enough to the montage that its first line shows in the peek. The space
+  // below matches the space above, counting the Portfolio label's own padding and line spacing
   padding-top: 44px;
-  padding-bottom: 72px;
+  padding-bottom: 23px;
 
   .v3-intro-line {
     max-width: 860px;
@@ -2127,7 +2128,7 @@ body:has(.v3--gallery) {
 
   .v3-section.v3-home-intro {
     padding-top: 30px;
-    padding-bottom: 40px;
+    padding-bottom: 8px;
 
     .v3-intro-line {
       font-size: 17px;

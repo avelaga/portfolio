@@ -5,6 +5,7 @@ import Link from 'next/link';
 import ProjectPage from '../components/v3/ProjectPage';
 import FadeInOnLoad from '../components/FadeInOnLoad';
 import { CartButton, formatPrice, useCart } from '../components/v3/merch/Cart';
+import { EXTERNAL_ARROW } from '../components/v3/arrows';
 
 const VIDEO_ID = '_lGyHqbhK-A';
 
@@ -62,7 +63,7 @@ export default function MerchIndex({ products }) {
           />
         </a>
         <a className="v3-row-link" href={`https://www.youtube.com/watch?v=${VIDEO_ID}`} target="_blank" rel="noopener noreferrer">
-          Watch on YouTube <span aria-hidden="true">↗</span>
+          Watch on YouTube <span aria-hidden="true">{EXTERNAL_ARROW}</span>
         </a>
       </section>
 

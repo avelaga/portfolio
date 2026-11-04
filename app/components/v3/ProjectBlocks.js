@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import FadeInOnLoad from '../FadeInOnLoad';
+import { EXTERNAL_ARROW } from './arrows';
 
 // Building blocks for V3 project pages, carrying over V2's music and software
 // layouts: sections (optionally titled), a wide 16:9 photo or looping clip, a
@@ -74,7 +75,7 @@ export function Releases({ releases }) {
         <a key={r.title} className="v3-release" href={r.link} target="_blank" rel="noopener noreferrer">
           <FadeInOnLoad src={r.cover} alt={r.alt} cls="v3-release-cover" />
           {/* ↗: opens Spotify or Bandcamp in a new tab */}
-          <span className="v3-release-title">{r.title} <span aria-hidden="true">↗</span></span>
+          <span className="v3-release-title">{r.title} <span aria-hidden="true">{EXTERNAL_ARROW}</span></span>
           <span className="v3-release-year">{r.year}</span>
         </a>
       ))}

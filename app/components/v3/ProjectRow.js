@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import Link from 'next/link';
 import CardSlideshow from './CardSlideshow';
 import { cardPhotos } from '../../data/v3';
+import { EXTERNAL_ARROW } from './arrows';
 
 // V1's menu curve (CSS 'ease'): a gentle start, a glide through the middle, a soft stop
 const SWEEP_EASE = 'ease';
@@ -56,7 +57,7 @@ function ProjectLink({ link, title }) {
   // Every card's link says the same word, so screen readers also get the card's title
   const ariaLabel = link.external ? `${link.label}: ${title}` : `${link.label} ${title}`;
   // → stays on the site; ↗ leaves it (opens in a new tab)
-  const label = <>{link.label} <span aria-hidden="true">{link.external ? '↗' : '→'}</span></>;
+  const label = <>{link.label} <span aria-hidden="true">{link.external ? EXTERNAL_ARROW : '→'}</span></>;
   return link.external
     ? <a className="v3-row-link" href={link.href} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel}>{label}</a>
     : <Link className="v3-row-link" href={link.href} aria-label={ariaLabel}>{label}</Link>;

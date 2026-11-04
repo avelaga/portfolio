@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { EXTERNAL_ARROW } from './arrows';
 
 const SLIDE_MS = 3000;
 // How long one shot takes to fade into the next. Captions fade for the same time
@@ -27,13 +28,15 @@ export default function HeroSlideshow({ slides: landscapeSlides, phoneSlides }) 
   // fade in exactly as its shot does, without the two words overlapping
   const [captionOut, setCaptionOut] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
+  // Scrolled out of view: the slideshow holds still until it's back
+  const [offscreen, setOffscreen] = useState(false);
+  const rootRef = useRef(null);
   const videoRefs = useRef([]);
-  // Slides that have been shown or are up next. Only these get their files, so
-  // the page downloads the current and next slide, not all of them (a stacked
-  // slideshow counts as "on screen", so lazy loading alone fetches every slide).
-  const [reached, setReached] = useState(() => new Set([0, 1]));
-  // Reduced-motion visitors get a still frame; otherwise it always plays
-  const stopped = reducedMotion;
+  // The slide that's fading out, until its fade ends
+  const [previous, setPrevious] = useState(null);
+  const lastActive = useRef(0);
+  // Reduced-motion visitors get a still frame; otherwise it plays while on screen
+  const stopped = reducedMotion || offscreen;
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -49,7 +52,8 @@ export default function HeroSlideshow({ slides: landscapeSlides, phoneSlides }) 
     const pick = () => {
       setPhone(mq.matches);
       setActive(0);
-      setReached(new Set([0, 1]));
+      setPrevious(null);
+      lastActive.current = 0;
       videoRefs.current = [];
     };
     pick();
@@ -66,9 +70,21 @@ export default function HeroSlideshow({ slides: landscapeSlides, phoneSlides }) 
   }, [active, stopped, slides.length, phone]);
 
   useEffect(() => {
-    const upcoming = (active + 1) % slides.length;
-    setReached((prev) => (prev.has(active) && prev.has(upcoming) ? prev : new Set([...prev, active, upcoming])));
-  }, [active, slides.length]);
+    const el = rootRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => setOffscreen(!entry.isIntersecting));
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [phone]);
+
+  // Keep the outgoing slide loaded only while it fades out
+  useEffect(() => {
+    if (lastActive.current === active) return;
+    setPrevious(lastActive.current);
+    lastActive.current = active;
+    const t = setTimeout(() => setPrevious(null), FADE_MS);
+    return () => clearTimeout(t);
+  }, [active]);
 
   // Each clip starts from the top when its slide comes in
   useEffect(() => {
@@ -100,18 +116,22 @@ export default function HeroSlideshow({ slides: landscapeSlides, phoneSlides }) 
   }
 
   const next = (active + 1) % slides.length;
+  // Only the showing slide, the one after it and one still fading out get their
+  // files. The rest stay empty, so the page neither downloads every slide up
+  // front nor keeps every slide it has shown in memory (each one is a
+  // full-screen layer).
+  const loaded = (i) => i === active || i === next || i === previous;
 
   return (
-    <div className="v3-slideshow" style={fadeStyle}>
+    <div ref={rootRef} className="v3-slideshow" style={fadeStyle}>
       {slides.map((slide, i) => (
         <div key={slide.src} className={`v3-slide${i === active ? ' is-active' : ''}`} aria-hidden={i !== active}>
-          {!reached.has(i) ? null : slide.type === 'video'
+          {!loaded(i) ? null : slide.type === 'video'
             ? <video
                 ref={(el) => { videoRefs.current[i] = el; }}
                 src={slide.src}
                 poster={slide.poster}
-                // Only the showing slide and the one after it load up front
-                preload={i === active || i === next ? 'auto' : 'metadata'}
+                preload="auto"
                 muted
                 loop
                 playsInline
@@ -140,7 +160,7 @@ export default function HeroSlideshow({ slides: landscapeSlides, phoneSlides }) 
               tabIndex: shown ? undefined : -1,
             };
             return caption.external
-              ? <a key={src} {...props} target="_blank" rel="noopener noreferrer">{caption.title} <span aria-hidden="true">↗</span></a>
+              ? <a key={src} {...props} target="_blank" rel="noopener noreferrer">{caption.title} <span aria-hidden="true">{EXTERNAL_ARROW}</span></a>
               : <Link key={src} {...props}>{caption.title} <span aria-hidden="true">→</span></Link>;
           })}
         </div>

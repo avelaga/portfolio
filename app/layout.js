@@ -34,13 +34,19 @@ export default function RootLayout({ children }) {
     lenisRef.current = lenis;
     // Exposed so pages can run eased scrolls through the same smooth scroller
     window.lenis = lenis;
+    // The loop is cancelled on cleanup: otherwise a torn-down instance keeps
+    // running alongside its replacement (React's dev mode sets effects up twice,
+    // and every hot reload of this file adds another)
+    let frame;
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      frame = requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
+    frame = requestAnimationFrame(raf);
     return () => {
+      cancelAnimationFrame(frame);
       lenis.destroy();
+      lenisRef.current = null;
       window.lenis = undefined;
     };
   }, []);

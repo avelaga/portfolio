@@ -2,6 +2,10 @@
 
 Next.js (App Router) portfolio site, deployed on Vercel. V3 is on the `v3` branch. Its design decisions are in `V3-ethos.md`, and the launch to-do list is `V3-todo.md`.
 
+## Builds
+
+Don't run `next build` while the dev server is running. Both write into `.next/`, and the dev server then serves a mix of production and dev files. Chunks come back truncated at random, and the page fails to start up some of the time. To check a production build, stop the dev server first. Afterwards, delete `.next/` and restart the dev server.
+
 ## Dev tools (local only)
 
 Two content tools run on the dev server (`npm run dev`) and are never deployed.
