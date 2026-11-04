@@ -16,7 +16,7 @@ The main jobs: **content**, **the Fourthwall domain move**, and **launching** (m
 The code is done: the custom storefront lives at `abhi.work/merch`, the checkout link reads its domain from `FOURTHWALL_CHECKOUT_DOMAIN` (`app/lib/fourthwall.js`), and `next.config.js` already holds the `shop.abhi.work` redirects. What's left is settings and DNS, **in this order**: Fourthwall's checkout currently lives at `shop.abhi.work`, so it has to move to `checkout.abhi.work` *before* `shop.abhi.work` is pointed at this site, or checkout breaks in between.
 
 **A. Get the env vars onto previews**
-1. [ ] Vercel → Settings → Environment Variables: add the **Preview** scope to `FOURTHWALL_STOREFRONT_TOKEN`, `RESEND_API_KEY`, `CONTACT_TO_EMAIL`; redeploy
+1. [x] Vercel → Settings → Environment Variables: add the **Preview** scope to `FOURTHWALL_STOREFRONT_TOKEN`, `RESEND_API_KEY`, `CONTACT_TO_EMAIL`; redeploy (all three set for Production, Preview and Development, checked 2026-11-04)
 
 **B. Move Fourthwall's checkout to `checkout.abhi.work`**
 2. [ ] Email support@fourthwall.com first: you're switching the shop domain and running a custom storefront (ask about anything that breaks)
@@ -38,10 +38,10 @@ The code is done: the custom storefront lives at `abhi.work/merch`, the checkout
 ## 3. Launch
 
 Design and layout are final. Launching is its own step: everything lives on the `v3` branch.
-- [ ] **Before merging, archive V2 at `v2.abhi.work`**, set up the same way as `v1.abhi.work`:
-      fast-forward the `v2` branch to `master` (what's live today; the existing `v2` branch is from Feb 2025 and is already in `master`'s history, so nothing is lost), push it, then in Vercel assign `v2.abhi.work` to the `v2` branch and add its record in Porkbun like `v1`'s.
-      **(Claude)** `noindex` the archive so Google doesn't treat it as a duplicate of abhi.work: a `vercel.json` on the `v2` branch sending `X-Robots-Tag: noindex` on every page
-- [ ] **(Claude)** Same for `v1.abhi.work`: checked 2026-10-27, it's currently indexable (no robots header, no robots meta tag, no real `robots.txt`); add the same `vercel.json` to the `v1` branch and redeploy
+- [x] **Archive V2 and V1** (2026-11-04). Both are Vercel projects with **no Git connection**, so they never rebuild or send failure emails. Each was deployed once from the CLI, from a `git archive` of its branch plus a `vercel.json` that sends `X-Robots-Tag: noindex`.
+      - **`v2.abhi.work`** (project `v2.abhi.work`): `master` c68f7b8, which is `v2` (pushed). Its `vercel.json` also sets `framework: nextjs`. DNS: Porkbun `A v2 76.76.21.21`.
+      - **`v1.abhi.work`** (project `v1.abhi.work`, formerly `portfolio`): the `v1` branch. Its `vercel.json` also sets `NODE_OPTIONS=--openssl-legacy-provider` (its webpack 4 fails on Node 24) and `outputDirectory: dist`.
+      - **To update either one:** export its branch again, add the same `vercel.json`, and run `vercel deploy --prod`. Link by project ID (write `.vercel/project.json`), not by name: `vercel link --project <name>` quietly creates a new project when no project has that name.
 - [ ] Merge `v3` into `master` and deploy to production (abhi.work)
 - [ ] Right after: test the old V2 links still land somewhere (`/music`, `/software`, `/photo`, `/published` and a few V2 project URLs), and the 404 page
 - [ ] **(Claude)** Performance pass once the final hero clips are in: page weight on a phone connection, Lighthouse, image sizes
