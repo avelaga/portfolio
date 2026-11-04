@@ -3,7 +3,7 @@ import { pageMeta } from '../lib/meta';
 
 export const metadata = pageMeta({
   title: 'Say hi',
-  description: 'hi, welcome to my site. clicking this button runs an animation on the led strip at my desk',
+  description: 'Click this button to light up an LED at my desk and say hi.',
   image: '/og/hi.jpg',
   path: '/hi',
 });

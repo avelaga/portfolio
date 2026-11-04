@@ -17,7 +17,7 @@ export async function generateMetadata({ params }) {
   const text = product.description?.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/\s+/g, ' ').trim();
   return pageMeta({
     title: product.name,
-    description: text || 'Personal, hand-designed merch.',
+    description: text || 'Hand-designed shirts and stickers.',
     image: image?.url,
     imageSize: image ? [image.width, image.height] : undefined,
     path: `/merch/${product.slug}`,

@@ -3,7 +3,7 @@ import { pageMeta } from '../lib/meta';
 
 export const metadata = pageMeta({
   title: 'Miami Vice Cocaine Dream',
-  description: 'A film photo series set in a house alive with constant energy, where teenagers drift from adolescence into adulthood. 2018–19.',
+  description: 'A conceptual photo series that explores a college house and blurs the lines between reality and imagination.',
   image: '/og/miamivice.jpg',
   path: '/miamivice',
 });

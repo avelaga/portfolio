@@ -3,7 +3,7 @@ import { pageMeta } from '../../lib/meta';
 
 export const metadata = pageMeta({
   title: 'Indulgent',
-  description: 'My solo project: I write and perform every part and direct the art. Albums Toxic and No Drive Will Take Me Home, plus singles.',
+  description: 'My solo music project in which I write and perform every part: vocals, drums, guitar, and bass.',
   image: '/og/indulgent.jpg',
   path: '/music/indulgent',
 });

@@ -3,7 +3,7 @@ import { pageMeta } from '../lib/meta';
 
 export const metadata = pageMeta({
   title: 'Editorial Work',
-  description: 'Fashion editorials and magazine work for Spark Magazine, including a cover.',
+  description: 'Work produced for and published in Spark Magazine.',
   image: '/og/editorial.jpg',
   path: '/editorial',
 });

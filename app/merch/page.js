@@ -6,7 +6,7 @@ export const revalidate = 300;
 
 export const metadata = pageMeta({
   title: 'Merch',
-  description: 'Personal, hand-designed merch. Free shipping on 2+ items.',
+  description: 'Hand-designed shirts and stickers.',
   image: '/og/merch.jpg',
   path: '/merch',
 });

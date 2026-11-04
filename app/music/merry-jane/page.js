@@ -3,7 +3,7 @@ import { pageMeta } from '../../lib/meta';
 
 export const metadata = pageMeta({
   title: 'Merry Jane & The Fondas',
-  description: 'Drums for Merry Jane & The Fondas: a studio EP with Jackie Venson and an official SXSW showcase. 2018–19.',
+  description: 'As the drummer for Merry Jane & The Fondas, I recorded a studio EP with Jackie Venson and played an official SXSW showcase, along with shows across Austin.',
   image: '/og/merry-jane.jpg',
   path: '/music/merry-jane',
 });

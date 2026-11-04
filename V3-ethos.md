@@ -150,6 +150,7 @@ Tried and dropped: Akzidenz Light (regular width) for card titles, in mixed case
 - Lines elsewhere on the page are still solid; whether they should all be dotted is undecided.
 
 ## Change log
+- **2026-11-03:** Hero slideshow made light to keep: it loads only the current, next and outgoing slides (it used to keep every slide it had shown, each a full-screen layer), and it pauses when scrolled out of view. This fixed a freeze in Safari, the live site included, that built up the longer someone stayed on the home page. The hero's GPU memory dropped from about 280 MB to about 35 MB.
 - **2026-11-03:** Card slideshows fade back to their lead photo when the hover ends (on touch, when the card leaves the middle of the screen), so each card rests on the photo chosen to represent it and every hover starts the same way.
 - **2026-11-03:** Card hover slideshows step every 1.5 s (was 2 s), closer to the hero's 3 s pace; a hover is a quick look, so a faster flip shows more of the project before the pointer moves on.
 - **2026-11-03:** Back link from a project page goes to plain `/` when the visitor came from the home page (the saved scroll spot puts them back), and to `/#project-id` only when they arrived on the project page directly. The card address in the URL after a hero caption click sent a reload to the card instead of the hero.

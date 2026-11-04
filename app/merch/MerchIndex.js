@@ -23,7 +23,7 @@ export default function MerchIndex({ products }) {
       title="Merch"
       backLabel={null}
       navActive="merch"
-      subtitle="Personal, hand-designed merch. Free shipping on 2+ items."
+      subtitle="Hand-designed shirts and stickers. Free shipping on 2+ items :)"
       headerExtra={<CartButton />}
       footerLinks={policyLinks}
       className="v3--merch"

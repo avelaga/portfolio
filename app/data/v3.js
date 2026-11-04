@@ -69,7 +69,7 @@ export const projects = [
     tag: 'Music',
     year: '2015–now',
     title: 'Indulgent',
-    description: 'My solo music project in which I write and perform every part - vocals, drums, guitar, and bass.',
+    description: 'My solo music project in which I write and perform every part: vocals, drums, guitar, and bass.',
     link: { label: 'View', href: '/music/indulgent' },
     lead: '/images/music/indulgent/indulgentlive.webp',
     images: ['/images/music/indulgent/guitar2.webp', '/images/music/indulgent/noDrive.webp'],

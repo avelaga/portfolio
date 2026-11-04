@@ -1,0 +1,195 @@
+// Dev-only share image tool; the page chrome comes from the hero picker's styles
+
+$line: rgba(255, 255, 255, 0.14);
+$dim: rgba(255, 255, 255, 0.55);
+$text: #eee;
+$bg: #0b0b0b;
+
+.hint,
+.dim {
+  color: $dim;
+}
+
+.warn {
+  color: #f0b400;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 24px;
+  padding: 20px;
+}
+
+.pages {
+  position: sticky;
+  top: 72px;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pageItem,
+.pageActive {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 4px;
+  border: 1px solid transparent;
+  background: none;
+  color: $dim;
+  font: inherit;
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+
+  img {
+    width: 64px;
+    aspect-ratio: 1200 / 630;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.pageActive {
+  border-color: $text;
+  color: $text;
+}
+
+.main {
+  min-width: 0;
+}
+
+.editor {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.frame {
+  position: relative;
+  aspect-ratio: 1200 / 630;
+  overflow: hidden;
+  background: #000;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  outline: 1px solid $line;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  img,
+  video {
+    position: absolute;
+    max-width: none;
+    pointer-events: none;
+  }
+}
+
+// The centre square some apps crop to
+.square {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  outline: 1px dashed rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+}
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1200 / 630;
+  border: 1px dashed $line;
+  color: $dim;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 12px;
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  input {
+    width: 180px;
+  }
+
+  button {
+    padding: 6px 12px;
+    border: 1px solid $line;
+    background: none;
+    color: $text;
+    font: inherit;
+    cursor: pointer;
+  }
+}
+
+.save {
+  margin-left: auto;
+  background: $text !important;
+  color: $bg !important;
+}
+
+.current {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1200 / 630;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.thumb,
+.thumbActive {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: $dim;
+  font: inherit;
+  font-size: 11px;
+  text-align: left;
+  cursor: pointer;
+  outline: 1px solid transparent;
+
+  img,
+  video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    background: #000;
+    margin-bottom: 4px;
+  }
+
+  span {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.thumbActive {
+  outline: 2px solid $text;
+  outline-offset: 2px;
+  color: $text;
+}

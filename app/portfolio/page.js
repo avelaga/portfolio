@@ -3,7 +3,7 @@ import { pageMeta } from '../lib/meta';
 
 export const metadata = pageMeta({
   title: 'Photography Portfolio',
-  description: 'Selected film photographs: people and the rooms they live in.',
+  description: 'Selected works spanning photo series, portraits, night, and architectural photography.',
   image: '/og/portfolio.jpg',
   path: '/portfolio',
 });
