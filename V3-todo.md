@@ -9,8 +9,7 @@ The main jobs: **content**, **the Fourthwall domain move**, and **launching** (m
 **Hero montage** (final: 24 desktop slides, 21 phone slides, 3 s each; compressed into `public/hero/`, ~18 MB. To change them: reorder at http://localhost:3000/dev/hero, run `python3 scripts/build-hero.py`, commit `public/hero/`)
 
 **Project cards** (`app/data/v3.js`)
-- [ ] Find brand-new photos for the YouTube card (it uses older shots: `rebuildthumbsq`, `wrecked`, `engine`, `engine-pull`); landscape survives the 3:2 card crop best
-- [ ] The 9 card descriptions and years; add years to the Editorial and Photo portfolio cards
+- [ ] Card years: add years to the Editorial and Photo portfolio cards, or leave them off (descriptions done 2026-11-03)
 
 **Smaller copy**
 - [ ] Merch subtitle

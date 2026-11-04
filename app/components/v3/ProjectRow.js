@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import Link from 'next/link';
 import CardSlideshow from './CardSlideshow';
+import { cardPhotos } from '../../data/v3';
 
 // V1's menu curve (CSS 'ease'): a gentle start, a glide through the middle, a soft stop
 const SWEEP_EASE = 'ease';
@@ -80,7 +81,7 @@ function openCardLink(e) {
 }
 
 export default function ProjectRow({ project, index, imageSide, onSelect }) {
-  const { id, tag, year, title, description, link, lead, images } = project;
+  const { id, tag, year, title, description, link } = project;
   const sweep = useSweep();
 
   return (
@@ -113,7 +114,7 @@ export default function ProjectRow({ project, index, imageSide, onSelect }) {
       <div className={`v3-row-body${link ? ' v3-row-body--link' : ''}`} onClick={link ? openCardLink : undefined}>
         <div className="v3-row-media">
           {/* One large photo that steps through the project's photos */}
-          <CardSlideshow photos={[lead, ...images].filter(Boolean)} title={title} />
+          <CardSlideshow photos={cardPhotos(project)} title={title} />
         </div>
         <div className="v3-row-text">
           <Meta tag={tag} year={year} className=" v3-row-meta--body" />

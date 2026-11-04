@@ -1,5 +1,11 @@
+const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig = (phase) => ({
+  // Local tools (/dev/hero, /dev/cards and their save routes) are page.dev.js
+  // and route.dev.js files, which only the dev server treats as routes, so
+  // production builds leave them out entirely
+  pageExtensions: phase === PHASE_DEVELOPMENT_SERVER ? ['dev.js', 'js', 'jsx'] : ['js', 'jsx'],
   sassOptions: {},
   // shop.abhi.work was the old Fourthwall storefront. Once its DNS points at this
   // site, old links land on /merch, and product links on the same product.
@@ -19,6 +25,6 @@ const nextConfig = {
       { source: '/:path*', has: shop, destination: 'https://abhi.work/merch', permanent: true },
     ];
   },
-};
+});
 
 module.exports = nextConfig;

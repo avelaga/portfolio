@@ -8,6 +8,8 @@ const SLIDE_MS = 1500;
 // With a mouse it plays only while hovered (the rest of the time it's a still
 // photo); on touch screens, which can't hover, it plays on the card in the middle
 // of the screen. Never more than one card moving, and none for reduced motion.
+// Each photo is { src, phoneFocus }: phoneFocus is the object-position that
+// picks what stays in frame on phones (see cardPhotos in app/data/v3.js).
 export default function CardSlideshow({ photos, title }) {
   const ref = useRef(null);
   const [active, setActive] = useState(0);
@@ -45,7 +47,10 @@ export default function CardSlideshow({ photos, title }) {
   }, []);
 
   useEffect(() => {
-    if (!playing || photos.length < 2) return;
+    // Stopping (the pointer leaves, or on touch the card leaves the middle of the
+    // screen) fades back to the lead, so a card always rests on its chosen photo
+    if (!playing) { setActive(0); return; }
+    if (photos.length < 2) return;
     const t = setTimeout(() => setActive((i) => (i + 1) % photos.length), SLIDE_MS);
     return () => clearTimeout(t);
   }, [playing, active, photos.length]);
@@ -62,10 +67,11 @@ export default function CardSlideshow({ photos, title }) {
 
   return (
     <div ref={ref} className="v3-card-slides" {...hoverProps}>
-      {photos.map((src, i) => (i > 0 && !near) ? null : (
+      {photos.map(({ src, phoneFocus }, i) => (i > 0 && !near) ? null : (
         <img
           key={src}
           src={src}
+          style={phoneFocus ? { '--phone-focus': phoneFocus } : undefined}
           alt={i === 0 ? title : ''}
           loading="lazy"
           className={i === active ? 'is-active' : undefined}

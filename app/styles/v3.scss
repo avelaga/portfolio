@@ -2093,10 +2093,16 @@ body:has(.v3--gallery) {
     margin-right: -$gutter-mobile;
   }
 
-  // Phones: the card's photo runs full width and a little taller, text below
+  // Phones: the card's photo runs full width and a little taller, text below.
+  // The taller crop can cut a subject out, so a photo can set what stays in
+  // frame (phoneFocus in app/data/v3.js)
   .v3-card-slides {
     aspect-ratio: 4 / 5;
     max-height: none;
+
+    img {
+      object-position: var(--phone-focus, 50% 50%);
+    }
   }
 
   .v3-block-wide,

@@ -1,6 +1,7 @@
 // Content for the V3 draft. Copy is pulled from V3_HANDOFF.md and the V2 pages.
 
 import heroPicks from './hero-picks.json';
+import cardFocus from './card-focus.json';
 
 export const EMAIL = 'abhinav.velaga@gmail.com';
 
@@ -30,7 +31,7 @@ export const projects = [
     tag: 'Photo',
     year: '2018–19',
     title: 'Miami Vice Cocaine Dream',
-    description: 'A conceptual series set in a house alive with constant energy, where teenagers drift from adolescence into adulthood. Empty bottles, posters and mismatched furniture, lit like film stills, with props and the occasional model, so each photograph sits between documentary and imagination.',
+    description: 'A conceptual photo series that explores a college house and blurs the lines between reality and imagination.',
     link: { label: 'View', href: '/miamivice' },
     lead: '/images/photos/miami/miami1.webp',
     images: ['/images/photos/miami/miami3.webp', '/images/photos/miami/miami4.webp', '/images/photos/miami/miami5.webp', '/images/photos/miami/miami6.webp'],
@@ -51,17 +52,24 @@ export const projects = [
     tag: 'Video',
     year: '2025–now',
     title: 'YouTube',
-    description: "A channel documenting a totaled Miata's second life, from cutting the car open and pulling the engine to a supercharger build. Shot and edited myself, with a merch line to match.",
+    description: 'A channel documenting the repair and modification of my supercharged Mazda Miata.',
     link: { label: 'YouTube', href: 'https://www.youtube.com/@abhi.velaga/', external: true },
-    lead: '/images/rebuildthumbsq.webp',
-    images: ['/images/wrecked.webp', '/images/engine.webp', '/images/engine-pull.jpg'],
+    lead: '/images/youtube/welding-under-carport.webp',
+    images: [
+      '/images/youtube/engine-out-on-pallet.webp',
+      '/images/youtube/engine-on-crane.webp',
+      '/images/youtube/miata-and-me.webp',
+      '/images/youtube/welding-sparks-closeup.webp',
+      '/images/youtube/grinding-under-carport.webp',
+      '/images/youtube/grinding-at-night.webp',
+    ],
   },
   {
     id: 'indulgent',
     tag: 'Music',
     year: '2015–now',
     title: 'Indulgent',
-    description: 'My solo project. I write and perform every part (vocals, drums, guitar and bass) and direct the album art. Two albums, Toxic (2015) and No Drive Will Take Me Home (2018), plus a run of singles.',
+    description: 'My solo music project in which I write and perform every part - vocals, drums, guitar, and bass.',
     link: { label: 'View', href: '/music/indulgent' },
     lead: '/images/music/indulgent/indulgentlive.webp',
     images: ['/images/music/indulgent/guitar2.webp', '/images/music/indulgent/noDrive.webp'],
@@ -71,7 +79,7 @@ export const projects = [
     tag: 'Photo',
     year: '2019',
     title: 'User Void',
-    description: 'A group of computer science students through all-nighters, focused sessions and the weight of academic pressure. An intimate look at a community, and at spaces, that outsiders rarely see.',
+    description: 'A photo series that documents a group of computer science students, illuminating a community rarely seen by outsiders.',
     link: { label: 'View', href: '/uservoid' },
     lead: '/images/photos/uservoid/uservoid2.webp',
     images: ['/images/photos/uservoid/uservoid8.webp', '/images/photos/uservoid/uservoid9.webp', '/images/photos/uservoid/uservoid1.webp', '/images/photos/uservoid/uservoid6.webp'],
@@ -81,7 +89,7 @@ export const projects = [
     tag: 'Photo',
     year: null,
     title: 'Photo portfolio',
-    description: 'My favorite film photographs across every series: people and the rooms they live in.',
+    description: 'Selected works spanning photo series, portraits, night, and architectural photography.',
     link: { label: 'View', href: '/portfolio' },
     lead: '/images/photos/portfolio/p6.webp',
     images: ['/images/photos/portfolio/p15.webp', '/images/photos/portfolio/p14.webp', '/images/photos/portfolio/p13.webp', '/images/photos/portfolio/p1.webp'],
@@ -91,7 +99,7 @@ export const projects = [
     tag: 'Photo',
     year: null,
     title: 'Editorial work',
-    description: 'Fashion editorials and magazine work, including a Spark Magazine cover. Saturated color, hard light and styling built around each model.',
+    description: 'Work produced for and published in Spark Magazine.',
     link: { label: 'View', href: '/editorial' },
     // The Spark shots as cropped for the hero, copied so the card keeps them if the hero changes
     lead: '/images/photos/published/hero-spark3.webp',
@@ -102,7 +110,7 @@ export const projects = [
     tag: 'Installation',
     year: '2022',
     title: 'The World Misses You',
-    description: "An LED installation that reads the weather and time through web APIs and shifts to match: raindrops when it's raining, a slow twinkle when night falls. It brings the outside in and gives the indoors a life of its own. Exhibited at Dadalab, Austin, TX.",
+    description: 'A weather-responsive LED installation exhibited at Dadalab, Austin, TX.',
     link: { label: 'View', href: '/the-world-misses-you' },
     lead: '/images/software/dadalab/dadalab4.webp',
     images: ['/images/software/dadalab/dadalab1.webp', '/images/software/dadalab/dadalab2.webp'],
@@ -112,7 +120,7 @@ export const projects = [
     tag: 'Music',
     year: '2018–19',
     title: 'Merry Jane & The Fondas',
-    description: 'Drums. We recorded a studio EP with guitarist and songwriter Jackie Venson and played an official SXSW showcase.',
+    description: 'As the drummer for Merry Jane & The Fondas, I recorded a studio EP with Jackie Venson and played an official SXSW showcase, along with shows across Austin.',
     link: { label: 'View', href: '/music/merry-jane' },
     lead: '/images/music/mjf/mjf.webp',
     images: ['/images/music/mjf/studio.webp', '/images/music/mjf/cover.webp'],
@@ -122,12 +130,18 @@ export const projects = [
     tag: 'Music',
     year: '2022–23',
     title: 'Live drumming',
-    description: 'Drums for Caladan and Shivering Demons, from Hole in the Wall to house shows and a convenience store. Every show filmed from multiple cameras.',
+    description: 'Drummer for Caladan and Shivering Demons.',
     link: { label: 'View', href: '/music/live-drumming' },
     lead: '/images/music/sd/fallingKid.webp',
     images: ['/images/music/sd/sd1.webp', '/images/music/caladan/caladan.webp'],
   },
 ];
+
+// A card's photos: the lead, then the ones its hover steps through. On phones the
+// card crops to 4:5, which can cut a subject out, so each photo can have its own
+// crop position, set at /dev/cards (dev server only, saves to card-focus.json)
+export const cardPhotos = (project) =>
+  [project.lead, ...project.images].filter(Boolean).map((src) => ({ src, phoneFocus: cardFocus[src] }));
 
 // Hero slides. Abhi's final picks (v3-assets/hero/picks, not shipped) are copied
 // uncompressed into public/hero-preview/ (gitignored), chosen and ordered at

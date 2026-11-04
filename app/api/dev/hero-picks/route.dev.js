@@ -2,12 +2,9 @@ import fs from 'fs';
 import { NextResponse } from 'next/server';
 import { PICKS_FILE, listHeroFiles } from '../../../lib/heroFiles';
 
-// Saves the hero pick list from /dev/hero. Only exists on the dev server: in
-// production it 404s, so nothing can write to the site's files.
+// Saves the hero pick list from /dev/hero. A .dev.js route, so only the dev
+// server has it (next.config.js) and nothing can write to the live site's files.
 export async function POST(request) {
-  if (process.env.NODE_ENV !== 'development') {
-    return NextResponse.json({ error: 'Not found.' }, { status: 404 });
-  }
   let body;
   try {
     body = await request.json();
