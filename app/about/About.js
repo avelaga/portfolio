@@ -1,67 +1,112 @@
 'use client';
 
-import Navbar from '../components/Navbar';
+import { useState } from 'react';
+import Header from '../components/v3/Header';
+import Footer from '../components/v3/Footer';
+import Button from '../components/v3/Button';
 import FadeInOnLoad from '../components/FadeInOnLoad';
+// import { influences } from '../data/v3';  // with the hidden Influences block below
 
-const aboutBottomText = () => {
-  return <div className="about-bottom-text">
-    <a href="mailto:abhinav.velaga@utexas.edu">abhinav.velaga@utexas.edu</a>
-    <br />
-    <a href="https://www.instagram.com/abhi.velaga/" target='_blank' rel="noopener noreferrer">@abhi.velaga</a>
-    <br />
-    <a href="https://www.instagram.com/abhi.film/" target='_blank' rel="noopener noreferrer">@abhi.film</a>
-    <br />
-    <a href="/resume">[ resume ]</a>
-    <br />
-    <a href="https://youtube.com/@abhi.velaga" target='_blank' rel="noopener noreferrer">youtube</a>
-    <br />
-    <a href="https://www.github.com/avelaga/" target='_blank' rel="noopener noreferrer">github</a>
-    <br />
-    <a href="https://shop.abhi.work" target='_blank' rel="noopener noreferrer">merch</a>
-    <br />
-  </div>
-};
+// Sends through /api/contact (emailed via Resend). If sending fails, the visitor
+// sees why.
+function ContactForm() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [website, setWebsite] = useState(''); // honeypot, hidden from people
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
+  const [error, setError] = useState('');
 
-const bio = () => {
-  return <>I'm a creator and software engineer based in Austin, TX.
-    <br /><br />
-    I've been pursuing a variety of creative endeavors since I was 15 - from self produced music albums and fine art photography collections, to interactive LED exhibitions - and most recently my <a href="https://youtube.com/@abhi.velaga" target="_blank" rel="noopener noreferrer"><yt>youtube channel</yt></a> where I'm documenting my car build.
-    <br /><br />
-    In my professional career, I'm a senior frontend engineer at Biorce, where I'm building our design system from the ground up, and previously worked at Visa where I built and maintained our design system and payment apps.
-    <br /><br />
-    I studied both Computer Science and Studio Art at UT Austin.
-  </>;
-};
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('sending');
+    setError('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message, website }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || 'Something went wrong sending that.');
+      setStatus('sent');
+    } catch (err) {
+      setError(err.message);
+      setStatus('error');
+    }
+  };
 
+  if (status === 'sent') {
+    return (
+      <div className="v3-form v3-form--sent" role="status">
+        <p className="v3-form-sent">Message sent. Thanks, {name.split(' ')[0]}.</p>
+        <p className="v3-form-note">I'll reply to {email}.</p>
+      </div>
+    );
+  }
+
+  const sending = status === 'sending';
+  return (
+    <form className="v3-form" onSubmit={onSubmit}>
+      <label className="v3-field">
+        <span>Name</span>
+        <input type="text" name="name" autoComplete="name" maxLength={120} value={name} onChange={(e) => setName(e.target.value)} placeholder="" required />
+      </label>
+      <label className="v3-field">
+        <span>Email</span>
+        <input type="email" name="email" autoComplete="email" maxLength={200} value={email} onChange={(e) => setEmail(e.target.value)} placeholder="" required />
+      </label>
+      <label className="v3-field">
+        <span>Message</span>
+        <textarea name="message" rows={4} maxLength={5000} value={message} onChange={(e) => setMessage(e.target.value)} placeholder="" required />
+      </label>
+      <label className="v3-honeypot" aria-hidden="true">
+        Website
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" value={website} onChange={(e) => setWebsite(e.target.value)} />
+      </label>
+      <Button type="submit" variant="primary" disabled={sending}>
+        {sending ? 'Sending…' : 'Send message'}
+      </Button>
+      {status === 'error' && <p className="v3-form-error" role="alert">{error}</p>}
+    </form>
+  );
+}
 
 export default function About() {
-  return <div className="page">
-    <Navbar activeLink={"ABOUT"} />
-
-    {/* desktop  */}
-    <div className="about-desktop">
-      <div className="about-top">
-        <FadeInOnLoad src="/images/music/indulgent/indulgentlive.webp" alt="indulgent performing live" cls="about-top-img" width={2000} height={1125} />
-        <div className="about-second-text">
-          {bio()}
+  return (
+    <div className="v3">
+      {/* V2's offset grid: three photos and the bio staggered across a 12-column grid */}
+      <section className="v3-about">
+        <Header active="about" />
+        <h1 className="v3-visually-hidden">About Abhi Velaga</h1>
+        <div className="v3-about-grid">
+          <FadeInOnLoad cls="v3-about-live" src="/images/music/indulgent/indulgentlive.webp" alt="Indulgent performing live" />
+          <div className="v3-about-bio">
+            <p>I'm a creative and software engineer based in Austin, TX.</p>
+            <p>I've been making things since I was 15: self-produced albums, fine art photography, interactive LED installations, and most recently a <a href="https://youtube.com/@abhi.velaga" target="_blank" rel="noopener noreferrer">YouTube channel</a> documenting my car build. Whatever the medium, what I care about most is telling stories and making people feel something.</p>
+            <p>Professionally, I'm a senior frontend engineer at Biorce, building our design system from the ground up. Before that, I built the design system and payment apps at Visa. I studied Computer Science and Studio Art at UT Austin.</p>
+          </div>
+          <FadeInOnLoad cls="v3-about-drums" src="/images/home/medrums.webp" alt="Abhi drumming" />
+          <FadeInOnLoad cls="v3-about-portrait" src="/images/home/mecrop.webp" alt="Portrait of Abhi" />
+          {/* Contact: a small note in row 2, beside the portrait and under the bio, set
+              like the bio; an invitation, not a call to action (see V3-ethos.md).
+              Open to anyone: a role, a project, a collaboration. */}
+          <div id="contact" className="v3-about-contact">
+            <p>Interested in working together?</p>
+            <ContactForm />
+          </div>
+          {/* Influences: hidden for now while deciding whether to keep the idea
+          <div className="v3-about-influences">
+            <div className="v3-label">Influences</div>
+            <ul className="v3-influence-list">
+              {influences.map((name) => <li key={name}>{name}</li>)}
+            </ul>
+          </div>
+          */}
         </div>
-        <FadeInOnLoad src="/images/home/medrums.webp" alt="me drumming" cls="about-right-img" width={2000} height={1493} />
-      </div>
-      <div className="about-bottom">
-        <FadeInOnLoad src="/images/home/mecrop.webp" alt="portait of me" cls="about-bottom-img" width={2000} height={1493} />
-        {aboutBottomText()}
-      </div>
-    </div>
+      </section>
 
-    {/* mobile  */}
-    <div className="about-mobile appear">
-      <FadeInOnLoad src="/images/home/mecrop.webp" alt="portait of me" cls="about-top-img" width={2000} height={1493} />
-      <div className="about-first-text">
-        {bio()}
-      </div>
-      <FadeInOnLoad src="/images/home/medrums.webp" alt="me drumming" cls="about-bottom-img" width={2000} height={1493} />
-      {aboutBottomText()}
-      <FadeInOnLoad src="/images/music/indulgent/indulgentlive.webp" alt="indulgent performing live" cls="about-right-img" width={2000} height={1125} />
+      <Footer />
     </div>
-  </div>;
+  );
 }

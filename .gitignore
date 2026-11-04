@@ -24,3 +24,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# V3 asset staging (not served or committed)
+/v3-assets
+
+# Unoptimized hero picks, served locally for review only
+/public/hero-preview

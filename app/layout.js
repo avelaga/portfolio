@@ -1,9 +1,8 @@
 'use client';
 
 import './globals.scss';
-import './styles/App.scss';
-import './styles/pages.scss';
-import './styles/layout.scss';
+import './styles/photos.scss';
+import './styles/v3.scss';
 import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Lenis from 'lenis';
@@ -13,6 +12,7 @@ export default function RootLayout({ children }) {
   const pathname = usePathname();
   const lenisRef = useRef(null);
   const sketchRef = useRef(null);
+  const dotColorRef = useRef('rgba(0, 0, 0, 0.196)');
 
   useEffect(() => {
     if (lenisRef.current) {
@@ -21,17 +21,34 @@ export default function RootLayout({ children }) {
     if (typeof window.gtag !== 'undefined') {
       window.gtag('config', 'G-XGMDCDEFQ3', { page_path: pathname });
     }
+    // Dot color is themed per page (--grid-dot): black on V2's white pages, light on V3's dark ones
+    const frame = requestAnimationFrame(() => {
+      const color = getComputedStyle(document.body).getPropertyValue('--grid-dot').trim();
+      if (color) dotColorRef.current = color;
+    });
+    return () => cancelAnimationFrame(frame);
   }, [pathname]);
 
   useEffect(() => {
     const lenis = new Lenis();
     lenisRef.current = lenis;
+    // Exposed so pages can run eased scrolls through the same smooth scroller
+    window.lenis = lenis;
+    // The loop is cancelled on cleanup: otherwise a torn-down instance keeps
+    // running alongside its replacement (React's dev mode sets effects up twice,
+    // and every hot reload of this file adds another)
+    let frame;
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      frame = requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
-    return () => lenis.destroy();
+    frame = requestAnimationFrame(raf);
+    return () => {
+      cancelAnimationFrame(frame);
+      lenis.destroy();
+      lenisRef.current = null;
+      window.lenis = undefined;
+    };
   }, []);
 
   useEffect(() => {
@@ -88,14 +105,26 @@ export default function RootLayout({ children }) {
     resize();
     window.addEventListener('resize', resize);
 
+    // Where the grid can be seen from: below the home montage, which covers the
+    // top of the screen (it's opaque). Rows above that are skipped. The open
+    // phone menu lifts the grid over everything, so then it's drawn in full.
+    function visibleFrom() {
+      if (document.documentElement.classList.contains('v3-menu-grid')) return 0;
+      const hero = document.querySelector('.v3-hero--home');
+      return hero ? Math.max(0, hero.getBoundingClientRect().bottom) : 0;
+    }
+
     function draw(now) {
       animId = requestAnimationFrame(draw);
       if (document.hidden || now - lastTime < interval) return;
       lastTime = now;
-      ctx.fillStyle = '#fff';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.196)';
+      // Transparent, so each page's own background shows through
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = dotColorRef.current;
+      // Dots hang up to ~30px below their row, so start one row early
+      const fromY = visibleFrom() - spacing;
       for (let y = margin; y <= canvas.height - margin; y += spacing) {
+        if (y < fromY) continue;
         for (let x = margin; x <= canvas.width - margin; x += spacing) {
           const n = noise3d(x * 0.01, y * 0.01, t);
           const dotSize = n * 31 - 1;
@@ -126,11 +155,10 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+        {/* The name in the nav is the first text on every page */}
+        <link rel="preload" href="/fonts/Basteleur-Moonlight.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/Berthold-Akzidenz-Grotesk-BE-Li.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/NimbusSanL-Bol.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         <meta name="twitter:card" content="summary_large_image" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-XGMDCDEFQ3"
@@ -146,7 +174,7 @@ export default function RootLayout({ children }) {
         </Script>
       </head>
       <body>
-        <div ref={sketchRef} style={{ position: 'fixed', top: 0, left: 0, zIndex: -1, animation: 'appear 2.5s forwards' }} />
+        <div ref={sketchRef} className="v3-grid" style={{ position: 'fixed', top: 0, left: 0, zIndex: -1, animation: 'appear 2.5s forwards' }} />
         {children}
       </body>
     </html>

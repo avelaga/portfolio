@@ -1,0 +1,62 @@
+{
+  "home.jpg": {
+    "src": "/images/photos/miami/miami1.webp",
+    "zoom": 1,
+    "cx": 0.5,
+    "cy": 0.5
+  },
+  "about.jpg": {
+    "src": "/images/home/mecrop.webp",
+    "zoom": 1.1,
+    "cx": 0.5455,
+    "cy": 0.4878
+  },
+  "editorial.jpg": {
+    "src": "/images/photos/published/4.webp",
+    "zoom": 1,
+    "cx": 0.5,
+    "cy": 0.368
+  },
+  "miamivice.jpg": {
+    "src": "/images/photos/miami/miami3.webp",
+    "zoom": 1,
+    "cx": 0.5,
+    "cy": 0.4699
+  },
+  "indulgent.jpg": {
+    "src": "/images/music/indulgent/indulgentlive.webp",
+    "zoom": 1.44,
+    "cx": 0.4645,
+    "cy": 0.5168
+  },
+  "live-drumming.jpg": {
+    "src": "/images/music/sd/fallingKid.webp",
+    "zoom": 1,
+    "cx": 0.5,
+    "cy": 0.3998
+  },
+  "portfolio.jpg": {
+    "src": "/images/photos/portfolio/p12.webp",
+    "zoom": 1,
+    "cx": 0.5,
+    "cy": 0.5
+  },
+  "portraits.jpg": {
+    "src": "/images/photos/portraits/4.webp",
+    "zoom": 1,
+    "cx": 0.5,
+    "cy": 0.3021
+  },
+  "the-world-misses-you.jpg": {
+    "src": "/images/software/dadalab/dadalab1.webp",
+    "zoom": 1,
+    "cx": 0.5,
+    "cy": 0.5062
+  },
+  "uservoid.jpg": {
+    "src": "/images/photos/uservoid/uservoid2.webp",
+    "zoom": 1,
+    "cx": 0.5,
+    "cy": 0.4903
+  }
+}

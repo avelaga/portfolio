@@ -5,6 +5,8 @@
 body {
   margin: 0;
   background-color: white;
+  // Dot color for the animated grid canvas in layout.js
+  --grid-dot: rgba(0, 0, 0, 0.196);
   font-family: 'Berthold-Akzidenz-Grotesk-Light-Extended';
   font-weight: 700;
   -webkit-font-smoothing: antialiased;
@@ -14,6 +16,15 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+// Abhi's name (hero and nav). Basteleur by Keussel, Velvetyne, SIL OFL (see /fonts/Basteleur-LICENSE.txt)
+@font-face {
+  font-family: 'Basteleur-Moonlight';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url(/fonts/Basteleur-Moonlight.woff2) format('woff2');
 }
 
 @font-face {

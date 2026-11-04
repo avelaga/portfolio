@@ -1,11 +1,11 @@
 import Editorial from './Editorial';
+import { pageMeta } from '../lib/meta';
 
-export const metadata = {
-  title: 'Abhi Velaga - Editorial Work',
-  openGraph: {
-    title: 'Abhi Velaga - Editorial Work',
-    images: ['https://abhi.work/images/photos/published/1.webp'],
-  },
-};
+export const metadata = pageMeta({
+  title: 'Editorial Work',
+  description: 'Work produced for and published in Spark Magazine.',
+  image: '/og/editorial.jpg',
+  path: '/editorial',
+});
 
 export default Editorial;

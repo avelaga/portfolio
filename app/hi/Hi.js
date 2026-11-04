@@ -1,7 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar';
+import Header from '../components/v3/Header';
+import Footer from '../components/v3/Footer';
+import Button from '../components/v3/Button';
 
 export default function Hi() {
   const [loading, setLoading] = useState(false);
@@ -15,7 +17,7 @@ export default function Hi() {
       .then(res => {
         if (!res.ok) throw new Error(res.status);
         setLoading(false);
-        setStatus("message recieved :)");
+        setStatus("message received :)");
       })
       .catch(err => {
         console.log("god dang it who broke it now");
@@ -25,31 +27,31 @@ export default function Hi() {
   };
 
   return (
-    <div className="page">
-      <Navbar activeLink={"HI"} />
-      <div>
-        <div className="hi-titles-container">
-          <div className="title">say hi to me in realtime</div>
-          <div className="section-subtitle">hi, welcome to my site. clicking this button runs an animation on the led strip at my desk</div>
-        </div>
-        <div className="hi-body">
-          <div className="hi-button-parent">
-            <button
-              type="submit"
-              disabled={loading}
-              className={loading ? "hi-button sending": "hi-button"}
-              onClick={buttonClicked}
-            >
-              {loading ? "sending..." : "HELLO"}
-            </button>
-            {!status && <div className="appear msg-success"></div>}
-            {status && <div className="appear msg-success">{status}</div>}
-          </div>
-          <video playsInline autoPlay muted loop className="hi-gif" loading="lazy">
+    <div className="v3">
+      <section className="v3-hero v3-hero--photo v3-hero--center">
+        <Header active="hi" />
+        <div className="v3-hi">
+          {/* Copy is V2's, word for word */}
+          <h1 className="v3-display v3-hi-title">say hi to me in realtime</h1>
+          <p className="v3-lede">hi, welcome to my site. clicking this button runs an animation on the led strip at my desk</p>
+          <video playsInline autoPlay muted loop className="v3-hi-video">
             <source src="/videos/hi.mp4" type="video/mp4" />
           </video>
+          <Button
+            variant="primary"
+            size="large"
+            className={loading ? "v3-button--sending" : ""}
+            disabled={loading}
+            onClick={buttonClicked}
+          >
+            {loading ? "sending..." : "HELLO"}
+          </Button>
+          <p className="v3-hi-status" aria-live="polite">
+            {status}
+          </p>
         </div>
-      </div>
+      </section>
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,97 @@
+// Dev-only card crop tool; the page chrome comes from the hero picker's styles
+
+$line: rgba(255, 255, 255, 0.14);
+$dim: rgba(255, 255, 255, 0.55);
+
+.hint {
+  color: $dim;
+}
+
+.card {
+  padding: 20px;
+  border-bottom: 1px solid $line;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+// The whole photo and its phone crop, side by side, with the file name below
+.photo {
+  display: grid;
+  grid-template-columns: 240px 110px;
+  gap: 8px;
+  align-items: start;
+}
+
+.frame {
+  position: relative;
+  width: 240px;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+}
+
+// The part of the photo the phone card shows; the rest is dimmed
+.window {
+  position: absolute;
+  outline: 2px solid #fff;
+  outline-offset: -1px;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+
+.result {
+  aspect-ratio: 4 / 5;
+  background: #000;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.meta {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  font-size: 11px;
+
+  button {
+    margin-left: auto;
+    padding: 2px 8px;
+    border: 1px solid $line;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+  }
+}
+
+.name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 220px;
+}
+
+.value {
+  color: $dim;
+}

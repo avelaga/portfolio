@@ -1,20 +1,19 @@
 'use client';
 
 import React from 'react';
-import Navbar from '../components/Navbar';
+import GalleryPage from '../components/v3/GalleryPage';
 import ModularPhoto from '../components/ModularPhoto';
 import { portraitImages } from '../data/images.js';
 
 export default function Portraits() {
   return (
-    <div className="page">
-      <Navbar activeLink={"PORTRAITS"} />
-      <h1 className="title">Portrait Work</h1>
-      {/* <div className="section-subtitle">selected works</div> */}
-      <div className="artist-statement">
+    <GalleryPage
+      title="Portrait Work"
+      backLabel="Home"
+      statement={<>
         A selection of commissioned and personal portrait work.
-      </div>
-      <div className="photo-mobile-spacer" />
+      </>}
+    >
             <ModularPhoto alt="portrait" img={portraitImages[4]} width={900} padding={true} align={"left"} numColumns={2} />
       <ModularPhoto alt="portrait" img={portraitImages[5]} width={900} padding={true} align={"right"} numColumns={2} />
       <ModularPhoto alt="portrait" img={portraitImages[0]} width={900} padding={false} align={"center"} numColumns={3} />
@@ -42,6 +41,6 @@ export default function Portraits() {
          {/* <ModularPhoto alt="portrait" img={portraitImages[7]} width={700} padding={true} align={"left"} numColumns={3} /> */}
 
 
-    </div>
+    </GalleryPage>
   );
 }
