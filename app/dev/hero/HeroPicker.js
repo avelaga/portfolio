@@ -133,7 +133,7 @@ export default function HeroPicker({ files, initialPicks, captions, dirs }) {
   };
 
   const clipCount = list.filter(isClip).length;
-  const caption = selected ? captions[baseName(selected)]?.[0] ?? 'Film portfolio' : null;
+  const caption = selected ? captions[baseName(selected)] : null;
   const selectedIndex = list.indexOf(selected);
 
   return (

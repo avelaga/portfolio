@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const SLIDE_MS = 2000;
+const SLIDE_MS = 1500;
 
 // One large photo per project card that steps through the project's photos.
 // With a mouse it plays only while hovered (the rest of the time it's a still

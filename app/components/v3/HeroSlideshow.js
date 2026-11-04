@@ -1,8 +1,13 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 
 const SLIDE_MS = 3000;
+// How long one shot takes to fade into the next. Captions fade for the same time
+// (passed to the CSS as --slide-fade)
+const FADE_MS = 1000;
+const fadeStyle = { '--slide-fade': `${FADE_MS}ms` };
 
 // Phones held upright get their own vertical (9:16) slides; tablets, phones on
 // their side and desktop get the landscape ones
@@ -18,6 +23,9 @@ export default function HeroSlideshow({ slides: landscapeSlides, phoneSlides }) 
   const slides = phone && phoneSlides ? phoneSlides : landscapeSlides;
 
   const [active, setActive] = useState(0);
+  // A caption fades out over the last FADE_MS of its slide, so the next one can
+  // fade in exactly as its shot does, without the two words overlapping
+  const [captionOut, setCaptionOut] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const videoRefs = useRef([]);
   // Slides that have been shown or are up next. Only these get their files, so
@@ -50,9 +58,11 @@ export default function HeroSlideshow({ slides: landscapeSlides, phoneSlides }) 
   }, []);
 
   useEffect(() => {
+    setCaptionOut(false);
     if (stopped || phone === null) return;
+    const out = setTimeout(() => setCaptionOut(true), SLIDE_MS - FADE_MS);
     const t = setTimeout(() => setActive((i) => (i + 1) % slides.length), SLIDE_MS);
-    return () => clearTimeout(t);
+    return () => { clearTimeout(out); clearTimeout(t); };
   }, [active, stopped, slides.length, phone]);
 
   useEffect(() => {
@@ -78,7 +88,7 @@ export default function HeroSlideshow({ slides: landscapeSlides, phoneSlides }) 
     const first = landscapeSlides[0];
     const firstPhone = phoneSlides?.[0];
     return (
-      <div className="v3-slideshow">
+      <div className="v3-slideshow" style={fadeStyle}>
         <div className="v3-slide is-active">
           <picture>
             {firstPhone && <source media={PHONE_HERO} srcSet={still(firstPhone)} />}
@@ -90,10 +100,9 @@ export default function HeroSlideshow({ slides: landscapeSlides, phoneSlides }) 
   }
 
   const next = (active + 1) % slides.length;
-  const current = slides[active];
 
   return (
-    <div className="v3-slideshow">
+    <div className="v3-slideshow" style={fadeStyle}>
       {slides.map((slide, i) => (
         <div key={slide.src} className={`v3-slide${i === active ? ' is-active' : ''}`} aria-hidden={i !== active}>
           {!reached.has(i) ? null : slide.type === 'video'
@@ -117,8 +126,24 @@ export default function HeroSlideshow({ slides: landscapeSlides, phoneSlides }) 
         </div>
       ))}
 
+      {/* The project each shot is from, linked where its card goes, with the
+          card's arrows: → stays on the site, ↗ leaves it (opens in a new tab).
+          All are rendered so each can fade on its own. */}
       <div className="v3-slideshow-controls">
-        <a className="v3-slide-caption" href={`#${current.project}`}>{current.caption}</a>
+        <div className="v3-slide-captions">
+          {slides.map(({ src, caption }, i) => {
+            const shown = i === active && !captionOut;
+            const props = {
+              className: `v3-slide-caption${shown ? ' is-active' : ''}`,
+              href: caption.href,
+              'aria-hidden': !shown,
+              tabIndex: shown ? undefined : -1,
+            };
+            return caption.external
+              ? <a key={src} {...props} target="_blank" rel="noopener noreferrer">{caption.title} <span aria-hidden="true">↗</span></a>
+              : <Link key={src} {...props}>{caption.title} <span aria-hidden="true">→</span></Link>;
+          })}
+        </div>
       </div>
     </div>
   );

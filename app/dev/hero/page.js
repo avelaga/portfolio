@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { heroCaptions, PREVIEW } from '../../data/v3';
+import { heroProject, PREVIEW } from '../../data/v3';
 import { listHeroFiles, readPicks } from '../../lib/heroFiles';
 import HeroPicker from './HeroPicker';
 
@@ -10,11 +10,16 @@ export const metadata = { title: 'Hero picks', robots: { index: false } };
 // live site: production gets a 404.
 export default function HeroPicksPage() {
   if (process.env.NODE_ENV !== 'development') notFound();
+  const files = { desktop: listHeroFiles('desktop'), mobile: listHeroFiles('mobile') };
+  const captions = Object.fromEntries([...files.desktop, ...files.mobile].map((f) => {
+    const name = f.replace(/\.[^.]+$/, '');
+    return [name, heroProject(name).title];
+  }));
   return (
     <HeroPicker
-      files={{ desktop: listHeroFiles('desktop'), mobile: listHeroFiles('mobile') }}
+      files={files}
       initialPicks={readPicks()}
-      captions={heroCaptions}
+      captions={captions}
       dirs={{ desktop: PREVIEW, mobile: `${PREVIEW}/mobile` }}
     />
   );

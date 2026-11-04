@@ -6,20 +6,21 @@ import { markReturning, readHomeSpot } from '../../lib/homeReturn';
 
 // "← Portfolio" on project pages. If the visitor came from the home page, it
 // takes them back to exactly where they were (labelled "← Home" if that was the
-// hero); otherwise it lands on this project's card in the stack.
+// hero), with a plain "/" so the address doesn't point at a card they weren't
+// at; otherwise it lands on this project's card in the stack via /#project-id.
 export default function BackLink({ projectId, label = 'Portfolio' }) {
-  const [fromHero, setFromHero] = useState(false);
-  useEffect(() => setFromHero(Boolean(readHomeSpot()?.fromHero)), []);
+  const [spot, setSpot] = useState(null);
+  useEffect(() => setSpot(readHomeSpot()), []);
 
   return (
     // scroll={false}: Home.js handles where to land
     <Link
-      href={projectId ? `/#${projectId}` : '/'}
+      href={projectId && !spot ? `/#${projectId}` : '/'}
       scroll={false}
       className="v3-back-link"
       onClick={markReturning}
     >
-      ← {fromHero ? 'Home' : label}
+      ← {spot?.fromHero ? 'Home' : label}
     </Link>
   );
 }

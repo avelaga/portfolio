@@ -558,7 +558,8 @@ html.v3-menu-open {
   inset: 0;
   z-index: -2;
   opacity: 0;
-  transition: opacity 1s ease;
+  // --slide-fade is set by HeroSlideshow
+  transition: opacity var(--slide-fade) ease;
   // Keep each slide on its own layer so video doesn't shift when the fade ends
   will-change: opacity;
 
@@ -593,8 +594,26 @@ html.v3-menu-open {
   letter-spacing: 0.06em;
 }
 
+// Every slide's caption sits in the same spot, right-aligned. Two words
+// crossfading on top of each other read as a glitch, not a fade, so they take
+// turns at the shots' own fade length: the old one fades out just before its shot
+// starts to go, and the new one fades in exactly as its shot does
+.v3-slide-captions {
+  display: grid;
+  justify-items: end;
+}
+
 .v3 .v3-slide-caption {
+  grid-area: 1 / 1;
   color: $muted;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--slide-fade) ease, color 0.2s ease;
+
+  &.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
 
   &:hover {
     color: $text;
