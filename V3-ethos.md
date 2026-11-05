@@ -70,7 +70,7 @@ Tried and dropped: Akzidenz Light (regular width) for card titles, in mixed case
 
 ### Lines and edges
 - **One content width, 1360px, except the hero.** On a big or ultra-wide monitor everything readable stays in a centered 1360px column (1440px with margins): text, cards, grids, galleries. Backgrounds, divider lines and the dot grid still run edge to edge, so the page never looks boxed in. The home hero montage stays fully full-bleed because it's cinematic; only its text and controls line up with the column. Divider lines are the exception to edge-to-edge: they belong to the content, so they stop at the column's edges too. Where a line sits on a section, that section's gutter is a margin, not padding.
-- **One line style: 1px dotted**, from V2's Say hi button. Used on button outlines and the card dividers.
+- **One line style: 1px dotted**, from V2's Say hi button. Used on button outlines, the card dividers and the contact form fields (fields switched from solid to dotted 2026-11-05, so every box on the site is drawn with the same line).
 - **Square everything.** No border radius.
 - **Alignment is sacred.** Text lines up on one left edge across the page: intro, "Featured work" label, card titles. When an effect needed breathing room (the hover bar), we let the effect bleed into the page margin rather than indent the text. Indenting the cards looked "all offset."
 

@@ -1179,7 +1179,8 @@ html.v3-menu-open {
   textarea {
     width: 100%;
     padding: 8px 10px;
-    border: 1px solid $line;
+    // Same dotted line as the buttons
+    border: 1px dotted rgba(255, 255, 255, 0.55);
     border-radius: 0;
     background: $surface;
     color: $text;
@@ -1191,9 +1192,10 @@ html.v3-menu-open {
       color: $faint;
     }
 
+    // The line brightens on focus; it stays dotted
     &:focus {
       outline: none;
-      border-color: rgba(255, 255, 255, 0.5);
+      border-color: $text;
     }
   }
 }
