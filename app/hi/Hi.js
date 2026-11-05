@@ -34,7 +34,8 @@ export default function Hi() {
           {/* Copy is V2's, word for word */}
           <h1 className="v3-display v3-hi-title">say hi to me in realtime</h1>
           <p className="v3-lede">hi, welcome to my site. clicking this button runs an animation on the led strip at my desk</p>
-          <video playsInline autoPlay muted loop className="v3-hi-video">
+          {/* Square from the first frame, before the stylesheet applies */}
+          <video playsInline autoPlay muted loop width="480" height="480" className="v3-hi-video">
             <source src="/videos/hi.mp4" type="video/mp4" />
           </video>
           <Button

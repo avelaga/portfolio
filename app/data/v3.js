@@ -3,7 +3,7 @@
 import heroPicks from './hero-picks.json';
 import cardFocus from './card-focus.json';
 
-export const EMAIL = 'abhinav.velaga@gmail.com';
+export const EMAIL = 'hello@abhi.work';
 
 // About page influences: bare words, no links or explanations.
 // Brainstorm list, to be refined down later.
@@ -65,26 +65,6 @@ export const projects = [
     ],
   },
   {
-    id: 'indulgent',
-    tag: 'Music',
-    year: '2015–now',
-    title: 'Indulgent',
-    description: 'My solo music project in which I write and perform every part: vocals, drums, guitar, and bass.',
-    link: { label: 'View', href: '/music/indulgent' },
-    lead: '/images/music/indulgent/indulgentlive.webp',
-    images: ['/images/music/indulgent/guitar2.webp', '/images/music/indulgent/noDrive.webp'],
-  },
-  {
-    id: 'user-void',
-    tag: 'Photo',
-    year: '2019',
-    title: 'User Void',
-    description: 'A photo series that documents a group of computer science students, illuminating a community rarely seen by outsiders.',
-    link: { label: 'View', href: '/uservoid' },
-    lead: '/images/photos/uservoid/uservoid2.webp',
-    images: ['/images/photos/uservoid/uservoid8.webp', '/images/photos/uservoid/uservoid9.webp', '/images/photos/uservoid/uservoid1.webp', '/images/photos/uservoid/uservoid6.webp'],
-  },
-  {
     id: 'portfolio',
     tag: 'Photo',
     year: null,
@@ -93,6 +73,16 @@ export const projects = [
     link: { label: 'View', href: '/portfolio' },
     lead: '/images/photos/portfolio/p6.webp',
     images: ['/images/photos/portfolio/p15.webp', '/images/photos/portfolio/p14.webp', '/images/photos/portfolio/p13.webp', '/images/photos/portfolio/p1.webp'],
+  },
+  {
+    id: 'indulgent',
+    tag: 'Music',
+    year: '2015–now',
+    title: 'Indulgent',
+    description: 'My solo music project in which I write and perform every part: vocals, drums, guitar, and bass.',
+    link: { label: 'View', href: '/music/indulgent' },
+    lead: '/images/music/indulgent/indulgentlive.webp',
+    images: ['/images/music/indulgent/guitar2.webp', '/images/music/indulgent/noDrive.webp'],
   },
   {
     id: 'editorial',
@@ -104,6 +94,16 @@ export const projects = [
     // The Spark shots as cropped for the hero, copied so the card keeps them if the hero changes
     lead: '/images/photos/published/hero-spark3.webp',
     images: ['/images/photos/published/hero-spark1.webp', '/images/photos/published/hero-spark-cover.webp'],
+  },
+  {
+    id: 'user-void',
+    tag: 'Photo',
+    year: '2019',
+    title: 'User Void',
+    description: 'A photo series that documents a group of computer science students, illuminating a community rarely seen by outsiders.',
+    link: { label: 'View', href: '/uservoid' },
+    lead: '/images/photos/uservoid/uservoid2.webp',
+    images: ['/images/photos/uservoid/uservoid8.webp', '/images/photos/uservoid/uservoid9.webp', '/images/photos/uservoid/uservoid1.webp', '/images/photos/uservoid/uservoid6.webp'],
   },
   {
     id: 'the-world-misses-you',

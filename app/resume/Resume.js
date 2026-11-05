@@ -44,7 +44,7 @@ export default function Resume({ fontClass = '' }) {
               <a href="https://linkedin.com/in/abhivelaga" target="_blank" rel="noopener">linkedin.com/in/abhivelaga</a>
             </span>
             <span className={styles.contactItem}>
-              <a href="mailto:abhinav.velaga@gmail.com">abhinav.velaga@gmail.com</a>
+              <a href="mailto:hello@abhi.work">hello@abhi.work</a>
             </span>
           </div>
         </header>
