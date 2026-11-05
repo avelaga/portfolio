@@ -60,12 +60,20 @@ Design and layout are final. Launching is its own step: everything lives on the 
       SMTP `smtp.resend.com`, port 465 (SSL), user `resend`, password: a dedicated Resend API key
 - [x] Confirm the verification code (arrives through the forward)
 - [x] **(Claude)** Swap the site's visible email to `hello@abhi.work` (done 2026-11-04, `EMAIL` in `app/data/v3.js` and the resume page's contact line in `app/resume/Resume.js`) (`EMAIL` in `app/data/v3.js`; now only shown on the resume page)
-- [ ] Optional: point `CONTACT_TO_EMAIL` (Vercel) at `hello@abhi.work`, so contact form mail lands in the same inbox
+- [x] Old sponsorship Gmail → Settings → Forwarding and POP/IMAP: forward to the new Gmail, archive Gmail's copy; reply from `hello@` so sponsors move over (no auto-reply: it confirms the address to spammers)
+- [x] Then retire the old sponsorship account without deleting it (done 2026-11-05) (deleting stops the forward for good and the address can never be reissued): sign out everywhere, 2FA on, recovery email set to the new Gmail, sign in once a year (Google deletes accounts after 2 years without a sign-in). Consider deleting in a year or two, once nothing useful comes through
+- [x] Update the YouTube business inquiries email and the Instagram contact button to `hello@abhi.work`
+- [ ] Rename the public email from `hello@` to `hi@abhi.work` (shorter, and echoes the Say hi page); `hello@` goes away, it was never given out
+  - [ ] Porkbun: change the `hello` forward to `hi` (or delete `hello` and add `hi`); test
+  - [ ] Gmail "Send mail as": add `hi@abhi.work` (same Resend SMTP), verify, make default, then delete `hello@abhi.work` from the list
+  - [x] **(Claude)** Swap the site from `hello@` to `hi@` (`EMAIL` in `app/data/v3.js`, `app/resume/Resume.js`; 2026-11-05, commit once `hi@` works)
+  - [ ] Update any place `hello@` was entered (YouTube business email, Instagram contact button, the old sponsorship account's forward if it points at `hello@`) and the resume PDF
+- [ ] Optional: point `CONTACT_TO_EMAIL` (Vercel) at `hi@abhi.work`, so contact form mail lands in the same inbox
 - [ ] Update the resume PDF and re-export
 
 **Login email security** (the two login addresses, financial and YouTube, are currently public)
 - [ ] 2FA with an authenticator app on financial and YouTube accounts
-- [ ] Once `hello@` exists, stop giving out the login addresses; remove them from bios, sites and old profiles
+- [x] Once `hello@` exists, stop giving out the login addresses; remove them from bios, sites and old profiles
 - [ ] Best: move financial accounts to a fresh address that's never been shared
 
 **Phone check** (on the real phone, after deploying): all done and working, 2026-11-04

@@ -3,7 +3,7 @@
 import heroPicks from './hero-picks.json';
 import cardFocus from './card-focus.json';
 
-export const EMAIL = 'hello@abhi.work';
+export const EMAIL = 'hi@abhi.work';
 
 // About page influences: bare words, no links or explanations.
 // Brainstorm list, to be refined down later.
