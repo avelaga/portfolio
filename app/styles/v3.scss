@@ -463,9 +463,10 @@ html.v3-menu-open {
 }
 
 .v3-hero--home {
-  // Slightly shorter than the screen, so the intro sentence peeks in at the
-  // bottom and says there's more below (no scroll arrow)
-  --peek: 104px;
+  // Shorter than the screen by enough to show the whole intro sentence (two lines
+  // here, up to four on phones) on the first screen: it says whose site this is
+  // (V3-ux-audit.md), and it also says there's more below (no scroll arrow)
+  --peek: 150px;
   min-height: max(calc(100svh - var(--peek)), 560px);
   display: flex;
   align-items: flex-end;
@@ -2124,8 +2125,13 @@ body:has(.v3--gallery) {
     padding-right: 0;
   }
 
+  // The whole intro sentence fits on the first screen, not just its first line:
+  // it's what tells a stranger whose site this is (V3-ux-audit.md). The peek
+  // covers the sentence (up to four lines at 320px) plus the space above it,
+  // and the lower floor keeps small phones from pushing it off the screen
   .v3-hero--home {
-    --peek: 84px;
+    --peek: 150px;
+    min-height: max(calc(100svh - var(--peek)), 380px);
   }
 
   .v3-section.v3-home-intro {
@@ -2200,10 +2206,6 @@ body:has(.v3--gallery) {
   .v3-slideshow-controls {
     right: $gutter-mobile;
     bottom: 20px;
-  }
-
-  .v3-slide-caption {
-    display: none;
   }
 
   .v3-lede {

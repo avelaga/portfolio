@@ -8,6 +8,18 @@ The main jobs: **content**, **the Fourthwall domain move**, and **launching** (m
 
 **Hero montage** (final: 24 desktop slides, 21 phone slides, 3 s each; compressed into `public/hero/`, ~18 MB. To change them: reorder at http://localhost:3000/dev/hero, run `python3 scripts/build-hero.py`, commit `public/hero/`)
 
+**First impression on phones** (UX audit 2026-11-06, after a designer asked "who's this chick?"; full report in `V3-ux-audit.md`): on a phone, the first screen is a portrait under the name, with no caption, and the intro sentence sits below the fold. Fixes, awaiting Abhi's pick:
+- [x] Re-pick both hero sets around Abhi's own world (Abhi's re-pick 2026-11-06, kept in `app/data/hero-picks.handpicked.json`)
+- [ ] **Trial:** Claude's re-order of the hero (2026-11-06, built, uncommitted): opens on `cutting-miata`, then `room`, `shivering-demons`, `me`. Abhi to keep it or go back to his picks (copy `hero-picks.handpicked.json` over `hero-picks.json`, run `build-hero.py`); then commit `public/hero/` with the picks
+- [x] **(Claude)** Show the whole intro sentence on the first phone screen (2026-11-06: hero leaves 150px for it on every screen, phone floor 380px; fits on 320px phones up to 2560px desktops, `app/styles/v3.scss`)
+- [x] **(Claude)** Show slide captions on phones too (2026-11-06)
+- [ ] Five-second test with 3–5 people who don't know Abhi: show the phone for 5 s, ask "whose site is this, and what do they do?"
+
+**Miami Vice**
+- [x] **(Claude)** Renamed "Miami Vice Cocaine Dream" to Miami Vice Fever Dream (2026-11-06): home card, page title, project page heading and statement, Photo portfolio alt texts
+- [ ] Book carousel on the Miami Vice page is commented out for now (`app/miamivice/MiamiVice.js`); bring it back or remove it
+- [ ] Check the old title isn't out there: Instagram, captions, prints. The share image (`/og/miamivice.jpg`) is a photo crop, so it's unaffected
+
 **Smaller copy**
 - [ ] Say hi's share image still shows the V2 site: replace it after reshooting the Say hi desk video (Housekeeping), cropping a frame at http://localhost:3000/dev/og. The other 12 share images are final (2026-11-03)
 
@@ -64,7 +76,7 @@ Design and layout are final. Launching is its own step: everything lives on the 
 - [x] Then retire the old sponsorship account without deleting it (done 2026-11-05) (deleting stops the forward for good and the address can never be reissued): sign out everywhere, 2FA on, recovery email set to the new Gmail, sign in once a year (Google deletes accounts after 2 years without a sign-in). Consider deleting in a year or two, once nothing useful comes through
 - [x] Update the YouTube business inquiries email and the Instagram contact button to `hello@abhi.work`
 - [ ] Rename the public email from `hello@` to `hi@abhi.work` (shorter, and echoes the Say hi page); `hello@` goes away, it was never given out
-  - [ ] Porkbun: change the `hello` forward to `hi` (or delete `hello` and add `hi`); test
+  - [x] Porkbun: change the `hello` forward to `hi` (or delete `hello` and add `hi`); test (done, confirmed 2026-11-06)
   - [ ] Gmail "Send mail as": add `hi@abhi.work` (same Resend SMTP), verify, make default, then delete `hello@abhi.work` from the list
   - [x] **(Claude)** Swap the site from `hello@` to `hi@` (`EMAIL` in `app/data/v3.js`, `app/resume/Resume.js`; 2026-11-05, commit once `hi@` works)
   - [ ] Update any place `hello@` was entered (YouTube business email, Instagram contact button, the old sponsorship account's forward if it points at `hello@`) and the resume PDF

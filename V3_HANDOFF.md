@@ -50,7 +50,7 @@ Three pages. Every nav link must open a different page, never scroll within the 
 One project per row. Each row: one large lead image plus 2–3 smaller images on one side; tag, year, title, a short paragraph, and a link on the other. Sides may alternate. Most visitors won't click in, so each row should explain the project on its own.
 
 Current entries (order is a draft):
-1. Miami Vice Cocaine Dream — 2018–19 — photo series
+1. Miami Vice Fever Dream (formerly Miami Vice Cocaine Dream) — 2018–19 — photo series
 2. Track Dog Racing — 2026 — client (website rebuild + marketing; once it ships). Client entries get a distinct tag.
 3. YouTube + merch — 2025–now — car channel (totaled-car rebuild, supercharger build) with the merch shop; 3 favorite videos inside
 4. Indulgent — 2015–present — solo music project; plays every instrument, directs album art; albums Toxic and No Drive Will Take Me Home plus singles

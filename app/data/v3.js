@@ -30,7 +30,7 @@ export const projects = [
     id: 'miami-vice',
     tag: 'Photo',
     year: '2018–19',
-    title: 'Miami Vice Cocaine Dream',
+    title: 'Miami Vice Fever Dream',
     description: 'A conceptual photo series that explores a college house and blurs the lines between reality and imagination.',
     link: { label: 'View', href: '/miamivice' },
     lead: '/images/photos/miami/miami1.webp',

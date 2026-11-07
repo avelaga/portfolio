@@ -1,6 +1,6 @@
 # abhi.work
 
-Next.js (App Router) portfolio site, deployed on Vercel. V3 is on the `v3` branch. Its design decisions are in `V3-ethos.md`, and the launch to-do list is `V3-todo.md`.
+Next.js (App Router) portfolio site, deployed on Vercel. V3 is on the `v3` branch. Its design decisions are in `V3-ethos.md`, and the launch to-do list is `V3-todo.md`. `V3-ux-audit.md` is the first-impression audit (2026-11-06), with screenshots in `docs/ux-audit/`.
 
 ## Builds
 

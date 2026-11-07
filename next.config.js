@@ -6,6 +6,9 @@ const nextConfig = (phase) => ({
   // and route.dev.js files, which only the dev server treats as routes, so
   // production builds leave them out entirely
   pageExtensions: phase === PHASE_DEVELOPMENT_SERVER ? ['dev.js', 'js', 'jsx'] : ['js', 'jsx'],
+  // Lets a phone on the home network open the dev server (http://<Mac's IP>:3000);
+  // Next 16 otherwise blocks its dev scripts on any address but localhost
+  allowedDevOrigins: ['192.168.*.*'],
   sassOptions: {},
   // shop.abhi.work was the old Fourthwall storefront. Once its DNS points at this
   // site, old links land on /merch, and product links on the same product.
