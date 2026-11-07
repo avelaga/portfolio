@@ -44,6 +44,9 @@ const nextConfig = (phase) => ({
       { source: '/software', destination: '/the-world-misses-you', permanent: true },
       { source: '/photo', destination: '/portfolio', permanent: true },
       { source: '/published', destination: '/editorial', permanent: true },
+      // Merry Jane & The Fondas and Live drumming merged into one page (2026-11-07)
+      { source: '/music/merry-jane', destination: '/music/drumming', permanent: true },
+      { source: '/music/live-drumming', destination: '/music/drumming', permanent: true },
       { source: '/pages/:slug', has: shop, destination: `${checkout}/pages/:slug`, permanent: true },
       { source: '/contact', has: shop, destination: `${checkout}/contact`, permanent: true },
       { source: '/products/:slug', has: shop, destination: 'https://abhi.work/merch/:slug', permanent: true },

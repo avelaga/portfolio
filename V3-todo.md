@@ -20,6 +20,11 @@ The main jobs: **content**, **the Fourthwall domain move**, and **launching** (m
 - [ ] Book carousel on the Miami Vice page is commented out for now (`app/miamivice/MiamiVice.js`); bring it back or remove it
 - [ ] Check the old title isn't out there: Instagram, captions, prints. The share image (`/og/miamivice.jpg`) is a photo crop, so it's unaffected
 
+**Cards**
+- [x] **(Claude)** Merged Merry Jane & The Fondas and Live drumming into one Drumming card and page (2026-11-07, `/music/drumming`; old URLs redirect)
+- [ ] Spool card and page (cards, not a separate Software page; see `V3-ethos.md`): Abhi to send a one-line description, year, 3–4 screenshots or a short screen recording, and a link. Place it high in the stack; consider pointing the intro's "software" link at it and adding a hero slide
+- [ ] Pebble: its own card only if it has its own angle; otherwise a mention on Spool's page
+
 **Smaller copy**
 - [ ] Say hi's share image still shows the V2 site: replace it after reshooting the Say hi desk video (Housekeeping), cropping a frame at http://localhost:3000/dev/og. The other 12 share images are final (2026-11-03)
 
