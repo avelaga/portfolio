@@ -14,7 +14,7 @@ export default function Indulgent() {
       subtitle="Guitar, vocals, drums, bass"
     >
       <Section>
-        <WidePhoto src="/images/music/indulgent/indulgentlive.webp" alt="Indulgent performing on stage" />
+        <WidePhoto priority src="/images/music/indulgent/indulgentlive.webp" alt="Indulgent performing on stage" />
         <BodyText>
           I perform all vocals, drums, guitars, and bass myself for my solo project, Indulgent, and released my recent album, <a href="https://open.spotify.com/album/2d7c0N7uNdi3jfdsTWeZNV?si=K98wvkQmQd6uMvHFrQt2ng" target="_blank" rel="noopener noreferrer">No Drive Will Take Me Home</a>, in 2018 and my debut album, <a href="https://open.spotify.com/album/67RH1N86fW4hIA10m3DhFl?si=Hl4dag6_QhSyX3f4Zv0mhg" target="_blank" rel="noopener noreferrer">Toxic</a>, in 2015.
         </BodyText>

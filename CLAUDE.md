@@ -14,6 +14,12 @@ Don't run `next build` while the dev server is running. Both write into `.next/`
 - **Cleaning up loops.** Effects that start loops or observers must cancel them on cleanup. Otherwise React's dev mode (which sets effects up twice) and every hot reload leave extra copies running in an open tab. See the smooth-scroll setup in `app/layout.js`.
 - **Judging performance.** A dev tab that's been open through many hot reloads isn't a fair test, so reload it first.
 
+## Photos
+
+- **Phone-sized copies.** Every photo in `public/images` wider than 1290px has a `-1290.webp` copy beside it, listed in `app/data/image-sizes.json`. `FadeInOnLoad` and `CardSlideshow` offer both through `srcset` (`app/lib/imageSizes.js`). After adding or replacing photos, run `python3 scripts/build-image-sizes.py` (needs Pillow) and commit the copies with the JSON.
+- **First photo on a page.** It loads at once and shows without the fade (`priority` on `FadeInOnLoad`). Gallery pages set it on their first photo automatically; project pages set it on their first `WidePhoto`. A new page's first photo needs it too.
+- **Caching.** In production, `/fonts` is cached for a year and `/hero`, `/images`, `/videos` for a week (`headers()` in `next.config.js`). A photo replaced under the same name can show the old version to returning visitors for up to a week.
+
 ## Dev tools (local only)
 
 Three content tools run on the dev server (`npm run dev`) and are never deployed.

@@ -10,7 +10,9 @@ const navbarWidth = 275;
 // V3 pages have no left sidebar; GalleryPage sets fullWidth so photos use the whole page
 export const GalleryContext = createContext({ fullWidth: false });
 
-export default function ModularPhoto({ img, alt, width, padding, align, numColumns }) {
+// priority: the first photo on the page (GalleryPage sets it), which loads at once
+// and shows without the fade (see FadeInOnLoad)
+export default function ModularPhoto({ img, alt, width, padding, align, numColumns, priority }) {
     const imgSrc = typeof img === 'object' ? img.src : img;
     const naturalWidth = typeof img === 'object' ? img.width : undefined;
     const naturalHeight = typeof img === 'object' ? img.height : undefined;
@@ -32,7 +34,7 @@ export default function ModularPhoto({ img, alt, width, padding, align, numColum
     // Don't render until we know the window width (prevents hydration mismatch)
     if (usableWidth === null) {
         return <div className="modular-photo">
-            <FadeInOnLoad src={imgSrc} alt={alt} style={{ width: "100vw", marginBottom: "1px" }} width={naturalWidth} height={naturalHeight} />
+            <FadeInOnLoad src={imgSrc} alt={alt} style={{ width: "100vw", marginBottom: "1px" }} width={naturalWidth} height={naturalHeight} priority={priority} />
         </div>;
     }
 
@@ -76,7 +78,10 @@ export default function ModularPhoto({ img, alt, width, padding, align, numColum
         containerStyle["justifyContent"] = `center`;
     }
 
+    // How wide the photo shows, so a phone or a narrow column gets the smaller copy
+    const sizes = photoStyle.width === "100vw" ? "100vw" : photoStyle.width;
+
     return <div className="modular-photo" style={containerStyle}>
-        <FadeInOnLoad src={imgSrc} alt={alt} style={photoStyle} width={naturalWidth} height={naturalHeight} />
+        <FadeInOnLoad src={imgSrc} alt={alt} style={photoStyle} width={naturalWidth} height={naturalHeight} priority={priority} sizes={sizes} />
     </div>;
 }

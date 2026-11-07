@@ -7,6 +7,7 @@ import Footer from '../../components/v3/Footer';
 import Button from '../../components/v3/Button';
 import { CartButton, formatPrice, useCart } from '../../components/v3/merch/Cart';
 import ProductPhoto from '../../components/v3/merch/ProductPhoto';
+import { merchSrc, merchSrcSet, MERCH_SIZES } from '../../lib/merchImage';
 
 const inStock = (v) => v.stock?.type === 'UNLIMITED' || (v.stock?.inStock ?? 0) > 0;
 
@@ -44,7 +45,7 @@ export default function ProductPage({ product }) {
             <div className="v3-product-thumbs">
               {product.images.map((img, i) => (
                 <button key={img.id} type="button" className={`v3-product-thumb${i === image ? ' is-active' : ''}`} onClick={() => setImage(i)} aria-label={`Photo ${i + 1}`}>
-                  <img src={img.url} alt="" loading="lazy" />
+                  <img src={merchSrc(img.url, 384)} srcSet={merchSrcSet(img.url)} sizes={MERCH_SIZES.thumb} alt="" loading="lazy" />
                 </button>
               ))}
             </div>

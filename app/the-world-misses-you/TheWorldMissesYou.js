@@ -17,7 +17,7 @@ export default function TheWorldMissesYou() {
       subtitle="Exhibited at Dadalab, Austin, TX"
     >
       <Section>
-        <WidePhoto {...photo(2, 'A visitor looking up at the LED installation in the hallway')} />
+        <WidePhoto priority {...photo(2, 'A visitor looking up at the LED installation in the hallway')} />
         <BodyText>
           &ldquo;The World Misses You&rdquo; is an LED installation that responds to the changing weather and time via web APIs to automatically transition to matching animations, such as rain drops when it&rsquo;s raining and a twinkling animation when it turns night, bringing the outside conditions inside and giving the indoors a life of its own.
         </BodyText>

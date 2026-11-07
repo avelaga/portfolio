@@ -29,8 +29,9 @@ export function Section({ title, role, years, children }) {
   );
 }
 
-export function WidePhoto({ src, alt }) {
-  return <FadeInOnLoad src={src} alt={alt} cls="v3-block-wide" />;
+// priority: set on the page's first photo (see FadeInOnLoad)
+export function WidePhoto({ src, alt, priority }) {
+  return <FadeInOnLoad src={src} alt={alt} cls="v3-block-wide" priority={priority} />;
 }
 
 // A short looping clip set exactly like a wide photo: same crop, no caption, no
@@ -59,7 +60,7 @@ export function WideVideo({ src, poster, label }) {
 export function PhotoPair({ photos }) {
   return (
     <div className="v3-block-pair">
-      {photos.map((p) => <FadeInOnLoad key={p.src} src={p.src} alt={p.alt} cls="v3-block-pair-img" />)}
+      {photos.map((p) => <FadeInOnLoad key={p.src} src={p.src} alt={p.alt} cls="v3-block-pair-img" sizes="(max-width: 600px) 100vw, 50vw" />)}
     </div>
   );
 }

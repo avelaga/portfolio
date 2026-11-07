@@ -1,11 +1,13 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { merchSrc, merchSrcSet, MERCH_SIZES } from '../../../lib/merchImage';
 
 // Fourthwall's product mockups are 3:4 canvases with the garment floating in the
 // middle and the top and bottom fifth transparent, so the shirt sat well below
 // the title beside it. Once a photo loads, its transparent margins are measured
-// (Fourthwall's image server allows reading the pixels) and cropped away; photos
+// (the resized copies come from this site's /_next/image, so the pixels are
+// readable) and cropped away; photos
 // without transparency (real photos) are shown whole.
 const MARGIN = 0.03; // a little air kept around the garment
 
@@ -84,7 +86,9 @@ export default function ProductPhoto({ src, alt }) {
       <img
         key={src}
         ref={imgRef}
-        src={src}
+        src={merchSrc(src, 1080)}
+        srcSet={merchSrcSet(src)}
+        sizes={MERCH_SIZES.main}
         alt={alt}
         crossOrigin="anonymous"
         onLoad={(e) => measure(e.currentTarget)}

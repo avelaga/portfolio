@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { srcSetFor } from '../../lib/imageSizes';
 
 const SLIDE_MS = 1500;
 
@@ -15,9 +16,12 @@ export default function CardSlideshow({ photos, title }) {
   const [active, setActive] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [canHover, setCanHover] = useState(true);
-  // The first photo loads like any image; the rest only once the card is near
-  // the screen, so cards further down don't download their slideshows upfront
+  // The lead photo loads like any image. The second waits until the card is near
+  // the screen (a hover steps to it at once, so it has to be ready), and the rest
+  // until the card first plays: most cards are scrolled past without a hover,
+  // and their slideshows never need downloading
   const [near, setNear] = useState(false);
+  const [played, setPlayed] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -50,6 +54,7 @@ export default function CardSlideshow({ photos, title }) {
     // Stopping (the pointer leaves, or on touch the card leaves the middle of the
     // screen) fades back to the lead, so a card always rests on its chosen photo
     if (!playing) { setActive(0); return; }
+    setPlayed(true);
     if (photos.length < 2) return;
     const t = setTimeout(() => setActive((i) => (i + 1) % photos.length), SLIDE_MS);
     return () => clearTimeout(t);
@@ -67,10 +72,11 @@ export default function CardSlideshow({ photos, title }) {
 
   return (
     <div ref={ref} className="v3-card-slides" {...hoverProps}>
-      {photos.map(({ src, phoneFocus }, i) => (i > 0 && !near) ? null : (
+      {photos.map(({ src, phoneFocus }, i) => ((i === 1 && !near) || (i > 1 && !played)) ? null : (
         <img
           key={src}
           src={src}
+          srcSet={srcSetFor(src)}
           style={phoneFocus ? { '--phone-focus': phoneFocus } : undefined}
           alt={i === 0 ? title : ''}
           loading="lazy"

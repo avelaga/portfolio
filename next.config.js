@@ -10,6 +10,28 @@ const nextConfig = (phase) => ({
   // Next 16 otherwise blocks its dev scripts on any address but localhost
   allowedDevOrigins: ['192.168.*.*'],
   sassOptions: {},
+  // Merch photos come from Fourthwall at 1920px and can't be resized there, so
+  // they're resized by Next's image optimizer instead (app/lib/merchImage.js)
+  images: {
+    remotePatterns: [{ protocol: 'https', hostname: 'imgproxy.fourthwall.dev' }],
+  },
+  // Browser caching for the site's own media (production only: on the dev server
+  // a rebuilt hero keeps its file names, so a cached copy would hide the change).
+  // Fonts never change, so a year. Photos and clips can be replaced under the
+  // same name (a re-cropped photo, a rebuilt hero), so a week: a returning
+  // visitor might see the old one for up to that long. Share images (/og) are left
+  // out, since link previews are fetched fresh anyway.
+  async headers() {
+    if (phase === PHASE_DEVELOPMENT_SERVER) return [];
+    const week = 'public, max-age=604800, stale-while-revalidate=86400';
+    return [
+      { source: '/fonts/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
+      ...['hero', 'images', 'videos'].map((dir) => ({
+        source: `/${dir}/:path*`,
+        headers: [{ key: 'Cache-Control', value: week }],
+      })),
+    ];
+  },
   // shop.abhi.work was the old Fourthwall storefront. Once its DNS points at this
   // site, old links land on /merch, and product links on the same product.
   async redirects() {

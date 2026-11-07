@@ -152,9 +152,11 @@ export default function RootLayout({ children }) {
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+        {/* The logo's "a" over the LED installation's blue, blurred like the phone
+            menu's backdrop. New file names when it changes: /images is cached for a week */}
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16.png" />
         {/* The name in the nav is the first text on every page */}
         <link rel="preload" href="/fonts/Basteleur-Moonlight.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/Berthold-Akzidenz-Grotesk-BE-Li.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />

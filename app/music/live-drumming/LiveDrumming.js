@@ -13,7 +13,7 @@ export default function LiveDrumming() {
       subtitle="Drums for Caladan and Shivering Demons"
     >
       <Section title="Caladan" role="Drums" years="2022–23">
-        <WidePhoto src="/images/music/caladan/caladan.webp" alt="Caladan performing live" />
+        <WidePhoto priority src="/images/music/caladan/caladan.webp" alt="Caladan performing live" />
         <Videos videos={[
           { id: 'VQsZdVG8A8I', title: 'Caladan, Hole in the Wall, 1.7.23' },
           { id: 'hQgL_IebL_s', title: 'Caladan, Woodshed, 12.17.22' },

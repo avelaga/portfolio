@@ -80,7 +80,7 @@ export default function About() {
         <Header active="about" />
         <h1 className="v3-visually-hidden">About Abhi Velaga</h1>
         <div className="v3-about-grid">
-          <FadeInOnLoad cls="v3-about-live" src="/images/music/indulgent/indulgentlive.webp" alt="Indulgent performing live" />
+          <FadeInOnLoad priority cls="v3-about-live" src="/images/music/indulgent/indulgentlive.webp" alt="Indulgent performing live" />
           <div className="v3-about-bio">
             <p>I'm a creative and software engineer based in Austin, TX.</p>
             <p>I've been making things since I was 15: self-produced albums, fine art photography, interactive LED installations, and most recently a <a href="https://youtube.com/@abhi.velaga" target="_blank" rel="noopener noreferrer">YouTube channel</a> documenting my car build. Whatever the medium, what I care about most is telling stories and making people feel something.</p>

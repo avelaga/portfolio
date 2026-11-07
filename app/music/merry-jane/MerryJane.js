@@ -15,7 +15,7 @@ export default function MerryJane() {
       subtitle="Drums"
     >
       <Section>
-        <WidePhoto src="/images/music/mjf/mjf.webp" alt="Merry Jane & The Fondas portrait" />
+        <WidePhoto priority src="/images/music/mjf/mjf.webp" alt="Merry Jane & The Fondas portrait" />
         <BodyText>
           As the drummer for Merry Jane &amp; The Fondas from 2018 to 2019, I recorded a <a href={EP_LINK} target="_blank" rel="noopener noreferrer">studio EP</a> with renowned guitarist and songwriter, Jackie Venson, and also played an <a href="https://schedule.sxsw.com/2019/artists/2008465" target="_blank" rel="noopener noreferrer">official SXSW showcase</a>.
         </BodyText>

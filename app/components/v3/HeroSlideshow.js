@@ -108,7 +108,8 @@ export default function HeroSlideshow({ slides: landscapeSlides, phoneSlides }) 
         <div className="v3-slide is-active">
           <picture>
             {firstPhone && <source media={PHONE_HERO} srcSet={still(firstPhone)} />}
-            <img src={still(first)} alt="" style={{ objectPosition: first.focus }} />
+            {/* The first thing on the page: fetched ahead of everything else */}
+            <img src={still(first)} alt="" fetchPriority="high" style={{ objectPosition: first.focus }} />
           </picture>
         </div>
       </div>

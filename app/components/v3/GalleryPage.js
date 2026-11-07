@@ -1,5 +1,6 @@
 'use client';
 
+import { Children, cloneElement, isValidElement } from 'react';
 import dynamic from 'next/dynamic';
 import ProjectPage from './ProjectPage';
 import { GalleryContext } from '../ModularPhoto';
@@ -25,7 +26,10 @@ export default function GalleryPage({ tag = 'Photo', carousel, children, ...intr
       )}
 
       <GalleryContext.Provider value={{ fullWidth: true }}>
-        <div className="v3-gallery">{children}</div>
+        <div className="v3-gallery">
+          {/* The first photo is the one the visitor came for: it loads first, with no fade */}
+          {Children.toArray(children).map((child, i) => (i === 0 && isValidElement(child) ? cloneElement(child, { priority: true }) : child))}
+        </div>
       </GalleryContext.Provider>
     </ProjectPage>
   );

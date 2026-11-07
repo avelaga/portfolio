@@ -6,11 +6,11 @@ The main jobs: **content**, **the Fourthwall domain move**, and **launching** (m
 
 ## 1. Content
 
-**Hero montage** (final: 24 desktop slides, 21 phone slides, 3 s each; compressed into `public/hero/`, ~18 MB. To change them: reorder at http://localhost:3000/dev/hero, run `python3 scripts/build-hero.py`, commit `public/hero/`)
+**Hero montage** (20 desktop slides, 16 phone slides, 3 s each, re-ordered 2026-11-06; compressed into `public/hero/`, ~18 MB. To change them: reorder at http://localhost:3000/dev/hero, run `python3 scripts/build-hero.py`, commit `public/hero/`)
 
-**First impression on phones** (UX audit 2026-11-06, after a designer asked "who's this chick?"; full report in `V3-ux-audit.md`): on a phone, the first screen is a portrait under the name, with no caption, and the intro sentence sits below the fold. Fixes, awaiting Abhi's pick:
+**First impression on phones** (UX audit 2026-11-06, after a designer asked "who's this chick?"; full report in `V3-ux-audit.md`): on a phone, the first screen is a portrait under the name, with no caption, and the intro sentence sits below the fold. Fixes:
 - [x] Re-pick both hero sets around Abhi's own world (Abhi's re-pick 2026-11-06, kept in `app/data/hero-picks.handpicked.json`)
-- [ ] **Trial:** Claude's re-order of the hero (2026-11-06, built, uncommitted): opens on `cutting-miata`, then `room`, `shivering-demons`, `me`. Abhi to keep it or go back to his picks (copy `hero-picks.handpicked.json` over `hero-picks.json`, run `build-hero.py`); then commit `public/hero/` with the picks
+- [x] Claude's re-order of the hero, kept and committed ("ux update", 2026-11-06): opens on `cutting-miata`, then `room`, `shivering-demons`, `me`. To go back to Abhi's picks: copy `hero-picks.handpicked.json` over `hero-picks.json`, run `build-hero.py`
 - [x] **(Claude)** Show the whole intro sentence on the first phone screen (2026-11-06: hero leaves 150px for it on every screen, phone floor 380px; fits on 320px phones up to 2560px desktops, `app/styles/v3.scss`)
 - [x] **(Claude)** Show slide captions on phones too (2026-11-06)
 - [ ] Five-second test with 3–5 people who don't know Abhi: show the phone for 5 s, ask "whose site is this, and what do they do?"
@@ -57,10 +57,12 @@ Design and layout are final. Launching is its own step: everything lives on the 
       - **To update either one:** export its branch again, add the same `vercel.json`, and run `vercel deploy --prod`. Link by project ID (write `.vercel/project.json`), not by name: `vercel link --project <name>` quietly creates a new project when no project has that name.
 - [x] Merge `v3` into `master` and deploy to production (abhi.work). Launched 2026-11-04 as a squash commit. The Production Fourthwall token was wrong (403, empty shop) and was replaced.
 - [x] Right after: test the old V2 links still land somewhere (`/music`, `/software`, `/photo`, `/published` and a few V2 project URLs), and the 404 page. All 13 V2 pages load or redirect, and the 404 page works (2026-11-04)
-- [x] **(Claude)** Performance pass: audited 2026-11-04 (Lighthouse mobile scores 71–95, CLS 0 everywhere, the hero memory fix confirmed working). Fixes, awaiting Abhi's pick:
-  - [ ] Quick: card slideshows load hover photos only when a card starts playing (`CardSlideshow.js`); Inter font only on the resume (`app/resume/page.js`); `fetchPriority="high"` on the first hero still, and lower-bitrate hero clips in `build-hero.py`; re-encode `hi.mp4` at ~540px; load the merch `rebuild-loop.mp4` only near view; cache headers for `/fonts` (1 year) and `/hero`, `/images`, `/videos` (~1 week); delete ~16 unused files in `/public`
-  - [ ] Design call: the first image on each page loads eagerly and skips the JS fade (`FadeInOnLoad.js`), the cause of 10–15 s LCP on Photo portfolio, Indulgent, The World Misses You, About and merch
-  - [ ] Later: smaller photo sizes for phones (`srcset`), and shrink the dadalab originals (up to 4964px); smaller merch photos from Fourthwall (`next/image` or a sized API URL)
+- [x] **(Claude)** Performance pass: audited 2026-11-04 (Lighthouse mobile scores 71–95, CLS 0 everywhere, the hero memory fix confirmed working). All fixes done 2026-11-07 (uncommitted; production build passes):
+  - [x] First photo on each page loads at once and shows without the fade (the 10–15 s LCP); `priority` on `FadeInOnLoad`
+  - [x] Card hover photos load only once a card plays; `fetchPriority` on the first hero still; hero clips at CRF 30 (desktop 11 → 8.5 MB, phone 4.4 → 3.0 MB)
+  - [x] `hi.mp4` 1.1 MB → 251 KB; merch loop loads only near view; cache headers (fonts 1 year; hero, images, videos 1 week); unused files kept as options (deleting them wouldn't speed anything up: no page downloads them); Inter was already resume-only
+  - [x] Phone-sized photo copies (`scripts/build-image-sizes.py`, 42 → 16 MB for phones); dadalab originals capped at 2560px; merch photos resized through `/_next/image` (merch page 2.9 → 0.5 MB on a phone)
+- [x] **(Claude)** New favicon (2026-11-07): the logo's "a" over the blurred blue of `dadalab2`, like the phone menu's background
 - [x] **(Claude)** Optional: recapture Figma (done 2026-11-04: new row "V3 — current build (2026-11-04)" on "V3 (2026)", old 10-27 row moved to an archive page; changed since: sticky back link, Merry Jane and The World Misses You as single sequences, header spacing, phone hero, merch product pages)
 
 ## 4. Supporting
@@ -75,13 +77,13 @@ Design and layout are final. Launching is its own step: everything lives on the 
 - [x] Old sponsorship Gmail → Settings → Forwarding and POP/IMAP: forward to the new Gmail, archive Gmail's copy; reply from `hello@` so sponsors move over (no auto-reply: it confirms the address to spammers)
 - [x] Then retire the old sponsorship account without deleting it (done 2026-11-05) (deleting stops the forward for good and the address can never be reissued): sign out everywhere, 2FA on, recovery email set to the new Gmail, sign in once a year (Google deletes accounts after 2 years without a sign-in). Consider deleting in a year or two, once nothing useful comes through
 - [x] Update the YouTube business inquiries email and the Instagram contact button to `hello@abhi.work`
-- [ ] Rename the public email from `hello@` to `hi@abhi.work` (shorter, and echoes the Say hi page); `hello@` goes away, it was never given out
+- [x] Rename the public email from `hello@` to `hi@abhi.work` (shorter, and echoes the Say hi page); `hello@` goes away, it was never given out (all done, confirmed 2026-11-07)
   - [x] Porkbun: change the `hello` forward to `hi` (or delete `hello` and add `hi`); test (done, confirmed 2026-11-06)
-  - [ ] Gmail "Send mail as": add `hi@abhi.work` (same Resend SMTP), verify, make default, then delete `hello@abhi.work` from the list
+  - [x] Gmail "Send mail as": add `hi@abhi.work` (same Resend SMTP), verify, make default, then delete `hello@abhi.work` from the list
   - [x] **(Claude)** Swap the site from `hello@` to `hi@` (`EMAIL` in `app/data/v3.js`, `app/resume/Resume.js`; 2026-11-05, commit once `hi@` works)
-  - [ ] Update any place `hello@` was entered (YouTube business email, Instagram contact button, the old sponsorship account's forward if it points at `hello@`) and the resume PDF
+  - [x] Update any place `hello@` was entered (YouTube business email, Instagram contact button, the old sponsorship account's forward if it points at `hello@`) and the resume PDF
 - [ ] Optional: point `CONTACT_TO_EMAIL` (Vercel) at `hi@abhi.work`, so contact form mail lands in the same inbox
-- [ ] Update the resume PDF and re-export
+- [x] Update the resume PDF and re-export
 
 **Login email security** (the two login addresses, financial and YouTube, are currently public)
 - [ ] 2FA with an authenticator app on financial and YouTube accounts

@@ -23,6 +23,10 @@ from PIL import Image
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PICKS = ROOT / 'app/data/hero-picks.json'
 SECONDS = 3  # SLIDE_MS in app/components/v3/HeroSlideshow.js
+# Clip quality (lower is better and bigger). 30 is about 28% smaller than 27 with
+# no visible difference: each clip is on screen for 3 s, much of it mid-fade.
+# At 32 fine detail (sparks, hair under stage light) starts to smear
+CRF = '30'
 SETS = {
     # set: (source, output, clip size)
     'desktop': (ROOT / 'public/hero-preview', ROOT / 'public/hero', '1920:1080'),
@@ -45,7 +49,7 @@ def build(set_name, files):
             clip, poster = out / f'{base}.mp4', out / f'{base}.jpg'
             vf = f'scale={size}:force_original_aspect_ratio=increase,crop={size},format=yuv420p'
             run('-i', str(src), '-t', str(SECONDS), '-an', '-vf', vf,
-                '-c:v', 'libx264', '-preset', 'slow', '-crf', '27', '-movflags', '+faststart', str(clip))
+                '-c:v', 'libx264', '-preset', 'slow', '-crf', CRF, '-movflags', '+faststart', str(clip))
             run('-i', str(clip), '-frames:v', '1', '-q:v', '4', str(poster))
             keep |= {clip.name, poster.name}
         else:
