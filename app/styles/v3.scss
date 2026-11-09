@@ -1426,6 +1426,229 @@ body:has(.v3--gallery) {
   object-fit: cover;
 }
 
+.v3-block-screenshot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid $line;
+}
+
+// Text and a screen side by side, both hung from the same top edge
+.v3-block-beside {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+
+.v3-block-beside-text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  // Stays beside its screen while a tall one scrolls past, just under the fixed
+  // header, so the words and the screen they explain stay together
+  position: sticky;
+  top: 110px;
+
+  .v3-block-text {
+    margin: 0;
+  }
+}
+
+// Software pages (components/v3/ProductBlocks.js). Dotted lines only start a
+// section; the items inside one sit on flat $surface panels (square, no shadow),
+// so a section reads as one group and its items as parts of it
+
+$rule: 1px dotted rgba(255, 255, 255, 0.55);
+
+// The problem: the usual way and this project as two panels side by side, rows
+// lined up across them
+.v3-compare {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: repeat(var(--rows), auto);
+  gap: 0 16px;
+}
+
+.v3-compare-panel {
+  display: grid;
+  grid-row: span var(--rows);
+  grid-template-rows: subgrid;
+  padding: 24px 28px 8px;
+  background: $surface;
+  border: 1px solid transparent;
+}
+
+// This project: brighter text and a plain outline, so it's the one the eye lands on
+.v3-compare-panel--us {
+  border-color: rgba(242, 242, 242, 0.55);
+}
+
+.v3-compare-heading {
+  margin: 0 0 8px;
+  font-family: $font-display;
+  font-weight: normal;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.v3-compare-panel--them .v3-compare-heading {
+  color: $muted;
+}
+
+.v3-compare-row {
+  margin: 0;
+  padding: 0 0 20px;
+
+  dt {
+    margin-bottom: 4px;
+    font-family: $font-wide;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $faint;
+  }
+
+  dd {
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+.v3-compare-panel--them dd {
+  color: rgba(242, 242, 242, 0.5);
+}
+
+// The closing line and the way in, side by side on wide screens
+.v3-product-close {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-top: $rule;
+  padding-top: 24px;
+
+  .v3-block-text {
+    margin: 0;
+  }
+}
+
+// How it works (numbered steps, where a product site would use icons) and what's
+// included: tiles on the same flat panel
+.v3-steps,
+.v3-features {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+}
+
+.v3-steps {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.v3-features {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.v3-step,
+.v3-feature {
+  background: $surface;
+  padding: 24px 28px 28px;
+}
+
+.v3-feature {
+  padding: 20px 22px 22px;
+}
+
+.v3-step-number {
+  display: block;
+  margin-bottom: 28px;
+  font-family: $font-wide;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: $muted;
+}
+
+.v3-step-title,
+.v3-feature-title {
+  margin: 0 0 8px;
+  font-family: $font-display;
+  font-weight: normal;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.v3-feature-title {
+  font-size: 15px;
+}
+
+.v3-step-text,
+.v3-feature-text {
+  margin: 0;
+  line-height: 1.6;
+  color: rgba(242, 242, 242, 0.75);
+}
+
+@media (max-width: 900px) {
+  .v3-steps {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  // The two panels stack; each keeps its own rows
+  .v3-compare {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .v3-compare-panel {
+    grid-row: auto;
+    grid-template-rows: none;
+    padding: 20px 20px 4px;
+  }
+
+  .v3-step {
+    padding: 20px;
+  }
+
+  .v3-step-number {
+    margin-bottom: 16px;
+  }
+
+  // Two across on phones too, so six features don't become a long column
+  .v3-feature {
+    padding: 16px;
+  }
+
+  .v3-feature-title {
+    font-size: 13px;
+  }
+
+  .v3-feature-text {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 900px) {
+  .v3-block-beside {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .v3-block-beside-text {
+    position: static;
+  }
+}
+
 .v3-block-pair {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

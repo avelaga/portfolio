@@ -116,6 +116,16 @@ export const projects = [
     images: ['/images/software/dadalab/dadalab1.webp', '/images/software/dadalab/dadalab2.webp'],
   },
   {
+    id: 'pebble',
+    tag: 'Software',
+    year: '2026',
+    title: 'Pebble',
+    description: 'A minimalist, self-hosted headless blog CMS built on serverless infrastructure.',
+    link: { label: 'View', href: '/pebble' },
+    lead: '/images/software/pebble/card-editor.webp',
+    images: ['/images/software/pebble/card-posts.webp'],
+  },
+  {
     id: 'drumming',
     tag: 'Music',
     year: '2018–23',

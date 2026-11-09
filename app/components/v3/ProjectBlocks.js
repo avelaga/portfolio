@@ -57,6 +57,25 @@ export function WideVideo({ src, poster, label }) {
   );
 }
 
+// A screen from a piece of software, shown whole (never cropped like WidePhoto)
+// with a 1px line around it: a sheet on the dark page, like the resume
+export function Screenshot({ src, alt, priority }) {
+  return <FadeInOnLoad src={src} alt={alt} cls="v3-block-screenshot" priority={priority} sizes="(max-width: 900px) 100vw, 50vw" />;
+}
+
+// For pages where the words carry the project and the screens back them up
+// (software): text on the left, a screen beside it, half and half, the home
+// card's layout. The text stays on the left in every row, so it reads straight
+// down like one article. Stacks below 900px, text first.
+export function TextBeside({ screenshot, children }) {
+  return (
+    <div className="v3-block-beside">
+      <div className="v3-block-beside-text">{children}</div>
+      <Screenshot {...screenshot} />
+    </div>
+  );
+}
+
 export function PhotoPair({ photos }) {
   return (
     <div className="v3-block-pair">

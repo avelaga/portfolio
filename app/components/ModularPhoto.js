@@ -34,11 +34,15 @@ export default function ModularPhoto({ img, alt, width, padding, align, numColum
     // Don't render until we know the window width (prevents hydration mismatch)
     if (usableWidth === null) {
         return <div className="modular-photo">
-            <FadeInOnLoad src={imgSrc} alt={alt} style={{ width: "100vw", marginBottom: "1px" }} width={naturalWidth} height={naturalHeight} priority={priority} />
+            <FadeInOnLoad src={imgSrc} alt={alt} style={{ width: "100vw", height: "auto", marginBottom: "1px" }} width={naturalWidth} height={naturalHeight} priority={priority} />
         </div>;
     }
 
-    let photoStyle = {};
+    // height: auto always. The width/height attributes reserve space while the photo
+    // loads, but on their own they pin the height, so a photo drawn narrower than its
+    // file would squish. The fading photos got this from .fade-media; the first photo
+    // (priority) skips that class and was squishing.
+    let photoStyle = { height: "auto" };
     let containerStyle = {};
 
     if(usableWidth + sidebarWidth > 500){

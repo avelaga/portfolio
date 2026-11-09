@@ -23,7 +23,10 @@ The main jobs: **content**, **the Fourthwall domain move**, and **launching** (m
 **Cards**
 - [x] **(Claude)** Merged Merry Jane & The Fondas and Live drumming into one Drumming card and page (2026-11-07, `/music/drumming`; old URLs redirect)
 - [ ] Spool card and page (cards, not a separate Software page; see `V3-ethos.md`): Abhi to send a one-line description, year, 3–4 screenshots or a short screen recording, and a link. Place it high in the stack; consider pointing the intro's "software" link at it and adding a hero slide
-- [ ] Pebble: its own card only if it has its own angle; otherwise a mention on Spool's page
+- [x] **(Claude)** Pebble card and page (2026-11-07, `/pebble`), built from the GitHub README and its two screenshots
+  - [x] **(Claude)** Page copy checked against the updated README (2026-11-07): one-click Rebuild (not on every save), raw HTML for interactive posts, private posts
+  - [ ] Better screenshots: the current editor shot is a test post ("heading 2", "item 1"), and both screens predate the Rebuild button and private posts. A real post in the editor, or the client's live blog, would be stronger. Replace `public/images/software/pebble/` files under the same names, then run `build-image-sizes.py`
+  - [ ] Confirm the year (2026, from the repo) and whether to name the client
 
 **Smaller copy**
 - [ ] Say hi's share image still shows the V2 site: replace it after reshooting the Say hi desk video (Housekeeping), cropping a frame at http://localhost:3000/dev/og. The other 12 share images are final (2026-11-03)
