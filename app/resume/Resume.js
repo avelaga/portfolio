@@ -95,7 +95,7 @@ export default function Resume({ fontClass = '' }) {
                   </div>
                   <ul className={styles.bullets}>
                     <li><strong>Founding US frontend engineer; architected the company's design system and frontend foundation from scratch</strong> - growing it from zero to 70+ components in 6 months and making it the default for all new product development.</li>
-                    <li><strong>Acting as technical lead</strong> for US engineering projects - overseeing delivery across 3 projects, coaching and unblocking engineers, and redesigning refinement and design-to-development handoff processes.</li>
+                    <li><strong>Acting as technical lead reporting directly to the CTO</strong> - overseeing delivery across 3 projects, coaching and unblocking engineers, and redesigning refinement and design-to-development handoff processes.</li>
                     <li><strong>Designed the frontend for agentic development</strong> with AI-readable documentation (CLAUDE.md, llms.txt), agent rules, PR guardrails, automated release processes, and Figma-to-code audits - enabling engineers and agents to rapidly ship consistent UI.</li>
                     <li><strong>Established the company's first engineering interview process</strong> - rubrics, assessments, and evaluation frameworks - and conducted 15 interviews, hiring 3 engineers, and onboarded them alongside the incoming engineering manager.</li>
                     <li><strong>Unblocked engineering teams</strong> by building a long-needed CI/CD pipeline tailored to the team's release workflow, and surfaced core product risks around concurrent-user scenarios.</li>
