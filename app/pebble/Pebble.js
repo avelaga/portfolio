@@ -20,7 +20,7 @@ export default function Pebble() {
       statement={<Button href={REPO} external>View on GitHub <span aria-hidden="true">{EXTERNAL_ARROW}</span></Button>}
     >
       <Section>
-        <TextBeside screenshot={{ src: '/images/software/pebble/editor.webp', alt: "Writing a post in Pebble's editor, with a photo of the Miata embedded", priority: true }}>
+        <TextBeside screenshot={{ src: '/images/software/pebble/editor-dark.webp', alt: "Writing a post in Pebble's editor: formatted text, a code block, a quote and an embedded photo of Abhi with his Miata", priority: true }}>
           <BodyText>
             Pebble is a minimalist, self-hosted headless blog CMS built on serverless infrastructure - AKA a dead simple blog editor that you host yourself and is free to use.
           </BodyText>
@@ -34,7 +34,7 @@ export default function Pebble() {
       </Section>
 
       <Section title="Setup and usage">
-        <TextBeside screenshot={{ src: '/images/software/pebble/posts.webp', alt: "Pebble's list of posts, with their status and tags" }}>
+        <TextBeside screenshot={{ src: '/images/software/pebble/posts-dark.webp', alt: "Pebble's list of posts, with each post's status, tags and actions" }}>
           <BodyText>
             Sticking with the theme of minimalism and simplicity, Pebble is also set up with a single setup script, which prompts you to connect a Cloudflare account and then handles the database, image storage, API and editor creation on its own.
           </BodyText>

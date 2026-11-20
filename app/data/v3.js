@@ -132,8 +132,8 @@ export const projects = [
     title: 'Pebble',
     description: 'A minimalist, self-hosted headless blog CMS built on serverless infrastructure.',
     link: { label: 'View', href: '/pebble' },
-    lead: '/images/software/pebble/card-editor.webp',
-    images: ['/images/software/pebble/card-posts.webp'],
+    lead: '/images/software/pebble/card-posts-dark.webp',
+    images: ['/images/software/pebble/card-editor-dark.webp'],
   },
   {
     id: 'drumming',
