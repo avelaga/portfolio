@@ -22,7 +22,11 @@ The main jobs: **content**, **the Fourthwall domain move**, and **launching** (m
 
 **Cards**
 - [x] **(Claude)** Merged Merry Jane & The Fondas and Live drumming into one Drumming card and page (2026-11-07, `/music/drumming`; old URLs redirect)
-- [ ] Spool card and page (cards, not a separate Software page; see `V3-ethos.md`): Abhi to send a one-line description, year, 3–4 screenshots or a short screen recording, and a link. Place it high in the stack; consider pointing the intro's "software" link at it and adding a hero slide
+- [x] **(Claude)** Spool card and page (2026-11-09, `/spool`), placed after Photo portfolio; copy drafted from the GitHub README
+  - [x] Screenshots (2026-11-09): desktop grid and phone filters on the page, desktop grid and phone rolls on the card. Originals in `v3-assets/spool/`
+  - [ ] Share image (`/og/spool.jpg`): crop one at `/dev/og`
+  - [ ] **(Abhi)** Rewrite the page copy in your own words (as with Pebble)
+  - [ ] Consider pointing the home intro's "software" link at it, and a hero slide
 - [x] **(Claude)** Pebble card and page (2026-11-07, `/pebble`), built from the GitHub README and its two screenshots
   - [x] **(Claude)** Page copy checked against the updated README (2026-11-07): one-click Rebuild (not on every save), raw HTML for interactive posts, private posts
   - [ ] Better screenshots: the current editor shot is a test post ("heading 2", "item 1"), and both screens predate the Rebuild button and private posts. A real post in the editor, or the client's live blog, would be stronger. Replace `public/images/software/pebble/` files under the same names, then run `build-image-sizes.py`
@@ -70,7 +74,7 @@ Design and layout are final. Launching is its own step: everything lives on the 
   - [x] Card hover photos load only once a card plays; `fetchPriority` on the first hero still; hero clips at CRF 30 (desktop 11 → 8.5 MB, phone 4.4 → 3.0 MB)
   - [x] `hi.mp4` 1.1 MB → 251 KB; merch loop loads only near view; cache headers (fonts 1 year; hero, images, videos 1 week); unused files kept as options (deleting them wouldn't speed anything up: no page downloads them); Inter was already resume-only
   - [x] Phone-sized photo copies (`scripts/build-image-sizes.py`, 42 → 16 MB for phones); dadalab originals capped at 2560px; merch photos resized through `/_next/image` (merch page 2.9 → 0.5 MB on a phone)
-- [x] **(Claude)** New favicon (2026-11-07): the logo's "a" over the blurred blue of `dadalab2`, like the phone menu's background
+- [x] **(Claude)** New favicon (2026-11-07): the logo's "a" over the blurred blue of `dadalab2`, like the phone menu's background. Reverted to the original photo on 2026-11-20
 - [x] **(Claude)** Optional: recapture Figma (done 2026-11-04: new row "V3 — current build (2026-11-04)" on "V3 (2026)", old 10-27 row moved to an archive page; changed since: sticky back link, Merry Jane and The World Misses You as single sequences, header spacing, phone hero, merch product pages)
 
 ## 4. Supporting

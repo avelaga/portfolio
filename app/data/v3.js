@@ -74,6 +74,16 @@ export const projects = [
     lead: '/images/photos/portfolio/p6.webp',
     images: ['/images/photos/portfolio/p15.webp', '/images/photos/portfolio/p14.webp', '/images/photos/portfolio/p13.webp', '/images/photos/portfolio/p1.webp'],
   },
+  // {
+  //   id: 'spool',
+  //   tag: 'Software',
+  //   year: '2026',
+  //   title: 'Spool',
+  //   description: 'A calm, self-hosted viewer for my film photography archive, running on a Raspberry Pi next to the NAS that holds it.',
+  //   link: { label: 'View', href: '/spool' },
+  //   lead: '/images/software/spool/card-grid.webp',
+  //   images: ['/images/software/spool/card-rolls.webp'],
+  // },
   {
     id: 'indulgent',
     tag: 'Music',
